@@ -20,10 +20,6 @@ public class MainLoaderProgressImage : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
-    }
-
-    private void Start()
-    {
         SetStartSettings();
     }
 
@@ -33,7 +29,7 @@ public class MainLoaderProgressImage : MonoBehaviour
         transform.DOPunchScale(punchScaleVector, changeScaleDuration, scaleFrequency);
     }
 
-    private void SetStartSettings()
+    public void SetStartSettings()
     {
         image.DOFade(minAlphaValue, changeAlphaInstantlyDuration);
     }

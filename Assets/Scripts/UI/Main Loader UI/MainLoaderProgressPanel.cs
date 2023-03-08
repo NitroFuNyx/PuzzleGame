@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MainLoaderProgressPanel : MonoBehaviour
 {
@@ -12,19 +13,32 @@ public class MainLoaderProgressPanel : MonoBehaviour
     [SerializeField] private float loaderProgressMinDelay = 0.3f;
     [SerializeField] private float loaderProgressMaxDelay = 1f;
 
-    [ContextMenu("Show Progress")]
+    #region Events Declaration
+    public event Action OnLoaderAnimationFinished;
+    #endregion Events Declatration
+
     public void ShowProgress()
     {
         StartCoroutine(ShowProgressCoroutine());
+    }
+
+    public void ResetImagesState()
+    {
+        for(int i = 0; i < loaderImagesList.Count; i++)
+        {
+            loaderImagesList[i].SetStartSettings();
+        }
     }
 
     private IEnumerator ShowProgressCoroutine()
     {
         for (int i = 0; i < loaderImagesList.Count; i++)
         {
-            float delay = Random.Range(loaderProgressMinDelay, loaderProgressMaxDelay);
+            float delay = UnityEngine.Random.Range(loaderProgressMinDelay, loaderProgressMaxDelay);
             yield return new WaitForSeconds(delay);
             loaderImagesList[i].ChangeAlphaToMax();
         }
+
+        OnLoaderAnimationFinished?.Invoke();
     }
 }
