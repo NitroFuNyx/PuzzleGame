@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -11,6 +9,11 @@ public class MainLoaderProgressImage : MonoBehaviour
     [SerializeField] private float minAlphaValue = 0.3f;
     [SerializeField] private float changeAlphaDuration = 1f;
     [SerializeField] private float changeAlphaInstantlyDuration = 0.01f;
+    [Header("Change Scale Data")]
+    [Space]
+    [SerializeField] private Vector3 punchScaleVector = new Vector3(0.2f, 0.2f, 0.2f);
+    [SerializeField] private int scaleFrequency = 3;
+    [SerializeField] private float changeScaleDuration = 1f;
 
     private Image image;
 
@@ -27,7 +30,7 @@ public class MainLoaderProgressImage : MonoBehaviour
     public void ChangeAlphaToMax()
     {
         image.DOFade(1f, changeAlphaDuration);
-        //transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 1f, 3);
+        transform.DOPunchScale(punchScaleVector, changeScaleDuration, scaleFrequency);
     }
 
     private void SetStartSettings()
