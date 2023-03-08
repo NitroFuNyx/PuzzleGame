@@ -16,6 +16,14 @@ public class AudioManager : MonoBehaviour
         SetStartSettings();
     }
 
+    public void ChangeMuteState(bool muted)
+    {
+        for (int i = 0; i < audioSourcesList.Count; i++)
+        {
+            audioSourcesList[i].mute = muted;
+        }
+    }
+
     private void SetStartSettings()
     {
         FillAudioSourcesList();

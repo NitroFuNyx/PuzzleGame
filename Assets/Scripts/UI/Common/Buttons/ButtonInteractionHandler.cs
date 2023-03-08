@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public abstract class ButtonInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public abstract class ButtonInteractionHandler : MonoBehaviour
 {
     private Button _button;
 
@@ -12,19 +11,10 @@ public abstract class ButtonInteractionHandler : MonoBehaviour, IPointerEnterHan
     {
         if (TryGetComponent(out Button button))
         {
+            Debug.Log($"{button}");
             ButtonComponent = button;
             ButtonComponent.onClick.AddListener(ButtonActivated);
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        ProcessEvent_PointerEnter(eventData);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        ProcessEvent_PointerExit(eventData);
     }
 
     public void SetButtonActive()
@@ -36,10 +26,6 @@ public abstract class ButtonInteractionHandler : MonoBehaviour, IPointerEnterHan
     {
         ButtonComponent.interactable = false;
     }
-
-    public abstract void ProcessEvent_PointerEnter(PointerEventData eventData);
-
-    public abstract void ProcessEvent_PointerExit(PointerEventData eventData);
 
     public abstract void ButtonActivated();
 }
