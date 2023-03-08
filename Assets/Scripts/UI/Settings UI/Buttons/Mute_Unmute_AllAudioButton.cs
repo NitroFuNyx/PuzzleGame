@@ -1,5 +1,6 @@
 using UnityEngine;
 using Zenject;
+using DG.Tweening;
 
 public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
 {
@@ -18,7 +19,10 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
     public override void ButtonActivated()
     {
         muted = !muted;
-        Debug.Log($"{muted}");
         _audioManager.ChangeMuteState(muted);
+        transform.DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.3f).OnComplete(() =>
+        {
+            transform.DOScale(new Vector3(1f, 1f, 1f), 0.3f);
+        });
     }
 }

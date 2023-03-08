@@ -11,7 +11,6 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     {
         if (TryGetComponent(out Button button))
         {
-            Debug.Log($"{button}");
             ButtonComponent = button;
             ButtonComponent.onClick.AddListener(ButtonActivated);
         }
