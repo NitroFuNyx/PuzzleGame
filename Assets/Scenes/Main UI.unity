@@ -538,9 +538,9 @@ RectTransform:
   m_Father: {fileID: 1784842282}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 959.99994, y: -250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 959.99994, y: 0}
   m_SizeDelta: {x: 286.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &312469078
@@ -756,8 +756,9 @@ GameObject:
   - component: {fileID: 392730901}
   - component: {fileID: 392730903}
   - component: {fileID: 392730902}
+  - component: {fileID: 392730904}
   m_Layer: 5
-  m_Name: Loader Progress Image
+  m_Name: Loader Progress Image 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,6 +822,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392730900}
   m_CullTransparentMesh: 1
+--- !u!114 &392730904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392730900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35167260d39986b43956c5c76615d8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAlphaValue: 0.3
+  changeAlphaDuration: 1
+  changeAlphaInstantlyDuration: 1
 --- !u!1 &409099697
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,8 +984,9 @@ GameObject:
   - component: {fileID: 461176901}
   - component: {fileID: 461176903}
   - component: {fileID: 461176902}
+  - component: {fileID: 461176904}
   m_Layer: 5
-  m_Name: Loader Progress Image (3)
+  m_Name: Loader Progress Image 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1033,6 +1050,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461176900}
   m_CullTransparentMesh: 1
+--- !u!114 &461176904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461176900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35167260d39986b43956c5c76615d8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAlphaValue: 0.3
+  changeAlphaDuration: 1
+  changeAlphaInstantlyDuration: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,8 +1715,9 @@ GameObject:
   - component: {fileID: 932981438}
   - component: {fileID: 932981440}
   - component: {fileID: 932981439}
+  - component: {fileID: 932981441}
   m_Layer: 5
-  m_Name: Loader Progress Image (2)
+  m_Name: Loader Progress Image 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1748,6 +1781,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932981437}
   m_CullTransparentMesh: 1
+--- !u!114 &932981441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932981437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35167260d39986b43956c5c76615d8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAlphaValue: 0.3
+  changeAlphaDuration: 1
+  changeAlphaInstantlyDuration: 1
 --- !u!1 &937544869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,9 +2089,9 @@ RectTransform:
   m_Father: {fileID: 1784842282}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1394.3, y: -250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1394.3, y: 0}
   m_SizeDelta: {x: 286.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358867793
@@ -2336,8 +2384,9 @@ GameObject:
   - component: {fileID: 1571493507}
   - component: {fileID: 1571493509}
   - component: {fileID: 1571493508}
+  - component: {fileID: 1571493510}
   m_Layer: 5
-  m_Name: Loader Progress Image (1)
+  m_Name: Loader Progress Image 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2401,6 +2450,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571493506}
   m_CullTransparentMesh: 1
+--- !u!114 &1571493510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571493506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35167260d39986b43956c5c76615d8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAlphaValue: 0.3
+  changeAlphaDuration: 1
+  changeAlphaInstantlyDuration: 1
 --- !u!1 &1678922612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,8 +2550,9 @@ GameObject:
   - component: {fileID: 1684325534}
   - component: {fileID: 1684325536}
   - component: {fileID: 1684325535}
+  - component: {fileID: 1684325537}
   m_Layer: 5
-  m_Name: Loader Images Panel
+  m_Name: Main Loader Progress Images Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2552,6 +2617,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684325533}
   m_CullTransparentMesh: 1
+--- !u!114 &1684325537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684325533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47381965df415042a2d7f4cee43953c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loaderImagesList:
+  - {fileID: 392730904}
+  - {fileID: 1571493510}
+  - {fileID: 932981441}
+  - {fileID: 461176904}
+  - {fileID: 1768189378}
+  loaderProgressMinDelay: 0.3
+  loaderProgressMaxDelay: 2
 --- !u!1 &1768189374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,8 +2648,9 @@ GameObject:
   - component: {fileID: 1768189375}
   - component: {fileID: 1768189377}
   - component: {fileID: 1768189376}
+  - component: {fileID: 1768189378}
   m_Layer: 5
-  m_Name: Loader Progress Image (4)
+  m_Name: Loader Progress Image 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2628,6 +2714,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768189374}
   m_CullTransparentMesh: 1
+--- !u!114 &1768189378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768189374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35167260d39986b43956c5c76615d8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAlphaValue: 0.3
+  changeAlphaDuration: 1
+  changeAlphaInstantlyDuration: 1
 --- !u!1 &1784842281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,9 +2838,9 @@ RectTransform:
   m_Father: {fileID: 1784842282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 525.69995, y: -250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 525.69995, y: 0}
   m_SizeDelta: {x: 286.1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036329740
