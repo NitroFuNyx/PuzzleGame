@@ -27,7 +27,7 @@ public class MainLoaderProgressImage : MonoBehaviour
     public void ChangeAlphaToMax()
     {
         image.DOFade(1f, changeAlphaDuration);
-        transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 1f, 3);
+        //transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 1f, 3);
     }
 
     private void SetStartSettings()
