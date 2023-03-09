@@ -13,6 +13,14 @@
 			"uiTitleText": "select game mode",
             		"puzzlePanelText": "puzzle",
 			"miniGamePanelText": "mini game"
+        	      },
+	"choosePuzzleLevelUITexts": {
+			"uiTitleText": "puzzle",
+            		"bestTimeText": "best time"
+        	      }
+	"chooseMiniGameLevelUITexts": {
+			"uiTitleText": "mini game",
+            		"startText": "start"
         	      }
     }
 }
