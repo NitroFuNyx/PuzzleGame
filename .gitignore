@@ -78,3 +78,6 @@ crashlytics-build.properties
 /.idea/.idea.TaleOfDarkness/.idea/workspace.xml
 Assets/ART/TODGameSources
 Assets/ART/TODGameSources
+/Assets/Plugins/Demigiant/DOTween.meta
+/Assets/Plugins/Demigiant.meta
+/Assets/Plugins/Demigiant/DOTween/Editor.meta
