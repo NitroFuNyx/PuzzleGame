@@ -6,7 +6,7 @@ public class MainUI : MonoBehaviour
     [Header("UI Panels")]
     [Space]
     [SerializeField] private MainLoaderUI mainLoaderUI;
-    [SerializeField] private TapToPlayUI tapToPlayUI;
+    [SerializeField] private MainScreenUI tapToPlayUI;
     [SerializeField] private SettingsUI settingsUI;
     [SerializeField] private SelectModeUI selectModeUI;
 
@@ -53,7 +53,7 @@ public class MainUI : MonoBehaviour
 
     private void OnLoadingAnimationFinishedCallback()
     {
-        ActivateMainCanvasPanel(UIPanels.TapToPlayPanel);
+        ActivateMainCanvasPanel(UIPanels.MainScreenPanel);
         mainLoaderUI.ResetUIData();
     }
 }

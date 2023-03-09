@@ -1,7 +1,7 @@
 
 public enum UIPanels
 {
-    MainLoaderPanel, TapToPlayPanel, SettingsPanel, SelectModePanel
+    MainLoaderPanel, MainScreenPanel, SettingsPanel, SelectModePanel
 }
 
 public enum Languages
