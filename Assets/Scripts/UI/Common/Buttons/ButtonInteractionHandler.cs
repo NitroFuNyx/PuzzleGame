@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public abstract class ButtonInteractionHandler : MonoBehaviour
 {
+    [Header("Images")]
+    [Space]
+    [SerializeField] protected Image buttonImage;
+
     private Button _button;
 
     public Button ButtonComponent { get => _button; private set => _button = value; }

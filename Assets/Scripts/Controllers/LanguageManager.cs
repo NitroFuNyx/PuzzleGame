@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LanguageManager : MonoBehaviour
 {
@@ -14,14 +15,16 @@ public class LanguageManager : MonoBehaviour
     private LanguageTextsHolder ukrainianTextsHolder;
     private LanguageTextsHolder spanishTextsHolder;
 
+    #region Events Declaration
+    public event Action<LanguageTextsHolder> OnLanguageChanged;
+    #endregion Events Declaration
+
     private void Start()
     {
-        SetLanguageReader(englishTextsHolder, englishTextsJSON);
-        SetLanguageReader(ukrainianTextsHolder, ukrainianTextsJSON);
-        SetLanguageReader(spanishTextsHolder, spanishTextsJSON);
+        FillLanguageTextHolders();
     }
 
-    private void SetLanguageReader(LanguageTextsHolder textsHolder, TextAsset json)
+    private void SetLanguageTextHolder(LanguageTextsHolder textsHolder, TextAsset json)
     {
         LanguageTextsHolder holder = new LanguageTextsHolder();
         holder = JsonUtility.FromJson<LanguageTextsHolder>(json.text);
@@ -29,5 +32,12 @@ public class LanguageManager : MonoBehaviour
         textsHolder = holder;
 
         Debug.Log($"titleText {textsHolder.data.settingsUITexts.languageButtonText}");
+    }
+
+    private void FillLanguageTextHolders()
+    {
+        SetLanguageTextHolder(englishTextsHolder, englishTextsJSON);
+        SetLanguageTextHolder(ukrainianTextsHolder, ukrainianTextsJSON);
+        SetLanguageTextHolder(spanishTextsHolder, spanishTextsJSON);
     }
 }
