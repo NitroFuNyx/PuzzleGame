@@ -1,0 +1,18 @@
+{
+    "data": {
+        "mainscreenUITexts": {
+            		"titleText": "натисни для початку"
+        	      },
+ 	"settingsUITexts": {
+			"uiTitleText": "налаштування",
+            		"soundsButtonText": "звуки",
+			"languageButtonText": "мова",
+			"infoButtonText": "інфо"
+        	      },
+	"selectGameModeUITexts": {
+			"uiTitleText": "вибери режим гри",
+            		"puzzlePanelText": "пазл",
+			"miniGamePanelText": "міні гра"
+        	      }
+    }
+}

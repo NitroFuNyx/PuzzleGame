@@ -1,0 +1,18 @@
+{
+    "data": {
+        "mainscreenUITexts": {
+            		"titleText": "tap to start"
+        	      },
+ 	"settingsUITexts": {
+			"uiTitleText": "settings",
+            		"soundsButtonText": "sounds",
+			"languageButtonText": "language",
+			"infoButtonText": "info"
+        	      },
+	"selectGameModeUITexts": {
+			"uiTitleText": "select game mode",
+            		"puzzlePanelText": "puzzle",
+			"miniGamePanelText": "mini game"
+        	      }
+    }
+}
