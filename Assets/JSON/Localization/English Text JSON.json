@@ -2,23 +2,29 @@
     "data": {
              "mainscreenUITexts": {
                 "titleText": "tap to start"},
- 	         "settingsUITexts": {
+ 	      "settingsUITexts": {
+			"mainSettingsPanel": {
 			    "uiTitleText": "settings",
-                "soundsButtonText": "sounds",
+                	    "soundsButtonText": "sounds",
 			    "languageButtonText": "language",
-			    "infoButtonText": "info"},
-	        "selectGameModeUITexts": {
+			    "infoButtonText": "info"
+			},
+			"changeLanguagePanel": {
+			    "uiTitleText": "choose language"
+			}
+			    },
+	      "selectGameModeUITexts": {
 			    "uiTitleText": "select game mode",
-                "puzzlePanelText": "puzzle",
+              "puzzlePanelText": "puzzle",
 			    "miniGamePanelText": "mini game"
         	      },
-	        "choosePuzzleLevelUITexts": {
+	      "choosePuzzleLevelUITexts": {
 			    "uiTitleText": "puzzle",
-                "bestTimeText": "best time"
+              "bestTimeText": "best time"
         	      },
-	        "chooseMiniGameLevelUITexts": {
+	      "chooseMiniGameLevelUITexts": {
 			    "uiTitleText": "mini game",
-                "startText": "start"
+              "startText": "start"
         	      }
              }    
 }

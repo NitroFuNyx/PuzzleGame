@@ -4,10 +4,14 @@
             		"titleText": "натисни для початку"
         	      },
  	"settingsUITexts": {
+		  "mainSettingsPanel": {
 			"uiTitleText": "налаштування",
             		"soundsButtonText": "звуки",
 			"languageButtonText": "мова",
-			"infoButtonText": "інфо"
+			"infoButtonText": "інфо"},
+		   "changeLanguagePanel": {
+			 "uiTitleText": "вибери мову"
+			}	
         	      },
 	"selectGameModeUITexts": {
 			"uiTitleText": "вибери режим гри",

@@ -4,10 +4,15 @@
             		"titleText": "toque para comenzar"
         	      },
  	"settingsUITexts": {
+	          "mainSettingsPanel": {
 			"uiTitleText": "ajustes",
             		"soundsButtonText": "sonidos",
 			"languageButtonText": "idioma",
 			"infoButtonText": "info"
+		},
+		 "changeLanguagePanel":{
+			"uiTitleText": "elige lengua"
+			}
         	      },
 	"selectGameModeUITexts": {
 			"uiTitleText": "selecciona el modo de juego",

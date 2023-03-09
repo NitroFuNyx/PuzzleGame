@@ -24,10 +24,27 @@ public class MainScreenUIData
 [Serializable]
 public class SettingsUIData
 {
+    public MainSettingsPanelData mainSettingsPanel;
+    public ChangeLanguagePanelData changeLanguagePanel;
+    //public string uiTitleText;
+    //public string soundsButtonText;
+    //public string languageButtonText;
+    //public string infoButtonText;
+}
+
+[Serializable]
+public class MainSettingsPanelData
+{
     public string uiTitleText;
     public string soundsButtonText;
     public string languageButtonText;
     public string infoButtonText;
+}
+
+[Serializable]
+public class ChangeLanguagePanelData
+{
+    public string uiTitleText;
 }
 
 [Serializable]
