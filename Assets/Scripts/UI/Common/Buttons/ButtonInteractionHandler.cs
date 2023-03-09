@@ -1,5 +1,7 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
+using System;
 using DG.Tweening;
 
 public abstract class ButtonInteractionHandler : MonoBehaviour
@@ -11,10 +13,13 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     [Space]
     [SerializeField] private Vector3 minScale = new Vector3(0.8f, 0.8f, 0.8f);
     [SerializeField] private float scaleDuration = 0.3f;
+    //[Header("Delays")]
+    //[Space]
+    //[SerializeField] private float activateButtonMethodDelay = 0.6f;
 
     private Button _button;
 
-    public Button ButtonComponent { get => _button; private set => _button = value; }
+    protected Button ButtonComponent { get => _button; private set => _button = value; }
 
     private void Awake()
     {
@@ -44,4 +49,10 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     }
 
     public abstract void ButtonActivated();
+
+    protected IEnumerator ActivateButtonMethodCoroutine(Action DelayedButtonMethod)
+    {
+        yield return new WaitForSeconds(scaleDuration * 2);
+        DelayedButtonMethod();
+    }
 }

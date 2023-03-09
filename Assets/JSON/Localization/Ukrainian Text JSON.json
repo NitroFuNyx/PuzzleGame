@@ -10,11 +10,11 @@
 			"languageButtonText": "мова",
 			"infoButtonText": "інфо"},
 		   "changeLanguagePanel": {
-			 "uiTitleText": "вибери мову"
+			 "uiTitleText": "обери мову"
 			}	
         	      },
 	"selectGameModeUITexts": {
-			"uiTitleText": "вибери режим гри",
+			"uiTitleText": "обери режим гри",
             		"puzzlePanelText": "пазл",
 			"miniGamePanelText": "міні гра"
         	      },

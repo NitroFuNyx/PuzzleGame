@@ -6,7 +6,7 @@ public class MainUI : MonoBehaviour
     [Header("UI Panels")]
     [Space]
     [SerializeField] private MainLoaderUI mainLoaderUI;
-    [SerializeField] private MainScreenUI tapToPlayUI;
+    [SerializeField] private MainScreenUI mainScreenUI;
     [SerializeField] private SettingsUI settingsUI;
     [SerializeField] private SelectModeUI selectModeUI;
 
@@ -22,10 +22,17 @@ public class MainUI : MonoBehaviour
         SetStartSettings();
     }
 
+    #region Buttons Methods
+    public void ShowSettingsUI()
+    {
+        ActivateMainCanvasPanel(UIPanels.SettingsPanel);
+    }
+    #endregion Buttons Methods
+
     private void FillPanelsList()
     {
         panelsList.Add(mainLoaderUI);
-        panelsList.Add(tapToPlayUI);
+        panelsList.Add(mainScreenUI);
         panelsList.Add(settingsUI);
         panelsList.Add(selectModeUI);
     }
