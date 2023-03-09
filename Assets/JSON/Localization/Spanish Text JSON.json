@@ -17,10 +17,10 @@
 	"choosePuzzleLevelUITexts": {
 			"uiTitleText": "la puzzle",
             		"bestTimeText": "mejor tiempo"
-        	      }
+        	      },
 	"chooseMiniGameLevelUITexts": {
 			"uiTitleText": "mini juego",
             		"startText": "comenzar"
         	      }
-    }
+		}
 }

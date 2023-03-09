@@ -17,7 +17,7 @@
 	"choosePuzzleLevelUITexts": {
 			"uiTitleText": "пазл",
             		"bestTimeText": "найкращий час"
-        	      }
+        	      },
 	"chooseMiniGameLevelUITexts": {
 			"uiTitleText": "міні гра",
             		"startText": "старт"

@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
-using DG.Tweening;
 
 public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
 {
@@ -9,10 +7,6 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
     [Space]
     [SerializeField] private Sprite soundOnSprite;
     [SerializeField] private Sprite soundOffSprite;
-    [Header("Scale Data")]
-    [Space]
-    [SerializeField] private Vector3 minScale = new Vector3(0.8f, 0.8f, 0.8f);
-    [SerializeField] private float scaleDuration = 0.3f;
 
     private AudioManager _audioManager;
 
@@ -31,10 +25,7 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
         muted = !muted;
         _audioManager.ChangeMuteState(muted);
         ChangePanelSprite();
-        transform.DOScale(minScale, scaleDuration).OnComplete(() =>
-        {
-            transform.DOScale(Vector3.one, scaleDuration);
-        });
+        ShowAnimation_ButtonPressed();
     }
 
     private void ChangePanelSprite()
