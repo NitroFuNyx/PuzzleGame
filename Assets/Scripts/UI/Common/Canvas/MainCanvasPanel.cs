@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainCanvasPanel : PanelActivationManager
+public abstract class MainCanvasPanel : PanelActivationManager
 {
     [Header("Panel Data")]
     [Space]

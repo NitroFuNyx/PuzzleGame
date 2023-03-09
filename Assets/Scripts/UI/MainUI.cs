@@ -26,6 +26,7 @@ public class MainUI : MonoBehaviour
     public void ShowSettingsUI()
     {
         ActivateMainCanvasPanel(UIPanels.SettingsPanel);
+        mainScreenUI.StopIdleAnimation();
     }
     #endregion Buttons Methods
 
@@ -61,6 +62,7 @@ public class MainUI : MonoBehaviour
     private void OnLoadingAnimationFinishedCallback()
     {
         ActivateMainCanvasPanel(UIPanels.MainScreenPanel);
+        mainScreenUI.ActivateIdleAnimation();
         mainLoaderUI.ResetUIData();
     }
 }
