@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603183cbe3a792b47b8008bffa45e65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testTimerStartValue: 20
+  testStopwatchStartValue: 0
+  testTimerText: {fileID: 0}
+  testStopwatchText: {fileID: 0}

@@ -819,8 +819,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 305.5, y: -87.25}
-  m_SizeDelta: {x: 611, y: 174.5}
+  m_AnchoredPosition: {x: 406.4276, y: -87.25}
+  m_SizeDelta: {x: 812.8552, y: 174.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &158657767
 CanvasRenderer:
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4cf33409e359704dbbc6b4f83280a8b, type: 2}
   m_sharedMaterial: {fileID: 3773738615130779145, guid: f4cf33409e359704dbbc6b4f83280a8b, type: 2}
@@ -5530,7 +5530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4cf33409e359704dbbc6b4f83280a8b, type: 2}
   m_sharedMaterial: {fileID: 3773738615130779145, guid: f4cf33409e359704dbbc6b4f83280a8b, type: 2}
@@ -5622,10 +5622,10 @@ RectTransform:
   m_Father: {fileID: 1541077089}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -635, y: -87.25}
-  m_SizeDelta: {x: 611, y: 174.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 406.43, y: -262.25}
+  m_SizeDelta: {x: 812.86, y: 174.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1150470725
 GameObject:
@@ -10084,14 +10084,6 @@ PrefabInstance:
       propertyPath: testStopwatchText
       value: 
       objectReference: {fileID: 1083864040}
-    - target: {fileID: 5802171544744621135, guid: 95ace46c17b66694587c48bbf0480216, type: 3}
-      propertyPath: testTimerStartValue
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5802171544744621135, guid: 95ace46c17b66694587c48bbf0480216, type: 3}
-      propertyPath: testStopwatchStartValue
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7321124700876051976, guid: 95ace46c17b66694587c48bbf0480216, type: 3}
       propertyPath: m_RootOrder
       value: 14
