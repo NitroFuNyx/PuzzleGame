@@ -1,7 +1,6 @@
-using System.Collections;
 using Zenject;
 
-public class ShowChangeLanguageScreenButton : ButtonInteractionHandler
+public class BackButton_ToSettingsMainPanel : ButtonInteractionHandler
 {
     private SettingsUI _settingsUI;
 
@@ -16,6 +15,6 @@ public class ShowChangeLanguageScreenButton : ButtonInteractionHandler
     public override void ButtonActivated()
     {
         ShowAnimation_ButtonPressed();
-        StartCoroutine(ActivateDelayedButtonMethodCoroutine(_settingsUI.ShowPanel_ChangeLanguagePanel));
+        StartCoroutine(ActivateDelayedButtonMethodCoroutine(_settingsUI.ShowPanel_MainPanel));
     }
 }

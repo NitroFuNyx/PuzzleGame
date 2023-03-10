@@ -50,7 +50,7 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
 
     public abstract void ButtonActivated();
 
-    protected IEnumerator ActivateButtonMethodCoroutine(Action DelayedButtonMethod)
+    protected IEnumerator ActivateDelayedButtonMethodCoroutine(Action DelayedButtonMethod)
     {
         yield return new WaitForSeconds(scaleDuration * 2);
         DelayedButtonMethod();

@@ -1,8 +1,6 @@
-using System.Collections;
-using UnityEngine;
 using Zenject;
 
-public class ShowSettingsUIButton : ButtonInteractionHandler
+public class MainScreen_TapButton : ButtonInteractionHandler
 {
     private MainUI _mainUI;
 
@@ -16,7 +14,6 @@ public class ShowSettingsUIButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        ShowAnimation_ButtonPressed();
-        StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowSettingsUI));
+        _mainUI.ShowSelectGameModeUI();
     }
 }

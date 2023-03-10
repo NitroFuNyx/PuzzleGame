@@ -12,6 +12,12 @@ public class SettingsUI : MainCanvasPanel
         SetStartSettings();
     }
 
+    public void ShowPanel_MainPanel()
+    {
+        mainSettingsPanel.ShowPanel();
+        chooseLanguagePanel.HidePanel();
+    }
+
     public void ShowPanel_ChangeLanguagePanel()
     {
         mainSettingsPanel.HidePanel();
@@ -20,7 +26,6 @@ public class SettingsUI : MainCanvasPanel
 
     private void SetStartSettings()
     {
-        mainSettingsPanel.ShowPanel();
-        chooseLanguagePanel.HidePanel();
+        ShowPanel_MainPanel();
     }
 }

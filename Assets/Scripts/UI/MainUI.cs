@@ -23,9 +23,21 @@ public class MainUI : MonoBehaviour
     }
 
     #region Buttons Methods
+    public void ShowMainScreenUI()
+    {
+        ActivateMainCanvasPanel(UIPanels.MainScreenPanel);
+        mainScreenUI.ActivateIdleAnimation();
+    }
+
     public void ShowSettingsUI()
     {
         ActivateMainCanvasPanel(UIPanels.SettingsPanel);
+        mainScreenUI.StopIdleAnimation();
+    }
+
+    public void ShowSelectGameModeUI()
+    {
+        ActivateMainCanvasPanel(UIPanels.SelectModePanel);
         mainScreenUI.StopIdleAnimation();
     }
     #endregion Buttons Methods
@@ -61,8 +73,7 @@ public class MainUI : MonoBehaviour
 
     private void OnLoadingAnimationFinishedCallback()
     {
-        ActivateMainCanvasPanel(UIPanels.MainScreenPanel);
-        mainScreenUI.ActivateIdleAnimation();
+        ShowMainScreenUI();
         mainLoaderUI.ResetUIData();
     }
 }
