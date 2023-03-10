@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class TextsLanguageUpdateHandler_TapToPlayUI : TextsLanguageUpdateHandler
+public class TextsLanguageUpdateHandler_MainScreenUI : TextsLanguageUpdateHandler
 {
     [Header("Texts")]
     [Space]

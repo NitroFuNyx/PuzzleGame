@@ -15,7 +15,7 @@
 			    },
 	      "selectGameModeUITexts": {
 			    "uiTitleText": "select game mode",
-              "puzzlePanelText": "puzzle",
+              		    "puzzlePanelText": "puzzle",
 			    "miniGamePanelText": "mini game"
         	      },
 	      "choosePuzzleLevelUITexts": {
