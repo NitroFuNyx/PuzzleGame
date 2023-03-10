@@ -1,4 +1,3 @@
-using System.Collections;
 using Zenject;
 
 public class ShowChangeLanguageScreenButton : ButtonInteractionHandler

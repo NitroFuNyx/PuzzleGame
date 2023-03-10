@@ -1,7 +1,7 @@
 
 public enum UIPanels
 {
-    MainLoaderPanel, MainScreenPanel, SettingsPanel, SelectModePanel
+    MainLoaderPanel, MainScreenPanel, SettingsPanel, InfoPanelUI, SelectModePanel
 }
 
 public enum Languages
