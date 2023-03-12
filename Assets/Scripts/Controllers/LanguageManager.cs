@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Zenject;
 
 public class LanguageManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class LanguageManager : MonoBehaviour
 
     private Dictionary<Languages, LanguageTextsHolder> languagesHoldersDictionary = new Dictionary<Languages, LanguageTextsHolder>();
 
+    private PlayerDataManager _playerDataManager;
+
     #region Events Declaration
     public event Action<LanguageTextsHolder> OnLanguageChanged;
     #endregion Events Declaration
@@ -24,13 +27,29 @@ public class LanguageManager : MonoBehaviour
     {
         FillLanguageTextHolders();
         FillLanguagesHoldersDictionary();
+
+        SubscribeOnEvents();
     }
+
+    private void OnDestroy()
+    {
+        UnsubscribeFromEvents();
+    }
+
+    #region Zenject
+    [Inject]
+    private void Construct(PlayerDataManager playerDataManager)
+    {
+        _playerDataManager = playerDataManager;
+    }
+    #endregion Zenject
 
     public void ChangeLanguage(Languages language)
     {
         if(languagesHoldersDictionary.ContainsKey(language))
         {
             OnLanguageChanged?.Invoke(languagesHoldersDictionary[language]);
+            _playerDataManager.SaveLanguageData(language);
         }
     }
 
@@ -55,4 +74,19 @@ public class LanguageManager : MonoBehaviour
         languagesHoldersDictionary.Add(Languages.Ukrainian, ukrainianTextsHolder);
         languagesHoldersDictionary.Add(Languages.Spanish, spanishTextsHolder);
     }
+
+    private void SubscribeOnEvents()
+    {
+        _playerDataManager.OnPlayerMainDataLoaded += PlayerMainDataLoaded_ExecuteReaction;
+    }
+
+    private void UnsubscribeFromEvents()
+    {
+        _playerDataManager.OnPlayerMainDataLoaded -= PlayerMainDataLoaded_ExecuteReaction;
+    }
+
+    private void PlayerMainDataLoaded_ExecuteReaction()
+    {
+        ChangeLanguage(_playerDataManager.CurrentLanguage);
+    }    
 }
