@@ -54,21 +54,27 @@ public class PlayerDataManager : MonoBehaviour
     {
         PlayerMainData dataHolder = SaveLoadSystem.LoadPlayerData();
 
-        for(int i = 0; i < allLanguagesList.Count; i++)
+        if(dataHolder != null)
         {
-            if((int)allLanguagesList[i] == dataHolder.languageIndex)
+            for (int i = 0; i < allLanguagesList.Count; i++)
             {
-                currentLanguage = allLanguagesList[i];
-                break;
+                if ((int)allLanguagesList[i] == dataHolder.languageIndex)
+                {
+                    currentLanguage = allLanguagesList[i];
+                    break;
+                }
             }
+
+            soundMuted = dataHolder.soundMuted;
+
+            OnPlayerMainDataLoaded.Invoke();
         }
-
-        soundMuted = dataHolder.soundMuted;
-
-        OnPlayerMainDataLoaded.Invoke();
-        Debug.Log($"Language {dataHolder.languageIndex}");
-        Debug.Log($"Coins {dataHolder.currentCoinsAmount}");
-        Debug.Log($"Sound Muted {dataHolder.soundMuted}");
+        else
+        {
+            Debug.Log("No savings");
+            SaveLoadSystem.SavePlayerData(this);
+            StartCoroutine(LoadMainDataCoroutine());
+        }
     }
 
     public void SaveLanguageData(Languages language)
