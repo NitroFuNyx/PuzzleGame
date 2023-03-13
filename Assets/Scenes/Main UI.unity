@@ -2017,6 +2017,7 @@ MonoBehaviour:
   mainScreenUI: {fileID: 1541077093}
   settingsUI: {fileID: 1466775593}
   selectModeUI: {fileID: 2064951629}
+  selectCharacterUI: {fileID: 1857105618}
 --- !u!1 &335061611
 GameObject:
   m_ObjectHideFlags: 0
@@ -10819,7 +10820,7 @@ GameObject:
   - component: {fileID: 1857105614}
   - component: {fileID: 1857105617}
   - component: {fileID: 1857105616}
-  - component: {fileID: 1857105615}
+  - component: {fileID: 1857105618}
   m_Layer: 5
   m_Name: Select Character UI
   m_TagString: Untagged
@@ -10852,19 +10853,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1857105615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857105613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298ed61ed31e616459f5967e68b53bb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelType: 3
 --- !u!225 &1857105616
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10885,6 +10873,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857105613}
   m_CullTransparentMesh: 1
+--- !u!114 &1857105618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857105613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35620dbc0e939d04ab3628b8bf510858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 4
 --- !u!1 &1859325049
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Localization;
 using Zenject;
 
 public abstract class TextsLanguageUpdateHandler : MonoBehaviour

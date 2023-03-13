@@ -9,6 +9,7 @@ public class MainUI : MonoBehaviour
     [SerializeField] private MainScreenUI mainScreenUI;
     [SerializeField] private SettingsUI settingsUI;
     [SerializeField] private SelectModeUI selectModeUI;
+    [SerializeField] private SelectCharacterUI selectCharacterUI;
 
     private List<MainCanvasPanel> panelsList = new List<MainCanvasPanel>();
 
@@ -48,6 +49,7 @@ public class MainUI : MonoBehaviour
         panelsList.Add(mainScreenUI);
         panelsList.Add(settingsUI);
         panelsList.Add(selectModeUI);
+        panelsList.Add(selectCharacterUI);
     }
 
     private void SetStartSettings()

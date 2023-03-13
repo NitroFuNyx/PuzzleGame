@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Localization;
 using Zenject;
 
 public class LanguageManager : MonoBehaviour
