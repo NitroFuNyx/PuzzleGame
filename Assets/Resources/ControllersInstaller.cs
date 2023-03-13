@@ -9,6 +9,7 @@ public class ControllersInstaller : MonoInstaller
     [SerializeField] private InputManager inputManager;
     [SerializeField] private LanguageManager languageManager;
     [SerializeField] private PlayerDataManager playerDataManager;
+    [SerializeField] private CurrentGameManager currentGameManager;
 
     public override void InstallBindings()
     {
@@ -16,5 +17,6 @@ public class ControllersInstaller : MonoInstaller
         Container.Bind<InputManager>().FromInstance(inputManager).AsSingle().NonLazy();
         Container.Bind<LanguageManager>().FromInstance(languageManager).AsSingle().NonLazy();
         Container.Bind<PlayerDataManager>().FromInstance(playerDataManager).AsSingle().NonLazy();
+        Container.Bind<CurrentGameManager>().FromInstance(currentGameManager).AsSingle().NonLazy();
     }
 }

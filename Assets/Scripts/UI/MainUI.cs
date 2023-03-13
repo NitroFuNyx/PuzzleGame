@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class MainUI : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class MainUI : MonoBehaviour
     [SerializeField] private SettingsUI settingsUI;
     [SerializeField] private SelectModeUI selectModeUI;
     [SerializeField] private SelectCharacterUI selectCharacterUI;
+    [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_Puzzle;
 
     private List<MainCanvasPanel> panelsList = new List<MainCanvasPanel>();
+
+    private CurrentGameManager _currentGameManager;
 
     private void Awake()
     {
@@ -22,6 +26,14 @@ public class MainUI : MonoBehaviour
     {
         SetStartSettings();
     }
+
+    #region Zenject
+    [Inject]
+    private void Construct(CurrentGameManager currentGameManager)
+    {
+        _currentGameManager = currentGameManager;
+    }
+    #endregion Zenject
 
     #region Buttons Methods
     public void ShowMainScreenUI()
@@ -41,6 +53,19 @@ public class MainUI : MonoBehaviour
         ActivateMainCanvasPanel(UIPanels.SelectModePanel);
         mainScreenUI.StopIdleAnimation();
     }
+
+    public void ShowSelectCharacterUI()
+    {
+        ActivateMainCanvasPanel(UIPanels.SelectCharacterPanel);
+    }
+
+    public void ShowSelectGameLevel()
+    {
+        if(_currentGameManager.CurrentGameType == GameLevelTypes.Puzzle)
+        {
+            ActivateMainCanvasPanel(UIPanels.SelectGameLevel_Puzzle);
+        }
+    }
     #endregion Buttons Methods
 
     private void FillPanelsList()
@@ -50,6 +75,7 @@ public class MainUI : MonoBehaviour
         panelsList.Add(settingsUI);
         panelsList.Add(selectModeUI);
         panelsList.Add(selectCharacterUI);
+        panelsList.Add(chooseGameLevelPanel_Puzzle);
     }
 
     private void SetStartSettings()

@@ -1,7 +1,7 @@
 
 public enum UIPanels
 {
-    MainLoaderPanel, MainScreenPanel, SettingsPanel, SelectModePanel, SelectCharacterPanel
+    MainLoaderPanel, MainScreenPanel, SettingsPanel, SelectModePanel, SelectCharacterPanel, SelectGameLevel_Puzzle, SelectGameLevel_MiniGame
 }
 
 public enum Languages
@@ -17,4 +17,9 @@ public enum GameLevelStates
 public enum GameLevelTypes
 {
     Puzzle, MiniGame
+}
+
+public enum CharacterTypes
+{
+    Female, Male
 }
