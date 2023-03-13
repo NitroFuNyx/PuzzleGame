@@ -836,13 +836,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d0081e75a804d4d866e03aacf3264b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelState: 0
+  gameType: 0
+  gameLevelIndex: 0
   buttonImage: {fileID: 6662102891010816743}
   darkFilterImage: {fileID: 6662102890770251400}
   lockImage: {fileID: 6662102891674828721}
-  bestTime_Start_Text: {fileID: 6662102891810567860}
-  bestTime_Value_Text: {fileID: 6662102892287141893}
+  timeTitle_Text: {fileID: 6662102891810567860}
+  timeValue_Text: {fileID: 6662102892287141893}
   costPanel: {fileID: 8670595412602288754}
   costAmountText: {fileID: 6662102891344377601}
+  changeAlphaDuration: 0.01
 --- !u!1 &6662102891810567858
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +859,7 @@ GameObject:
   - component: {fileID: 6662102891810567863}
   - component: {fileID: 6662102891810567860}
   m_Layer: 5
-  m_Name: Best Time Start Text
+  m_Name: Time Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,7 +994,7 @@ GameObject:
   - component: {fileID: 6662102892287141892}
   - component: {fileID: 6662102892287141893}
   m_Layer: 5
-  m_Name: Time Text
+  m_Name: Time  Value Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

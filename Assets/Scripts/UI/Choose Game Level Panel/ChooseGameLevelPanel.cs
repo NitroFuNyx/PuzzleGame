@@ -17,8 +17,8 @@ public class ChooseGameLevelPanel : MonoBehaviour
     [SerializeField] private Image lockImage;
     [Header("Level Texts")]
     [Space]
-    [SerializeField] private TextMeshProUGUI bestTime_Start_Text;
-    [SerializeField] private TextMeshProUGUI bestTime_Value_Text;
+    [SerializeField] private TextMeshProUGUI timeTitle_Text;
+    [SerializeField] private TextMeshProUGUI timeValue_Text;
     [Header("Cost Panel")]
     [Space]
     [SerializeField] private PanelActivationManager costPanel;
@@ -49,8 +49,8 @@ public class ChooseGameLevelPanel : MonoBehaviour
         darkFilterImage.DOFade(1f, changeAlphaDuration);
         lockImage.DOFade(1f, changeAlphaDuration);
 
-        bestTime_Start_Text.text = "";
-        bestTime_Value_Text.text = "";
+        timeTitle_Text.text = "";
+        timeValue_Text.text = "";
 
         costPanel.ShowPanel();
 
@@ -64,13 +64,18 @@ public class ChooseGameLevelPanel : MonoBehaviour
 
         if (levelState == GameLevelStates.Available_New)
         {
-            bestTime_Start_Text.text = "start";
-            bestTime_Value_Text.text = "";
+            timeTitle_Text.text = "start";
+            timeValue_Text.text = "";
         }
         else if(levelState == GameLevelStates.Available_Started)
         {
-            bestTime_Start_Text.text = "best time";
-            bestTime_Value_Text.text = "01:01"; // set time
+            timeTitle_Text.text = "current time";
+            timeValue_Text.text = "01:01"; // set time
+        }
+        else if (levelState == GameLevelStates.Available_Finished)
+        {
+            timeTitle_Text.text = "best time";
+            timeValue_Text.text = "01:01"; // set time
         }
 
         costPanel.HidePanel();

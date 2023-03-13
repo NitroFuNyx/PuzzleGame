@@ -11,7 +11,7 @@ public enum Languages
 
 public enum GameLevelStates
 {
-    Available_New, Available_Started, Locked
+    Available_New, Available_Started, Available_Finished, Locked
 }
 
 public enum GameLevelTypes
