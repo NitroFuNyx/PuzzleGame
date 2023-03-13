@@ -28,11 +28,14 @@
       },
       "choosePuzzleLevelUITexts":{
          "uiTitleText":"la puzzle",
-         "bestTimeText":"mejor tiempo"
+         "startText":"comenzar",
+         "bestTimeText":"mejor tiempo",
+         "currentTimeText":"tiempo actual"
       },
       "chooseMiniGameLevelUITexts":{
          "uiTitleText":"mini juego",
-         "startText":"comenzar"
+         "startText":"comenzar",
+         "bestScore":"mejor puntuacin"
       }
    }
 }

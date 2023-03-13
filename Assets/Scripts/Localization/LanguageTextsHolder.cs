@@ -73,7 +73,9 @@ namespace Localization
     public class ChoosePuzzleLevelUIData
     {
         public string uiTitleText;
+        public string startText;
         public string bestTimeText;
+        public string currentTimeText;
     }
 
     [Serializable]
@@ -81,5 +83,6 @@ namespace Localization
     {
         public string uiTitleText;
         public string startText;
+        public string bestScore;
     }
 }

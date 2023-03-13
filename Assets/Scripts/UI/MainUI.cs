@@ -12,6 +12,7 @@ public class MainUI : MonoBehaviour
     [SerializeField] private SelectModeUI selectModeUI;
     [SerializeField] private SelectCharacterUI selectCharacterUI;
     [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_Puzzle;
+    [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_MiniGame;
 
     private List<MainCanvasPanel> panelsList = new List<MainCanvasPanel>();
 
@@ -65,6 +66,10 @@ public class MainUI : MonoBehaviour
         {
             ActivateMainCanvasPanel(UIPanels.SelectGameLevel_Puzzle);
         }
+        else if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
+        {
+            ActivateMainCanvasPanel(UIPanels.SelectGameLevel_MiniGame);
+        }
     }
     #endregion Buttons Methods
 
@@ -76,6 +81,7 @@ public class MainUI : MonoBehaviour
         panelsList.Add(selectModeUI);
         panelsList.Add(selectCharacterUI);
         panelsList.Add(chooseGameLevelPanel_Puzzle);
+        panelsList.Add(chooseGameLevelPanel_MiniGame);
     }
 
     private void SetStartSettings()
