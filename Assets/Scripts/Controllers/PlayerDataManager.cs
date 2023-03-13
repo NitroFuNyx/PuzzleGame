@@ -29,10 +29,15 @@ public class PlayerDataManager : MonoBehaviour
     public event Action OnPlayerMainDataLoaded;
     #endregion Events Declaration
 
-    private void Start()
+    private void Awake()
     {
         SetStartSettings();
     }
+
+    //private void Start()
+    //{
+    //    SetStartSettings();
+    //}
 
     #region Zenject
     [Inject]
