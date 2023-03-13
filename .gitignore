@@ -71,6 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /[Aa]ssets/[Aa][Rr][Tt]
+/[Aa]ssets/Save Files
 /.idea/.idea.TaleOfDarkness/.idea/workspace.xml
 /TaleOfDarkness.sln
 /Assembly-CSharp.csproj
