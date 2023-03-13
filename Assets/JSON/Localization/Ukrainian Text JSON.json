@@ -1,30 +1,38 @@
 {
-    "data": {
-        "mainscreenUITexts": {
-            		"titleText": "натисни для початку"
-        	      },
- 	"settingsUITexts": {
-		  "mainSettingsPanel": {
-			"uiTitleText": "налаштування",
-            		"soundsButtonText": "звуки",
-			"languageButtonText": "мова",
-			"infoButtonText": "інфо"},
-		   "changeLanguagePanel": {
-			 "uiTitleText": "обери мову"
-			}	
-        	      },
-	"selectGameModeUITexts": {
-			"uiTitleText": "обери режим гри",
-            		"puzzlePanelText": "пазл",
-			"miniGamePanelText": "міні гра"
-        	      },
-	"choosePuzzleLevelUITexts": {
-			"uiTitleText": "пазл",
-            		"bestTimeText": "найкращий час"
-        	      },
-	"chooseMiniGameLevelUITexts": {
-			"uiTitleText": "міні гра",
-            		"startText": "старт"
-        	      }
-    }
+   "data":{
+      "mainscreenUITexts":{
+         "titleText":"натисни для початку"
+      },
+      "settingsUITexts":{
+         "mainSettingsPanel":{
+            "uiTitleText":"налаштування",
+            "soundsButtonText":"звуки",
+            "languageButtonText":"мова",
+            "infoButtonText":"інфо"
+         },
+         "changeLanguagePanel":{
+            "uiTitleText":"обери мову"
+         },
+         "infoPanel":{
+            "uiTitleText":"про нас",
+            "infoText":"Гра розроблена Bazuka Studio. Приєднуйтеся до нашої спільноти YouTube і отримуйте найновіший контент!"
+         }
+      },
+      "selectGameModeUITexts":{
+         "uiTitleText":"обери режим гри",
+         "puzzlePanelText":"пазл",
+         "miniGamePanelText":"міні гра"
+      },
+      "selectCharacterUITexts":{
+         "uiTitleText":"обери персонажа"
+      },
+      "choosePuzzleLevelUITexts":{
+         "uiTitleText":"пазл",
+         "bestTimeText":"найкращий час"
+      },
+      "chooseMiniGameLevelUITexts":{
+         "uiTitleText":"міні гра",
+         "startText":"старт"
+      }
+   }
 }

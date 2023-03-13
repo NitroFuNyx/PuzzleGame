@@ -12,6 +12,7 @@ public class Data
     public MainScreenUIData mainscreenUITexts;
     public SettingsUIData settingsUITexts;
     public SelectGameModeUIData selectGameModeUITexts;
+    public SelectCharacterUIData selectCharacterUITexts;
     public ChoosePuzzleLevelUIData choosePuzzleLevelUITexts;
     public ChooseMiniGameLevelUIData chooseMiniGameLevelUITexts;
 }
@@ -27,6 +28,7 @@ public class SettingsUIData
 {
     public MainSettingsPanelData mainSettingsPanel;
     public ChangeLanguagePanelData changeLanguagePanel;
+    public InfoPanelData infoPanel;
 }
 
 [Serializable]
@@ -45,11 +47,24 @@ public class ChangeLanguagePanelData
 }
 
 [Serializable]
+public class InfoPanelData
+{
+    public string uiTitleText;
+    public string infoText;
+}
+
+[Serializable]
 public class SelectGameModeUIData
 {
     public string uiTitleText;
     public string puzzlePanelText;
     public string miniGamePanelText;
+}
+
+[Serializable]
+public class SelectCharacterUIData
+{
+    public string uiTitleText;
 }
 
 [Serializable]

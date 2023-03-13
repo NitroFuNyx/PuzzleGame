@@ -1,30 +1,38 @@
 {
-    "data": {
-             "mainscreenUITexts": {
-                "titleText": "tap to start"},
- 	      "settingsUITexts": {
-			"mainSettingsPanel": {
-			    "uiTitleText": "settings",
-                	    "soundsButtonText": "sounds",
-			    "languageButtonText": "language",
-			    "infoButtonText": "info"
-			},
-			"changeLanguagePanel": {
-			    "uiTitleText": "choose language"
-			}
-			    },
-	      "selectGameModeUITexts": {
-			    "uiTitleText": "select game mode",
-              		    "puzzlePanelText": "puzzle",
-			    "miniGamePanelText": "mini game"
-        	      },
-	      "choosePuzzleLevelUITexts": {
-			    "uiTitleText": "puzzle",
-              "bestTimeText": "best time"
-        	      },
-	      "chooseMiniGameLevelUITexts": {
-			    "uiTitleText": "mini game",
-              "startText": "start"
-        	      }
-             }    
+   "data":{
+      "mainscreenUITexts":{
+         "titleText":"tap to start"
+      },
+      "settingsUITexts":{
+         "mainSettingsPanel":{
+            "uiTitleText":"settings",
+            "soundsButtonText":"sounds",
+            "languageButtonText":"language",
+            "infoButtonText":"info"
+         },
+         "changeLanguagePanel":{
+            "uiTitleText":"choose language"
+         },
+         "infoPanel":{
+            "uiTitleText":"about",
+            "infoText":"Game developed by Bazuka Studio. Join our YouTube community and get the latest content!"
+         }
+      },
+      "selectGameModeUITexts":{
+         "uiTitleText":"select game mode",
+         "puzzlePanelText":"puzzle",
+         "miniGamePanelText":"mini game"
+      },
+      "selectCharacterUITexts":{
+         "uiTitleText":"choose character"
+      },
+      "choosePuzzleLevelUITexts":{
+         "uiTitleText":"puzzle",
+         "bestTimeText":"best time"
+      },
+      "chooseMiniGameLevelUITexts":{
+         "uiTitleText":"mini game",
+         "startText":"start"
+      }
+   }
 }
