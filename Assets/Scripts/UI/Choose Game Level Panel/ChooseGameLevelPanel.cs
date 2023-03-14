@@ -23,6 +23,9 @@ public class ChooseGameLevelPanel : MonoBehaviour
     [Space]
     [SerializeField] private PanelActivationManager costPanel;
     [SerializeField] private TextMeshProUGUI costAmountText;
+    [Header("Internal References")]
+    [Space]
+    [SerializeField] private ChooseGameLevelButton levelButton;
     [Header("Durations")]
     [Space]
     [SerializeField] private float changeAlphaDuration = 0.01f;
@@ -30,6 +33,7 @@ public class ChooseGameLevelPanel : MonoBehaviour
     private void Start()
     {
         SetPanelUIData();
+        levelButton.SetButtonData(gameType, gameLevelIndex);
     }
 
     public void SetPanelUIData()
