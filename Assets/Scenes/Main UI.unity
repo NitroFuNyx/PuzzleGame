@@ -366,6 +366,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2019255667}
     m_Modifications:
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: levelState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: gameLevelIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -488,6 +496,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2019255667}
     m_Modifications:
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: levelState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: gameLevelIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -3351,6 +3367,14 @@ PrefabInstance:
       propertyPath: gameType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: levelState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: gameLevelIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -4564,6 +4588,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: gameType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: levelState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: gameLevelIndex
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
@@ -10195,6 +10227,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2019255667}
     m_Modifications:
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: levelState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: gameLevelIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -11965,6 +12005,14 @@ PrefabInstance:
     - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: gameType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: levelState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: gameLevelIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y

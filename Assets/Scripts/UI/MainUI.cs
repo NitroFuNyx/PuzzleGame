@@ -71,6 +71,11 @@ public class MainUI : MonoBehaviour
             ActivateMainCanvasPanel(UIPanels.SelectGameLevel_MiniGame);
         }
     }
+
+    public void ShowGameLevelUI()
+    {
+
+    }
     #endregion Buttons Methods
 
     private void FillPanelsList()
