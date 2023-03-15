@@ -12,6 +12,9 @@ public class MiniGameEnvironment : MonoBehaviour
     [SerializeField] private float startGameDelay = 3f;
     [SerializeField] private float startGameCoroutineDelay = 0.5f;
     [SerializeField] private float timeForLevel = 180f;
+    [Header("Internal References")]
+    [Space]
+    [SerializeField] private PlayerMoveManager playerMoveManager;
 
     private MiniGameUI _miniGameUI;
     private TimersManager _timersManager;
@@ -32,6 +35,11 @@ public class MiniGameEnvironment : MonoBehaviour
         StartCoroutine(StartGameCoroutine());
     }
 
+    private void TimerFinished_ExecuteReaction()
+    {
+        playerMoveManager.ChangeCheckingInputState(false);
+    }
+
     private IEnumerator StartGameCoroutine()
     {
         float currentCounterValue = startGameDelay;
@@ -47,6 +55,7 @@ public class MiniGameEnvironment : MonoBehaviour
 
         yield return new WaitForSeconds(startGameCoroutineDelay);
         _miniGameUI.HideDelayTimerText();
-        _miniGameUI.StartCurrentGameTimer(timeForLevel);
+        _miniGameUI.StartCurrentGameTimer(timeForLevel, TimerFinished_ExecuteReaction);
+        playerMoveManager.ChangeCheckingInputState(true);
     }
 }

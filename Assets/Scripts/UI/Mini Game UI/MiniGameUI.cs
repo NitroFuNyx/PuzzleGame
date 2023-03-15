@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 using TMPro;
 using Zenject;
@@ -32,13 +33,8 @@ public class MiniGameUI : MainCanvasPanel
         startGameDelayTimerText.text = "";
     }
 
-    public void StartCurrentGameTimer(float timerValue)
+    public void StartCurrentGameTimer(float timerValue, Action OnTimerFinished)
     {
-        _timersManager.StartTimer(timerValue, currentGameTimerText, TimerFinished_ExecuteReaction);
-    }
-
-    private void TimerFinished_ExecuteReaction()
-    {
-
+        _timersManager.StartTimer(timerValue, currentGameTimerText, OnTimerFinished);
     }
 }

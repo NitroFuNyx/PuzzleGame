@@ -21,51 +21,47 @@ public class TimersManager : MonoBehaviour
     private bool stopwatchActive = false;
 
     #region Events Declaration
-    public event Action OnTimerFinished;
+    //public event Action OnTimerFinished;
 
-    public event Action<float> OnStopwatchStoped;
+    //public event Action<float> OnStopwatchStoped;
     #endregion Events Declaration
 
-    private void Start()
-    {
-        OnTimerFinished += TimerFinished;
+    //private void Start()
+    //{
+    //    OnTimerFinished += TimerFinished;
 
-        OnStopwatchStoped += StopwatchStopped;
-    }
+    //    OnStopwatchStoped += StopwatchStopped;
+    //}
 
-    private void OnDestroy()
-    {
-        OnTimerFinished -= TimerFinished;
+    //private void OnDestroy()
+    //{
+    //    OnTimerFinished -= TimerFinished;
 
-        OnStopwatchStoped -= StopwatchStopped;
-    }
+    //    OnStopwatchStoped -= StopwatchStopped;
+    //}
 
-    private void TimerFinished()
-    {
-        Debug.Log($"Timer Finished");
-    }
+    //private void TimerFinished()
+    //{
+    //    Debug.Log($"Timer Finished");
+    //}
 
-    private void StopwatchStopped(float stopwatchValue)
-    {
-        Debug.Log($"Stopwatch stoped {stopwatchValue}");
-    }
+    //private void StopwatchStopped(float stopwatchValue)
+    //{
+    //    Debug.Log($"Stopwatch stoped {stopwatchValue}");
+    //}
 
-    [ContextMenu("Start Timer")]
     public void StartTimer(float startTimerValue, TextMeshProUGUI timerText, Action OnTimerFinished)
     {
-        //float startTimerValue = testTimerStartValue;
-        StartCoroutine(StartTimerCoroutine(startTimerValue, timerText));
+        StartCoroutine(StartTimerCoroutine(startTimerValue, timerText, OnTimerFinished));
     }
 
-    [ContextMenu("Start Stopwatch")]
-    public void StartStopwatch(/*float startStopwatchValue*/)
+    public void StartStopwatch(float startStopwatchValue, Action<float> OnStopwatchStopped)
     {
-        float startStopwatchValue = testStopwatchStartValue;
+        startStopwatchValue = testStopwatchStartValue;
         stopwatchActive = true;
-        StartCoroutine(StartStopwatchCoroutine(startStopwatchValue));
+        StartCoroutine(StartStopwatchCoroutine(startStopwatchValue, OnStopwatchStopped));
     }
 
-    [ContextMenu("Stop Stopwatch")]
     public void StopStopwatch()
     {
         stopwatchActive = false;
@@ -106,8 +102,6 @@ public class TimersManager : MonoBehaviour
             }
         }
 
-        
-
         return amountString;
     }
 
@@ -126,7 +120,7 @@ public class TimersManager : MonoBehaviour
         return amountString;
     }
 
-    private IEnumerator StartTimerCoroutine(float startTimerValue, TextMeshProUGUI timerText)
+    private IEnumerator StartTimerCoroutine(float startTimerValue, TextMeshProUGUI timerText, Action OnTimerFinished)
     {
         float currentTimerValue = startTimerValue;
 
@@ -138,9 +132,10 @@ public class TimersManager : MonoBehaviour
         }
 
         OnTimerFinished?.Invoke();
+        //OnTimerFinished?.Invoke();
     }
 
-    private IEnumerator StartStopwatchCoroutine(float startStopwatchValue)
+    private IEnumerator StartStopwatchCoroutine(float startStopwatchValue, Action<float> OnStopwatchStopped)
     {
         float currentStopwatchValue = startStopwatchValue;
 
@@ -151,6 +146,7 @@ public class TimersManager : MonoBehaviour
             testStopwatchText.text = $"Stopwatch {GetHoursAndMinutesAmount((int)currentStopwatchValue)}:{GetSecondsAmount((int)currentStopwatchValue)}";
         }
 
-        OnStopwatchStoped?.Invoke(currentStopwatchValue);
+        OnStopwatchStopped?.Invoke(currentStopwatchValue);
+        //OnStopwatchStoped?.Invoke(currentStopwatchValue);
     }
 }
