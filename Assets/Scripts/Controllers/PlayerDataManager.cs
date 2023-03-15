@@ -79,8 +79,6 @@ public class PlayerDataManager : MonoBehaviour
             SaveLoadSystem.SavePlayerData(this);
             StartCoroutine(LoadMainDataCoroutine());
         }
-
-        Debug.Log($"Load {dataHolder.currentCoinsAmount}");
     }
 
     public void SaveLanguageData(Languages language)
