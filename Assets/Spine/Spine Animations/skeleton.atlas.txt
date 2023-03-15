@@ -1,5 +1,5 @@
 skeleton.png
-size:2024,1986
+size:2033,1986
 filter:Linear,Linear
 pma:true
 Boy/1
@@ -10,24 +10,24 @@ Boy/2
 bounds:1578,1124,408,583
 offsets:360,158,972,2006
 Boy/3
-bounds:862,1730,365,254
+bounds:871,1730,365,254
 offsets:374,20,972,2006
 Boy/4
 bounds:986,1372,356,590
 offsets:216,165,972,2006
 rotate:90
 Boy/5
-bounds:1596,1709,426,275
+bounds:1605,1709,426,275
 offsets:124,0,972,2006
 Boy/6 закрыл глаза
-bounds:2,1855,428,129
-offsets:244,1522,972,2006
+bounds:2,1855,437,129
+offsets:237,1522,972,2006
 Girl/2
 bounds:2,968,419,610
 offsets:378,181,972,2006
 rotate:90
 Girl/3
-bounds:1229,1730,365,254
+bounds:1238,1730,365,254
 offsets:374,20,972,2006
 Girl/4
 bounds:430,1389,339,554
@@ -37,7 +37,7 @@ Girl/5
 bounds:2,1578,426,275
 offsets:124,0,972,2006
 Girl/6 глаза закр
-bounds:432,1850,428,134
+bounds:441,1850,428,134
 offsets:221,1472,972,2006
 
 skeleton_2.png
