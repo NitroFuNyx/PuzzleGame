@@ -33,7 +33,7 @@ public class ChooseGameLevelPanel : MonoBehaviour
     private void Start()
     {
         SetPanelUIData();
-        levelButton.SetButtonData(gameType, gameLevelIndex);
+        levelButton.SetButtonData(levelState, gameType, gameLevelIndex);
     }
 
     public void SetPanelUIData()

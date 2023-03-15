@@ -10,6 +10,8 @@ public class ControllersInstaller : MonoInstaller
     [SerializeField] private LanguageManager languageManager;
     [SerializeField] private PlayerDataManager playerDataManager;
     [SerializeField] private CurrentGameManager currentGameManager;
+    [SerializeField] private TimersManager timersManager;
+    [SerializeField] private ResourcesManager resourcesManager;
 
     public override void InstallBindings()
     {
@@ -18,5 +20,7 @@ public class ControllersInstaller : MonoInstaller
         Container.Bind<LanguageManager>().FromInstance(languageManager).AsSingle().NonLazy();
         Container.Bind<PlayerDataManager>().FromInstance(playerDataManager).AsSingle().NonLazy();
         Container.Bind<CurrentGameManager>().FromInstance(currentGameManager).AsSingle().NonLazy();
+        Container.Bind<TimersManager>().FromInstance(timersManager).AsSingle().NonLazy();
+        Container.Bind<ResourcesManager>().FromInstance(resourcesManager).AsSingle().NonLazy();
     }
 }

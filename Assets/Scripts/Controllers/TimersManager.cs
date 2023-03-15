@@ -51,10 +51,10 @@ public class TimersManager : MonoBehaviour
     }
 
     [ContextMenu("Start Timer")]
-    public void StartTimer(/*float startTimerValue*/)
+    public void StartTimer(float startTimerValue, TextMeshProUGUI timerText, Action OnTimerFinished)
     {
-        float startTimerValue = testTimerStartValue;
-        StartCoroutine(StartTimerCoroutine(startTimerValue));
+        //float startTimerValue = testTimerStartValue;
+        StartCoroutine(StartTimerCoroutine(startTimerValue, timerText));
     }
 
     [ContextMenu("Start Stopwatch")]
@@ -126,7 +126,7 @@ public class TimersManager : MonoBehaviour
         return amountString;
     }
 
-    private IEnumerator StartTimerCoroutine(float startTimerValue)
+    private IEnumerator StartTimerCoroutine(float startTimerValue, TextMeshProUGUI timerText)
     {
         float currentTimerValue = startTimerValue;
 
@@ -134,7 +134,7 @@ public class TimersManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             currentTimerValue--;
-            testTimerText.text = $"Timer {GetHoursAndMinutesAmount((int)currentTimerValue)}:{GetSecondsAmount((int)currentTimerValue)}";
+            timerText.text = $"{GetHoursAndMinutesAmount((int)currentTimerValue)}:{GetSecondsAmount((int)currentTimerValue)}";
         }
 
         OnTimerFinished?.Invoke();
