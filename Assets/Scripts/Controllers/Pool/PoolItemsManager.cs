@@ -8,11 +8,14 @@ public class PoolItemsManager : MonoBehaviour
     [SerializeField] private int poolSize = 50;
     [Header("Active Pools")]
     [Space]
-    [SerializeField] private List<PoolItem> miniGameItemsPool = new List<PoolItem>();
+    [SerializeField] private List<PoolItem> miniGameItemsBonusesPool = new List<PoolItem>();
+    [Header("Mini Game Prefabs")]
+    [Space]
+    [SerializeField] private PoolItem miniGameItemBonusPrefab;
 
     private void Start()
     {
-        CreateEnemiesPool();
+        CreatePool(miniGameItemBonusPrefab, miniGameItemsBonusesPool, "Mini Game Item Bonus");
     }
 
     public PoolItem SpawnItemFromPool(Vector3 _spawnPos, Quaternion _rotation, Transform _parent, List<PoolItem> poolItemsList)
@@ -48,16 +51,19 @@ public class PoolItemsManager : MonoBehaviour
         poolItemsList.Add(_poolItem);
     }
 
-    private void CreateEnemiesPool()
+    private void CreatePool(PoolItem poolItemPrefab, List<PoolItem> poolItemsList, string itemName)
     {
-        PoolItem poolItemPrefab = null;
+        GameObject poolItemsParent = new GameObject();
+        poolItemsParent.transform.SetParent(transform);
+        poolItemsParent.name = $"{itemName} Items Parent";
+        poolItemsParent.transform.position = new Vector3(100f, 0f, 0f);
 
         for (int i = 0; i < poolSize; i++)
         {
-            PoolItem poolItem = Instantiate(poolItemPrefab, Vector3.zero, Quaternion.identity, transform);
+            PoolItem poolItem = Instantiate(poolItemPrefab, Vector3.zero, Quaternion.identity, poolItemsParent.transform);
             poolItem.gameObject.SetActive(false);
-            //enemiesPool.Add(poolItem);
-            poolItem.name = $"Enemy {i}";
+            poolItemsList.Add(poolItem);
+            poolItem.name = $"{itemName} {i}";
         }
     }
 }
