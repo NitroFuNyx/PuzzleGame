@@ -88,6 +88,9 @@ public class LanguageManager : MonoBehaviour
 
     private void PlayerMainDataLoaded_ExecuteReaction()
     {
-        ChangeLanguage(_playerDataManager.CurrentLanguage);
+        if (languagesHoldersDictionary.ContainsKey(_playerDataManager.CurrentLanguage))
+        {
+            OnLanguageChanged?.Invoke(languagesHoldersDictionary[_playerDataManager.CurrentLanguage]);
+        }
     }    
 }

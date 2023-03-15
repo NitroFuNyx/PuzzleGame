@@ -20,6 +20,7 @@ public class PlayerDataManager : MonoBehaviour
 
     private LanguageManager _languageManager;
     private AudioManager _audioManager;
+    private ResourcesManager _resourcesManager;
 
     public Languages CurrentLanguage { get => currentLanguage; private set => currentLanguage = value; }
     public int CurrentCoinsAmount { get => currentCoinsAmount; private set => currentCoinsAmount = value; }
@@ -34,23 +35,20 @@ public class PlayerDataManager : MonoBehaviour
         SetStartSettings();
     }
 
-    //private void Start()
-    //{
-    //    SetStartSettings();
-    //}
-
     #region Zenject
     [Inject]
-    private void Construct(LanguageManager languageManager, AudioManager audioManager)
+    private void Construct(LanguageManager languageManager, AudioManager audioManager, ResourcesManager resourcesManager)
     {
         _languageManager = languageManager;
         _audioManager = audioManager;
+        _resourcesManager = resourcesManager;
     }
     #endregion Zenject
 
     [ContextMenu("Save Player Data")]
     public void SavePlayerData()
     {
+        currentCoinsAmount = _resourcesManager.WholeCoinsAmount;
         SaveLoadSystem.SavePlayerData(this);
     }
 
@@ -71,6 +69,7 @@ public class PlayerDataManager : MonoBehaviour
             }
 
             soundMuted = dataHolder.soundMuted;
+            currentCoinsAmount = dataHolder.currentCoinsAmount;
 
             OnPlayerMainDataLoaded.Invoke();
         }
@@ -80,6 +79,8 @@ public class PlayerDataManager : MonoBehaviour
             SaveLoadSystem.SavePlayerData(this);
             StartCoroutine(LoadMainDataCoroutine());
         }
+
+        Debug.Log($"Load {dataHolder.currentCoinsAmount}");
     }
 
     public void SaveLanguageData(Languages language)

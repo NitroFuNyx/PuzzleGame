@@ -18,15 +18,19 @@ public class MiniGameEnvironment : MonoBehaviour
 
     private MiniGameUI _miniGameUI;
     private TimersManager _timersManager;
+    private CurrentGameManager _currentGameManager;
+    private ResourcesManager _resourcesManager;
 
     public int EnvironmentIndex { get => environmentIndex; }
 
     #region Zenject
     [Inject]
-    private void Construct(MiniGameUI miniGameUI, TimersManager timersManager)
+    private void Construct(MiniGameUI miniGameUI, TimersManager timersManager, CurrentGameManager currentGameManager, ResourcesManager resourcesManager)
     {
         _miniGameUI = miniGameUI;
         _timersManager = timersManager;
+        _currentGameManager = currentGameManager;
+        _resourcesManager = resourcesManager;
     }
     #endregion Zenject
 
@@ -38,6 +42,9 @@ public class MiniGameEnvironment : MonoBehaviour
     private void TimerFinished_ExecuteReaction()
     {
         playerMoveManager.ChangeCheckingInputState(false);
+        _resourcesManager.SaveLevelData();
+        StartCoroutine(TimerFinished_ExecuteReactionCoroutine());
+        //_currentGameManager.SetGameFinisheData();
     }
 
     private IEnumerator StartGameCoroutine()
@@ -57,5 +64,11 @@ public class MiniGameEnvironment : MonoBehaviour
         _miniGameUI.HideDelayTimerText();
         _miniGameUI.StartCurrentGameTimer(timeForLevel, TimerFinished_ExecuteReaction);
         playerMoveManager.ChangeCheckingInputState(true);
+    }
+
+    private IEnumerator TimerFinished_ExecuteReactionCoroutine()
+    {
+        yield return null;
+        _currentGameManager.SetGameFinisheData();
     }
 }

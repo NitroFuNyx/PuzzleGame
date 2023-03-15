@@ -12,12 +12,14 @@ public class CurrentGameManager : MonoBehaviour
     public CharacterTypes CurrentCharacter { get => currentCharacter; private set => currentCharacter = value; }
 
     private MiniGamesEnvironmentsHolder _miniGamesEnvironmentsHolder;
+    private PlayerDataManager _playerDataManager;
 
     #region Zenject
     [Inject]
-    private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder)
+    private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, PlayerDataManager playerDataManager)
     {
         _miniGamesEnvironmentsHolder = miniGamesEnvironmentsHolder;
+        _playerDataManager = playerDataManager;
     }
     #endregion Zenject
 
@@ -37,5 +39,10 @@ public class CurrentGameManager : MonoBehaviour
         {
             _miniGamesEnvironmentsHolder.ActivateEnvironment(levelIndex);
         }
+    }
+
+    public void SetGameFinisheData()
+    {
+        _playerDataManager.SavePlayerData();
     }
 }
