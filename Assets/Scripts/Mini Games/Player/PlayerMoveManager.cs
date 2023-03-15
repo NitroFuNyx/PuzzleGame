@@ -7,6 +7,9 @@ public class PlayerMoveManager : MonoBehaviour
     [Space]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float horizontalMoveTreshold = 0.1f;
+    [Header("Clamp Parameters")]
+    [Space]
+    [SerializeField] private float clampXUnit = 7.5f;
 
     private float horizontalMove = 0f;
 
@@ -55,7 +58,9 @@ public class PlayerMoveManager : MonoBehaviour
                 }
             }
 
-            transform.position = new Vector3(transform.position.x + horizontalMove, transform.position.y, transform.position.z);
+            float clampedPosX = Mathf.Clamp(transform.position.x + horizontalMove, -clampXUnit, clampXUnit);
+
+            transform.position = new Vector3(clampedPosX, transform.position.y, transform.position.z);
         }
     }
 
