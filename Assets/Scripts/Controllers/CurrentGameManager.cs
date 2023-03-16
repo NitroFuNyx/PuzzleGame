@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using Zenject;
 
 public class CurrentGameManager : MonoBehaviour
@@ -13,6 +14,10 @@ public class CurrentGameManager : MonoBehaviour
 
     private MiniGamesEnvironmentsHolder _miniGamesEnvironmentsHolder;
     private PlayerDataManager _playerDataManager;
+
+    #region Events Declaration
+    public event Action<CharacterTypes> OnCharacterChanged;
+    #endregion Events Declaration
 
     #region Zenject
     [Inject]
@@ -31,6 +36,7 @@ public class CurrentGameManager : MonoBehaviour
     public void SetCurrentCharacter(CharacterTypes choosenCharacter)
     {
         currentCharacter = choosenCharacter;
+        OnCharacterChanged?.Invoke(currentCharacter);
     }
 
     public void ActivateGameLevelEnvironment(int levelIndex)
