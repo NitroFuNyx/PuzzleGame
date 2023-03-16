@@ -24,3 +24,8 @@ public enum CharacterTypes
 {
     Female, Male
 }
+
+public enum KitchenMiniGameItems
+{
+    Coin_1, Coins_2, Coins_5, Coins_10, Debuff
+}

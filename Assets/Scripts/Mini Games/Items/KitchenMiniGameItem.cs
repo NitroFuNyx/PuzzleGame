@@ -1,17 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniGameItemBonus : MonoBehaviour
+public abstract class KitchenMiniGameItem : MonoBehaviour
 {
     [Header("Item Data")]
     [Space]
-    [SerializeField] private int coinBobus = 1;
+    [SerializeField] protected KitchenMiniGameItems itemType;
     [Header("Sprites")]
     [Space]
     [SerializeField] private List<Sprite> coinsSpritesList = new List<Sprite>();
 
-    private SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -23,9 +22,11 @@ public class MiniGameItemBonus : MonoBehaviour
         SetItemSprite();
     }
 
-    public void SetItemSprite()
+    protected void SetItemSprite()
     {
         int index = Random.Range(0, coinsSpritesList.Count);
         spriteRenderer.sprite = coinsSpritesList[index];
     }
+
+    public abstract void OnInteractionWithPlayer_ExecuteReaction(); 
 }

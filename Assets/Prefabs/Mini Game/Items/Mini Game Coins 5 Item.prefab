@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8546567556117332951}
   - component: {fileID: 8546567556117332944}
   - component: {fileID: 7905152309776117085}
-  - component: {fileID: 7868266426314461818}
+  - component: {fileID: 5672139691787497891}
   m_Layer: 0
-  m_Name: Mini Game Bonus Item
+  m_Name: Mini Game Coins 5 Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9185cd8c2eef4d24fbd32b7481d2fc82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 173380bcae639ad4f9168c64636c80e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc14d910fa2555f4f9ec666ef0cec20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7868266426314461818
+--- !u!114 &5672139691787497891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,11 +107,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8546567556117332945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe1500d747a3d145a3dcd454f825f6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fe4c4aa5610b8640a189cae4d65de52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinBobus: 1
+  itemType: 2
   coinsSpritesList:
-  - {fileID: 21300000, guid: 9185cd8c2eef4d24fbd32b7481d2fc82, type: 3}
-  - {fileID: 21300000, guid: 0f2861d90d80569408e8554573161d7e, type: 3}
-  - {fileID: 21300000, guid: 6e8a62112a4c9f94794fe378d2f428f4, type: 3}
+  - {fileID: 21300000, guid: 173380bcae639ad4f9168c64636c80e6, type: 3}
+  coinsAmount: 5

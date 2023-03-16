@@ -15,6 +15,7 @@ public class MiniGameEnvironment : MonoBehaviour
     [Header("Internal References")]
     [Space]
     [SerializeField] private PlayerMoveManager playerMoveManager;
+    [SerializeField] private KitchenMiniGameSpawnManager kitchenMiniGameSpawnManager;
 
     private MiniGameUI _miniGameUI;
     private TimersManager _timersManager;
@@ -64,6 +65,7 @@ public class MiniGameEnvironment : MonoBehaviour
         _miniGameUI.HideDelayTimerText();
         _miniGameUI.StartCurrentGameTimer(timeForLevel, TimerFinished_ExecuteReaction);
         playerMoveManager.ChangeCheckingInputState(true);
+        kitchenMiniGameSpawnManager.StartSpawningItems();
     }
 
     private IEnumerator TimerFinished_ExecuteReactionCoroutine()
