@@ -72,5 +72,6 @@ public class MiniGameEnvironment : MonoBehaviour
     {
         yield return null;
         _currentGameManager.SetGameFinisheData();
+        kitchenMiniGameSpawnManager.StopSpawning();
     }
 }

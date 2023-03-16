@@ -11,6 +11,8 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
     [Space]
     [SerializeField] private float spawnDelay = 0.5f;
 
+    private bool canSpawn = false;
+
     private Dictionary<int, KitchenMiniGameItems> itemsSpawnPossibilityDictionary = new Dictionary<int, KitchenMiniGameItems>();
 
     private void Awake()
@@ -21,7 +23,13 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
     [ContextMenu("Spawn")]
     public void StartSpawningItems()
     {
+        canSpawn = true;
         StartCoroutine(StartSpawningItemsCoroutine());
+    }
+
+    public void StopSpawning()
+    {
+        canSpawn = false;
     }
 
     private void FillItemsSpawnPossibilityDictionary()
@@ -40,11 +48,12 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
 
     private IEnumerator StartSpawningItemsCoroutine()
     {
-        for(int i = 0; i < spawnersList.Count; i++)
+        while(canSpawn)
         {
-            yield return new WaitForSeconds(1f);
-            int index = Random.Range(0, 9);
-            spawnersList[i].SpawnItem(itemsSpawnPossibilityDictionary[index]);
+            yield return new WaitForSeconds(spawnDelay);
+            int itemIndex = Random.Range(0, 9);
+            int spawnerIndex = Random.Range(0, spawnersList.Count - 1);
+            spawnersList[spawnerIndex].SpawnItem(itemsSpawnPossibilityDictionary[itemIndex]);
         }
     }
 }
