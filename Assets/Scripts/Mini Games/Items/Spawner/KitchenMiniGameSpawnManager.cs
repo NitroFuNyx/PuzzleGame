@@ -7,6 +7,9 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
     [Header("Spawners")]
     [Space]
     [SerializeField] private List<KitchenMiniGameItemsSpawner> spawnersList = new List<KitchenMiniGameItemsSpawner>();
+    [Header("Spawn Data")]
+    [Space]
+    [SerializeField] private float spawnDelay = 0.5f;
 
     private Dictionary<int, KitchenMiniGameItems> itemsSpawnPossibilityDictionary = new Dictionary<int, KitchenMiniGameItems>();
 

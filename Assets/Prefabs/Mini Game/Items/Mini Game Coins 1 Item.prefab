@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8546567556117332944}
   - component: {fileID: 7905152309776117085}
   - component: {fileID: 5672139691787497891}
+  - component: {fileID: 6998133680001603724}
   m_Layer: 0
   m_Name: Mini Game Coins 1 Item
   m_TagString: Untagged
@@ -110,8 +111,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe4c4aa5610b8640a189cae4d65de52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   coinsSpritesList:
   - {fileID: 21300000, guid: 9185cd8c2eef4d24fbd32b7481d2fc82, type: 3}
   - {fileID: 21300000, guid: 0f2861d90d80569408e8554573161d7e, type: 3}
   - {fileID: 21300000, guid: 6e8a62112a4c9f94794fe378d2f428f4, type: 3}
-  coinBobus: 1
+  coinsAmount: 1
+--- !u!50 &6998133680001603724
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8546567556117332945}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 3
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -58,7 +58,7 @@ public class PlayerMoveManager : MonoBehaviour
                 }
             }
 
-            float clampedPosX = Mathf.Clamp(transform.position.x + horizontalMove, -clampXUnit, clampXUnit);
+            float clampedPosX = Mathf.Clamp(transform.position.x + (horizontalMove * Time.deltaTime), -clampXUnit, clampXUnit);
 
             transform.position = new Vector3(clampedPosX, transform.position.y, transform.position.z);
         }
