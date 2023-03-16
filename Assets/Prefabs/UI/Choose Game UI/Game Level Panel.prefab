@@ -745,7 +745,16 @@ MonoBehaviour:
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
   gameType: 0
+  levelState: 0
   levelIndex: 0
+  lockImage: {fileID: 6662102891674828721}
+  costAmountText: {fileID: 6662102891344377601}
+  rotationPunchVector: {x: 0, y: 0, z: 30}
+  punchDuration: 1
+  punchFreequency: 4
+  costTextPunchVector: {x: 0.2, y: 0.2, z: 0.2}
+  costTextPunchScaleFreequency: 4
+  costTextBlockedColor: {r: 0.735849, g: 0, b: 0, a: 1}
 --- !u!1 &6662102891674828732
 GameObject:
   m_ObjectHideFlags: 0
