@@ -37,13 +37,23 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
         itemsSpawnPossibilityDictionary.Add(0, KitchenMiniGameItems.Coin_1);
         itemsSpawnPossibilityDictionary.Add(1, KitchenMiniGameItems.Coin_1);
         itemsSpawnPossibilityDictionary.Add(2, KitchenMiniGameItems.Coin_1);
-        itemsSpawnPossibilityDictionary.Add(3, KitchenMiniGameItems.Coins_2);
-        itemsSpawnPossibilityDictionary.Add(4, KitchenMiniGameItems.Coins_2);
-        itemsSpawnPossibilityDictionary.Add(5, KitchenMiniGameItems.Debuff);
-        itemsSpawnPossibilityDictionary.Add(6, KitchenMiniGameItems.Debuff);
-        itemsSpawnPossibilityDictionary.Add(7, KitchenMiniGameItems.Coins_5);
-        itemsSpawnPossibilityDictionary.Add(8, KitchenMiniGameItems.Coins_5);
-        itemsSpawnPossibilityDictionary.Add(9, KitchenMiniGameItems.Coins_10);
+        itemsSpawnPossibilityDictionary.Add(3, KitchenMiniGameItems.Coin_1);
+        itemsSpawnPossibilityDictionary.Add(4, KitchenMiniGameItems.Coin_1);
+        itemsSpawnPossibilityDictionary.Add(5, KitchenMiniGameItems.Coin_1);
+        itemsSpawnPossibilityDictionary.Add(6, KitchenMiniGameItems.Coins_2);
+        itemsSpawnPossibilityDictionary.Add(7, KitchenMiniGameItems.Coins_2);
+        itemsSpawnPossibilityDictionary.Add(8, KitchenMiniGameItems.Coins_2);
+        itemsSpawnPossibilityDictionary.Add(9, KitchenMiniGameItems.Coins_2);
+        itemsSpawnPossibilityDictionary.Add(10, KitchenMiniGameItems.Coins_5);
+        itemsSpawnPossibilityDictionary.Add(11, KitchenMiniGameItems.Coins_5);
+        itemsSpawnPossibilityDictionary.Add(12, KitchenMiniGameItems.Coins_5);
+        itemsSpawnPossibilityDictionary.Add(13, KitchenMiniGameItems.Coins_10);
+        itemsSpawnPossibilityDictionary.Add(14, KitchenMiniGameItems.Coins_10);
+        itemsSpawnPossibilityDictionary.Add(15, KitchenMiniGameItems.Debuff);
+        itemsSpawnPossibilityDictionary.Add(16, KitchenMiniGameItems.Debuff);
+        itemsSpawnPossibilityDictionary.Add(17, KitchenMiniGameItems.Coins_5);
+        itemsSpawnPossibilityDictionary.Add(18, KitchenMiniGameItems.Coins_5);
+        itemsSpawnPossibilityDictionary.Add(19, KitchenMiniGameItems.Bonus_AdditionalTime);
     }
 
     private IEnumerator StartSpawningItemsCoroutine()

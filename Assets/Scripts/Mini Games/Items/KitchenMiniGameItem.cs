@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public abstract class KitchenMiniGameItem : MonoBehaviour
 {
@@ -8,12 +9,20 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     [SerializeField] protected KitchenMiniGameItems itemType;
     [Header("Sprites")]
     [Space]
-    [SerializeField] private List<Sprite> coinsSpritesList = new List<Sprite>();
+    [SerializeField] private List<Sprite> itemsSpritesList = new List<Sprite>();
+    [Header("VFX")]
+    [Space]
+    [SerializeField] private ParticleSystem playerStandartInteractionVFX;
+    [Header("Delays")]
+    [Space]
+    [SerializeField] private float vfxResetDelay = 2f;
 
     protected PoolItemsManager _poolItemsManager;
 
     protected SpriteRenderer spriteRenderer;
     protected PoolItem poolItemComponent;
+
+    private Vector3 startPos;
 
     public KitchenMiniGameItems ItemType { get => itemType; }
 
@@ -27,6 +36,7 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     private void Start()
     {
         SetItemSprite();
+        startPos = transform.localPosition;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,9 +53,22 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
 
     protected void SetItemSprite()
     {
-        int index = Random.Range(0, coinsSpritesList.Count);
-        spriteRenderer.sprite = coinsSpritesList[index];
+        int index = Random.Range(0, itemsSpritesList.Count);
+        spriteRenderer.sprite = itemsSpritesList[index];
     }
 
-    public abstract void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player); 
+    protected void PlayItemInteractionVFX()
+    {
+        playerStandartInteractionVFX.transform.SetParent(null);
+        playerStandartInteractionVFX.Play();
+    }
+
+    public abstract void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player);
+
+    protected IEnumerator ResetVFXCoroutine()
+    {
+        yield return new WaitForSeconds(vfxResetDelay);
+        playerStandartInteractionVFX.transform.SetParent(transform);
+        playerStandartInteractionVFX.transform.localPosition = startPos;
+    }
 }

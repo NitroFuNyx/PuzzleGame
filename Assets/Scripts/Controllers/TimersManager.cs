@@ -20,6 +20,8 @@ public class TimersManager : MonoBehaviour
 
     private bool stopwatchActive = false;
 
+    private float currentTimerValue;
+
     #region Events Declaration
     //public event Action OnTimerFinished;
 
@@ -122,7 +124,7 @@ public class TimersManager : MonoBehaviour
 
     private IEnumerator StartTimerCoroutine(float startTimerValue, TextMeshProUGUI timerText, Action OnTimerFinished)
     {
-        float currentTimerValue = startTimerValue;
+        currentTimerValue = startTimerValue;
 
         while(currentTimerValue > 0f)
         {

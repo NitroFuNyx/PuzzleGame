@@ -114,10 +114,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
-  coinsSpritesList:
+  itemsSpritesList:
   - {fileID: 21300000, guid: 173380bcae639ad4f9168c64636c80e6, type: 3}
-  coinsAmount: 5
+  - {fileID: 21300000, guid: 2a004b71a2500334b9c5ea07d9706003, type: 3}
+  - {fileID: 21300000, guid: ea2bb29260ddf6841a8edf592537071a, type: 3}
   playerStandartInteractionVFX: {fileID: 4687222096556718214}
+  vfxResetDelay: 2
+  coinsAmount: 5
 --- !u!50 &7404490341972860132
 Rigidbody2D:
   serializedVersion: 4

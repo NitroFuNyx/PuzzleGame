@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 8546567556117332951}
   - component: {fileID: 8546567556117332944}
   - component: {fileID: 7905152309776117085}
-  - component: {fileID: 5672139691787497891}
+  - component: {fileID: 1349779535935880487}
   - component: {fileID: 6998133680001603724}
   - component: {fileID: 7921001435323204776}
   m_Layer: 0
-  m_Name: Mini Game Coins 1 Item
+  m_Name: Mini Game Item Bonus Additional Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5063030880470703164}
+  - {fileID: 8556669251400810446}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,8 +78,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9185cd8c2eef4d24fbd32b7481d2fc82, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: e7941e23300c8fa4ebf67c02fd79f414, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc14d910fa2555f4f9ec666ef0cec20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5672139691787497891
+--- !u!114 &1349779535935880487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,17 +111,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8546567556117332945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe4c4aa5610b8640a189cae4d65de52, type: 3}
+  m_Script: {fileID: 11500000, guid: b91df307d6fe27f4ea5c53523b494f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 5
   itemsSpritesList:
-  - {fileID: 21300000, guid: 9185cd8c2eef4d24fbd32b7481d2fc82, type: 3}
-  - {fileID: 21300000, guid: 0f2861d90d80569408e8554573161d7e, type: 3}
-  - {fileID: 21300000, guid: 6e8a62112a4c9f94794fe378d2f428f4, type: 3}
+  - {fileID: 21300000, guid: e7941e23300c8fa4ebf67c02fd79f414, type: 3}
   playerStandartInteractionVFX: {fileID: 4941417330273091954}
   vfxResetDelay: 2
-  coinsAmount: 1
+  idleBonusVFX: {fileID: 8556669251420256480}
 --- !u!50 &6998133680001603724
 Rigidbody2D:
   serializedVersion: 4
@@ -155,9 +154,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.38, y: -0.17}
+  m_Offset: {x: -0.16, y: -0.06}
   serializedVersion: 2
-  m_Radius: 1.4
+  m_Radius: 1.97
 --- !u!1001 &5067608604142919822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,4 +223,71 @@ ParticleSystem:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4711337195011250, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
   m_PrefabInstance: {fileID: 5067608604142919822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8556669251401274164
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8546567556117332951}
+    m_Modifications:
+    - target: {fileID: 167898, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_Name
+      value: Kitchen Mini Game Item Bonus
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+--- !u!4 &8556669251400810446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+  m_PrefabInstance: {fileID: 8556669251401274164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8556669251420256480 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19835860, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+  m_PrefabInstance: {fileID: 8556669251401274164}
   m_PrefabAsset: {fileID: 0}

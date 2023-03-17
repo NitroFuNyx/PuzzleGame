@@ -1,17 +1,14 @@
 using UnityEngine;
-using System.Collections;
 
-public class KitchenMiniGameItemCoin : KitchenMiniGameItem
+public class KitchenMiniGameItemBonus_CoinsMagnet : KitchenMiniGameItem
 {
-    [Header("Item Data")]
+    [Header("Idle VFX")]
     [Space]
-    [SerializeField] private int coinsAmount = 1;
-
-    public int CoinsAmount { get => coinsAmount; }
+    [SerializeField] private ParticleSystem idleBonusVFX;
 
     public override void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player)
     {
-        if(player.CanCollectItems)
+        if (player.CanCollectItems)
         {
             PlayItemInteractionVFX();
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
