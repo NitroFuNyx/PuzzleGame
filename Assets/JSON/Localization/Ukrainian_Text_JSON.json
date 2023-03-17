@@ -20,14 +20,14 @@
       },
       "selectGameModeUITexts":{
          "uiTitleText":"обери режим гри",
-         "puzzlePanelText":"пазл",
+         "puzzlePanelText":"головоломка",
          "miniGamePanelText":"міні гра"
       },
       "selectCharacterUITexts":{
          "uiTitleText":"обери персонажа"
       },
       "choosePuzzleLevelUITexts":{
-         "uiTitleText":"пазл",
+         "uiTitleText":"головоломка",
          "startText":"старт",
          "bestTimeText":"найкращий час",
          "currentTimeText":"поточний час"

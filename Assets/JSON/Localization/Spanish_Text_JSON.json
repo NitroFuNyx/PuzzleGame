@@ -1,0 +1,41 @@
+{
+   "data":{
+      "mainscreenUITexts":{
+         "titleText":"pulse para empezar"
+      },
+      "settingsUITexts":{
+         "mainSettingsPanel":{
+            "uiTitleText":"ajustes",
+            "soundsButtonText":"suena",
+            "languageButtonText":"idioma",
+            "infoButtonText":"información"
+         },
+         "changeLanguagePanel":{
+            "uiTitleText":"elegir idioma"
+         },
+         "infoPanel":{
+            "uiTitleText":"acerca de",
+            "infoText":"Juego desarrollado por Bazuka Studio. ¡Únete a nuestra comunidad de YouTube y recibe los últimos contenidos!"
+         }
+      },
+      "selectGameModeUITexts":{
+         "uiTitleText":"seleccionar modo de juego",
+         "puzzlePanelText":"rompecabezas",
+         "miniGamePanelText":"minijuego"
+      },
+      "selectCharacterUITexts":{
+         "uiTitleText":"elegir carácter"
+      },
+      "choosePuzzleLevelUITexts":{
+         "uiTitleText":"rompecabezas",
+         "startText":"iniciar",
+         "bestTimeText":"mejor momento",
+         "currentTimeText":"momento actual"
+      },
+      "chooseMiniGameLevelUITexts":{
+         "uiTitleText":"minijuego",
+         "startText":"iniciar",
+         "bestScore":"mejor puntuacin"
+      }
+   }
+}

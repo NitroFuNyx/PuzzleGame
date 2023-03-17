@@ -15463,6 +15463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9c7f018bc990f44abcc9c95980414f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDebuffTime: 2
+  currentDebuffTime: 0
 --- !u!1 &1824544941
 GameObject:
   m_ObjectHideFlags: 0
@@ -18377,6 +18379,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: englishTextsJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: bd76a406d15bfd14b8c3a7bd96e5606c, type: 3}
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: spanishTextsJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: d578b36b14a63014f9f401254f56b400, type: 3}
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: ukrainianTextsJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 4e0bd5a5db067094894013ece6b76940, type: 3}
     - target: {fileID: 6632884457319223302, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
       propertyPath: m_RootOrder
       value: 13
