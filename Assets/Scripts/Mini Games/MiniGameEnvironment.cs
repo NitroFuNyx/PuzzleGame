@@ -31,6 +31,16 @@ public class MiniGameEnvironment : MonoBehaviour
         playerCollisionManager = playerMoveManager.GetComponent<PlayerCollisionManager>();
     }
 
+    private void Start()
+    {
+        SubscribeOnEvents();
+    }
+
+    private void OnDestroy()
+    {
+        UnsubscribeFromEvents();
+    }
+
     #region Zenject
     [Inject]
     private void Construct(MiniGameUI miniGameUI, TimersManager timersManager, CurrentGameManager currentGameManager, ResourcesManager resourcesManager)
@@ -47,12 +57,26 @@ public class MiniGameEnvironment : MonoBehaviour
         StartCoroutine(StartGameCoroutine());
     }
 
+    private void SubscribeOnEvents()
+    {
+        playerCollisionManager.OnAdditionalTimeBonusCollected += OnPlayerCollectedBonus_AdditionaTime_ExecuteReaction;
+    }
+
+    private void UnsubscribeFromEvents()
+    {
+        playerCollisionManager.OnAdditionalTimeBonusCollected -= OnPlayerCollectedBonus_AdditionaTime_ExecuteReaction;
+    }
+
     private void TimerFinished_ExecuteReaction()
     {
         playerMoveManager.ChangeCheckingInputState(false);
         _resourcesManager.SaveLevelData();
         StartCoroutine(TimerFinished_ExecuteReactionCoroutine());
-        //_currentGameManager.SetGameFinisheData();
+    }
+
+    private void OnPlayerCollectedBonus_AdditionaTime_ExecuteReaction(float additionalTime)
+    {
+        _miniGameUI.ShowBonusTime(additionalTime);
     }
 
     private IEnumerator StartGameCoroutine()

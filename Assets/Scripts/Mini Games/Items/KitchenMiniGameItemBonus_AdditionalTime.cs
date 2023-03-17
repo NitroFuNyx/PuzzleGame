@@ -5,6 +5,11 @@ public class KitchenMiniGameItemBonus_AdditionalTime : KitchenMiniGameItem
     [Header("Idle VFX")]
     [Space]
     [SerializeField] private ParticleSystem idleBonusVFX;
+    [Header("Bonus Data")]
+    [Space]
+    [SerializeField] private float bonusTime = 5f;
+
+    public float BonusTime { get => bonusTime; }
 
     private void OnEnable()
     {

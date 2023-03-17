@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8546567556117332951}
   - component: {fileID: 8546567556117332944}
   - component: {fileID: 7905152309776117085}
-  - component: {fileID: 7073262880647219885}
+  - component: {fileID: 5662396307603823190}
   - component: {fileID: 6998133680001603724}
   - component: {fileID: 7893974994799795944}
   m_Layer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc14d910fa2555f4f9ec666ef0cec20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7073262880647219885
+--- !u!114 &5662396307603823190
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,14 +111,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8546567556117332945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91df307d6fe27f4ea5c53523b494f83, type: 3}
+  m_Script: {fileID: 11500000, guid: 11810b35fbe63a1428c5d26e1bbcb961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 7
   itemsSpritesList:
   - {fileID: 21300000, guid: 2d9edfbe59f4afc49a3246e616843873, type: 3}
   playerStandartInteractionVFX: {fileID: 4941417330273091954}
-  vfxResetDelay: 2
   idleBonusVFX: {fileID: 6507910702734651218}
 --- !u!50 &6998133680001603724
 Rigidbody2D:

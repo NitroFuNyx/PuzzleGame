@@ -69,7 +69,7 @@ public class TimersManager : MonoBehaviour
         stopwatchActive = false;
     }
 
-    private string GetHoursAndMinutesAmount(int currentTimeValue)
+    public string GetHoursAndMinutesAmount(int currentTimeValue)
     {
         string amountString = "";
 
@@ -107,7 +107,7 @@ public class TimersManager : MonoBehaviour
         return amountString;
     }
 
-    private string GetSecondsAmount(int currentTimeValue)
+    public string GetSecondsAmount(int currentTimeValue)
     {
         string amountString;
 
@@ -120,6 +120,12 @@ public class TimersManager : MonoBehaviour
         }
 
         return amountString;
+    }
+
+    public void IncreaseMiniGameTimerValue(float time, TextMeshProUGUI timerText)
+    {
+        currentTimerValue += time;
+        timerText.text = $"{GetHoursAndMinutesAmount((int)currentTimerValue)}:{GetSecondsAmount((int)currentTimerValue)}";
     }
 
     private IEnumerator StartTimerCoroutine(float startTimerValue, TextMeshProUGUI timerText, Action OnTimerFinished)

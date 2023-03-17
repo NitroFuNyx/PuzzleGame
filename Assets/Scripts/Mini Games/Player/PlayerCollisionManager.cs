@@ -24,6 +24,8 @@ public class PlayerCollisionManager : MonoBehaviour
     #region Events Declaration
     public event Action OnCharacterStunned;
     public event Action OnCharacterStunnedStateFinished;
+
+    public event Action<float> OnAdditionalTimeBonusCollected;
     #endregion Events Declaration
 
     private void Awake()
@@ -61,6 +63,10 @@ public class PlayerCollisionManager : MonoBehaviour
         else if(collision.gameObject.TryGetComponent(out KitchenMiniGameDebuffItem item_Debuff))
         {
             StartCoroutine(DebuffItemCollision_ExecuteReactionCoroutine());
+        }
+        else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_AdditionalTime item_Bonus))
+        {
+            OnAdditionalTimeBonusCollected?.Invoke(item_Bonus.BonusTime);
         }
     }
 

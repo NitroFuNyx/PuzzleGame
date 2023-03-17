@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using TMPro;
+using DG.Tweening;
 using Zenject;
 
 public class MiniGameUI : MainCanvasPanel
@@ -8,9 +10,17 @@ public class MiniGameUI : MainCanvasPanel
     [Header("Texts")]
     [Space]
     [SerializeField] private TextMeshProUGUI currentGameTimerText;
+    [SerializeField] private TextMeshProUGUI timerBonusText;
     [SerializeField] private TextMeshProUGUI delayGameTimerTitleText;
     [SerializeField] private TextMeshProUGUI startGameDelayTimerText;
     [SerializeField] private TextMeshProUGUI coinsText;
+    [Header("Delays")]
+    [Space]
+    [SerializeField] private float hideBonusTimeTextDelay = 2f;
+    [Header("Durations")]
+    [Space]
+    [SerializeField] private float bonusTimeTextChangeAlphaDurationMax = 1f;
+    [SerializeField] private float bonusTimeTextChangeAlphaDurationMin = 0.01f;
 
     private TimersManager _timersManager;
     private ResourcesManager _resourcesManager;
@@ -20,6 +30,7 @@ public class MiniGameUI : MainCanvasPanel
         SubscribeOnEvents();
 
         coinsText.text = "0";
+        timerBonusText.text = "";
     }
 
     private void OnDestroy()
@@ -52,6 +63,14 @@ public class MiniGameUI : MainCanvasPanel
         _timersManager.StartTimer(timerValue, currentGameTimerText, OnTimerFinished);
     }
 
+    public void ShowBonusTime(float time)
+    {
+        timerBonusText.text = $"+ {_timersManager.GetHoursAndMinutesAmount((int)time)}:{_timersManager.GetSecondsAmount((int)time)}";
+        _timersManager.IncreaseMiniGameTimerValue(time, currentGameTimerText);
+        timerBonusText.DOFade(1f, bonusTimeTextChangeAlphaDurationMin);
+        StartCoroutine(HideBonusTimeTextCoroutine());
+    }
+
     private void SubscribeOnEvents()
     {
         _resourcesManager.OnLevelCoinsAmountChanged += OnLevelCoinsAmountChanged_ExecuteReaction;
@@ -65,5 +84,11 @@ public class MiniGameUI : MainCanvasPanel
     private void OnLevelCoinsAmountChanged_ExecuteReaction(int coinsAmount)
     {
         coinsText.text = $"{coinsAmount}";
+    }
+
+    private IEnumerator HideBonusTimeTextCoroutine()
+    {
+        yield return new WaitForSeconds(hideBonusTimeTextDelay);
+        timerBonusText.DOFade(0f, bonusTimeTextChangeAlphaDurationMax);
     }
 }
