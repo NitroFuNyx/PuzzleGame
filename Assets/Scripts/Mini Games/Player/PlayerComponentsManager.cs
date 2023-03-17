@@ -32,12 +32,18 @@ public class PlayerComponentsManager : MonoBehaviour
     {
         moveManager.OnCharacterStartMoving += MoveManager_ExecuteReaction_OnPlayerStartMoving;
         moveManager.OnCharacterStopMoving += MoveManager_ExecuteReaction_OnPlayerStopMoving;
+
+        collisionManager.OnCharacterStunned += CollisionManager_ExecuteReaction_OnPlayerStunned;
+        collisionManager.OnCharacterStunnedStateFinished += CollisionManager_ExecuteReaction_OnCharacterStunnedStateFinished;
     }
 
     private void UnsubscribeFromEvents()
     {
         moveManager.OnCharacterStartMoving -= MoveManager_ExecuteReaction_OnPlayerStartMoving;
         moveManager.OnCharacterStopMoving -= MoveManager_ExecuteReaction_OnPlayerStopMoving;
+
+        collisionManager.OnCharacterStunned -= CollisionManager_ExecuteReaction_OnPlayerStunned;
+        collisionManager.OnCharacterStunnedStateFinished -= CollisionManager_ExecuteReaction_OnCharacterStunnedStateFinished;
     }
 
     private void MoveManager_ExecuteReaction_OnPlayerStartMoving()
@@ -48,5 +54,16 @@ public class PlayerComponentsManager : MonoBehaviour
     private void MoveManager_ExecuteReaction_OnPlayerStopMoving()
     {
         animationsManager.SetAnimationState_StopWalking();
+    }
+
+    private void CollisionManager_ExecuteReaction_OnPlayerStunned()
+    {
+        moveManager.ChangeCheckingInputState(false);
+        animationsManager.SetAnimationState_StopWalking();
+    }
+
+    private void CollisionManager_ExecuteReaction_OnCharacterStunnedStateFinished()
+    {
+        moveManager.ChangeCheckingInputState(true);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using Zenject;
 using System.Collections;
 
@@ -8,6 +9,9 @@ public class PlayerCollisionManager : MonoBehaviour
     [Space]
     [SerializeField] private float startDebuffTime = 2f;
     [SerializeField] private float currentDebuffTime = 0f;
+    [Header("VFX")]
+    [Space]
+    [SerializeField] private ParticleSystem stunVFX;
 
     private BoxCollider2D boxCollider;
 
@@ -16,6 +20,11 @@ public class PlayerCollisionManager : MonoBehaviour
     private bool canCollectItems = false;
 
     public bool CanCollectItems { get => canCollectItems; private set => canCollectItems = value; }
+
+    #region Events Declaration
+    public event Action OnCharacterStunned;
+    public event Action OnCharacterStunnedStateFinished;
+    #endregion Events Declaration
 
     private void Awake()
     {
@@ -59,13 +68,17 @@ public class PlayerCollisionManager : MonoBehaviour
     {
         currentDebuffTime = startDebuffTime;
         canCollectItems = false;
+        OnCharacterStunned?.Invoke();
+        stunVFX.Play();
 
-        while(currentDebuffTime > 0f)
+        while (currentDebuffTime > 0f)
         {
             yield return new WaitForSeconds(1f);
             currentDebuffTime--;
         }
 
+        stunVFX.Stop();
         canCollectItems = true;
+        OnCharacterStunnedStateFinished?.Invoke();
     }
 }

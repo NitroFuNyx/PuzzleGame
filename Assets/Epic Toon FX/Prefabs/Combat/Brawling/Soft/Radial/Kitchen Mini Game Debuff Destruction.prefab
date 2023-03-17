@@ -187,7 +187,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.5849056, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4997,7 +4997,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9647059, g: 0.1254902, b: 0.14117648, a: 1}
+      maxColor: {r: 0.41509432, g: 0.17426129, b: 0.17927857, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5059,8 +5059,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.13
-      minScalar: 0.09000001
+      scalar: 0.3
+      minScalar: 0.09
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5094,8 +5094,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 1
+      scalar: 0.13
+      minScalar: 0.09
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5147,8 +5147,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 1
+      scalar: 0.13
+      minScalar: 0.09
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5715,7 +5715,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 25
+        scalar: 120
         minScalar: 10
         maxCurve:
           serializedVersion: 2
@@ -6110,7 +6110,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 0}
+        key0: {r: 1, g: 1, b: 1, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -6128,7 +6128,7 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 8267
-        atime2: 31415
+        atime2: 53392
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -9656,7 +9656,7 @@ Transform:
   m_GameObject: {fileID: 1791144729913606}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4256451611512866}

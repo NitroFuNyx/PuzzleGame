@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class KitchenMiniGameDebuffItem : KitchenMiniGameItem
 {
@@ -8,6 +9,16 @@ public class KitchenMiniGameDebuffItem : KitchenMiniGameItem
     [Header("VFX")]
     [Space]
     [SerializeField] private ParticleSystem playerStandartInteractionVFX;
+    [Header("Delays")]
+    [Space]
+    [SerializeField] private float vfxResetDelay = 2f;
+
+    private Vector3 startPos;
+
+    private void Start()
+    {
+        startPos = transform.localPosition;   
+    }
 
     public override void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player)
     {
@@ -16,6 +27,14 @@ public class KitchenMiniGameDebuffItem : KitchenMiniGameItem
             playerStandartInteractionVFX.transform.SetParent(null);
             playerStandartInteractionVFX.Play();
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
+            //StartCoroutine(ResetVFXCoroutine());
         }
+    }
+
+    private IEnumerator ResetVFXCoroutine()
+    {
+        yield return new WaitForSeconds(vfxResetDelay);
+        playerStandartInteractionVFX.transform.SetParent(transform);
+        playerStandartInteractionVFX.transform.localPosition = startPos;
     }
 }
