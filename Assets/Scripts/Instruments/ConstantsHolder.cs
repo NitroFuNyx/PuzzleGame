@@ -1,7 +1,7 @@
 
 public class Layers
 {
-   
+    public const int KitchenMiniGameBottomBorderLayer = 6;
 }
 
 public class CharacterMoveAnimations

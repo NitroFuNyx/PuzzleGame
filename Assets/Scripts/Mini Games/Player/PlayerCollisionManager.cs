@@ -13,6 +13,6 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"Collision");
+        //Debug.Log($"Collision");
     }
 }

@@ -45,5 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGameCoinItemsPoolSize: 30
-  miniGameItemsBonusesPool: []
-  miniGameItemBonusPrefab: {fileID: 7905152309776117085, guid: 4fd68c6e1f6ff934597c1b423d180dbe, type: 3}
+  miniGameItemsCoinsPool_Coin1: []
+  miniGameItemsCoinsPool_Coin2: []
+  miniGameItemsCoinsPool_Coin5: []
+  miniGameItemsCoinsPool_Coin10: []
+  miniGameItemsCoinsPool_Debuff: []
+  miniGameItemCoinPrefab_1Coin: {fileID: 7905152309776117085, guid: 4fd68c6e1f6ff934597c1b423d180dbe, type: 3}
+  miniGameItemCoinPrefab_2Coins: {fileID: 7905152309776117085, guid: aeed19b25f5ba3846bd66d04d48f0704, type: 3}
+  miniGameItemCoinPrefab_5Cois: {fileID: 7905152309776117085, guid: 40bfe044007a3864d9468f73470d6ab0, type: 3}
+  miniGameItemCoinPrefab_10Coins: {fileID: 7905152309776117085, guid: 151652cf26b97e14e86e448e32d3634b, type: 3}
+  miniGameItemCoinPrefab_Debuff: {fileID: 7905152309776117085, guid: 6c0c696157e6b6b4e9f7ac9193d9accf, type: 3}

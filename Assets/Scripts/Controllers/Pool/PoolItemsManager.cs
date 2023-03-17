@@ -23,6 +23,7 @@ public class PoolItemsManager : MonoBehaviour
     [SerializeField] private PoolItem miniGameItemCoinPrefab_Debuff;
 
     private Dictionary<KitchenMiniGameItems, List<PoolItem>> kitchenMiniGameItemsDictionary = new Dictionary<KitchenMiniGameItems, List<PoolItem>>();
+    private Dictionary<List<PoolItem>, Transform> kitchenMiniGameItemsListsHoldersDictionary = new Dictionary<List<PoolItem>, Transform>();
 
     private void Awake()
     {
@@ -64,11 +65,13 @@ public class PoolItemsManager : MonoBehaviour
         return poolItem;
     }
 
-    public void ReturnItemToPool(PoolItem _poolItem, List<PoolItem> poolItemsList)
+    public void ReturnItemToPool(PoolItem _poolItem, KitchenMiniGameItems itemType)
     {
+        List<PoolItem> poolItemsList = kitchenMiniGameItemsDictionary[itemType];
+
         _poolItem.gameObject.SetActive(false);
-        _poolItem.transform.SetParent(transform);
-        _poolItem.transform.position = Vector3.zero;
+        _poolItem.transform.SetParent(kitchenMiniGameItemsListsHoldersDictionary[poolItemsList]);
+        _poolItem.transform.localPosition = Vector3.zero;
         poolItemsList.Add(_poolItem);
     }
 
@@ -78,6 +81,8 @@ public class PoolItemsManager : MonoBehaviour
         poolItemsParent.transform.SetParent(transform);
         poolItemsParent.name = $"{itemName} Items Parent";
         poolItemsParent.transform.position = new Vector3(100f, 0f, 0f);
+
+        kitchenMiniGameItemsListsHoldersDictionary.Add(poolItemsList, poolItemsParent.transform);
 
         for (int i = 0; i < poolSize; i++)
         {
