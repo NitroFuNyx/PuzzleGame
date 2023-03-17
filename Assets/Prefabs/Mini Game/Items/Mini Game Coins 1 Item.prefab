@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7905152309776117085}
   - component: {fileID: 5672139691787497891}
   - component: {fileID: 6998133680001603724}
+  - component: {fileID: 7921001435323204776}
   m_Layer: 0
   m_Name: Mini Game Coins 1 Item
   m_TagString: Untagged
@@ -138,3 +139,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &7921001435323204776
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8546567556117332945}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.38, y: -0.17}
+  serializedVersion: 2
+  m_Radius: 1.4
