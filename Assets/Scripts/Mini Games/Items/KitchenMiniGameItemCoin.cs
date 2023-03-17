@@ -9,13 +9,17 @@ public class KitchenMiniGameItemCoin : KitchenMiniGameItem
 
     public int CoinsAmount { get => coinsAmount; }
 
+    private void OnEnable()
+    {
+        StartCoroutine(ResetPlayerInteractionVFXCoroutine());
+    }
+
     public override void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player)
     {
         if(player.CanCollectItems)
         {
             PlayItemInteractionVFX();
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
-            //StartCoroutine(ResetVFXCoroutine());
         }
     }
 }

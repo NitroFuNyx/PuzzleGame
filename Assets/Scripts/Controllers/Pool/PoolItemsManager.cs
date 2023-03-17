@@ -6,7 +6,7 @@ public class PoolItemsManager : MonoBehaviour
     [Header("Pool Data")]
     [Space]
     [SerializeField] private int miniGameCoinItemsPoolSize = 50;
-    [Header("Active Pools")]
+    [Header("Active Kitchen Mini Game Pools")]
     [Space]
     [SerializeField] private List<PoolItem> miniGameItemsCoinsPool_Coin1 = new List<PoolItem>();
     [SerializeField] private List<PoolItem> miniGameItemsCoinsPool_Coin2 = new List<PoolItem>();
@@ -14,13 +14,24 @@ public class PoolItemsManager : MonoBehaviour
     [SerializeField] private List<PoolItem> miniGameItemsCoinsPool_Coin10 = new List<PoolItem>();
     [Space]
     [SerializeField] private List<PoolItem> miniGameItemsCoinsPool_Debuff = new List<PoolItem>();
+    [Space]
+    [SerializeField] private List<PoolItem> miniGameItemsBonusesPool_AdditionalTime = new List<PoolItem>();
+    [SerializeField] private List<PoolItem> miniGameItemsBonusesPool_DoubleCoins = new List<PoolItem>();
+    [SerializeField] private List<PoolItem> miniGameItemsBonusesPool_CoinsMagnet = new List<PoolItem>();
+    [SerializeField] private List<PoolItem> miniGameItemsBonusesPool_Shield = new List<PoolItem>();
     [Header("Mini Game Prefabs")]
     [Space]
     [SerializeField] private PoolItem miniGameItemCoinPrefab_1Coin;
     [SerializeField] private PoolItem miniGameItemCoinPrefab_2Coins;
     [SerializeField] private PoolItem miniGameItemCoinPrefab_5Cois;
     [SerializeField] private PoolItem miniGameItemCoinPrefab_10Coins;
+    [Space]
     [SerializeField] private PoolItem miniGameItemCoinPrefab_Debuff;
+    [Space]
+    [SerializeField] private PoolItem miniGameItemBonusPrefab_AdditionalTime;
+    [SerializeField] private PoolItem miniGameItemBonusPrefab_DoubleCoins;
+    [SerializeField] private PoolItem miniGameItemBonusPrefab_CoinsMagnet;
+    [SerializeField] private PoolItem miniGameItemBonusPrefab_Shield;
 
     private Dictionary<KitchenMiniGameItems, List<PoolItem>> kitchenMiniGameItemsDictionary = new Dictionary<KitchenMiniGameItems, List<PoolItem>>();
     private Dictionary<List<PoolItem>, Transform> kitchenMiniGameItemsListsHoldersDictionary = new Dictionary<List<PoolItem>, Transform>();
@@ -36,7 +47,13 @@ public class PoolItemsManager : MonoBehaviour
         CreatePool(miniGameItemCoinPrefab_2Coins, miniGameItemsCoinsPool_Coin2, "Mini Game Item Coin 2", miniGameCoinItemsPoolSize);
         CreatePool(miniGameItemCoinPrefab_5Cois, miniGameItemsCoinsPool_Coin5, "Mini Game Item Coin 5", miniGameCoinItemsPoolSize);
         CreatePool(miniGameItemCoinPrefab_10Coins, miniGameItemsCoinsPool_Coin10, "Mini Game Item Coin 10", miniGameCoinItemsPoolSize);
+
         CreatePool(miniGameItemCoinPrefab_Debuff, miniGameItemsCoinsPool_Debuff, "Mini Game Item Debuff", miniGameCoinItemsPoolSize);
+
+        CreatePool(miniGameItemBonusPrefab_AdditionalTime, miniGameItemsBonusesPool_AdditionalTime, "Mini Game Item Bonus Additional Time", miniGameCoinItemsPoolSize);
+        CreatePool(miniGameItemBonusPrefab_DoubleCoins, miniGameItemsBonusesPool_DoubleCoins, "Mini Game Item Bonus Double Coins", miniGameCoinItemsPoolSize);
+        CreatePool(miniGameItemBonusPrefab_CoinsMagnet, miniGameItemsBonusesPool_CoinsMagnet, "Mini Game Item Bonus Coins Magnet", miniGameCoinItemsPoolSize);
+        CreatePool(miniGameItemBonusPrefab_Shield, miniGameItemsBonusesPool_Shield, "Mini Game Item Bonus Shield", miniGameCoinItemsPoolSize);
     }
 
     public PoolItem SpawnItemFromPool(Vector3 _spawnPos, Quaternion _rotation, Transform _parent, KitchenMiniGameItems itemType)
@@ -101,5 +118,9 @@ public class PoolItemsManager : MonoBehaviour
         kitchenMiniGameItemsDictionary.Add(KitchenMiniGameItems.Coins_5, miniGameItemsCoinsPool_Coin5);
         kitchenMiniGameItemsDictionary.Add(KitchenMiniGameItems.Coins_10, miniGameItemsCoinsPool_Coin10);
         kitchenMiniGameItemsDictionary.Add(KitchenMiniGameItems.Debuff, miniGameItemsCoinsPool_Debuff);
+        kitchenMiniGameItemsDictionary.Add(KitchenMiniGameItems.Bonus_AdditionalTime, miniGameItemsBonusesPool_AdditionalTime);
+        kitchenMiniGameItemsDictionary.Add(KitchenMiniGameItems.Bonus_DoubleCoins, miniGameItemsBonusesPool_DoubleCoins);
+        kitchenMiniGameItemsDictionary.Add(KitchenMiniGameItems.Bonus_CoinsMagnet, miniGameItemsBonusesPool_CoinsMagnet);
+        kitchenMiniGameItemsDictionary.Add(KitchenMiniGameItems.Bonus_Shield, miniGameItemsBonusesPool_Shield);
     }
 }

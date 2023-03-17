@@ -12,10 +12,7 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     [SerializeField] private List<Sprite> itemsSpritesList = new List<Sprite>();
     [Header("VFX")]
     [Space]
-    [SerializeField] private ParticleSystem playerStandartInteractionVFX;
-    [Header("Delays")]
-    [Space]
-    [SerializeField] private float vfxResetDelay = 2f;
+    [SerializeField] protected ParticleSystem playerStandartInteractionVFX;
 
     protected PoolItemsManager _poolItemsManager;
 
@@ -23,6 +20,8 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     protected PoolItem poolItemComponent;
 
     private Vector3 startPos;
+
+    private float vfxResetDelay = 0.1f;
 
     public KitchenMiniGameItems ItemType { get => itemType; }
 
@@ -65,7 +64,7 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
 
     public abstract void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player);
 
-    protected IEnumerator ResetVFXCoroutine()
+    protected IEnumerator ResetPlayerInteractionVFXCoroutine()
     {
         yield return new WaitForSeconds(vfxResetDelay);
         playerStandartInteractionVFX.transform.SetParent(transform);

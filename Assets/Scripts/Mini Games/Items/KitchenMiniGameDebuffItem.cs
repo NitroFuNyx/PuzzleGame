@@ -7,13 +7,17 @@ public class KitchenMiniGameDebuffItem : KitchenMiniGameItem
     [Space]
     [SerializeField] private float debuffTime = 2f;
 
+    private void OnEnable()
+    {
+        StartCoroutine(ResetPlayerInteractionVFXCoroutine());
+    }
+
     public override void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player)
     {
         if(player.CanCollectItems)
         {
             PlayItemInteractionVFX();
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
-            //StartCoroutine(ResetVFXCoroutine());
         }
     }
 }

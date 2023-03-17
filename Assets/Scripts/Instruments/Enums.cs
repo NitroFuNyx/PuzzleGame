@@ -27,5 +27,5 @@ public enum CharacterTypes
 
 public enum KitchenMiniGameItems
 {
-    Coin_1, Coins_2, Coins_5, Coins_10, Debuff, Bonus_AdditionalTime, Bonus_DoubleCoins, Bonus_CoinsMagnet, Coins_Shield
+    Coin_1, Coins_2, Coins_5, Coins_10, Debuff, Bonus_AdditionalTime, Bonus_DoubleCoins, Bonus_CoinsMagnet, Bonus_Shield
 }
