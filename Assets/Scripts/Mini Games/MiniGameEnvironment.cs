@@ -22,7 +22,14 @@ public class MiniGameEnvironment : MonoBehaviour
     private CurrentGameManager _currentGameManager;
     private ResourcesManager _resourcesManager;
 
+    private PlayerCollisionManager playerCollisionManager;
+
     public int EnvironmentIndex { get => environmentIndex; }
+
+    private void Awake()
+    {
+        playerCollisionManager = playerMoveManager.GetComponent<PlayerCollisionManager>();
+    }
 
     #region Zenject
     [Inject]
@@ -65,6 +72,7 @@ public class MiniGameEnvironment : MonoBehaviour
         _miniGameUI.HideDelayTimerText();
         _miniGameUI.StartCurrentGameTimer(timeForLevel, TimerFinished_ExecuteReaction);
         playerMoveManager.ChangeCheckingInputState(true);
+        playerCollisionManager.ChangeState_CanCollectItems(true);
         kitchenMiniGameSpawnManager.StartSpawningItems();
     }
 

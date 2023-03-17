@@ -6,8 +6,13 @@ public class KitchenMiniGameItemCoin : KitchenMiniGameItem
     [Space]
     [SerializeField] private int coinsAmount = 1;
 
-    public override void OnInteractionWithPlayer_ExecuteReaction()
+    public int CoinsAmount { get => coinsAmount; }
+
+    public override void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player)
     {
-        
+        if(player.CanCollectItems)
+        {
+            _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
+        }
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public abstract class KitchenMiniGameItem : MonoBehaviour
 {
@@ -11,10 +10,12 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     [Space]
     [SerializeField] private List<Sprite> coinsSpritesList = new List<Sprite>();
 
-    private PoolItemsManager _poolItemsManager;
+    protected PoolItemsManager _poolItemsManager;
 
     protected SpriteRenderer spriteRenderer;
-    private PoolItem poolItemComponent;
+    protected PoolItem poolItemComponent;
+
+    public KitchenMiniGameItems ItemType { get => itemType; }
 
     private void Awake()
     {
@@ -34,15 +35,11 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
         {
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
         }
+        else if(collision.TryGetComponent(out PlayerCollisionManager player))
+        {
+            OnInteractionWithPlayer_ExecuteReaction(player);
+        }
     }
-
-    //#region Zenject
-    //[Inject]
-    //private void Construct(PoolItemsManager poolItemsManager)
-    //{
-    //    _poolItemsManager = poolItemsManager;
-    //}
-    //#endregion Zenject
 
     protected void SetItemSprite()
     {
@@ -50,5 +47,5 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
         spriteRenderer.sprite = coinsSpritesList[index];
     }
 
-    public abstract void OnInteractionWithPlayer_ExecuteReaction(); 
+    public abstract void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player); 
 }

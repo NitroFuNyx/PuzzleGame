@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using Zenject;
 
 public class ResourcesManager : MonoBehaviour
@@ -11,6 +12,10 @@ public class ResourcesManager : MonoBehaviour
     private PlayerDataManager _playerDataManager;
 
     public int WholeCoinsAmount { get => wholeCoinsAmount; private set => wholeCoinsAmount = value; }
+
+    #region Events Declaration
+    public event Action<int> OnLevelCoinsAmountChanged;
+    #endregion Events Declaration
 
     private void Start()
     {
@@ -33,6 +38,7 @@ public class ResourcesManager : MonoBehaviour
     public void IncreaseCurrentLevelCoins(int coins)
     {
         currentLevelCoinsAmount += coins;
+        OnLevelCoinsAmountChanged?.Invoke(currentLevelCoinsAmount);
     }
 
     public void DecreaseCurrentLevelCoins(int coins)
@@ -41,6 +47,8 @@ public class ResourcesManager : MonoBehaviour
 
         if (currentLevelCoinsAmount < 0)
             currentLevelCoinsAmount = 0;
+
+        OnLevelCoinsAmountChanged?.Invoke(currentLevelCoinsAmount);
     }
 
     public void AddCurrentLevelCoinsToWholeCoinsAmount()
@@ -51,6 +59,7 @@ public class ResourcesManager : MonoBehaviour
     public void ResetCurrentLevelCoinsData()
     {
         currentLevelCoinsAmount = 0;
+        OnLevelCoinsAmountChanged?.Invoke(currentLevelCoinsAmount);
     }
 
     public void SaveLevelData()

@@ -4,6 +4,7 @@ public class PlayerComponentsManager : MonoBehaviour
 {
     private PlayerMoveManager moveManager;
     private PlayerAnimationsManager animationsManager;
+    private PlayerCollisionManager collisionManager;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayerComponentsManager : MonoBehaviour
     {
         moveManager = GetComponent<PlayerMoveManager>();
         animationsManager = GetComponent<PlayerAnimationsManager>();
+        collisionManager = GetComponent<PlayerCollisionManager>();
     }
 
     private void SubscribeOnEvents()
