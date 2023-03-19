@@ -18,17 +18,27 @@ public class PlayerCollisionManager : MonoBehaviour
     [Space]
     [SerializeField] private float startShieldBonusTime = 5f;
     [SerializeField] private float currentShieldBonusTime = 0f;
+    [Header("Coins Magnet Bonus Data")]
+    [Space]
+    [SerializeField] private float startCoinsMagnetBonusTime = 5f;
+    [SerializeField] private float currentCoinsMagnetBonusTime = 0f;
+    [Header("Collider Objects")]
+    [Space]
+    [SerializeField] private GameObject coinsMagnetColliderObject;
     [Header("VFX")]
     [Space]
     [SerializeField] private ParticleSystem stunVFX;
 
     private BoxCollider2D boxCollider;
+    private CircleCollider2D coinsMagnetCollider;
 
     private ResourcesManager _resourcesManager;
 
     private bool canCollectItems = false;
+
     private bool doubleCoinsBuffActivated = false;
     private bool shieldBonusActivated = false;
+    private bool coinsMagnetBonusActivated = false;
 
     public bool CanCollectItems { get => canCollectItems; private set => canCollectItems = value; }
 
@@ -42,6 +52,8 @@ public class PlayerCollisionManager : MonoBehaviour
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        coinsMagnetCollider = coinsMagnetColliderObject.GetComponent<CircleCollider2D>();
+        coinsMagnetCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -99,7 +111,6 @@ public class PlayerCollisionManager : MonoBehaviour
             else
             {
                 currentDoubleCoinsBonusTime += startDoubleCoinsBonusTime;
-                Debug.Log($"Surplus");
             }
         }
         else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_Shield itemBonus_ShieldBonus))
@@ -112,7 +123,19 @@ public class PlayerCollisionManager : MonoBehaviour
             else
             {
                 currentShieldBonusTime += startShieldBonusTime;
-                Debug.Log($"Surplus");
+            }
+        }
+        else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_CoinsMagnet itemBonus_MagnetBonus))
+        {
+            if (!coinsMagnetBonusActivated)
+            {
+                coinsMagnetBonusActivated = true;
+                coinsMagnetCollider.enabled = true;
+                StartCoroutine(CoinsMagnetBonusCollision_ExecuteReactionCoroutine());
+            }
+            else
+            {
+                currentCoinsMagnetBonusTime += startCoinsMagnetBonusTime;
             }
         }
     }
@@ -159,5 +182,19 @@ public class PlayerCollisionManager : MonoBehaviour
         }
 
         shieldBonusActivated = false;
+    }
+
+    private IEnumerator CoinsMagnetBonusCollision_ExecuteReactionCoroutine()
+    {
+        currentCoinsMagnetBonusTime = startCoinsMagnetBonusTime;
+
+        while (currentCoinsMagnetBonusTime > 0f)
+        {
+            yield return new WaitForSeconds(1f);
+            currentCoinsMagnetBonusTime--;
+        }
+
+        coinsMagnetBonusActivated = false;
+        coinsMagnetCollider.enabled = false;
     }
 }

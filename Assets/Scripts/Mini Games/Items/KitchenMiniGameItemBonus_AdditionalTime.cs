@@ -30,4 +30,8 @@ public class KitchenMiniGameItemBonus_AdditionalTime : KitchenMiniGameItem
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
         }
     }
+
+    public override void OnInteractionWithCoinsMagnet_ExecuteReaction(Collider2D collision)
+    {
+    }
 }

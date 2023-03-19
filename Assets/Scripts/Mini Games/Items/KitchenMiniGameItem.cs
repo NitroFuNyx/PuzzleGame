@@ -48,6 +48,10 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
         {
             OnInteractionWithPlayer_ExecuteReaction(player);
         }
+        else if (collision.gameObject.layer == Layers.KitchenMiniGamePlayerCoinsMagnetColliderLayer)
+        {
+            OnInteractionWithCoinsMagnet_ExecuteReaction(collision);
+        }
     }
 
     protected void SetItemSprite()
@@ -63,6 +67,8 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     }
 
     public abstract void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player);
+
+    public abstract void OnInteractionWithCoinsMagnet_ExecuteReaction(Collider2D collision);
 
     protected IEnumerator ResetPlayerInteractionVFXCoroutine()
     {

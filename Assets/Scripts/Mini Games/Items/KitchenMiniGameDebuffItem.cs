@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class KitchenMiniGameDebuffItem : KitchenMiniGameItem
 {
@@ -19,5 +18,9 @@ public class KitchenMiniGameDebuffItem : KitchenMiniGameItem
             PlayItemInteractionVFX();
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
         }
+    }
+
+    public override void OnInteractionWithCoinsMagnet_ExecuteReaction(Collider2D collision)
+    {
     }
 }

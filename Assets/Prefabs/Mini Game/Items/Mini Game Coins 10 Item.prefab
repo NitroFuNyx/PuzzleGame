@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5672139691787497891}
   - component: {fileID: -7802091571382627730}
   - component: {fileID: 73507314782215198}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Mini Game Coins 10 Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,8 +117,9 @@ MonoBehaviour:
   itemsSpritesList:
   - {fileID: 21300000, guid: 8d99c301453ed4a41973388c7961eeaa, type: 3}
   playerStandartInteractionVFX: {fileID: 2452574440371078158}
-  vfxResetDelay: 2
   coinsAmount: 10
+  moveSpeed: 5
+  distanceToPlayerTreshold: 0.1
 --- !u!50 &-7802091571382627730
 Rigidbody2D:
   serializedVersion: 4
@@ -173,9 +174,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8546567556117332951}
     m_Modifications:
+    - target: {fileID: 1247488390844810, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330689563897784, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506295714216768, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642055324967622, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786628109254920, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828182135312622, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1878065821641386, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
       propertyPath: m_Name
       value: Kitchen Mini Game Coin Destruction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878065821641386, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936436641071976, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4711337195011250, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
       propertyPath: m_RootOrder

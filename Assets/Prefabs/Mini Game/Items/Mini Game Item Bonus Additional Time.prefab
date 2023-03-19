@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1349779535935880487}
   - component: {fileID: 6998133680001603724}
   - component: {fileID: 7921001435323204776}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mini Game Item Bonus Additional Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,8 +118,8 @@ MonoBehaviour:
   itemsSpritesList:
   - {fileID: 21300000, guid: e7941e23300c8fa4ebf67c02fd79f414, type: 3}
   playerStandartInteractionVFX: {fileID: 4941417330273091954}
-  vfxResetDelay: 2
   idleBonusVFX: {fileID: 8556669251420256480}
+  bonusTime: 5
 --- !u!50 &6998133680001603724
 Rigidbody2D:
   serializedVersion: 4
@@ -164,9 +164,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8546567556117332951}
     m_Modifications:
+    - target: {fileID: 1247488390844810, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330689563897784, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506295714216768, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642055324967622, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786628109254920, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828182135312622, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1878065821641386, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
       propertyPath: m_Name
       value: Kitchen Mini Game Coin Destruction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878065821641386, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936436641071976, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4711337195011250, guid: 4bea99a565142254d9c238e986b159a1, type: 3}
       propertyPath: m_RootOrder
@@ -231,9 +263,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8546567556117332951}
     m_Modifications:
+    - target: {fileID: 122666, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 167898, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
       propertyPath: m_Name
       value: Kitchen Mini Game Item Bonus
+      objectReference: {fileID: 0}
+    - target: {fileID: 167898, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 486650, guid: 0fb0846ec7b795e4586da62f99d560a5, type: 3}
       propertyPath: m_RootOrder

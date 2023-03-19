@@ -20,4 +20,9 @@ public class KitchenMiniGameItemBonus_Shield : KitchenMiniGameItem
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
         }
     }
+
+    public override void OnInteractionWithCoinsMagnet_ExecuteReaction(Collider2D collision)
+    {
+       
+    }
 }

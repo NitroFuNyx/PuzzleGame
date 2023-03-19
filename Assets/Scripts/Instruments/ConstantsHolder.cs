@@ -2,6 +2,7 @@
 public class Layers
 {
     public const int KitchenMiniGameBottomBorderLayer = 6;
+    public const int KitchenMiniGamePlayerCoinsMagnetColliderLayer = 7;
 }
 
 public class CharacterMoveAnimations
