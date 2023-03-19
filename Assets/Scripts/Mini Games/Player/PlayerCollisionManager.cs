@@ -14,6 +14,10 @@ public class PlayerCollisionManager : MonoBehaviour
     [Space]
     [SerializeField] private float startDoubleCoinsBonusTime = 5f;
     [SerializeField] private float currentDoubleCoinsBonusTime = 0f;
+    [Header("Shield Bonus Data")]
+    [Space]
+    [SerializeField] private float startShieldBonusTime = 5f;
+    [SerializeField] private float currentShieldBonusTime = 0f;
     [Header("VFX")]
     [Space]
     [SerializeField] private ParticleSystem stunVFX;
@@ -24,6 +28,7 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private bool canCollectItems = false;
     private bool doubleCoinsBuffActivated = false;
+    private bool shieldBonusActivated = false;
 
     public bool CanCollectItems { get => canCollectItems; private set => canCollectItems = value; }
 
@@ -75,7 +80,10 @@ public class PlayerCollisionManager : MonoBehaviour
         }
         else if(collision.gameObject.TryGetComponent(out KitchenMiniGameDebuffItem item_Debuff))
         {
-            StartCoroutine(DebuffItemCollision_ExecuteReactionCoroutine());
+            if(!shieldBonusActivated)
+            {
+                StartCoroutine(DebuffItemCollision_ExecuteReactionCoroutine());
+            }
         }
         else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_AdditionalTime itemBonus_AdditionalCoins))
         {
@@ -91,6 +99,19 @@ public class PlayerCollisionManager : MonoBehaviour
             else
             {
                 currentDoubleCoinsBonusTime += startDoubleCoinsBonusTime;
+                Debug.Log($"Surplus");
+            }
+        }
+        else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_Shield itemBonus_ShieldBonus))
+        {
+            if (!shieldBonusActivated)
+            {
+                shieldBonusActivated = true;
+                StartCoroutine(ShieldBonusCollision_ExecuteReactionCoroutine());
+            }
+            else
+            {
+                currentShieldBonusTime += startShieldBonusTime;
                 Debug.Log($"Surplus");
             }
         }
@@ -125,5 +146,18 @@ public class PlayerCollisionManager : MonoBehaviour
         }
 
         doubleCoinsBuffActivated = false;
+    }
+
+    private IEnumerator ShieldBonusCollision_ExecuteReactionCoroutine()
+    {
+        currentShieldBonusTime = startShieldBonusTime;
+
+        while (currentShieldBonusTime > 0f)
+        {
+            yield return new WaitForSeconds(1f);
+            currentShieldBonusTime--;
+        }
+
+        shieldBonusActivated = false;
     }
 }
