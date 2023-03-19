@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using Zenject;
 using System.Collections;
+using TMPro;
 
 public class PlayerCollisionManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class PlayerCollisionManager : MonoBehaviour
     [Space]
     [SerializeField] private float startDebuffTime = 2f;
     [SerializeField] private float currentDebuffTime = 0f;
+    [Header("Double Coins Bonus Data")]
+    [Space]
+    [SerializeField] private float startDoubleCoinsBonusTime = 5f;
+    [SerializeField] private float currentDoubleCoinsBonusTime = 0f;
     [Header("VFX")]
     [Space]
     [SerializeField] private ParticleSystem stunVFX;
@@ -18,6 +23,7 @@ public class PlayerCollisionManager : MonoBehaviour
     private ResourcesManager _resourcesManager;
 
     private bool canCollectItems = false;
+    private bool doubleCoinsBuffActivated = false;
 
     public bool CanCollectItems { get => canCollectItems; private set => canCollectItems = value; }
 
@@ -58,15 +64,35 @@ public class PlayerCollisionManager : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemCoin item_Coin))
         {
-            _resourcesManager.IncreaseCurrentLevelCoins(item_Coin.CoinsAmount);
+            if(!doubleCoinsBuffActivated)
+            {
+                _resourcesManager.IncreaseCurrentLevelCoins(item_Coin.CoinsAmount);
+            }
+            else
+            {
+                _resourcesManager.IncreaseCurrentLevelCoins(item_Coin.CoinsAmount * 2);
+            }
         }
         else if(collision.gameObject.TryGetComponent(out KitchenMiniGameDebuffItem item_Debuff))
         {
             StartCoroutine(DebuffItemCollision_ExecuteReactionCoroutine());
         }
-        else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_AdditionalTime item_Bonus))
+        else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_AdditionalTime itemBonus_AdditionalCoins))
         {
-            OnAdditionalTimeBonusCollected?.Invoke(item_Bonus.BonusTime);
+            OnAdditionalTimeBonusCollected?.Invoke(itemBonus_AdditionalCoins.BonusTime);
+        }
+        else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_DoubleCoins itemBonus_DoubleCoins))
+        {
+            if(!doubleCoinsBuffActivated)
+            {
+                doubleCoinsBuffActivated = true;
+                StartCoroutine(DoubleCoinsBonusCollision_ExecuteReactionCoroutine());
+            }
+            else
+            {
+                currentDoubleCoinsBonusTime += startDoubleCoinsBonusTime;
+                Debug.Log($"Surplus");
+            }
         }
     }
 
@@ -86,5 +112,18 @@ public class PlayerCollisionManager : MonoBehaviour
         stunVFX.Stop();
         canCollectItems = true;
         OnCharacterStunnedStateFinished?.Invoke();
+    }
+
+    private IEnumerator DoubleCoinsBonusCollision_ExecuteReactionCoroutine()
+    {
+        currentDoubleCoinsBonusTime = startDoubleCoinsBonusTime;
+
+        while(currentDoubleCoinsBonusTime > 0f)
+        {
+            yield return new WaitForSeconds(1f);
+            currentDoubleCoinsBonusTime--;
+        }
+
+        doubleCoinsBuffActivated = false;
     }
 }

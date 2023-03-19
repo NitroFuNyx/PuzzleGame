@@ -15606,7 +15606,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDebuffTime: 4
   currentDebuffTime: 0
+  startDoubleCoinsBonusTime: 5
+  currentDoubleCoinsBonusTime: 0
   stunVFX: {fileID: 1819813545294908960}
+  text: {fileID: 0}
 --- !u!1 &1824544941
 GameObject:
   m_ObjectHideFlags: 0
