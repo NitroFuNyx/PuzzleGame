@@ -14,7 +14,6 @@ public class ExitButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        ShowAnimation_ButtonPressed();
-        //StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowPauseUI));
+        _mainUI.ExitGameMode();
     }
 }

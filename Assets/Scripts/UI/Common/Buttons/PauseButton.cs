@@ -14,7 +14,6 @@ public class PauseButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        ShowAnimation_ButtonPressed();
-        StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowPauseUI));
+        _mainUI.ShowPauseUI();
     }
 }

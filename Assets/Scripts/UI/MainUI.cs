@@ -109,6 +109,12 @@ public class MainUI : MonoBehaviour
         _systemTimeManager.ResumeGame();
         ActivateMainCanvasPanel(UIPanels.MiniGamePanel);
     }
+
+    public void ExitGameMode()
+    {
+        _systemTimeManager.ResumeGame();
+        ShowSelectGameLevel();
+    }
     #endregion Buttons Methods
 
     [ContextMenu("Show Transition")]

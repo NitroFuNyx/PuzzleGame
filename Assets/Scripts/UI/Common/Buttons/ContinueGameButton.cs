@@ -14,8 +14,6 @@ public class ContinueGameButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        //ShowAnimation_ButtonPressed();
-        //StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.HidePauseUI));
         _mainUI.HidePauseUI();
     }
 }
