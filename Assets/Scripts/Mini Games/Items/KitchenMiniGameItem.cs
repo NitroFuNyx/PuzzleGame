@@ -7,6 +7,7 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     [Header("Item Data")]
     [Space]
     [SerializeField] protected KitchenMiniGameItems itemType;
+    [SerializeField] protected Transform objectSprite; 
     [Header("Sprites")]
     [Space]
     [SerializeField] private List<Sprite> itemsSpritesList = new List<Sprite>();
