@@ -2,7 +2,7 @@
 public enum UIPanels
 {
     MainLoaderPanel, MainScreenPanel, SettingsPanel, SelectModePanel, SelectCharacterPanel, SelectGameLevel_Puzzle, SelectGameLevel_MiniGame,
-    MiniGamePanel, PuzzleGGamePanel
+    MiniGamePanel, PuzzleGamePanel, PausePanel
 }
 
 public enum Languages

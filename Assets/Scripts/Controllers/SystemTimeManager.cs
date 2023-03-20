@@ -4,7 +4,7 @@ public class SystemTimeManager : MonoBehaviour
 {
     public void PauseGame()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0.000000001f;
     }
 
     public void ResumeGame()

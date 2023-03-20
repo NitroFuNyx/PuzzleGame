@@ -16,6 +16,7 @@ public class MainUI : MonoBehaviour
     [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_Puzzle;
     [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_MiniGame;
     [SerializeField] private MiniGameUI miniGameUI;
+    [SerializeField] private PauseUI pauseUI;
     [Header("Transitions References")]
     [Space]
     [SerializeField] private Transform leftBottomTransitionPanel;
@@ -29,6 +30,7 @@ public class MainUI : MonoBehaviour
     private List<MainCanvasPanel> panelsList = new List<MainCanvasPanel>();
 
     private CurrentGameManager _currentGameManager;
+    private SystemTimeManager _systemTimeManager;
 
     private Vector3 leftBottomTransitionPanelStartPosition = new Vector3(0f, 0f, 0f);
     private Vector3 rightTopTransitionPanelStartPosition = new Vector3(0f, 0f, 0f);
@@ -48,9 +50,10 @@ public class MainUI : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(CurrentGameManager currentGameManager)
+    private void Construct(CurrentGameManager currentGameManager, SystemTimeManager systemTimeManager)
     {
         _currentGameManager = currentGameManager;
+        _systemTimeManager = systemTimeManager;
     }
     #endregion Zenject
 
@@ -94,6 +97,18 @@ public class MainUI : MonoBehaviour
     {
         ActivateMainCanvasPanel(UIPanels.MiniGamePanel);
     }
+
+    public void ShowPauseUI()
+    {
+        _systemTimeManager.PauseGame();
+        ActivateMainCanvasPanel(UIPanels.PausePanel);
+    }
+
+    public void HidePauseUI()
+    {
+        _systemTimeManager.ResumeGame();
+        ActivateMainCanvasPanel(UIPanels.MiniGamePanel);
+    }
     #endregion Buttons Methods
 
     [ContextMenu("Show Transition")]
@@ -112,6 +127,7 @@ public class MainUI : MonoBehaviour
         panelsList.Add(chooseGameLevelPanel_Puzzle);
         panelsList.Add(chooseGameLevelPanel_MiniGame);
         panelsList.Add(miniGameUI);
+        panelsList.Add(pauseUI);
     }
 
     private void SetStartSettings()
@@ -130,6 +146,18 @@ public class MainUI : MonoBehaviour
                 panelsList[i].ShowPanel();
             }
             else
+            {
+                panelsList[i].HidePanel();
+            }
+        }
+    }
+
+    private void HideMainCanvasPanel(UIPanels panel)
+    {
+        //StartCoroutine(MakeScreenTransitionCoroutine(panel));
+        for (int i = 0; i < panelsList.Count; i++)
+        {
+            if (panelsList[i].PanelType == panel)
             {
                 panelsList[i].HidePanel();
             }
