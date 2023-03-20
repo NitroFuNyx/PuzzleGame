@@ -27,7 +27,10 @@ public class KitchenMiniGameBonusTimer : MonoBehaviour
 
     private float timeColorChangeTreshold = 3f;
 
+    private float timerValue = 0f;
+
     public PanelActivationManager ActivationManager { get => activationManager; private set => activationManager = value; }
+    public float TimerValue { get => timerValue; private set => timerValue = value; }
 
     private void Awake()
     {
@@ -49,6 +52,8 @@ public class KitchenMiniGameBonusTimer : MonoBehaviour
 
     public void UpdateTimer(float currentTime)
     {
+        timerValue = currentTime;
+
         if(activationManager._CanvasGroup.alpha != 1f)
         {
             activationManager.ShowPanel();

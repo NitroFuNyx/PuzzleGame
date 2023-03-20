@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System.Linq;
 
 public class KitchenMiniGameBonusTimersPanel : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class KitchenMiniGameBonusTimersPanel : MonoBehaviour
     [Space]
     [SerializeField] private float hideTimerPanelDelay = 0.5f;
     [SerializeField] private float hideTimerPanelDuration = 0.5f;
+    [SerializeField] private float checkTimersValueDelay = 0.1f;
 
     private Dictionary<KitchenMiniGameItems, KitchenMiniGameBonusTimer> bonusTimersDictionary = new Dictionary<KitchenMiniGameItems, KitchenMiniGameBonusTimer>();
 
@@ -27,6 +29,7 @@ public class KitchenMiniGameBonusTimersPanel : MonoBehaviour
     public void UpdateBonusTimer(KitchenMiniGameItems itemType, float currentTime)
     {
         bonusTimersDictionary[itemType].UpdateTimer(currentTime);
+        StartCoroutine(CheckTimersValueCoroutine());
 
         if(currentTime == 0f)
         {
@@ -46,9 +49,25 @@ public class KitchenMiniGameBonusTimersPanel : MonoBehaviour
         bonusTimersDictionary.Add(KitchenMiniGameItems.Bonus_CoinsMagnet, bonusTimer_CoinsMagnet);
     }
 
+    private void CheckTimersValue()
+    {
+        bonusTimersList = bonusTimersList.OrderBy(timer => timer.TimerValue).ToList();
+
+        for(int i = 0; i < bonusTimersList.Count; i++)
+        {
+            bonusTimersList[i].transform.SetSiblingIndex(i);
+        }
+    }
+
     private IEnumerator HideTimerPanelCoroutine(KitchenMiniGameItems itemType)
     {
         yield return new WaitForSeconds(hideTimerPanelDelay);
         bonusTimersDictionary[itemType].ActivationManager.HidePanelSlowly(hideTimerPanelDuration);
+    }
+
+    private IEnumerator CheckTimersValueCoroutine()
+    {
+        yield return new WaitForSeconds(checkTimersValueDelay);
+        CheckTimersValue();
     }
 }
