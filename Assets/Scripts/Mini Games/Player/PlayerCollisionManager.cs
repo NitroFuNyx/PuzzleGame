@@ -87,6 +87,22 @@ public class PlayerCollisionManager : MonoBehaviour
         canCollectItems = canCollect;
     }
 
+    public void ResetStates()
+    {
+        StopAllCoroutines();
+
+        canCollectItems = false;
+        doubleCoinsBuffActivated = false;
+        shieldBonusActivated = false;
+        coinsMagnetBonusActivated = false;
+        coinsMagnetCollider.enabled = false;
+
+        currentDebuffTime = 0f;
+        currentDoubleCoinsBonusTime = 0f;
+        currentShieldBonusTime = 0f;
+        currentCoinsMagnetBonusTime = 0f;
+    }
+
     private void CheckCollisionItems(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemCoin item_Coin))

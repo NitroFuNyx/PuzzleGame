@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class PlayerComponentsManager : MonoBehaviour
 {
+    [Header("Positions")]
+    [Space]
+    [SerializeField] private Vector3 startPos;
+
     private PlayerMoveManager moveManager;
     private PlayerAnimationsManager animationsManager;
     private PlayerCollisionManager collisionManager;
@@ -19,6 +23,14 @@ public class PlayerComponentsManager : MonoBehaviour
     private void OnDestroy()
     {
         UnsubscribeFromEvents();
+    }
+
+    public void ResetPlayer()
+    {
+        moveManager.ChangeCheckingInputState(false);
+        animationsManager.SetAnimationState_StopWalking();
+        collisionManager.ResetStates();
+        transform.position = startPos;
     }
 
     private void CashComponents()

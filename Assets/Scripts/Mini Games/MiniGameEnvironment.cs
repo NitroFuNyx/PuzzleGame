@@ -23,12 +23,14 @@ public class MiniGameEnvironment : MonoBehaviour
     private ResourcesManager _resourcesManager;
 
     private PlayerCollisionManager playerCollisionManager;
+    private PlayerComponentsManager playerComponentsManager;
 
     public int EnvironmentIndex { get => environmentIndex; }
 
     private void Awake()
     {
         playerCollisionManager = playerMoveManager.GetComponent<PlayerCollisionManager>();
+        playerComponentsManager = playerMoveManager.GetComponent<PlayerComponentsManager>();
     }
 
     private void Start()
@@ -55,6 +57,11 @@ public class MiniGameEnvironment : MonoBehaviour
     public void StartGame()
     {
         StartCoroutine(StartGameCoroutine());
+    }
+
+    public void ResetEnvironment()
+    {
+        playerComponentsManager.ResetPlayer();
     }
 
     private void SubscribeOnEvents()
