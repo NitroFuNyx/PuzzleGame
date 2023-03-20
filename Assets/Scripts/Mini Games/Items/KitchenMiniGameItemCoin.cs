@@ -16,6 +16,7 @@ public class KitchenMiniGameItemCoin : KitchenMiniGameItem
 
     private void OnEnable()
     {
+        coinsMagnetCollision = false;
         StartCoroutine(ResetPlayerInteractionVFXCoroutine());
     }
 

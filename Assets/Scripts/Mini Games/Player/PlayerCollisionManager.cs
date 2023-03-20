@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using Zenject;
 using System.Collections;
-using TMPro;
 
 public class PlayerCollisionManager : MonoBehaviour
 {
@@ -33,6 +32,7 @@ public class PlayerCollisionManager : MonoBehaviour
     private CircleCollider2D coinsMagnetCollider;
 
     private ResourcesManager _resourcesManager;
+    private KitchenMiniGameBonusTimersPanel _kitchenMiniGameBonusTimersPanel;
 
     private bool canCollectItems = false;
 
@@ -41,6 +41,10 @@ public class PlayerCollisionManager : MonoBehaviour
     private bool coinsMagnetBonusActivated = false;
 
     public bool CanCollectItems { get => canCollectItems; private set => canCollectItems = value; }
+
+    public float CurrentDoubleCoinsBonusTime { get => currentDoubleCoinsBonusTime; private set => currentDoubleCoinsBonusTime = value; }
+    public float CurrentShieldBonusTime { get => currentShieldBonusTime; private set => currentShieldBonusTime = value; }
+    public float CurrentCoinsMagnetBonusTime { get => currentCoinsMagnetBonusTime; private set => currentCoinsMagnetBonusTime = value; }
 
     #region Events Declaration
     public event Action OnCharacterStunned;
@@ -56,6 +60,11 @@ public class PlayerCollisionManager : MonoBehaviour
         coinsMagnetCollider.enabled = false;
     }
 
+    private void Start()
+    {
+        _kitchenMiniGameBonusTimersPanel.CashComponents(this);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (canCollectItems)
@@ -66,9 +75,10 @@ public class PlayerCollisionManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(ResourcesManager resourcesManager)
+    private void Construct(ResourcesManager resourcesManager, KitchenMiniGameBonusTimersPanel kitchenMiniGameBonusTimersPanel)
     {
         _resourcesManager = resourcesManager;
+        _kitchenMiniGameBonusTimersPanel = kitchenMiniGameBonusTimersPanel;
     }
     #endregion Zenject
 
@@ -106,11 +116,13 @@ public class PlayerCollisionManager : MonoBehaviour
             if(!doubleCoinsBuffActivated)
             {
                 doubleCoinsBuffActivated = true;
+                currentDoubleCoinsBonusTime = startDoubleCoinsBonusTime;
                 StartCoroutine(DoubleCoinsBonusCollision_ExecuteReactionCoroutine());
             }
             else
             {
                 currentDoubleCoinsBonusTime += startDoubleCoinsBonusTime;
+                _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_DoubleCoins, currentDoubleCoinsBonusTime);
             }
         }
         else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_Shield itemBonus_ShieldBonus))
@@ -118,11 +130,13 @@ public class PlayerCollisionManager : MonoBehaviour
             if (!shieldBonusActivated)
             {
                 shieldBonusActivated = true;
+                currentShieldBonusTime = startShieldBonusTime;
                 StartCoroutine(ShieldBonusCollision_ExecuteReactionCoroutine());
             }
             else
             {
                 currentShieldBonusTime += startShieldBonusTime;
+                _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_Shield, currentShieldBonusTime);
             }
         }
         else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_CoinsMagnet itemBonus_MagnetBonus))
@@ -131,11 +145,13 @@ public class PlayerCollisionManager : MonoBehaviour
             {
                 coinsMagnetBonusActivated = true;
                 coinsMagnetCollider.enabled = true;
+                currentCoinsMagnetBonusTime = startCoinsMagnetBonusTime;
                 StartCoroutine(CoinsMagnetBonusCollision_ExecuteReactionCoroutine());
             }
             else
             {
                 currentCoinsMagnetBonusTime += startCoinsMagnetBonusTime;
+                _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_CoinsMagnet, CurrentCoinsMagnetBonusTime);
             }
         }
     }
@@ -160,40 +176,37 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private IEnumerator DoubleCoinsBonusCollision_ExecuteReactionCoroutine()
     {
-        currentDoubleCoinsBonusTime = startDoubleCoinsBonusTime;
-
         while(currentDoubleCoinsBonusTime > 0f)
         {
+            _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_DoubleCoins, currentDoubleCoinsBonusTime);
             yield return new WaitForSeconds(1f);
             currentDoubleCoinsBonusTime--;
         }
-
+        _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_DoubleCoins, currentDoubleCoinsBonusTime);
         doubleCoinsBuffActivated = false;
     }
 
     private IEnumerator ShieldBonusCollision_ExecuteReactionCoroutine()
     {
-        currentShieldBonusTime = startShieldBonusTime;
-
         while (currentShieldBonusTime > 0f)
         {
+            _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_Shield, currentShieldBonusTime);
             yield return new WaitForSeconds(1f);
             currentShieldBonusTime--;
         }
-
+        _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_Shield, currentShieldBonusTime);
         shieldBonusActivated = false;
     }
 
     private IEnumerator CoinsMagnetBonusCollision_ExecuteReactionCoroutine()
     {
-        currentCoinsMagnetBonusTime = startCoinsMagnetBonusTime;
-
         while (currentCoinsMagnetBonusTime > 0f)
         {
+            _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_CoinsMagnet, CurrentCoinsMagnetBonusTime);
             yield return new WaitForSeconds(1f);
             currentCoinsMagnetBonusTime--;
         }
-
+        _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_CoinsMagnet, CurrentCoinsMagnetBonusTime);
         coinsMagnetBonusActivated = false;
         coinsMagnetCollider.enabled = false;
     }
