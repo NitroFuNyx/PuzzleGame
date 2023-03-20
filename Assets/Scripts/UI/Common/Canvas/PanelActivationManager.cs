@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class PanelActivationManager : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class PanelActivationManager : MonoBehaviour
     public void HidePanel()
     {
         SetCanvasActivationState(false);
+    }
+
+    public void HidePanelSlowly(float duration)
+    {
+        canvasGroup.DOFade(0f, duration);
     }
 
     public void SetCanvasActivationState(bool isActive)
