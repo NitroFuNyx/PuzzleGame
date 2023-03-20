@@ -71,6 +71,15 @@ public class MiniGameUI : MainCanvasPanel
         StartCoroutine(HideBonusTimeTextCoroutine());
     }
 
+    public void ResetUIData()
+    {
+        coinsText.text = "0";
+        timerBonusText.text = "";
+        delayGameTimerTitleText.text = "";
+        startGameDelayTimerText.text = "";
+        timerBonusText.DOFade(0f, bonusTimeTextChangeAlphaDurationMax);
+    }
+
     private void SubscribeOnEvents()
     {
         _resourcesManager.OnLevelCoinsAmountChanged += OnLevelCoinsAmountChanged_ExecuteReaction;

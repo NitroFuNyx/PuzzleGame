@@ -92,6 +92,15 @@ public class PoolItemsManager : MonoBehaviour
         poolItemsList.Add(_poolItem);
     }
 
+    public void ReturnKitchenMiniGamePoolListItems(List<PoolItem> list, KitchenMiniGameItems itemsType)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if(list[i].gameObject.activeInHierarchy)
+            ReturnItemToPool(list[i], itemsType);
+        }
+    }
+
     private void CreatePool(PoolItem poolItemPrefab, List<PoolItem> poolItemsList, string itemName, int poolSize)
     {
         GameObject poolItemsParent = new GameObject();

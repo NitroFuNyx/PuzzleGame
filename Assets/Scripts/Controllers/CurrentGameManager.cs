@@ -14,6 +14,7 @@ public class CurrentGameManager : MonoBehaviour
 
     private MiniGamesEnvironmentsHolder _miniGamesEnvironmentsHolder;
     private PlayerDataManager _playerDataManager;
+    private ResourcesManager _resourcesManager;
 
     #region Events Declaration
     public event Action<CharacterTypes> OnCharacterChanged;
@@ -21,10 +22,11 @@ public class CurrentGameManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, PlayerDataManager playerDataManager)
+    private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, PlayerDataManager playerDataManager, ResourcesManager resourcesManager)
     {
         _miniGamesEnvironmentsHolder = miniGamesEnvironmentsHolder;
         _playerDataManager = playerDataManager;
+        _resourcesManager = resourcesManager;
     }
     #endregion Zenject
 
@@ -50,5 +52,14 @@ public class CurrentGameManager : MonoBehaviour
     public void SetGameFinisheData()
     {
         _playerDataManager.SavePlayerData();
+    }
+
+    public void FinishGameWithoutSaving()
+    {
+        if(currentGameType == GameLevelTypes.MiniGame)
+        {
+            _resourcesManager.ResetCurrentLevelCoinsData();
+            _miniGamesEnvironmentsHolder.CurrentlyActiveGame.ResetEnvironment();
+        }
     }
 }

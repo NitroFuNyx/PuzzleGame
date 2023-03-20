@@ -62,6 +62,10 @@ public class MiniGameEnvironment : MonoBehaviour
     public void ResetEnvironment()
     {
         playerComponentsManager.ResetPlayer();
+        kitchenMiniGameSpawnManager.ResetData();
+        _timersManager.StopTimer();
+        _miniGameUI.ResetUIData();
+        gameObject.SetActive(false);
     }
 
     private void SubscribeOnEvents()

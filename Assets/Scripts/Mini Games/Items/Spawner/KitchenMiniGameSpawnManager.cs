@@ -32,6 +32,11 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
         canSpawn = false;
     }
 
+    public void ResetData()
+    {
+        StopSpawning();
+    }
+
     private void FillItemsSpawnPossibilityDictionary()
     {
         itemsSpawnPossibilityDictionary.Add(0, KitchenMiniGameItems.Coin_1);

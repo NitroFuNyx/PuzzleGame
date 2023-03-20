@@ -22,6 +22,8 @@ public class TimersManager : MonoBehaviour
 
     private float currentTimerValue;
 
+    private Coroutine timerCoroutine;
+
     #region Events Declaration
     //public event Action OnTimerFinished;
 
@@ -54,7 +56,7 @@ public class TimersManager : MonoBehaviour
 
     public void StartTimer(float startTimerValue, TextMeshProUGUI timerText, Action OnTimerFinished)
     {
-        StartCoroutine(StartTimerCoroutine(startTimerValue, timerText, OnTimerFinished));
+        timerCoroutine =  StartCoroutine(StartTimerCoroutine(startTimerValue, timerText, OnTimerFinished));
     }
 
     public void StartStopwatch(float startStopwatchValue, Action<float> OnStopwatchStopped)
@@ -62,6 +64,11 @@ public class TimersManager : MonoBehaviour
         startStopwatchValue = testStopwatchStartValue;
         stopwatchActive = true;
         StartCoroutine(StartStopwatchCoroutine(startStopwatchValue, OnStopwatchStopped));
+    }
+
+    public void StopTimer()
+    {
+        StopCoroutine(timerCoroutine);
     }
 
     public void StopStopwatch()
