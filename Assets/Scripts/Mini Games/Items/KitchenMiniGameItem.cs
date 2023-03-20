@@ -54,6 +54,12 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
         }
     }
 
+    public void ResetVFX()
+    {
+        playerStandartInteractionVFX.transform.SetParent(transform);
+        playerStandartInteractionVFX.transform.localPosition = startPos;
+    }
+
     protected void SetItemSprite()
     {
         int index = Random.Range(0, itemsSpritesList.Count);
@@ -63,6 +69,7 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     protected void PlayItemInteractionVFX()
     {
         playerStandartInteractionVFX.transform.SetParent(null);
+        playerStandartInteractionVFX.transform.position = transform.position;
         playerStandartInteractionVFX.Play();
     }
 
@@ -73,7 +80,6 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     protected IEnumerator ResetPlayerInteractionVFXCoroutine()
     {
         yield return new WaitForSeconds(vfxResetDelay);
-        playerStandartInteractionVFX.transform.SetParent(transform);
-        playerStandartInteractionVFX.transform.localPosition = startPos;
+        ResetVFX();
     }
 }

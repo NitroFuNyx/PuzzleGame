@@ -15,6 +15,7 @@ public class KitchenMiniGameItemsSpawner : MonoBehaviour
 
     public void SpawnItem(KitchenMiniGameItems item)
     {
-        _poolItemsManager.SpawnItemFromPool(transform.position, Quaternion.identity, transform, item);
+        var poolItem = _poolItemsManager.SpawnItemFromPool(transform.position, Quaternion.identity, transform, item);
+        poolItem.transform.SetParent(_poolItemsManager.SpawnedItemsHolder);
     }
 }

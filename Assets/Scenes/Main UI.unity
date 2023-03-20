@@ -10435,7 +10435,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 10
+  timeForLevel: 180
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!1 &1230098106
@@ -15474,6 +15474,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626385516}
   m_CullTransparentMesh: 1
+--- !u!1 &1628868936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1628868937}
+  m_Layer: 0
+  m_Name: Pool Items Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1628868937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628868936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2134223939}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1635898870
 GameObject:
   m_ObjectHideFlags: 0
@@ -19293,6 +19324,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132342714}
   m_CullTransparentMesh: 1
+--- !u!4 &2134223939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8069017711027801632, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
+  m_PrefabInstance: {fileID: 8069017709862824151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2137743197
 GameObject:
   m_ObjectHideFlags: 0
@@ -20976,6 +21012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pool Items Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8069017711027801647, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
+      propertyPath: spawnedItemsHolder
+      value: 
+      objectReference: {fileID: 1628868937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
 --- !u!1001 &8116893676423644673

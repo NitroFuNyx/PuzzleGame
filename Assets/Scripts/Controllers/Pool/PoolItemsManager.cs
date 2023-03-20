@@ -6,6 +6,9 @@ public class PoolItemsManager : MonoBehaviour
     [Header("Pool Data")]
     [Space]
     [SerializeField] private int miniGameCoinItemsPoolSize = 50;
+    [Header("Holders")]
+    [Space]
+    [SerializeField] private Transform spawnedItemsHolder;
     [Header("Active Kitchen Mini Game Pools")]
     [Space]
     [SerializeField] private List<PoolItem> miniGameItemsCoinsPool_Coin1 = new List<PoolItem>();
@@ -35,6 +38,8 @@ public class PoolItemsManager : MonoBehaviour
 
     private Dictionary<KitchenMiniGameItems, List<PoolItem>> kitchenMiniGameItemsDictionary = new Dictionary<KitchenMiniGameItems, List<PoolItem>>();
     private Dictionary<List<PoolItem>, Transform> kitchenMiniGameItemsListsHoldersDictionary = new Dictionary<List<PoolItem>, Transform>();
+
+    public Transform SpawnedItemsHolder { get => spawnedItemsHolder; }
 
     private void Awake()
     {
@@ -101,6 +106,25 @@ public class PoolItemsManager : MonoBehaviour
         }
     }
 
+    public void ReturnItems_KitchenMiniGame()
+    {
+        List<PoolItem> list = new List<PoolItem>();
+
+        for(int i = 0; i < spawnedItemsHolder.childCount; i++)
+        {
+            if(spawnedItemsHolder.GetChild(i).TryGetComponent(out PoolItem item))
+            {
+                list.Add(item);
+            }
+        }
+
+        for(int i = 0; i < list.Count; i++)
+        {
+            list[i].ResetItemComponent();
+            ReturnItemToPool(list[i], list[i].KitchenMiniGameItem.ItemType);
+        }
+    }
+
     private void CreatePool(PoolItem poolItemPrefab, List<PoolItem> poolItemsList, string itemName, int poolSize)
     {
         GameObject poolItemsParent = new GameObject();
@@ -113,6 +137,7 @@ public class PoolItemsManager : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             PoolItem poolItem = Instantiate(poolItemPrefab, Vector3.zero, Quaternion.identity, poolItemsParent.transform);
+            poolItem.CashComponents();
             poolItem.transform.localPosition = Vector3.zero;
             poolItem.gameObject.SetActive(false);
             poolItemsList.Add(poolItem);

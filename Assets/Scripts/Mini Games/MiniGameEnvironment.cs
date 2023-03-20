@@ -21,6 +21,7 @@ public class MiniGameEnvironment : MonoBehaviour
     private TimersManager _timersManager;
     private CurrentGameManager _currentGameManager;
     private ResourcesManager _resourcesManager;
+    private PoolItemsManager _poolItemsManager;
 
     private PlayerCollisionManager playerCollisionManager;
     private PlayerComponentsManager playerComponentsManager;
@@ -45,12 +46,14 @@ public class MiniGameEnvironment : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(MiniGameUI miniGameUI, TimersManager timersManager, CurrentGameManager currentGameManager, ResourcesManager resourcesManager)
+    private void Construct(MiniGameUI miniGameUI, TimersManager timersManager, CurrentGameManager currentGameManager, ResourcesManager resourcesManager,
+                           PoolItemsManager poolItemsManager)
     {
         _miniGameUI = miniGameUI;
         _timersManager = timersManager;
         _currentGameManager = currentGameManager;
         _resourcesManager = resourcesManager;
+        _poolItemsManager = poolItemsManager;
     }
     #endregion Zenject
 
@@ -68,6 +71,7 @@ public class MiniGameEnvironment : MonoBehaviour
         _timersManager.StopTimer();
         _miniGameUI.ResetUIData();
         _resourcesManager.ResetCurrentLevelCoinsData();
+        _poolItemsManager.ReturnItems_KitchenMiniGame();
         gameObject.SetActive(false);
     }
 
