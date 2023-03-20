@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 4932132917327182874}
   - {fileID: 3008409518452984392}
   - {fileID: 4898986501325962034}
+  spawnDelay: 1
 --- !u!1001 &457849699008777364
 PrefabInstance:
   m_ObjectHideFlags: 0

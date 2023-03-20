@@ -61,8 +61,8 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
         while(canSpawn)
         {
             yield return new WaitForSeconds(spawnDelay);
-            int itemIndex = Random.Range(0, 19);
-            int spawnerIndex = Random.Range(0, spawnersList.Count - 1);
+            int itemIndex = Random.Range(0, 20);
+            int spawnerIndex = Random.Range(0, spawnersList.Count);
             spawnersList[spawnerIndex].SpawnItem(itemsSpawnPossibilityDictionary[itemIndex]);
         }
     }

@@ -4,6 +4,8 @@ public class PanelActivationManager : MonoBehaviour
 {
     private CanvasGroup canvasGroup;
 
+    public CanvasGroup _CanvasGroup { get => canvasGroup; private set => canvasGroup = value; }
+
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
