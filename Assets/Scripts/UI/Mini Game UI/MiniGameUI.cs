@@ -21,9 +21,15 @@ public class MiniGameUI : MainCanvasPanel
     [Space]
     [SerializeField] private float bonusTimeTextChangeAlphaDurationMax = 1f;
     [SerializeField] private float bonusTimeTextChangeAlphaDurationMin = 0.01f;
+    [Header("Panels")]
+    [Space]
+    [SerializeField] private KitchenMiniGameBonusTimersPanel kitchenMiniGameBonusTimersPanel;
+    [SerializeField] private PanelActivationManager gameFinishedPanelActivationManager;
 
     private TimersManager _timersManager;
     private ResourcesManager _resourcesManager;
+
+    private MiniGameFinishedPanel miniGameFinishedPanel;
 
     private void Start()
     {
@@ -31,6 +37,9 @@ public class MiniGameUI : MainCanvasPanel
 
         coinsText.text = "0";
         timerBonusText.text = "";
+
+        miniGameFinishedPanel = gameFinishedPanelActivationManager.GetComponent<MiniGameFinishedPanel>();
+        HideGameFinishedPanel();
     }
 
     private void OnDestroy()
@@ -73,11 +82,25 @@ public class MiniGameUI : MainCanvasPanel
 
     public void ResetUIData()
     {
-        coinsText.text = "0";
+        coinsText.text = $"{_resourcesManager.CurrentLevelCoinsAmount}";
+        currentGameTimerText.text = "";
         timerBonusText.text = "";
         delayGameTimerTitleText.text = "";
         startGameDelayTimerText.text = "";
+        kitchenMiniGameBonusTimersPanel.ResetData();
         timerBonusText.DOFade(0f, bonusTimeTextChangeAlphaDurationMax);
+    }
+
+    public void ShowGameFinishedPanel()
+    {
+        miniGameFinishedPanel.SetCoinsText(_resourcesManager.CurrentLevelCoinsAmount);
+        gameFinishedPanelActivationManager.ShowPanel();
+        ResetUIData();
+    }
+
+    public void HideGameFinishedPanel()
+    {
+        gameFinishedPanelActivationManager.HidePanel();
     }
 
     private void SubscribeOnEvents()

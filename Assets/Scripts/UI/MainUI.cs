@@ -90,6 +90,7 @@ public class MainUI : MonoBehaviour
         else if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
         {
             ActivateMainCanvasPanel(UIPanels.SelectGameLevel_MiniGame);
+            miniGameUI.HideGameFinishedPanel();
         }
     }
 

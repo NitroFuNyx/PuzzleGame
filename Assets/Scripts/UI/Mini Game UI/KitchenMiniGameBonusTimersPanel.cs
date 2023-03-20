@@ -42,6 +42,16 @@ public class KitchenMiniGameBonusTimersPanel : MonoBehaviour
         player = playerCollisionManager;
     }
 
+    public void ResetData()
+    {
+        StopAllCoroutines();
+
+        for(int i = 0; i < bonusTimersList.Count; i++)
+        {
+            bonusTimersList[i].ActivationManager.HidePanel();
+        }
+    }
+
     private void FillTimersDictionary()
     {
         bonusTimersDictionary.Add(KitchenMiniGameItems.Bonus_DoubleCoins, bonusTimer_DoubleCoins);

@@ -12,6 +12,7 @@ public class ResourcesManager : MonoBehaviour
     private PlayerDataManager _playerDataManager;
 
     public int WholeCoinsAmount { get => wholeCoinsAmount; private set => wholeCoinsAmount = value; }
+    public int CurrentLevelCoinsAmount { get => currentLevelCoinsAmount; private set => currentLevelCoinsAmount = value; }
 
     #region Events Declaration
     public event Action<int> OnLevelCoinsAmountChanged;

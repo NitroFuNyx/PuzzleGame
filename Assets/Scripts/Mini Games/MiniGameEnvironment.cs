@@ -61,10 +61,13 @@ public class MiniGameEnvironment : MonoBehaviour
 
     public void ResetEnvironment()
     {
+        StopAllCoroutines();
+
         playerComponentsManager.ResetPlayer();
         kitchenMiniGameSpawnManager.ResetData();
         _timersManager.StopTimer();
         _miniGameUI.ResetUIData();
+        _resourcesManager.ResetCurrentLevelCoinsData();
         gameObject.SetActive(false);
     }
 
@@ -116,5 +119,7 @@ public class MiniGameEnvironment : MonoBehaviour
         yield return null;
         _currentGameManager.SetGameFinisheData();
         kitchenMiniGameSpawnManager.StopSpawning();
+        _miniGameUI.ShowGameFinishedPanel();
+        ResetEnvironment();
     }
 }
