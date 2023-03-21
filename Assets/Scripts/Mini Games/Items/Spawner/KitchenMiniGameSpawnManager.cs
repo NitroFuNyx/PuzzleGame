@@ -10,6 +10,14 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
     [Header("Spawn Data")]
     [Space]
     [SerializeField] private float spawnDelay = 0.5f;
+    [Header("Bonuses Spawn Data")]
+    [Space]
+    [SerializeField] private int maxBonusAmount = 5;
+    [Space]
+    [SerializeField] private int additionalCoinsBonusUsedAmount = 0;
+    [SerializeField] private int doubleCoinsBonusUsedAmount = 0;
+    [SerializeField] private int shieldBonusUsedAmount = 0;
+    [SerializeField] private int coinsMagnetBonusUsedAmount = 0;
 
     private bool canSpawn = false;
 
@@ -35,6 +43,11 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
     public void ResetData()
     {
         StopSpawning();
+
+        additionalCoinsBonusUsedAmount = 0;
+        doubleCoinsBonusUsedAmount = 0;
+        shieldBonusUsedAmount = 0;
+        coinsMagnetBonusUsedAmount = 0;
     }
 
     private void FillItemsSpawnPossibilityDictionary()
@@ -68,7 +81,47 @@ public class KitchenMiniGameSpawnManager : MonoBehaviour
             yield return new WaitForSeconds(spawnDelay);
             int itemIndex = Random.Range(0, 20);
             int spawnerIndex = Random.Range(0, spawnersList.Count);
-            spawnersList[spawnerIndex].SpawnItem(itemsSpawnPossibilityDictionary[itemIndex]);
+
+            if (itemsSpawnPossibilityDictionary[itemIndex] == KitchenMiniGameItems.Bonus_AdditionalTime)
+            {
+                additionalCoinsBonusUsedAmount++;
+
+                if(additionalCoinsBonusUsedAmount <= maxBonusAmount)
+                {
+                    spawnersList[spawnerIndex].SpawnItem(itemsSpawnPossibilityDictionary[itemIndex]);
+                }
+            }
+            else if (itemsSpawnPossibilityDictionary[itemIndex] == KitchenMiniGameItems.Bonus_DoubleCoins)
+            {
+                doubleCoinsBonusUsedAmount++;
+
+                if (doubleCoinsBonusUsedAmount <= maxBonusAmount)
+                {
+                    spawnersList[spawnerIndex].SpawnItem(itemsSpawnPossibilityDictionary[itemIndex]);
+                }
+            }
+            else if (itemsSpawnPossibilityDictionary[itemIndex] == KitchenMiniGameItems.Bonus_CoinsMagnet)
+            {
+                coinsMagnetBonusUsedAmount++;
+
+                if (coinsMagnetBonusUsedAmount <= maxBonusAmount)
+                {
+                    spawnersList[spawnerIndex].SpawnItem(itemsSpawnPossibilityDictionary[itemIndex]);
+                }
+            }
+            else if (itemsSpawnPossibilityDictionary[itemIndex] == KitchenMiniGameItems.Bonus_Shield)
+            {
+                shieldBonusUsedAmount++;
+
+                if (shieldBonusUsedAmount <= maxBonusAmount)
+                {
+                    spawnersList[spawnerIndex].SpawnItem(itemsSpawnPossibilityDictionary[itemIndex]);
+                }
+            }
+            else
+            {
+                spawnersList[spawnerIndex].SpawnItem(itemsSpawnPossibilityDictionary[itemIndex]);
+            }
         }
     }
 }
