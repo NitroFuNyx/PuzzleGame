@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using Zenject;
 
 public class ChooseGameLevelPanel : MonoBehaviour
 {
@@ -30,11 +31,30 @@ public class ChooseGameLevelPanel : MonoBehaviour
     [Space]
     [SerializeField] private float changeAlphaDuration = 0.01f;
 
+    private CurrentGameManager _currentGameManager;
+    private PlayerDataManager _playerDataManager;
+
     private void Start()
     {
         SetPanelUIData();
         levelButton.SetButtonData(levelState, gameType, gameLevelIndex);
+
+        _currentGameManager.OnGameLevelFinished += OnLevelFinished_ExecuteReaction;
     }
+
+    private void OnDestroy()
+    {
+        _currentGameManager.OnGameLevelFinished -= OnLevelFinished_ExecuteReaction;
+    }
+
+    #region Zenject
+    [Inject]
+    private void Construct(CurrentGameManager currentGameManager, PlayerDataManager playerDataManager)
+    {
+        _currentGameManager = currentGameManager;
+        _playerDataManager = playerDataManager;
+    }
+    #endregion Zenject
 
     public void SetPanelUIData()
     {
@@ -78,10 +98,27 @@ public class ChooseGameLevelPanel : MonoBehaviour
         }
         else if (levelState == GameLevelStates.Available_Finished)
         {
-            timeTitle_Text.text = "best time";
-            timeValue_Text.text = "01:01"; // set time
+            if(gameType == GameLevelTypes.Puzzle)
+            {
+                timeTitle_Text.text = "best time";
+                timeValue_Text.text = "01:01"; // set time
+            }
+            else
+            {
+                timeTitle_Text.text = "best score";
+                timeValue_Text.text = $"{_playerDataManager.MiniGameLevelHighestScore}";
+            }
         }
 
         costPanel.HidePanel();
+    }
+
+    private void OnLevelFinished_ExecuteReaction(GameLevelTypes finishedGameType, int finishedLevelIndex)
+    {
+        if(gameType == finishedGameType && gameLevelIndex == finishedLevelIndex)
+        {
+            levelState = GameLevelStates.Available_Finished;
+            SetAvailableStateUI();
+        }
     }
 }

@@ -8,6 +8,7 @@ public class CurrentGameManager : MonoBehaviour
     [Space]
     [SerializeField] private GameLevelTypes currentGameType = GameLevelTypes.Puzzle;
     [SerializeField] private CharacterTypes currentCharacter = CharacterTypes.Female;
+    [SerializeField] private int currentLevelIndex = 0;
 
     public GameLevelTypes CurrentGameType { get => currentGameType; private set => currentGameType = value; }
     public CharacterTypes CurrentCharacter { get => currentCharacter; private set => currentCharacter = value; }
@@ -18,6 +19,7 @@ public class CurrentGameManager : MonoBehaviour
 
     #region Events Declaration
     public event Action<CharacterTypes> OnCharacterChanged;
+    public event Action<GameLevelTypes, int> OnGameLevelFinished;
     #endregion Events Declaration
 
     #region Zenject
@@ -41,10 +43,16 @@ public class CurrentGameManager : MonoBehaviour
         OnCharacterChanged?.Invoke(currentCharacter);
     }
 
+    public void SetCurrentLevelIndex(int index)
+    {
+        currentLevelIndex = index;
+    }
+
     public void ActivateGameLevelEnvironment(int levelIndex)
     {
         if(currentGameType == GameLevelTypes.MiniGame)
         {
+            SetCurrentLevelIndex(levelIndex);
             _miniGamesEnvironmentsHolder.ActivateEnvironment(levelIndex);
         }
     }
@@ -52,6 +60,7 @@ public class CurrentGameManager : MonoBehaviour
     public void SetGameFinisheData()
     {
         _playerDataManager.SavePlayerData();
+        OnGameLevelFinished?.Invoke(currentGameType, currentLevelIndex);
     }
 
     public void FinishGameWithoutSaving()
