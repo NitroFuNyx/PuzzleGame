@@ -11,6 +11,8 @@ public class KitchenMiniGameItemCoin : KitchenMiniGameItem
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float distanceToPlayerTreshold = 0.1f;
 
+    private Coroutine rotationCoroutine;
+
     private bool coinsMagnetCollision = false;
 
     public int CoinsAmount { get => coinsAmount; }
@@ -19,9 +21,12 @@ public class KitchenMiniGameItemCoin : KitchenMiniGameItem
     {
         coinsMagnetCollision = false;
         StartCoroutine(ResetPlayerInteractionVFXCoroutine());
-        //if(objectSprite)
-        //objectSprite.DORotate(new Vector3(0f, 0f, 360f), 5f).SetLoops(-1);
-        //StartCoroutine(RotateCoroutine());
+        rotationCoroutine = StartCoroutine(RotateCoroutine());
+    }
+    [ContextMenu("Rotate")]
+    public void Rotate()
+    {
+        StartCoroutine(RotateCoroutine());
     }
 
     public override void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player)
@@ -29,6 +34,7 @@ public class KitchenMiniGameItemCoin : KitchenMiniGameItem
         if(player.CanCollectItems)
         {
             PlayItemInteractionVFX();
+            StopCoroutine(rotationCoroutine);
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
         }
     }
@@ -52,19 +58,6 @@ public class KitchenMiniGameItemCoin : KitchenMiniGameItem
             travelPercent += Time.deltaTime * moveSpeed;
             transform.position = Vector3.Lerp(startPos, player.position, travelPercent);
             yield return new WaitForEndOfFrame();
-        }
-    }
-
-    private IEnumerator RotateCoroutine()
-    {
-        yield return new WaitForSeconds(2f);
-        while(gameObject.activeInHierarchy)
-        {
-            if(objectSprite)
-            {
-                objectSprite.Rotate(new Vector3(0f, 0f, 10f));
-                yield return new WaitForEndOfFrame();
-            }
         }
     }
 }

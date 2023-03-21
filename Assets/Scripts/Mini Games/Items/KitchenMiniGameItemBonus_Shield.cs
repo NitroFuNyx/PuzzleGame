@@ -6,10 +6,13 @@ public class KitchenMiniGameItemBonus_Shield : KitchenMiniGameItem
     [Space]
     [SerializeField] private ParticleSystem idleBonusVFX;
 
+    private Coroutine rotationCoroutine;
+
     private void OnEnable()
     {
         idleBonusVFX.Play();
         StartCoroutine(ResetPlayerInteractionVFXCoroutine());
+        rotationCoroutine = StartCoroutine(RotateCoroutine());
     }
 
     public override void OnInteractionWithPlayer_ExecuteReaction(PlayerCollisionManager player)
@@ -17,6 +20,7 @@ public class KitchenMiniGameItemBonus_Shield : KitchenMiniGameItem
         if (player.CanCollectItems)
         {
             PlayItemInteractionVFX();
+            StopCoroutine(rotationCoroutine);
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
         }
     }

@@ -7,7 +7,6 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     [Header("Item Data")]
     [Space]
     [SerializeField] protected KitchenMiniGameItems itemType;
-    [SerializeField] protected Transform objectSprite; 
     [Header("Sprites")]
     [Space]
     [SerializeField] private List<Sprite> itemsSpritesList = new List<Sprite>();
@@ -82,5 +81,15 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     {
         yield return new WaitForSeconds(vfxResetDelay);
         ResetVFX();
+    }
+
+    protected IEnumerator RotateCoroutine()
+    {
+        yield return null;
+        while (true)
+        {
+            transform.Rotate(new Vector3(0f, 0f, Time.deltaTime * 100f));
+            yield return null;
+        }
     }
 }

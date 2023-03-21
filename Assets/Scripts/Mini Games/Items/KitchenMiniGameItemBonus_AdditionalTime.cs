@@ -9,12 +9,15 @@ public class KitchenMiniGameItemBonus_AdditionalTime : KitchenMiniGameItem
     [Space]
     [SerializeField] private float bonusTime = 5f;
 
+    private Coroutine rotationCoroutine;
+
     public float BonusTime { get => bonusTime; }
 
     private void OnEnable()
     {
         idleBonusVFX.Play();
         StartCoroutine(ResetPlayerInteractionVFXCoroutine());
+        rotationCoroutine = StartCoroutine(RotateCoroutine());
     }
 
     private void Start()
@@ -27,6 +30,7 @@ public class KitchenMiniGameItemBonus_AdditionalTime : KitchenMiniGameItem
         if (player.CanCollectItems)
         {
             PlayItemInteractionVFX();
+            StopCoroutine(rotationCoroutine);
             _poolItemsManager.ReturnItemToPool(poolItemComponent, itemType);
         }
     }
