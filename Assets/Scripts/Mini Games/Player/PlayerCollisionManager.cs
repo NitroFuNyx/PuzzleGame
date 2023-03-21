@@ -28,6 +28,7 @@ public class PlayerCollisionManager : MonoBehaviour
     [Space]
     [SerializeField] private ParticleSystem stunVFX;
     [SerializeField] private ParticleSystem coinsMagnetVFX;
+    [SerializeField] private ParticleSystem shieldVFX;
 
     private BoxCollider2D boxCollider;
     private CircleCollider2D coinsMagnetCollider;
@@ -206,12 +207,17 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private IEnumerator ShieldBonusCollision_ExecuteReactionCoroutine()
     {
+        shieldVFX.Play();
+
         while (currentShieldBonusTime > 0f)
         {
             _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_Shield, currentShieldBonusTime);
             yield return new WaitForSeconds(1f);
             currentShieldBonusTime--;
         }
+
+        shieldVFX.Stop();
+
         _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_Shield, currentShieldBonusTime);
         shieldBonusActivated = false;
     }
