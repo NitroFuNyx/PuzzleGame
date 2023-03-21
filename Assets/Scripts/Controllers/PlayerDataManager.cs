@@ -17,16 +17,22 @@ public class PlayerDataManager : MonoBehaviour
     [Space]
     [SerializeField] private bool soundMuted;
 
+    [SerializeField] private int miniGameLevelStateIndex;
+    [SerializeField] private ChooseGameLevelPanel minigamePanel;
+
     private List<Languages> allLanguagesList = new List<Languages>();
 
     private LanguageManager _languageManager;
     private AudioManager _audioManager;
     private ResourcesManager _resourcesManager;
 
+    private CurrentGameManager _currentGameManager;
+
     public Languages CurrentLanguage { get => currentLanguage; private set => currentLanguage = value; }
     public int CurrentCoinsAmount { get => currentCoinsAmount; private set => currentCoinsAmount = value; }
     public bool SoundMuted { get => soundMuted; private set => soundMuted = value; }
     public int MiniGameLevelHighestScore { get => miniGameLevelHighestScore; private set => miniGameLevelHighestScore = value; }
+    public int MiniGameLevelStateIndex { get => miniGameLevelStateIndex; set => miniGameLevelStateIndex = value; }
 
     #region Events Declaration
     public event Action OnPlayerMainDataLoaded;
@@ -39,11 +45,12 @@ public class PlayerDataManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(LanguageManager languageManager, AudioManager audioManager, ResourcesManager resourcesManager)
+    private void Construct(LanguageManager languageManager, AudioManager audioManager, ResourcesManager resourcesManager, CurrentGameManager currentGameManager)
     {
         _languageManager = languageManager;
         _audioManager = audioManager;
         _resourcesManager = resourcesManager;
+        _currentGameManager = currentGameManager;
     }
     #endregion Zenject
 
@@ -55,7 +62,9 @@ public class PlayerDataManager : MonoBehaviour
         if(miniGameLevelHighestScore < _resourcesManager.CurrentLevelCoinsAmount)
         {
             miniGameLevelHighestScore = _resourcesManager.CurrentLevelCoinsAmount;
-        }    
+        }
+
+        miniGameLevelStateIndex = (int)minigamePanel.LevelState;
 
         SaveLoadSystem.SavePlayerData(this);
     }
@@ -79,6 +88,10 @@ public class PlayerDataManager : MonoBehaviour
             soundMuted = dataHolder.soundMuted;
             currentCoinsAmount = dataHolder.currentCoinsAmount;
             miniGameLevelHighestScore = dataHolder.miniGameLevelHighestScore;
+
+            miniGameLevelStateIndex = dataHolder.miniGameLevelStateIndex;
+
+            minigamePanel.SetLevelStateIndex(miniGameLevelStateIndex);
 
             OnPlayerMainDataLoaded.Invoke();
         }

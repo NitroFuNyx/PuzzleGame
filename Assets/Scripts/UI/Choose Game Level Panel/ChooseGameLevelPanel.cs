@@ -34,17 +34,21 @@ public class ChooseGameLevelPanel : MonoBehaviour
     private CurrentGameManager _currentGameManager;
     private PlayerDataManager _playerDataManager;
 
+    public GameLevelStates LevelState { get => levelState; set => levelState = value; }
+
     private void Start()
     {
         SetPanelUIData();
         levelButton.SetButtonData(levelState, gameType, gameLevelIndex);
 
         _currentGameManager.OnGameLevelFinished += OnLevelFinished_ExecuteReaction;
+        _playerDataManager.OnPlayerMainDataLoaded += OnPlayerDataLoaded_ExecuteReaction;
     }
 
     private void OnDestroy()
     {
         _currentGameManager.OnGameLevelFinished -= OnLevelFinished_ExecuteReaction;
+        _playerDataManager.OnPlayerMainDataLoaded -= OnPlayerDataLoaded_ExecuteReaction;
     }
 
     #region Zenject
@@ -65,6 +69,22 @@ public class ChooseGameLevelPanel : MonoBehaviour
         else
         {
             SetAvailableStateUI();
+        }
+    }
+
+    public void SetLevelStateIndex(int index)
+    {
+        if(index == 0)
+        {
+            levelState = GameLevelStates.Available_New;
+        }
+        else if (index == 1)
+        {
+            levelState = GameLevelStates.Available_Started;
+        }
+        if (index == 2)
+        {
+            levelState = GameLevelStates.Available_Finished;
         }
     }
 
@@ -118,6 +138,16 @@ public class ChooseGameLevelPanel : MonoBehaviour
         if(gameType == finishedGameType && gameLevelIndex == finishedLevelIndex)
         {
             levelState = GameLevelStates.Available_Finished;
+            SetAvailableStateUI();
+            _playerDataManager.SavePlayerData();
+        }
+    }
+
+    private void OnPlayerDataLoaded_ExecuteReaction()
+    {
+        if (gameType == GameLevelTypes.MiniGame && gameLevelIndex == 0)
+        {
+            SetLevelStateIndex(_playerDataManager.MiniGameLevelStateIndex);
             SetAvailableStateUI();
         }
     }

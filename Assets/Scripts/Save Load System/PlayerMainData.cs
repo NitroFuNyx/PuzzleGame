@@ -7,6 +7,7 @@ public class PlayerMainData
     public int currentCoinsAmount;
     public bool soundMuted;
     public int miniGameLevelHighestScore;
+    public int miniGameLevelStateIndex;
 
     public PlayerMainData(PlayerDataManager playerDataManager)
     {
@@ -14,5 +15,6 @@ public class PlayerMainData
         currentCoinsAmount = playerDataManager.CurrentCoinsAmount;
         soundMuted = playerDataManager.SoundMuted;
         miniGameLevelHighestScore = playerDataManager.MiniGameLevelHighestScore;
+        miniGameLevelStateIndex = playerDataManager.MiniGameLevelStateIndex;
     }
 }
