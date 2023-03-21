@@ -27,6 +27,7 @@ public class PlayerCollisionManager : MonoBehaviour
     [Header("VFX")]
     [Space]
     [SerializeField] private ParticleSystem stunVFX;
+    [SerializeField] private ParticleSystem coinsMagnetVFX;
 
     private BoxCollider2D boxCollider;
     private CircleCollider2D coinsMagnetCollider;
@@ -58,6 +59,7 @@ public class PlayerCollisionManager : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         coinsMagnetCollider = coinsMagnetColliderObject.GetComponent<CircleCollider2D>();
         coinsMagnetCollider.enabled = false;
+        coinsMagnetVFX.Stop();
     }
 
     private void Start()
@@ -216,12 +218,16 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private IEnumerator CoinsMagnetBonusCollision_ExecuteReactionCoroutine()
     {
+        coinsMagnetVFX.Play();
+
         while (currentCoinsMagnetBonusTime > 0f)
         {
             _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_CoinsMagnet, CurrentCoinsMagnetBonusTime);
             yield return new WaitForSeconds(1f);
             currentCoinsMagnetBonusTime--;
         }
+
+        coinsMagnetVFX.Stop();
         _kitchenMiniGameBonusTimersPanel.UpdateBonusTimer(KitchenMiniGameItems.Bonus_CoinsMagnet, CurrentCoinsMagnetBonusTime);
         coinsMagnetBonusActivated = false;
         coinsMagnetCollider.enabled = false;

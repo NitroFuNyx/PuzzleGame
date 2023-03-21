@@ -8029,6 +8029,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846971758}
   m_CullTransparentMesh: 1
+--- !u!4 &853438954 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+  m_PrefabInstance: {fileID: 1033442992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &853438956 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19859126, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+  m_PrefabInstance: {fileID: 1033442992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &899594256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7234307004436901835, guid: 5e0e080b950710a4f86e995e20a9a827, type: 3}
@@ -9269,6 +9279,99 @@ MonoBehaviour:
   hideTimerPanelDelay: 0.5
   hideTimerPanelDuration: 0.5
   checkTimersValueDelay: 0.1
+--- !u!1001 &1033442992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1796588108}
+    m_Modifications:
+    - target: {fileID: 166946, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_Name
+      value: Kitchen Mini Game Item Bonus Sphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445344, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19857140, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19857140, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19857140, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19859126, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19979980, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 867b9a6f9b54bbe43848d010fbce82f2, type: 3}
 --- !u!1 &1039534416
 GameObject:
   m_ObjectHideFlags: 0
@@ -17197,6 +17300,7 @@ Transform:
   - {fileID: 1444565174}
   - {fileID: 1819813545294908959}
   - {fileID: 1434363738}
+  - {fileID: 853438954}
   m_Father: {fileID: 1197905648}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17311,6 +17415,7 @@ MonoBehaviour:
   currentCoinsMagnetBonusTime: 0
   coinsMagnetColliderObject: {fileID: 1434363737}
   stunVFX: {fileID: 1819813545294908960}
+  coinsMagnetVFX: {fileID: 853438956}
 --- !u!1 &1824544941
 GameObject:
   m_ObjectHideFlags: 0
