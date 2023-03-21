@@ -12,6 +12,7 @@ public class PlayerDataManager : MonoBehaviour
     [Header("Resources Data")]
     [Space]
     [SerializeField] private int currentCoinsAmount = 0;
+    [SerializeField] private int miniGameLevelHighestScore = 0;
     [Header("Audio Data")]
     [Space]
     [SerializeField] private bool soundMuted;
@@ -25,6 +26,7 @@ public class PlayerDataManager : MonoBehaviour
     public Languages CurrentLanguage { get => currentLanguage; private set => currentLanguage = value; }
     public int CurrentCoinsAmount { get => currentCoinsAmount; private set => currentCoinsAmount = value; }
     public bool SoundMuted { get => soundMuted; private set => soundMuted = value; }
+    public int MiniGameLevelHighestScore { get => miniGameLevelHighestScore; private set => miniGameLevelHighestScore = value; }
 
     #region Events Declaration
     public event Action OnPlayerMainDataLoaded;
@@ -49,6 +51,12 @@ public class PlayerDataManager : MonoBehaviour
     public void SavePlayerData()
     {
         currentCoinsAmount = _resourcesManager.WholeCoinsAmount;
+
+        if(miniGameLevelHighestScore < _resourcesManager.CurrentLevelCoinsAmount)
+        {
+            miniGameLevelHighestScore = _resourcesManager.CurrentLevelCoinsAmount;
+        }    
+
         SaveLoadSystem.SavePlayerData(this);
     }
 
@@ -70,6 +78,7 @@ public class PlayerDataManager : MonoBehaviour
 
             soundMuted = dataHolder.soundMuted;
             currentCoinsAmount = dataHolder.currentCoinsAmount;
+            miniGameLevelHighestScore = dataHolder.miniGameLevelHighestScore;
 
             OnPlayerMainDataLoaded.Invoke();
         }
