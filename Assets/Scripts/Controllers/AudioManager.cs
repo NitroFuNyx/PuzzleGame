@@ -25,14 +25,8 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     private void Start()
     {
         SetStartSettings();
-        //SubscribeOnEvents();
 
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
-    }
-
-    private void OnDestroy()
-    {
-        //UnsubscribeFromEvents();
     }
 
     #region Zenject
@@ -49,9 +43,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         audioMuted = muted;
 
         SetAudioSourcesState();
-        //_playerDataManager.SaveAudioData(muted);
         _dataPersistanceManager.SaveGame();
-        //OnAudioMuteStateChanged?.Invoke(muted);
     }
 
     private void SetStartSettings()
@@ -65,25 +57,6 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         audioSourcesList.Add(sfxAudioSource);
         audioSourcesList.Add(voicesAudioSource);
     }
-
-    //private void SubscribeOnEvents()
-    //{
-    //    _playerDataManager.OnPlayerMainDataLoaded += PlayerMainDataLoaded_ExecuteReaction;
-    //}
-
-    //private void UnsubscribeFromEvents()
-    //{
-    //    _playerDataManager.OnPlayerMainDataLoaded -= PlayerMainDataLoaded_ExecuteReaction;
-    //}
-
-    //private void PlayerMainDataLoaded_ExecuteReaction()
-    //{
-    //    for (int i = 0; i < audioSourcesList.Count; i++)
-    //    {
-    //        audioSourcesList[i].mute = _playerDataManager.SoundMuted;
-    //    }
-    //    OnAudioMuteStateChanged?.Invoke(_playerDataManager.SoundMuted);
-    //}
 
     private void SetAudioSourcesState()
     {
