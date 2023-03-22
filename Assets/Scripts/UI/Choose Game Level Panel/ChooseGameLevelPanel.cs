@@ -4,7 +4,7 @@ using TMPro;
 using DG.Tweening;
 using Zenject;
 
-public class ChooseGameLevelPanel : MonoBehaviour
+public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
 {
     [Header("Game Level Data")]
     [Space]
@@ -33,11 +33,13 @@ public class ChooseGameLevelPanel : MonoBehaviour
     [SerializeField] private float changeAlphaDuration = 0.01f;
 
     private CurrentGameManager _currentGameManager;
-    private PlayerDataManager _playerDataManager;
+    private ResourcesManager _resourcesManager;
+    private DataPersistanceManager _dataPersistanceManager;
 
-    public GameLevelStates LevelState { get => levelState; private set => levelState = value; }
-    public int GameLevelIndex { get => gameLevelIndex; private set => gameLevelIndex = value; }
-    public int HighestScore { get => highestScore; private set => highestScore = value; }
+    private void Awake()
+    {
+        _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
+    }
 
     private void Start()
     {
@@ -45,21 +47,20 @@ public class ChooseGameLevelPanel : MonoBehaviour
         levelButton.SetButtonData(levelState, gameType, gameLevelIndex);
 
         _currentGameManager.OnGameLevelFinished += OnLevelFinished_ExecuteReaction;
-        _playerDataManager.OnPlayerMainDataLoaded += OnPlayerDataLoaded_ExecuteReaction;
     }
 
     private void OnDestroy()
     {
         _currentGameManager.OnGameLevelFinished -= OnLevelFinished_ExecuteReaction;
-        _playerDataManager.OnPlayerMainDataLoaded -= OnPlayerDataLoaded_ExecuteReaction;
     }
 
     #region Zenject
     [Inject]
-    private void Construct(CurrentGameManager currentGameManager, PlayerDataManager playerDataManager)
+    private void Construct(CurrentGameManager currentGameManager, DataPersistanceManager dataPersistanceManager, ResourcesManager resourcesManager)
     {
         _currentGameManager = currentGameManager;
-        _playerDataManager = playerDataManager;
+        _dataPersistanceManager = dataPersistanceManager;
+        _resourcesManager = resourcesManager;
     }
     #endregion Zenject
 
@@ -77,18 +78,7 @@ public class ChooseGameLevelPanel : MonoBehaviour
 
     public void SetLevelStateIndex(int index)
     {
-        if(index == 0)
-        {
-            levelState = GameLevelStates.Available_New;
-        }
-        else if (index == 1)
-        {
-            levelState = GameLevelStates.Available_Started;
-        }
-        if (index == 2)
-        {
-            levelState = GameLevelStates.Available_Finished;
-        }
+        levelState = (GameLevelStates)index;
     }
 
     private void SetLockedStateUI()
@@ -109,49 +99,76 @@ public class ChooseGameLevelPanel : MonoBehaviour
         darkFilterImage.DOFade(0f, changeAlphaDuration);
         lockImage.DOFade(0f, changeAlphaDuration);
 
-        if (levelState == GameLevelStates.Available_New)
+        if(levelState == GameLevelStates.Locked)
         {
-            timeTitle_Text.text = "start";
-            timeValue_Text.text = "";
+            costPanel.ShowPanel();
         }
-        else if(levelState == GameLevelStates.Available_Started)
+        else
         {
-            timeTitle_Text.text = "current time";
-            timeValue_Text.text = "01:01"; // set time
-        }
-        else if (levelState == GameLevelStates.Available_Finished)
-        {
-            if(gameType == GameLevelTypes.Puzzle)
+            costPanel.HidePanel();
+
+            if (levelState == GameLevelStates.Available_New)
             {
-                timeTitle_Text.text = "best time";
+                timeTitle_Text.text = "start";
+                timeValue_Text.text = "";
+            }
+            else if (levelState == GameLevelStates.Available_Started)
+            {
+                timeTitle_Text.text = "current time";
                 timeValue_Text.text = "01:01"; // set time
             }
-            else
+            else if (levelState == GameLevelStates.Available_Finished)
             {
-                timeTitle_Text.text = "best score";
-                timeValue_Text.text = $"{_playerDataManager.MiniGameLevelHighestScore}";
+                if (gameType == GameLevelTypes.Puzzle)
+                {
+                    timeTitle_Text.text = "best time";
+                    timeValue_Text.text = "01:01"; // set time
+                }
+                else
+                {
+                    timeTitle_Text.text = "best score";
+                    timeValue_Text.text = $"{highestScore}";
+                }
             }
         }
-
-        costPanel.HidePanel();
     }
 
     private void OnLevelFinished_ExecuteReaction(GameLevelTypes finishedGameType, int finishedLevelIndex)
     {
         if(gameType == finishedGameType && gameLevelIndex == finishedLevelIndex)
         {
+            if(highestScore < _resourcesManager.CurrentLevelCoinsAmount)
+            {
+                highestScore = _resourcesManager.CurrentLevelCoinsAmount;
+            }
+            
             levelState = GameLevelStates.Available_Finished;
             SetAvailableStateUI();
-            //_playerDataManager.SavePlayerData();
         }
     }
 
-    private void OnPlayerDataLoaded_ExecuteReaction()
+    public void LoadData(GameData data)
     {
-        if (gameType == GameLevelTypes.MiniGame && gameLevelIndex == 0)
+        if (gameType == GameLevelTypes.MiniGame)
         {
-            SetLevelStateIndex(_playerDataManager.MiniGameLevelStateIndex);
+            highestScore = data.miniGameLevelsDataList[gameLevelIndex].highestScore;
+            SetLevelStateIndex(data.miniGameLevelsDataList[gameLevelIndex].levelStateIndex);
             SetAvailableStateUI();
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        if(gameType == GameLevelTypes.MiniGame)
+        {
+            for (int i = 0; i < data.miniGameLevelsDataList.Length; i++)
+            {
+                if (data.miniGameLevelsDataList[i].levelIndex == gameLevelIndex)
+                {
+                    data.miniGameLevelsDataList[i].levelStateIndex = (int)levelState;
+                    data.miniGameLevelsDataList[i].highestScore = highestScore;
+                }
+            }
         }
     }
 }

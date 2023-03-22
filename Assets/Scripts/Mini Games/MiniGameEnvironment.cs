@@ -124,6 +124,5 @@ public class MiniGameEnvironment : MonoBehaviour
         _currentGameManager.SetGameFinisheData();
         kitchenMiniGameSpawnManager.StopSpawning();
         _miniGameUI.ShowGameFinishedPanel();
-        ResetEnvironment();
     }
 }

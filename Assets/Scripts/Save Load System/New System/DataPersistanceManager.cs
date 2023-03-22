@@ -29,10 +29,12 @@ public class DataPersistanceManager : MonoBehaviour
         gameData = new GameData(_playerDataManager); // save class
 
         FileDataHandler.Save(gameData); // create file with basic data
+
+        InitializeMiniGameLevelsIndexes(gameData);
+
         SaveGame(); // save actual data set in Unity
     }
 
-    [ContextMenu("Save")]
     public void SaveGame()
     {
         for (int i = 0; i < saveSystemDataObjectsList.Count; i++)
@@ -63,6 +65,14 @@ public class DataPersistanceManager : MonoBehaviour
     public void AddObjectToSaveSystemObjectsList(IDataPersistance saveSystemObject)
     {
         saveSystemDataObjectsList.Add(saveSystemObject);
+    }
+
+    private void InitializeMiniGameLevelsIndexes(GameData gameData)
+    {
+        for (int i = 0; i < gameData.miniGameLevelsDataList.Length; i++)
+        {
+            gameData.miniGameLevelsDataList[i].levelIndex = i;
+        }
     }
 
     private IEnumerator LoadStartDataCoroutine()

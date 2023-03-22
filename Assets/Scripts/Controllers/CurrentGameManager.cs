@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using Zenject;
 
 public class CurrentGameManager : MonoBehaviour
@@ -59,16 +60,24 @@ public class CurrentGameManager : MonoBehaviour
 
     public void SetGameFinisheData()
     {
-        _dataPersistanceManager.SaveGame();
         OnGameLevelFinished?.Invoke(currentGameType, currentLevelIndex);
+        StartCoroutine(FinishGameWithSavingCoroutine());    
     }
 
     public void FinishGameWithoutSaving()
     {
         if(currentGameType == GameLevelTypes.MiniGame)
         {
-            _resourcesManager.ResetCurrentLevelCoinsData();
             _miniGamesEnvironmentsHolder.CurrentlyActiveGame.ResetEnvironment();
         }
+    }
+
+    private IEnumerator FinishGameWithSavingCoroutine()
+    {
+        yield return null;
+        _dataPersistanceManager.SaveGame();
+
+        yield return null;
+        _miniGamesEnvironmentsHolder.CurrentlyActiveGame.ResetEnvironment();
     }
 }

@@ -9,7 +9,6 @@ public class GameData
     public int languageIndex;
     public int currentCoinsAmount;
     public bool soundMuted;
-    public int miniGameLevelCoins;
 
     public MiniGameLevelData[] miniGameLevelsDataList;
 
@@ -18,7 +17,6 @@ public class GameData
         languageIndex = 0;
         currentCoinsAmount = 0;
         soundMuted = false;
-        miniGameLevelCoins = 0;
         miniGameLevelsDataList = new MiniGameLevelData[playerDataManager.MiniGameLevelsPanelsList.Count];
     }
 }

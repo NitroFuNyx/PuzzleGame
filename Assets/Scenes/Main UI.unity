@@ -3299,7 +3299,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408662260}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -18346,7 +18346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: highestScore
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y
