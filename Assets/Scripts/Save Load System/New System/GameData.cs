@@ -11,14 +11,15 @@ public class GameData
     public bool soundMuted;
     public int miniGameLevelCoins;
 
-    public List<MiniGameLevelData> miniGameLevelsDataList;
+    public MiniGameLevelData[] miniGameLevelsDataList;
 
-    public GameData()
+    public GameData(PlayerDataManager playerDataManager)
     {
         languageIndex = 0;
         currentCoinsAmount = 0;
         soundMuted = false;
         miniGameLevelCoins = 0;
+        miniGameLevelsDataList = new MiniGameLevelData[playerDataManager.MiniGameLevelsPanelsList.Count];
     }
 }
 
@@ -31,8 +32,8 @@ public class MiniGameLevelData
 
     public MiniGameLevelData()
     {
-        levelIndex = 14;
-        levelStateIndex = 14;
-        highestScore = 14;
+        levelIndex = 0;
+        levelStateIndex = 0;
+        highestScore = 0;
     }
 }

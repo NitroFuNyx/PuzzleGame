@@ -59,7 +59,7 @@ public class CurrentGameManager : MonoBehaviour
 
     public void SetGameFinisheData()
     {
-        _playerDataManager.SavePlayerData();
+        //_playerDataManager.SavePlayerData();
         OnGameLevelFinished?.Invoke(currentGameType, currentLevelIndex);
     }
 

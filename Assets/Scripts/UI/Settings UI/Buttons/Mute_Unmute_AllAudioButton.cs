@@ -14,12 +14,12 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
 
     private void Start()
     {
-        _audioManager.OnAudioMuteStateChanged += AudioMuteStateChanged_ExecuteReaction;
+        SubscribeOnEvents();
     }
 
     private void OnDestroy()
     {
-        _audioManager.OnAudioMuteStateChanged -= AudioMuteStateChanged_ExecuteReaction;
+        UnsubscribeFromEvents();
     }
 
     #region Zenject
@@ -35,6 +35,16 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
         muted = !muted;
         _audioManager.ChangeMuteState(muted);
         ShowAnimation_ButtonPressed();
+    }
+
+    private void SubscribeOnEvents()
+    {
+        _audioManager.OnAudioMuteStateChanged += AudioMuteStateChanged_ExecuteReaction;
+    }
+
+    private void UnsubscribeFromEvents()
+    {
+        _audioManager.OnAudioMuteStateChanged -= AudioMuteStateChanged_ExecuteReaction;
     }
 
     private void ChangePanelSprite()

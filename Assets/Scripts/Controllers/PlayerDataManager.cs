@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using Zenject;
 
-public class PlayerDataManager : MonoBehaviour
+public class PlayerDataManager : MonoBehaviour, IDataPersistance
 {
     [Header("Language Data")]
     [Space]
@@ -19,6 +19,7 @@ public class PlayerDataManager : MonoBehaviour
 
     [SerializeField] private int miniGameLevelStateIndex;
     [SerializeField] private ChooseGameLevelPanel minigamePanel;
+    [SerializeField] private List<ChooseGameLevelPanel> miniGameLevelsPanelsList = new List<ChooseGameLevelPanel>();
 
     private List<Languages> allLanguagesList = new List<Languages>();
 
@@ -34,6 +35,7 @@ public class PlayerDataManager : MonoBehaviour
     public int MiniGameLevelHighestScore { get => miniGameLevelHighestScore; private set => miniGameLevelHighestScore = value; }
     public int MiniGameLevelStateIndex { get => miniGameLevelStateIndex; set => miniGameLevelStateIndex = value; }
     public ChooseGameLevelPanel MinigamePanel { get => minigamePanel; set => minigamePanel = value; }
+    public List<ChooseGameLevelPanel> MiniGameLevelsPanelsList { get => miniGameLevelsPanelsList; set => miniGameLevelsPanelsList = value; }
 
     #region Events Declaration
     public event Action OnPlayerMainDataLoaded;
@@ -42,6 +44,7 @@ public class PlayerDataManager : MonoBehaviour
     private void Awake()
     {
         SetStartSettings();
+        FindObjectOfType<DataPersistanceManager>().AddObjectToSaveSystemObjectsList(this);
     }
 
     #region Zenject
@@ -55,65 +58,65 @@ public class PlayerDataManager : MonoBehaviour
     }
     #endregion Zenject
 
-    [ContextMenu("Save Player Data")]
-    public void SavePlayerData()
-    {
-        currentCoinsAmount = _resourcesManager.WholeCoinsAmount;
+    //[ContextMenu("Save Player Data")]
+    //public void SavePlayerData()
+    //{
+    //    currentCoinsAmount = _resourcesManager.WholeCoinsAmount;
 
-        if(miniGameLevelHighestScore < _resourcesManager.CurrentLevelCoinsAmount)
-        {
-            miniGameLevelHighestScore = _resourcesManager.CurrentLevelCoinsAmount;
-        }
+    //    if(miniGameLevelHighestScore < _resourcesManager.CurrentLevelCoinsAmount)
+    //    {
+    //        miniGameLevelHighestScore = _resourcesManager.CurrentLevelCoinsAmount;
+    //    }
 
-        miniGameLevelStateIndex = (int)minigamePanel.LevelState;
+    //    miniGameLevelStateIndex = (int)minigamePanel.LevelState;
 
-        SaveLoadSystem.SavePlayerData(this);
-    }
+    //    SaveLoadSystem.SavePlayerData(this);
+    //}
 
-    [ContextMenu("Load Player Data")]
-    public void LoadPlayerData()
-    {
-        PlayerMainData dataHolder = SaveLoadSystem.LoadPlayerData();
+    //[ContextMenu("Load Player Data")]
+    //public void LoadPlayerData()
+    //{
+    //    PlayerMainData dataHolder = SaveLoadSystem.LoadPlayerData();
 
-        if(dataHolder != null)
-        {
-            for (int i = 0; i < allLanguagesList.Count; i++)
-            {
-                if ((int)allLanguagesList[i] == dataHolder.languageIndex)
-                {
-                    currentLanguage = allLanguagesList[i];
-                    break;
-                }
-            }
+    //    if(dataHolder != null)
+    //    {
+    //        for (int i = 0; i < allLanguagesList.Count; i++)
+    //        {
+    //            if ((int)allLanguagesList[i] == dataHolder.languageIndex)
+    //            {
+    //                currentLanguage = allLanguagesList[i];
+    //                break;
+    //            }
+    //        }
 
-            soundMuted = dataHolder.soundMuted;
-            currentCoinsAmount = dataHolder.currentCoinsAmount;
-            miniGameLevelHighestScore = dataHolder.miniGameLevelHighestScore;
+    //        soundMuted = dataHolder.soundMuted;
+    //        currentCoinsAmount = dataHolder.currentCoinsAmount;
+    //        miniGameLevelHighestScore = dataHolder.miniGameLevelHighestScore;
 
-            miniGameLevelStateIndex = dataHolder.miniGameLevelStateIndex;
+    //        miniGameLevelStateIndex = dataHolder.miniGameLevelStateIndex;
 
-            minigamePanel.SetLevelStateIndex(miniGameLevelStateIndex);
+    //        minigamePanel.SetLevelStateIndex(miniGameLevelStateIndex);
 
-            OnPlayerMainDataLoaded.Invoke();
-        }
-        else
-        {
-            Debug.Log("No savings");
-            SaveLoadSystem.SavePlayerData(this);
-            StartCoroutine(LoadMainDataCoroutine());
-        }
-    }
+    //        OnPlayerMainDataLoaded.Invoke();
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("No savings");
+    //        SaveLoadSystem.SavePlayerData(this);
+    //        StartCoroutine(LoadMainDataCoroutine());
+    //    }
+    //}
 
     public void SaveLanguageData(Languages language)
     {
         currentLanguage = language;
-        SavePlayerData();
+        //SavePlayerData();
     }
 
     public void SaveAudioData(bool audioMuted)
     {
         soundMuted = audioMuted;
-        SavePlayerData();
+        //SavePlayerData();
     }
 
     private void SetStartSettings()
@@ -133,6 +136,16 @@ public class PlayerDataManager : MonoBehaviour
     private IEnumerator LoadMainDataCoroutine()
     {
         yield return null;
-        LoadPlayerData();
+        //LoadPlayerData();
+    }
+
+    public void LoadData(GameData data)
+    {
+        
+    }
+
+    public void SaveData(GameData data)
+    {
+        //data.miniGameLevelsDataList[0].highestScore = 2;
     }
 }

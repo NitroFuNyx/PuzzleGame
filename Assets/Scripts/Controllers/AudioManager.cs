@@ -25,14 +25,14 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     private void Start()
     {
         SetStartSettings();
-        SubscribeOnEvents();
+        //SubscribeOnEvents();
 
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
     }
 
     private void OnDestroy()
     {
-        UnsubscribeFromEvents();
+        //UnsubscribeFromEvents();
     }
 
     #region Zenject
@@ -48,13 +48,10 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     {
         audioMuted = muted;
 
-        for (int i = 0; i < audioSourcesList.Count; i++)
-        {
-            audioSourcesList[i].mute = muted;
-        }
-        _playerDataManager.SaveAudioData(muted);
+        SetAudioSourcesState();
+        //_playerDataManager.SaveAudioData(muted);
         _dataPersistanceManager.SaveGame();
-        OnAudioMuteStateChanged?.Invoke(muted);
+        //OnAudioMuteStateChanged?.Invoke(muted);
     }
 
     private void SetStartSettings()
@@ -69,30 +66,39 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         audioSourcesList.Add(voicesAudioSource);
     }
 
-    private void SubscribeOnEvents()
-    {
-        //_playerDataManager.OnPlayerMainDataLoaded += PlayerMainDataLoaded_ExecuteReaction;
-    }
+    //private void SubscribeOnEvents()
+    //{
+    //    _playerDataManager.OnPlayerMainDataLoaded += PlayerMainDataLoaded_ExecuteReaction;
+    //}
 
-    private void UnsubscribeFromEvents()
-    {
-        //_playerDataManager.OnPlayerMainDataLoaded -= PlayerMainDataLoaded_ExecuteReaction;
-    }
+    //private void UnsubscribeFromEvents()
+    //{
+    //    _playerDataManager.OnPlayerMainDataLoaded -= PlayerMainDataLoaded_ExecuteReaction;
+    //}
 
-    private void PlayerMainDataLoaded_ExecuteReaction()
+    //private void PlayerMainDataLoaded_ExecuteReaction()
+    //{
+    //    for (int i = 0; i < audioSourcesList.Count; i++)
+    //    {
+    //        audioSourcesList[i].mute = _playerDataManager.SoundMuted;
+    //    }
+    //    OnAudioMuteStateChanged?.Invoke(_playerDataManager.SoundMuted);
+    //}
+
+    private void SetAudioSourcesState()
     {
         for (int i = 0; i < audioSourcesList.Count; i++)
         {
-            audioSourcesList[i].mute = _playerDataManager.SoundMuted;
+            audioSourcesList[i].mute = audioMuted;
         }
-        OnAudioMuteStateChanged?.Invoke(_playerDataManager.SoundMuted);
+
+        OnAudioMuteStateChanged?.Invoke(audioMuted);
     }
 
     public void LoadData(GameData data)
     {
         audioMuted = data.soundMuted;
-        Debug.Log(data.currentCoinsAmount);
-        Debug.Log($"{data.miniGameLevelsDataList[0].highestScore}");
+        SetAudioSourcesState();
     }
 
     public void SaveData(GameData data)

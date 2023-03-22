@@ -11,6 +11,7 @@ public class ChooseGameLevelPanel : MonoBehaviour
     [SerializeField] private GameLevelStates levelState = GameLevelStates.Available_New;
     [SerializeField] private GameLevelTypes gameType = GameLevelTypes.Puzzle;
     [SerializeField] private int gameLevelIndex = 0;
+    [SerializeField] private int highestScore = 0;
     [Header("Button Images")]
     [Space]
     [SerializeField] private Image buttonImage;
@@ -34,7 +35,9 @@ public class ChooseGameLevelPanel : MonoBehaviour
     private CurrentGameManager _currentGameManager;
     private PlayerDataManager _playerDataManager;
 
-    public GameLevelStates LevelState { get => levelState; set => levelState = value; }
+    public GameLevelStates LevelState { get => levelState; private set => levelState = value; }
+    public int GameLevelIndex { get => gameLevelIndex; private set => gameLevelIndex = value; }
+    public int HighestScore { get => highestScore; private set => highestScore = value; }
 
     private void Start()
     {
@@ -139,7 +142,7 @@ public class ChooseGameLevelPanel : MonoBehaviour
         {
             levelState = GameLevelStates.Available_Finished;
             SetAvailableStateUI();
-            _playerDataManager.SavePlayerData();
+            //_playerDataManager.SavePlayerData();
         }
     }
 

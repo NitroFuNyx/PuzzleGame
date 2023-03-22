@@ -5,9 +5,7 @@ using Zenject;
 
 public class DataPersistanceManager : MonoBehaviour
 {
-    [Header("Save System Data Objects")]
-    [Space]
-    [SerializeField] private List<IDataPersistance> saveSystemDataObjectsList = new List<IDataPersistance>();
+    private List<IDataPersistance> saveSystemDataObjectsList = new List<IDataPersistance>();
 
     private PlayerDataManager _playerDataManager;
 
@@ -15,7 +13,7 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void Start()
     {
-        LoadGame();
+        StartCoroutine(LoadStartDataCoroutine());
     }
 
     #region Zenject
@@ -28,20 +26,18 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void NewGame()
     {
-        gameData = new GameData();
+        gameData = new GameData(_playerDataManager); // save class
 
-        gameData.currentCoinsAmount = 0;
-        gameData.languageIndex = 0;
-        gameData.soundMuted = false;
-        gameData.miniGameLevelCoins = 0;
+        FileDataHandler.Save(gameData); // create file with basic data
+        SaveGame(); // save actual data set in Unity
     }
 
+    [ContextMenu("Save")]
     public void SaveGame()
     {
         for (int i = 0; i < saveSystemDataObjectsList.Count; i++)
         {
             saveSystemDataObjectsList[i].SaveData(gameData);
-            Debug.Log($"Game mute {gameData.soundMuted}");
         }
 
         FileDataHandler.Save(gameData);
@@ -56,14 +52,11 @@ public class DataPersistanceManager : MonoBehaviour
             Debug.Log($"No Save Files Found.");
             Debug.Log($"Creating New Save File.");
             NewGame();
-            StartCoroutine(CreateNewSaveCoroutine());
         }
-        else
+
+        for (int i = 0; i < saveSystemDataObjectsList.Count; i++)
         {
-            for (int i = 0; i < saveSystemDataObjectsList.Count; i++)
-            {
-                saveSystemDataObjectsList[i].LoadData(gameData);
-            }
+            saveSystemDataObjectsList[i].LoadData(gameData);
         }
     }
 
@@ -72,15 +65,9 @@ public class DataPersistanceManager : MonoBehaviour
         saveSystemDataObjectsList.Add(saveSystemObject);
     }
 
-    private IEnumerator CreateNewSaveCoroutine()
+    private IEnumerator LoadStartDataCoroutine()
     {
         yield return null;
-        SaveGame();
-
-        yield return null;
-        for (int i = 0; i < saveSystemDataObjectsList.Count; i++)
-        {
-            saveSystemDataObjectsList[i].LoadData(gameData);
-        }
+        LoadGame();
     }
 }
