@@ -33,6 +33,7 @@ public class PlayerDataManager : MonoBehaviour
     public bool SoundMuted { get => soundMuted; private set => soundMuted = value; }
     public int MiniGameLevelHighestScore { get => miniGameLevelHighestScore; private set => miniGameLevelHighestScore = value; }
     public int MiniGameLevelStateIndex { get => miniGameLevelStateIndex; set => miniGameLevelStateIndex = value; }
+    public ChooseGameLevelPanel MinigamePanel { get => minigamePanel; set => minigamePanel = value; }
 
     #region Events Declaration
     public event Action OnPlayerMainDataLoaded;
@@ -118,7 +119,7 @@ public class PlayerDataManager : MonoBehaviour
     private void SetStartSettings()
     {
         FillLanguagesList();
-        StartCoroutine(LoadMainDataCoroutine());
+        //StartCoroutine(LoadMainDataCoroutine());
     }
 
     private void FillLanguagesList()

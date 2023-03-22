@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using Zenject;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IDataPersistance
 {
     [Header("Audio Sources")]
     [Space]
@@ -14,8 +14,9 @@ public class AudioManager : MonoBehaviour
     private List<AudioSource> audioSourcesList = new List<AudioSource>();
 
     private PlayerDataManager _playerDataManager;
+    private DataPersistanceManager _dataPersistanceManager;
 
-    //private bool audioMuted;
+    private bool audioMuted = false;
 
     #region Events Declaration
     public event Action<bool> OnAudioMuteStateChanged;
@@ -25,6 +26,8 @@ public class AudioManager : MonoBehaviour
     {
         SetStartSettings();
         SubscribeOnEvents();
+
+        _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
     }
 
     private void OnDestroy()
@@ -34,19 +37,23 @@ public class AudioManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(PlayerDataManager playerDataManager)
+    private void Construct(PlayerDataManager playerDataManager, DataPersistanceManager dataPersistanceManager)
     {
         _playerDataManager = playerDataManager;
+        _dataPersistanceManager = dataPersistanceManager;
     }
     #endregion Zenject
 
     public void ChangeMuteState(bool muted)
     {
+        audioMuted = muted;
+
         for (int i = 0; i < audioSourcesList.Count; i++)
         {
             audioSourcesList[i].mute = muted;
         }
         _playerDataManager.SaveAudioData(muted);
+        _dataPersistanceManager.SaveGame();
         OnAudioMuteStateChanged?.Invoke(muted);
     }
 
@@ -64,12 +71,12 @@ public class AudioManager : MonoBehaviour
 
     private void SubscribeOnEvents()
     {
-        _playerDataManager.OnPlayerMainDataLoaded += PlayerMainDataLoaded_ExecuteReaction;
+        //_playerDataManager.OnPlayerMainDataLoaded += PlayerMainDataLoaded_ExecuteReaction;
     }
 
     private void UnsubscribeFromEvents()
     {
-        _playerDataManager.OnPlayerMainDataLoaded -= PlayerMainDataLoaded_ExecuteReaction;
+        //_playerDataManager.OnPlayerMainDataLoaded -= PlayerMainDataLoaded_ExecuteReaction;
     }
 
     private void PlayerMainDataLoaded_ExecuteReaction()
@@ -79,5 +86,17 @@ public class AudioManager : MonoBehaviour
             audioSourcesList[i].mute = _playerDataManager.SoundMuted;
         }
         OnAudioMuteStateChanged?.Invoke(_playerDataManager.SoundMuted);
+    }
+
+    public void LoadData(GameData data)
+    {
+        audioMuted = data.soundMuted;
+        Debug.Log(data.currentCoinsAmount);
+        Debug.Log($"{data.miniGameLevelsDataList[0].highestScore}");
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.soundMuted = audioMuted;
     }
 }
