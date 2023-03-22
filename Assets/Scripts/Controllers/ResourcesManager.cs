@@ -2,14 +2,14 @@ using UnityEngine;
 using System;
 using Zenject;
 
-public class ResourcesManager : MonoBehaviour
+public class ResourcesManager : MonoBehaviour, IDataPersistance
 {
     [Header("Coins")]
     [Space]
     [SerializeField] private int wholeCoinsAmount;
     [SerializeField] private int currentLevelCoinsAmount;
 
-    private PlayerDataManager _playerDataManager;
+    private DataPersistanceManager _dataPersistanceManager;
 
     public int WholeCoinsAmount { get => wholeCoinsAmount; private set => wholeCoinsAmount = value; }
     public int CurrentLevelCoinsAmount { get => currentLevelCoinsAmount; private set => currentLevelCoinsAmount = value; }
@@ -18,23 +18,18 @@ public class ResourcesManager : MonoBehaviour
     public event Action<int> OnLevelCoinsAmountChanged;
     #endregion Events Declaration
 
-    private void Start()
-    {
-        SubscribeOnEvents();
-    }
-
-    private void OnDestroy()
-    {
-        UnsubscribeFromEvents();
-    }
-
     #region Zenject
     [Inject]
-    private void Construct(PlayerDataManager playerDataManager)
+    private void Construct(DataPersistanceManager dataPersistanceManager)
     {
-        _playerDataManager = playerDataManager;
+        _dataPersistanceManager = dataPersistanceManager;
     }
     #endregion Zenject
+
+    private void Awake()
+    {
+        _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
+    }
 
     public void IncreaseCurrentLevelCoins(int coins)
     {
@@ -68,18 +63,13 @@ public class ResourcesManager : MonoBehaviour
         AddCurrentLevelCoinsToWholeCoinsAmount();
     }
 
-    private void SubscribeOnEvents()
+    public void LoadData(GameData data)
     {
-        _playerDataManager.OnPlayerMainDataLoaded += PlayerMainDataLoaded_ExecuteReaction;
+        wholeCoinsAmount = data.currentCoinsAmount;
     }
 
-    private void UnsubscribeFromEvents()
+    public void SaveData(GameData data)
     {
-        _playerDataManager.OnPlayerMainDataLoaded -= PlayerMainDataLoaded_ExecuteReaction;
-    }
-
-    private void PlayerMainDataLoaded_ExecuteReaction()
-    {
-        wholeCoinsAmount = _playerDataManager.CurrentCoinsAmount;
+        data.currentCoinsAmount = wholeCoinsAmount;
     }
 }
