@@ -15,6 +15,7 @@ public class ControllersInstaller : MonoInstaller
     [SerializeField] private PoolItemsManager poolItemsManager;
     [SerializeField] private SystemTimeManager systemTimeManager;
     [SerializeField] private DataPersistanceManager dataPersistanceManager;
+    [SerializeField] private CameraManager cameraManager;
 
     public override void InstallBindings()
     {
@@ -28,5 +29,6 @@ public class ControllersInstaller : MonoInstaller
         Container.Bind<PoolItemsManager>().FromInstance(poolItemsManager).AsSingle().NonLazy();
         Container.Bind<SystemTimeManager>().FromInstance(systemTimeManager).AsSingle().NonLazy();
         Container.Bind<DataPersistanceManager>().FromInstance(dataPersistanceManager).AsSingle().NonLazy();
+        Container.Bind<CameraManager>().FromInstance(cameraManager).AsSingle().NonLazy();
     }
 }

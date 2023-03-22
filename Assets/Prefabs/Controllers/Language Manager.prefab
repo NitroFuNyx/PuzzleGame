@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddca9a0005ecf344b8d1ec5c80c0cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  englishTextsJSON: {fileID: 4900000, guid: 5f97544d94eb3134d9ecb56a9c7c2d5a, type: 3}
-  ukrainianTextsJSON: {fileID: 4900000, guid: b947342bce53db54d828e83d63510815, type: 3}
-  spanishTextsJSON: {fileID: 4900000, guid: 56935a3fba7572e40ba670f88f447cd5, type: 3}
+  englishTextsJSON: {fileID: 4900000, guid: bd76a406d15bfd14b8c3a7bd96e5606c, type: 3}
+  ukrainianTextsJSON: {fileID: 4900000, guid: 4e0bd5a5db067094894013ece6b76940, type: 3}
+  spanishTextsJSON: {fileID: 4900000, guid: d578b36b14a63014f9f401254f56b400, type: 3}
+  currentLanguage: 0
