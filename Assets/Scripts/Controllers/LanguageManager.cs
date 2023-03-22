@@ -4,13 +4,16 @@ using System;
 using Localization;
 using Zenject;
 
-public class LanguageManager : MonoBehaviour
+public class LanguageManager : MonoBehaviour, IDataPersistance
 {
     [Header("Texts JSON")]
     [Space]
     [SerializeField] private TextAsset englishTextsJSON;
     [SerializeField] private TextAsset ukrainianTextsJSON;
     [SerializeField] private TextAsset spanishTextsJSON;
+    [Header("Current Language")]
+    [Space]
+    [SerializeField] private Languages currentLanguage;
 
     private LanguageTextsHolder englishTextsHolder = new LanguageTextsHolder();
     private LanguageTextsHolder ukrainianTextsHolder = new LanguageTextsHolder();
@@ -18,30 +21,24 @@ public class LanguageManager : MonoBehaviour
 
     private Dictionary<Languages, LanguageTextsHolder> languagesHoldersDictionary = new Dictionary<Languages, LanguageTextsHolder>();
 
-    private PlayerDataManager _playerDataManager;
+    private DataPersistanceManager _dataPersistanceManager;
 
     #region Events Declaration
     public event Action<LanguageTextsHolder> OnLanguageChanged;
     #endregion Events Declaration
 
-    private void Start()
+    private void Awake()
     {
         FillLanguageTextHolders();
         FillLanguagesHoldersDictionary();
-
-        SubscribeOnEvents();
-    }
-
-    private void OnDestroy()
-    {
-        UnsubscribeFromEvents();
+        _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
     }
 
     #region Zenject
     [Inject]
-    private void Construct(PlayerDataManager playerDataManager)
+    private void Construct(DataPersistanceManager dataPersistanceManager)
     {
-        _playerDataManager = playerDataManager;
+        _dataPersistanceManager = dataPersistanceManager;
     }
     #endregion Zenject
 
@@ -49,8 +46,9 @@ public class LanguageManager : MonoBehaviour
     {
         if(languagesHoldersDictionary.ContainsKey(language))
         {
+            currentLanguage = language;
+            _dataPersistanceManager.SaveGame();
             OnLanguageChanged?.Invoke(languagesHoldersDictionary[language]);
-            _playerDataManager.SaveLanguageData(language);
         }
     }
 
@@ -76,21 +74,17 @@ public class LanguageManager : MonoBehaviour
         languagesHoldersDictionary.Add(Languages.Spanish, spanishTextsHolder);
     }
 
-    private void SubscribeOnEvents()
+    public void LoadData(GameData data)
     {
-        _playerDataManager.OnPlayerMainDataLoaded += PlayerMainDataLoaded_ExecuteReaction;
-    }
-
-    private void UnsubscribeFromEvents()
-    {
-        _playerDataManager.OnPlayerMainDataLoaded -= PlayerMainDataLoaded_ExecuteReaction;
-    }
-
-    private void PlayerMainDataLoaded_ExecuteReaction()
-    {
-        if (languagesHoldersDictionary.ContainsKey(_playerDataManager.CurrentLanguage))
+        if (languagesHoldersDictionary.ContainsKey((Languages)data.languageIndex))
         {
-            OnLanguageChanged?.Invoke(languagesHoldersDictionary[_playerDataManager.CurrentLanguage]);
+            currentLanguage = (Languages)data.languageIndex;
+            OnLanguageChanged?.Invoke(languagesHoldersDictionary[currentLanguage]);
         }
-    }    
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.languageIndex = (int)currentLanguage;
+    }
 }

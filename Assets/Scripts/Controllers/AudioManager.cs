@@ -13,7 +13,6 @@ public class AudioManager : MonoBehaviour, IDataPersistance
 
     private List<AudioSource> audioSourcesList = new List<AudioSource>();
 
-    private PlayerDataManager _playerDataManager;
     private DataPersistanceManager _dataPersistanceManager;
 
     private bool audioMuted = false;
@@ -31,9 +30,8 @@ public class AudioManager : MonoBehaviour, IDataPersistance
 
     #region Zenject
     [Inject]
-    private void Construct(PlayerDataManager playerDataManager, DataPersistanceManager dataPersistanceManager)
+    private void Construct(DataPersistanceManager dataPersistanceManager)
     {
-        _playerDataManager = playerDataManager;
         _dataPersistanceManager = dataPersistanceManager;
     }
     #endregion Zenject
