@@ -69,8 +69,8 @@ public class MiniGameEnvironment : MonoBehaviour
         playerComponentsManager.ResetPlayer();
         kitchenMiniGameSpawnManager.ResetData();
         _timersManager.StopTimer();
-        _miniGameUI.ResetUIData();
         _resourcesManager.ResetCurrentLevelCoinsData();
+        _miniGameUI.ResetUIData();
         _poolItemsManager.ReturnItems_KitchenMiniGame();
         gameObject.SetActive(false);
     }
