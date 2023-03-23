@@ -36,6 +36,9 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     [Header("Durations")]
     [Space]
     [SerializeField] private float changeAlphaDuration = 0.01f;
+    [Header("Buttons")]
+    [Space]
+    [SerializeField] private ChooseGameLevelButton chooseGameLevelButton;
 
     private CurrentGameManager _currentGameManager;
     private ResourcesManager _resourcesManager;
@@ -85,7 +88,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
 
         if(canBeBought)
         {
-
+            chooseGameLevelButton.SetCanBePurchasedState();
         }
     }
 
@@ -185,12 +188,4 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         SetBuyingPossibilityState();
         SetPanelUIData();
     }
-
-    //private IEnumerator SetCanBeBoughtStateCoroutine()
-    //{
-    //    while(canBeBought)
-    //    {
-
-    //    }
-    //}
 }

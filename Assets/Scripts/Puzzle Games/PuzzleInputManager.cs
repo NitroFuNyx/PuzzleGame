@@ -29,5 +29,19 @@ public class PuzzleInputManager : MonoBehaviour
 
             Camera.main.transform.position = new Vector3(clampedPosX, Camera.main.transform.position.y, Camera.main.transform.position.z);
         //}
+
+        CreateRaycast();
+    }
+
+    private void CreateRaycast()
+    {
+        if(Input.touchCount > 0)
+        {
+            Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.down, 20f);
+            Debug.DrawRay(touchPos, Vector3.forward * 100f, Color.blue);
+            if (hit.collider != null)
+            Debug.Log($"{hit.collider.name}");
+        }
     }
 }

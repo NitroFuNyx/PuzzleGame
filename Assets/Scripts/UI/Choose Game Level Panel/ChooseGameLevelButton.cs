@@ -25,6 +25,7 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
     [SerializeField] private Vector3 costTextPunchVector = new Vector3(0.2f, 0.2f, 0.2f);
     [SerializeField] private int costTextPunchScaleFreequency = 4;
     [SerializeField] private Color costTextBlockedColor;
+    [SerializeField] private Color canBeBoughtColor;
     
 
     private MainUI _mainUI;
@@ -70,6 +71,21 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
                 });
             }
         }
+    }
+
+    [ContextMenu("Button")]
+    public void SetCanBePurchasedState()
+    {
+        lockImage.transform.DOKill();
+        costAmountText.DOKill();
+        costAmountText.transform.DOKill();
+
+        costAmountText.transform.DOPunchScale(costTextPunchVector, punchDuration, costTextPunchScaleFreequency).SetLoops(-1);
+
+        //costAmountText.DOColor(canBeBoughtColor, punchDuration).SetLoops(-1).OnComplete(() =>
+        //{
+        //    costAmountText.DOColor(Color.white, punchDuration / 2).SetLoops(-1);
+        //});
     }
 
     public void SetButtonData(GameLevelStates gameLevelState, GameLevelTypes gameLevelType, int index)
