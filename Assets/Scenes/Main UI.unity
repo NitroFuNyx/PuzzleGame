@@ -3735,6 +3735,17 @@ MonoBehaviour:
   buttonImage: {fileID: 0}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+--- !u!114 &413128834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 914299587054866272, guid: 3d551fcfab7a73a46903df76492ebe35, type: 3}
+  m_PrefabInstance: {fileID: 8719485710406195918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b01133cdcf9d14ca16e3796250c379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &422177470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16033,14 +16044,14 @@ MonoBehaviour:
   audioManager: {fileID: 1970423042}
   inputManager: {fileID: 1867509490}
   languageManager: {fileID: 664237914}
-  playerDataManager: {fileID: 2026359224}
+  gameDataHolder: {fileID: 2026359224}
   currentGameManager: {fileID: 2058359203}
   timersManager: {fileID: 1364336028}
   resourcesManager: {fileID: 5788056456937877782}
   poolItemsManager: {fileID: 116157837}
   systemTimeManager: {fileID: 4576828761973131606}
   dataPersistanceManager: {fileID: 1986429762}
-  cameraManager: {fileID: 0}
+  cameraManager: {fileID: 413128834}
 --- !u!4 &1550159806
 Transform:
   m_ObjectHideFlags: 0
@@ -23393,7 +23404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116893677351030711, guid: c5b3500172781ec4aa511ca7db6e7369, type: 3}
       propertyPath: m_Name
-      value: Player Data Manager
+      value: Game Data Holder
       objectReference: {fileID: 0}
     - target: {fileID: 8116893677351030713, guid: c5b3500172781ec4aa511ca7db6e7369, type: 3}
       propertyPath: minigamePanel

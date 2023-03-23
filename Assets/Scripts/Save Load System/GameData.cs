@@ -12,12 +12,12 @@ public class GameData
 
     public MiniGameLevelData[] miniGameLevelsDataList;
 
-    public GameData(PlayerDataManager playerDataManager)
+    public GameData(GameDataHolder gameDataHolder)
     {
         languageIndex = 0;
         currentCoinsAmount = 0;
         soundMuted = false;
-        miniGameLevelsDataList = new MiniGameLevelData[playerDataManager.MiniGameLevelsPanelsList.Count];
+        miniGameLevelsDataList = new MiniGameLevelData[gameDataHolder.MiniGameLevelsPanelsList.Count];
     }
 }
 

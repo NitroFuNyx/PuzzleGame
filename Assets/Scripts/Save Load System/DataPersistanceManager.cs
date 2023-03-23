@@ -7,7 +7,7 @@ public class DataPersistanceManager : MonoBehaviour
 {
     private List<IDataPersistance> saveSystemDataObjectsList = new List<IDataPersistance>();
 
-    private PlayerDataManager _playerDataManager;
+    private GameDataHolder _gameDataHolder;
 
     private GameData gameData;
 
@@ -18,15 +18,15 @@ public class DataPersistanceManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(PlayerDataManager playerDataManager)
+    private void Construct(GameDataHolder gameDataHolder)
     {
-        _playerDataManager = playerDataManager;
+        _gameDataHolder = gameDataHolder;
     }
     #endregion Zenject
 
     public void NewGame()
     {
-        gameData = new GameData(_playerDataManager); // save class
+        gameData = new GameData(_gameDataHolder); // save class
 
         FileDataHandler.Save(gameData); // create file with basic data
 

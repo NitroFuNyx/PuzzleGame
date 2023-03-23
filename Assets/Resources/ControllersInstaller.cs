@@ -8,7 +8,7 @@ public class ControllersInstaller : MonoInstaller
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private InputManager inputManager;
     [SerializeField] private LanguageManager languageManager;
-    [SerializeField] private PlayerDataManager playerDataManager;
+    [SerializeField] private GameDataHolder gameDataHolder;
     [SerializeField] private CurrentGameManager currentGameManager;
     [SerializeField] private TimersManager timersManager;
     [SerializeField] private ResourcesManager resourcesManager;
@@ -22,7 +22,7 @@ public class ControllersInstaller : MonoInstaller
         Container.Bind<AudioManager>().FromInstance(audioManager).AsSingle().NonLazy();
         Container.Bind<InputManager>().FromInstance(inputManager).AsSingle().NonLazy();
         Container.Bind<LanguageManager>().FromInstance(languageManager).AsSingle().NonLazy();
-        Container.Bind<PlayerDataManager>().FromInstance(playerDataManager).AsSingle().NonLazy();
+        Container.Bind<GameDataHolder>().FromInstance(gameDataHolder).AsSingle().NonLazy();
         Container.Bind<CurrentGameManager>().FromInstance(currentGameManager).AsSingle().NonLazy();
         Container.Bind<TimersManager>().FromInstance(timersManager).AsSingle().NonLazy();
         Container.Bind<ResourcesManager>().FromInstance(resourcesManager).AsSingle().NonLazy();
