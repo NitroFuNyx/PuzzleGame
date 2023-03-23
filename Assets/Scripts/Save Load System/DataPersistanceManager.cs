@@ -69,8 +69,10 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void InitializeMiniGameLevelsIndexes(GameData gameData)
     {
-        for (int i = 0; i < gameData.miniGameLevelsDataList.Length; i++)
+        for (int i = 0; i < _gameDataHolder.MiniGameLevelsPanelsList.Count; i++)
         {
+            MiniGameLevelData miniGameData = new MiniGameLevelData();
+            gameData.miniGameLevelsDataList.Add(miniGameData);
             gameData.miniGameLevelsDataList[i].levelIndex = i;
         }
     }

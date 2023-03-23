@@ -10,15 +10,16 @@ public class GameData
     public int currentCoinsAmount;
     public bool soundMuted;
 
-    public MiniGameLevelData[] miniGameLevelsDataList;
+    public List<MiniGameLevelData> miniGameLevelsDataList;
+    //public MiniGameLevelData[] miniGameLevelsDataList;
 
     public GameData(GameDataHolder gameDataHolder)
     {
         languageIndex = 0;
         currentCoinsAmount = 0;
         soundMuted = false;
-        miniGameLevelsDataList = new MiniGameLevelData[gameDataHolder.MiniGameLevelsPanelsList.Count];
-    }
+        miniGameLevelsDataList = new List<MiniGameLevelData>();
+}
 }
 
 [Serializable]
@@ -33,5 +34,24 @@ public class MiniGameLevelData
         levelIndex = 0;
         levelStateIndex = 0;
         highestScore = 0;
+    }
+}
+
+[Serializable]
+public class PuzzleGameLevelData
+{
+    public int levelIndex;
+    public int levelStateIndex;
+    public int currentInGameTime;
+    public int bestFinishTime;
+    //public int[] usedKeysList;
+
+    public PuzzleGameLevelData()
+    {
+        levelIndex = 0;
+        levelStateIndex = 0;
+        currentInGameTime = 0;
+        bestFinishTime = 0;
+        //usedKeysList = new MiniGameLevelData[gameDataHolder.MiniGameLevelsPanelsList.Count];
     }
 }
