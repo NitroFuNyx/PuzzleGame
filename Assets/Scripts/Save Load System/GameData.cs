@@ -11,7 +11,7 @@ public class GameData
     public bool soundMuted;
 
     public List<MiniGameLevelData> miniGameLevelsDataList;
-    //public MiniGameLevelData[] miniGameLevelsDataList;
+    public List<PuzzleGameLevelData> puzzleGameLevelsDataList;
 
     public GameData(GameDataHolder gameDataHolder)
     {
@@ -19,6 +19,7 @@ public class GameData
         currentCoinsAmount = 0;
         soundMuted = false;
         miniGameLevelsDataList = new List<MiniGameLevelData>();
+        puzzleGameLevelsDataList = new List<PuzzleGameLevelData>();
 }
 }
 
@@ -44,7 +45,7 @@ public class PuzzleGameLevelData
     public int levelStateIndex;
     public int currentInGameTime;
     public int bestFinishTime;
-    //public int[] usedKeysList;
+    public List<int> usedKeysList;
 
     public PuzzleGameLevelData()
     {
@@ -52,6 +53,6 @@ public class PuzzleGameLevelData
         levelStateIndex = 0;
         currentInGameTime = 0;
         bestFinishTime = 0;
-        //usedKeysList = new MiniGameLevelData[gameDataHolder.MiniGameLevelsPanelsList.Count];
+        usedKeysList = new List<int>();
     }
 }

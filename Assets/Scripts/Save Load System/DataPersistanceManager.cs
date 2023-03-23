@@ -31,6 +31,7 @@ public class DataPersistanceManager : MonoBehaviour
         FileDataHandler.Save(gameData); // create file with basic data
 
         InitializeMiniGameLevelsIndexes(gameData);
+        InitializePuzzleGameLevelsIndexes(gameData);
 
         SaveGame(); // save actual data set in Unity
     }
@@ -74,6 +75,16 @@ public class DataPersistanceManager : MonoBehaviour
             MiniGameLevelData miniGameData = new MiniGameLevelData();
             gameData.miniGameLevelsDataList.Add(miniGameData);
             gameData.miniGameLevelsDataList[i].levelIndex = i;
+        }
+    }
+
+    private void InitializePuzzleGameLevelsIndexes(GameData gameData)
+    {
+        for (int i = 0; i < _gameDataHolder.PuzzleGameLevelsPanelsList.Count; i++)
+        {
+            PuzzleGameLevelData puzzleGameData = new PuzzleGameLevelData();
+            gameData.puzzleGameLevelsDataList.Add(puzzleGameData);
+            gameData.puzzleGameLevelsDataList[i].levelIndex = i;
         }
     }
 

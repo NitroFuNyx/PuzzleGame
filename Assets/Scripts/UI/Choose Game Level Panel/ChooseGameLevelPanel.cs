@@ -163,14 +163,8 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     {
         if(gameType == GameLevelTypes.MiniGame)
         {
-            for (int i = 0; i < data.miniGameLevelsDataList.Count; i++)
-            {
-                if (data.miniGameLevelsDataList[i].levelIndex == gameLevelIndex)
-                {
-                    data.miniGameLevelsDataList[i].levelStateIndex = (int)levelState;
-                    data.miniGameLevelsDataList[i].highestScore = highestScore;
-                }
-            }
+            data.miniGameLevelsDataList[gameLevelIndex].levelStateIndex = (int)levelState;
+            data.miniGameLevelsDataList[gameLevelIndex].highestScore = highestScore;
         }
     }
 }
