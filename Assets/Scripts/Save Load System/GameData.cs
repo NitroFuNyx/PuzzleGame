@@ -29,12 +29,14 @@ public class MiniGameLevelData
     public int levelIndex;
     public int levelStateIndex;
     public int highestScore;
+    public int levelPrice;
 
     public MiniGameLevelData()
     {
         levelIndex = 0;
         levelStateIndex = 0;
         highestScore = 0;
+        levelPrice = 0;
     }
 }
 
@@ -43,6 +45,7 @@ public class PuzzleGameLevelData
 {
     public int levelIndex;
     public int levelStateIndex;
+    public int levelPrice;
     public int currentInGameTime;
     public int bestFinishTime;
     public List<int> usedKeysList;
@@ -51,6 +54,7 @@ public class PuzzleGameLevelData
     {
         levelIndex = 0;
         levelStateIndex = 0;
+        levelPrice = 0;
         currentInGameTime = 0;
         bestFinishTime = 0;
         usedKeysList = new List<int>();

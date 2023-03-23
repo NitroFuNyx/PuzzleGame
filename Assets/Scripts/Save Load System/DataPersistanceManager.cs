@@ -75,6 +75,7 @@ public class DataPersistanceManager : MonoBehaviour
             MiniGameLevelData miniGameData = new MiniGameLevelData();
             gameData.miniGameLevelsDataList.Add(miniGameData);
             gameData.miniGameLevelsDataList[i].levelIndex = i;
+            gameData.miniGameLevelsDataList[i].levelPrice = _gameDataHolder.MiniGameLevelsPanelsList[i].LevelPrice;
         }
     }
 
@@ -85,6 +86,7 @@ public class DataPersistanceManager : MonoBehaviour
             PuzzleGameLevelData puzzleGameData = new PuzzleGameLevelData();
             gameData.puzzleGameLevelsDataList.Add(puzzleGameData);
             gameData.puzzleGameLevelsDataList[i].levelIndex = i;
+            gameData.puzzleGameLevelsDataList[i].levelPrice = _gameDataHolder.PuzzleGameLevelsPanelsList[i].LevelPrice;
         }
     }
 

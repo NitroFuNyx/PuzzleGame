@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 using DG.Tweening;
 using Zenject;
@@ -12,6 +13,10 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     [SerializeField] private GameLevelTypes gameType = GameLevelTypes.Puzzle;
     [SerializeField] private int gameLevelIndex = 0;
     [SerializeField] private int highestScore = 0;
+    [SerializeField] private float currentTimeInGame = 0;
+    [SerializeField] private float bestFinishTime = 0;
+    [SerializeField] private bool canBeBought = false;
+    [SerializeField] private int levelPrice = 10000;
     [Header("Button Images")]
     [Space]
     [SerializeField] private Image buttonImage;
@@ -35,6 +40,8 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     private CurrentGameManager _currentGameManager;
     private ResourcesManager _resourcesManager;
     private DataPersistanceManager _dataPersistanceManager;
+
+    public int LevelPrice { get => levelPrice; }
 
     private void Awake()
     {
@@ -64,23 +71,6 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     }
     #endregion Zenject
 
-    public void SetPanelUIData()
-    {
-        if(levelState == GameLevelStates.Locked)
-        {
-            SetLockedStateUI();
-        }
-        else
-        {
-            SetAvailableStateUI();
-        }
-    }
-
-    public void SetLevelStateIndex(int index)
-    {
-        levelState = (GameLevelStates)index;
-    }
-
     private void SetLockedStateUI()
     {
         darkFilterImage.DOFade(1f, changeAlphaDuration);
@@ -91,19 +81,22 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
 
         costPanel.ShowPanel();
 
-        // set cost text
+        costAmountText.text = $"{levelPrice}";
+
+        if(canBeBought)
+        {
+
+        }
     }
 
-    private void SetAvailableStateUI()
+    private void SetPanelUIData()
     {
         darkFilterImage.DOFade(0f, changeAlphaDuration);
         lockImage.DOFade(0f, changeAlphaDuration);
 
         if(levelState == GameLevelStates.Locked)
         {
-            costPanel.ShowPanel();
-            darkFilterImage.DOFade(1f, changeAlphaDuration);
-            lockImage.DOFade(1f, changeAlphaDuration);
+            SetLockedStateUI();
         }
         else
         {
@@ -143,9 +136,21 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
             {
                 highestScore = _resourcesManager.CurrentLevelCoinsAmount;
             }
-            
+
             levelState = GameLevelStates.Available_Finished;
-            SetAvailableStateUI();
+            SetPanelUIData();
+        }
+    }
+
+    private void SetBuyingPossibilityState()
+    {
+        if (_resourcesManager.WholeCoinsAmount > levelPrice)
+        {
+            canBeBought = true;
+        }
+        else
+        {
+            canBeBought = false;
         }
     }
 
@@ -154,9 +159,15 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         if (gameType == GameLevelTypes.MiniGame)
         {
             highestScore = data.miniGameLevelsDataList[gameLevelIndex].highestScore;
-            SetLevelStateIndex(data.miniGameLevelsDataList[gameLevelIndex].levelStateIndex);
-            SetAvailableStateUI();
+            levelState = (GameLevelStates)data.miniGameLevelsDataList[gameLevelIndex].levelStateIndex;
         }
+        else
+        {
+            currentTimeInGame = data.puzzleGameLevelsDataList[gameLevelIndex].currentInGameTime;
+            bestFinishTime = data.puzzleGameLevelsDataList[gameLevelIndex].bestFinishTime;
+        }
+
+        StartCoroutine(UpdatePanelUICoroutine());
     }
 
     public void SaveData(GameData data)
@@ -167,4 +178,19 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
             data.miniGameLevelsDataList[gameLevelIndex].highestScore = highestScore;
         }
     }
+
+    private IEnumerator UpdatePanelUICoroutine()
+    {
+        yield return null;
+        SetBuyingPossibilityState();
+        SetPanelUIData();
+    }
+
+    //private IEnumerator SetCanBeBoughtStateCoroutine()
+    //{
+    //    while(canBeBought)
+    //    {
+
+    //    }
+    //}
 }
