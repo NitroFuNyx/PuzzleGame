@@ -102,6 +102,8 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         if(levelState == GameLevelStates.Locked)
         {
             costPanel.ShowPanel();
+            darkFilterImage.DOFade(1f, changeAlphaDuration);
+            lockImage.DOFade(1f, changeAlphaDuration);
         }
         else
         {
