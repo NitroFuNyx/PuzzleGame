@@ -11,6 +11,11 @@ public class MiniGamesEnvironmentsHolder : MonoBehaviour
 
     public MiniGameEnvironment CurrentlyActiveGame { get => currentlyActiveGame; private set => currentlyActiveGame = value; }
 
+    private void Start()
+    {
+        HideAllEnvironments();
+    }
+
     public void ActivateEnvironment(int levelIndex)
     {
         HideAllEnvironments();

@@ -6,11 +6,6 @@ using TMPro;
 
 public class ChooseGameLevelButton : ButtonInteractionHandler
 {
-    [Header("Button Data")]
-    [Space]
-    [SerializeField] private GameLevelTypes gameType;
-    [SerializeField] private GameLevelStates levelState;
-    [SerializeField] private int levelIndex;
     [Header("Internal References")]
     [Space]
     [SerializeField] private Image lockImage;
@@ -26,10 +21,11 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
     [SerializeField] private int costTextPunchScaleFreequency = 4;
     [SerializeField] private Color costTextBlockedColor;
     [SerializeField] private Color canBeBoughtColor;
-    
 
     private MainUI _mainUI;
     private CurrentGameManager _currentGameManager;
+
+    private ChooseGameLevelPanel gameLevelPanel;
 
     private bool isAnimationInProcess = false;
 
@@ -44,15 +40,15 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        if(levelState != GameLevelStates.Locked)
+        if(gameLevelPanel.LevelState != GameLevelStates.Locked)
         {
             ShowAnimation_ButtonPressed();
-            _currentGameManager.ActivateGameLevelEnvironment(levelIndex);
+            _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex);
             StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
         }
         else
         {
-            if(!isAnimationInProcess)
+            if(!isAnimationInProcess && !gameLevelPanel.CanBeBought)
             {
                 isAnimationInProcess = true;
                 lockImage.transform.DOKill();
@@ -69,6 +65,10 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
                     lockImage.transform.DORotate(Vector3.zero, punchDuration);
                     isAnimationInProcess = false;
                 });
+            }
+            else if(gameLevelPanel.CanBeBought)
+            {
+                gameLevelPanel.SetBoughtState();
             }
         }
     }
@@ -88,10 +88,8 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
         //});
     }
 
-    public void SetButtonData(GameLevelStates gameLevelState, GameLevelTypes gameLevelType, int index)
+    public void SetButtonData(ChooseGameLevelPanel chooseGameLevelPanel)
     {
-        levelState = gameLevelState;
-        gameType = gameLevelType;
-        levelIndex = index;
+        gameLevelPanel = chooseGameLevelPanel;
     }
 }

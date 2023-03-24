@@ -63,6 +63,12 @@ public class ResourcesManager : MonoBehaviour, IDataPersistance
         AddCurrentLevelCoinsToWholeCoinsAmount();
     }
 
+    public void BuyLevel(int price)
+    {
+        wholeCoinsAmount -= price;
+        _dataPersistanceManager.SaveGame();
+    }
+
     public void LoadData(GameData data)
     {
         wholeCoinsAmount = data.currentCoinsAmount;

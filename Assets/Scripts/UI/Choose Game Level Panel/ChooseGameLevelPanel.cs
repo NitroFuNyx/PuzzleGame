@@ -44,7 +44,11 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     private ResourcesManager _resourcesManager;
     private DataPersistanceManager _dataPersistanceManager;
 
+    public GameLevelStates LevelState { get => levelState; private set => levelState = value; }
+    public GameLevelTypes GameType { get => gameType; }
     public int LevelPrice { get => levelPrice; }
+    public int GameLevelIndex { get => gameLevelIndex; }
+    public bool CanBeBought { get => canBeBought; private set => canBeBought = value; }
 
     private void Awake()
     {
@@ -54,7 +58,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     private void Start()
     {
         SetPanelUIData();
-        levelButton.SetButtonData(levelState, gameType, gameLevelIndex);
+        levelButton.SetButtonData(this);
 
         _currentGameManager.OnGameLevelFinished += OnLevelFinished_ExecuteReaction;
     }
@@ -143,6 +147,8 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
             levelState = GameLevelStates.Available_Finished;
             SetPanelUIData();
         }
+
+        SetBuyingPossibilityState();
     }
 
     private void SetBuyingPossibilityState()
@@ -155,6 +161,12 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         {
             canBeBought = false;
         }
+    }
+
+    public void SetBoughtState()
+    {
+        levelState = GameLevelStates.Available_New;
+        _resourcesManager.BuyLevel(levelPrice);
     }
 
     public void LoadData(GameData data)
