@@ -9,6 +9,8 @@ public class UIInstaller : MonoInstaller
     [SerializeField] private MainScreenUI mainScreenUI;
     [SerializeField] private SettingsUI settingsUI;
     [Space]
+    [SerializeField] private PuzzleGameUI puzzleGameUI;
+    [Space]
     [SerializeField] private MiniGameUI miniGameUI;
     [SerializeField] private KitchenMiniGameBonusTimersPanel kitchenMiniGameBonusTimers;
 
@@ -17,6 +19,8 @@ public class UIInstaller : MonoInstaller
         Container.Bind<MainUI>().FromInstance(mainUI).AsSingle().NonLazy();
         Container.Bind<MainScreenUI>().FromInstance(mainScreenUI).AsSingle().NonLazy();
         Container.Bind<SettingsUI>().FromInstance(settingsUI).AsSingle().NonLazy();
+
+        Container.Bind<PuzzleGameUI>().FromInstance(puzzleGameUI).AsSingle().NonLazy();
 
         Container.Bind<MiniGameUI>().FromInstance(miniGameUI).AsSingle().NonLazy();
         Container.Bind<KitchenMiniGameBonusTimersPanel>().FromInstance(kitchenMiniGameBonusTimers).AsSingle().NonLazy();

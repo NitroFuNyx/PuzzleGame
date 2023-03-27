@@ -15,6 +15,7 @@ public class MainUI : MonoBehaviour
     [SerializeField] private SelectCharacterUI selectCharacterUI;
     [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_Puzzle;
     [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_MiniGame;
+    [SerializeField] private PuzzleGameUI puzzleGameUI;
     [SerializeField] private MiniGameUI miniGameUI;
     [SerializeField] private PauseUI pauseUI;
     [Header("Transitions References")]
@@ -108,7 +109,14 @@ public class MainUI : MonoBehaviour
 
     public void ShowGameLevelUI()
     {
-        ActivateMainCanvasPanel(UIPanels.MiniGamePanel);
+        if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
+        {
+            ActivateMainCanvasPanel(UIPanels.MiniGamePanel);
+        }
+        else
+        {
+            ActivateMainCanvasPanel(UIPanels.PuzzleGamePanel);
+        }
     }
 
     public void ShowPauseUI()
@@ -145,6 +153,7 @@ public class MainUI : MonoBehaviour
         panelsList.Add(selectCharacterUI);
         panelsList.Add(chooseGameLevelPanel_Puzzle);
         panelsList.Add(chooseGameLevelPanel_MiniGame);
+        panelsList.Add(puzzleGameUI);
         panelsList.Add(miniGameUI);
         panelsList.Add(pauseUI);
     }

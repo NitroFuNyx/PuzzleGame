@@ -15,6 +15,7 @@ public class CurrentGameManager : MonoBehaviour
     public CharacterTypes CurrentCharacter { get => currentCharacter; private set => currentCharacter = value; }
 
     private MiniGamesEnvironmentsHolder _miniGamesEnvironmentsHolder;
+    private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironments;
     private ResourcesManager _resourcesManager;
     private DataPersistanceManager _dataPersistanceManager;
 
@@ -25,9 +26,10 @@ public class CurrentGameManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, ResourcesManager resourcesManager, DataPersistanceManager dataPersistanceManager)
+    private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, ResourcesManager resourcesManager, DataPersistanceManager dataPersistanceManager)
     {
         _miniGamesEnvironmentsHolder = miniGamesEnvironmentsHolder;
+        _puzzleGamesEnvironments = puzzleGamesEnvironmentsHolder;
         _resourcesManager = resourcesManager;
         _dataPersistanceManager = dataPersistanceManager;
     }
@@ -44,17 +46,17 @@ public class CurrentGameManager : MonoBehaviour
         OnCharacterChanged?.Invoke(currentCharacter);
     }
 
-    public void SetCurrentLevelIndex(int index)
-    {
-        currentLevelIndex = index;
-    }
-
     public void ActivateGameLevelEnvironment(int levelIndex)
     {
-        if(currentGameType == GameLevelTypes.MiniGame)
+        currentLevelIndex = levelIndex;
+
+        if (currentGameType == GameLevelTypes.MiniGame)
         {
-            SetCurrentLevelIndex(levelIndex);
             _miniGamesEnvironmentsHolder.ActivateEnvironment(levelIndex);
+        }
+        else
+        {
+            _puzzleGamesEnvironments.ActivateEnvironment(levelIndex);
         }
     }
 
