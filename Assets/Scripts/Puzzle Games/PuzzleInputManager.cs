@@ -37,15 +37,18 @@ public class PuzzleInputManager : MonoBehaviour
     {
         if(Input.touchCount > 0)
         {
-            Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.down, 20f);
-            Debug.DrawRay(touchPos, Vector3.forward * 100f, Color.blue);
-            if (hit.collider != null)
+            if(Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                Debug.Log($"{hit.collider.name}");
-                if(hit.collider.TryGetComponent(out PuzzleGameItemInteractionHandler item))
+                Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.down, 20f);
+                Debug.DrawRay(touchPos, Vector3.forward * 100f, Color.blue);
+                if (hit.collider != null)
                 {
-                    item.Interact();
+                    Debug.Log($"{hit.collider.name}");
+                    if (hit.collider.TryGetComponent(out PuzzleGameItemInteractionHandler item))
+                    {
+                        item.Interact();
+                    }
                 }
             }
         }

@@ -23,6 +23,6 @@ public class SelectGameModeButton : ButtonInteractionHandler
     {
         _currentGameManager.SetCurrentGameType(gameType);
         ShowAnimation_ButtonPressed();
-        StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowSelectCharacterUI));
+        StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.GameModeDefined_ExecuteReaction));
     }
 }

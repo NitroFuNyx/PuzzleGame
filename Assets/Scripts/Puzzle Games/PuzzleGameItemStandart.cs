@@ -9,14 +9,17 @@ public class PuzzleGameItemStandart : PuzzleGameItemInteractionHandler
     [SerializeField] private int scaleFreequency = 3;
     [SerializeField] private float scaleDuration = 0.5f;
 
+    private bool isAnimating = false;
+
     public override void Interact()
     {
-        transform.DOPunchScale(scalePunchVector, scaleDuration, scaleFreequency);
-    }
-
-    [ContextMenu("Scale")]
-    public void Scale()
-    {
-        transform.DOPunchScale(scalePunchVector, scaleDuration, scaleFreequency);
+        if(!isAnimating)
+        {
+            isAnimating = true;
+            transform.DOPunchScale(scalePunchVector, scaleDuration, scaleFreequency).OnComplete(() =>
+            {
+                isAnimating = false;
+            });
+        }
     }
 }

@@ -10,7 +10,7 @@ public static class FileDataHandler
 
     private static string fileName = "PlayerSaveFile.json";
 
-    public static GameData Load()
+    public static GameData Read()
     {
         GameData loadedData = null;
 
@@ -36,7 +36,7 @@ public static class FileDataHandler
         return loadedData;
     }
 
-    public static void Save(GameData data)
+    public static void Write(GameData data)
     {
         string dataToStore = JsonUtility.ToJson(data, true);
 

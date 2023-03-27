@@ -5,6 +5,8 @@ using Zenject;
 
 public class DataPersistanceManager : MonoBehaviour
 {
+    private float loadStartDataDelay = 0.1f;
+
     private List<IDataPersistance> saveSystemDataObjectsList = new List<IDataPersistance>();
 
     private GameDataHolder _gameDataHolder;
@@ -26,14 +28,14 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void NewGame()
     {
-        gameData = new GameData(_gameDataHolder); // save class
+        gameData = new GameData(_gameDataHolder); // make class with default data
 
-        FileDataHandler.Save(gameData); // create file with basic data
+        FileDataHandler.Write(gameData); // create json file and write default data
 
-        InitializeMiniGameLevelsIndexes(gameData);
-        InitializePuzzleGameLevelsIndexes(gameData);
+        InitializeMiniGameLevelsData(gameData);
+        InitializePuzzleGameLevelsData(gameData);
 
-        SaveGame(); // save actual data set in Unity
+        SaveGame(); // save actual Unity data set in json file
     }
 
     public void SaveGame()
@@ -43,12 +45,12 @@ public class DataPersistanceManager : MonoBehaviour
             saveSystemDataObjectsList[i].SaveData(gameData);
         }
 
-        FileDataHandler.Save(gameData);
+        FileDataHandler.Write(gameData);
     }
 
     public void LoadGame()
     {
-        gameData = FileDataHandler.Load();
+        gameData = FileDataHandler.Read();
 
         if(gameData == null)
         {
@@ -68,7 +70,7 @@ public class DataPersistanceManager : MonoBehaviour
         saveSystemDataObjectsList.Add(saveSystemObject);
     }
 
-    private void InitializeMiniGameLevelsIndexes(GameData gameData)
+    private void InitializeMiniGameLevelsData(GameData gameData)
     {
         for (int i = 0; i < _gameDataHolder.MiniGameLevelsPanelsList.Count; i++)
         {
@@ -79,7 +81,7 @@ public class DataPersistanceManager : MonoBehaviour
         }
     }
 
-    private void InitializePuzzleGameLevelsIndexes(GameData gameData)
+    private void InitializePuzzleGameLevelsData(GameData gameData)
     {
         for (int i = 0; i < _gameDataHolder.PuzzleGameLevelsPanelsList.Count; i++)
         {
@@ -92,7 +94,7 @@ public class DataPersistanceManager : MonoBehaviour
 
     private IEnumerator LoadStartDataCoroutine()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(loadStartDataDelay);
         LoadGame();
     }
 }

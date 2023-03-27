@@ -16,7 +16,6 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     [SerializeField] private float currentTimeInGame = 0;
     [SerializeField] private float bestFinishTime = 0;
     [SerializeField] private bool canBeBought = false;
-    [SerializeField] private bool levelBought = false;
     [SerializeField] private int levelPrice = 10000;
     [Header("Button Images")]
     [Space]
@@ -167,7 +166,6 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     public void SetBoughtState()
     {
         levelState = GameLevelStates.Available_New;
-        levelBought = true;
         _resourcesManager.BuyLevel(levelPrice);
     }
 
@@ -182,10 +180,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         {
             currentTimeInGame = data.puzzleGameLevelsDataList[gameLevelIndex].currentInGameTime;
             bestFinishTime = data.puzzleGameLevelsDataList[gameLevelIndex].bestFinishTime;
-            if(levelBought)
-            {
-                levelState = (GameLevelStates)data.puzzleGameLevelsDataList[gameLevelIndex].levelStateIndex;
-            }
+            levelState = (GameLevelStates)data.puzzleGameLevelsDataList[gameLevelIndex].levelStateIndex;
         }
 
         StartCoroutine(UpdatePanelUICoroutine());
@@ -197,18 +192,10 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         {
             data.miniGameLevelsDataList[gameLevelIndex].levelStateIndex = (int)levelState;
             data.miniGameLevelsDataList[gameLevelIndex].highestScore = highestScore;
-            if(levelBought)
-            {
-                data.miniGameLevelsDataList[gameLevelIndex].levelStateIndex = (int)levelState;
-            }
         }
         else if (gameType == GameLevelTypes.Puzzle)
         {
             data.puzzleGameLevelsDataList[gameLevelIndex].levelStateIndex = (int)levelState;
-            if (levelBought)
-            {
-                data.puzzleGameLevelsDataList[gameLevelIndex].levelStateIndex = (int)levelState;
-            }
         }
     }
 

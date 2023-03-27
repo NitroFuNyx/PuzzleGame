@@ -81,6 +81,18 @@ public class MainUI : MonoBehaviour
         ActivateMainCanvasPanel(UIPanels.SelectCharacterPanel);
     }
 
+    public void GameModeDefined_ExecuteReaction()
+    {
+        if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
+        {
+            ShowSelectCharacterUI();
+        }
+        else
+        {
+            ShowSelectGameLevel();
+        }
+    }
+
     public void ShowSelectGameLevel()
     {
         if(_currentGameManager.CurrentGameType == GameLevelTypes.Puzzle)
