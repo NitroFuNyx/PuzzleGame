@@ -33,8 +33,9 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
     public override void ButtonActivated()
     {
         muted = !muted;
-        _audioManager.ChangeMuteState(muted);
         ShowAnimation_ButtonPressed();
+        StartCoroutine(ActivateDelayedButtonMethodCoroutine(ExecuteDelayedAudioStateChange));
+        //_audioManager.ChangeMuteState(muted);
     }
 
     private void SubscribeOnEvents()
@@ -63,5 +64,10 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
     {
         muted = audioMuted;
         ChangePanelSprite();
+    }
+
+    private void ExecuteDelayedAudioStateChange()
+    {
+        _audioManager.ChangeMuteState(muted);
     }
 }

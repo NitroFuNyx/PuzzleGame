@@ -74,7 +74,7 @@ public class CurrentGameManager : MonoBehaviour
 
     private IEnumerator FinishGameWithSavingCoroutine()
     {
-        yield return null;
+        yield return new WaitForSeconds(1f);
         _dataPersistanceManager.SaveGame();
 
         yield return null;

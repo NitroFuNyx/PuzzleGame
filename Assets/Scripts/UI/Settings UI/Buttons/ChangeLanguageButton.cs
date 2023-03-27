@@ -19,7 +19,13 @@ public class ChangeLanguageButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        _languageManager.ChangeLanguage(language);
         ShowAnimation_ButtonPressed();
+        StartCoroutine(ActivateDelayedButtonMethodCoroutine(ChangeLanguage));
+        //_languageManager.ChangeLanguage(language);
+    }
+
+    private void ChangeLanguage()
+    {
+        _languageManager.ChangeLanguage(language);
     }
 }

@@ -13,9 +13,6 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     [Space]
     [SerializeField] private Vector3 minScale = new Vector3(0.8f, 0.8f, 0.8f);
     [SerializeField] private float scaleDuration = 0.3f;
-    //[Header("Delays")]
-    //[Space]
-    //[SerializeField] private float activateButtonMethodDelay = 0.6f;
 
     private Button _button;
 

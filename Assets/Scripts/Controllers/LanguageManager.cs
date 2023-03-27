@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using Localization;
 using Zenject;
+using TMPro;
 
 public class LanguageManager : MonoBehaviour, IDataPersistance
 {
@@ -14,6 +15,8 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
     [Header("Current Language")]
     [Space]
     [SerializeField] private Languages currentLanguage;
+
+    [SerializeField] TextMeshProUGUI text;
 
     private LanguageTextsHolder englishTextsHolder = new LanguageTextsHolder();
     private LanguageTextsHolder ukrainianTextsHolder = new LanguageTextsHolder();
@@ -47,6 +50,7 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
         if(languagesHoldersDictionary.ContainsKey(language))
         {
             currentLanguage = language;
+            text.text = $"Language target {language}, {currentLanguage}";
             _dataPersistanceManager.SaveGame();
             OnLanguageChanged?.Invoke(languagesHoldersDictionary[language]);
         }
