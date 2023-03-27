@@ -3875,6 +3875,7 @@ GameObject:
   - component: {fileID: 386831854}
   - component: {fileID: 386831855}
   - component: {fileID: 386831856}
+  - component: {fileID: 386831857}
   m_Layer: 0
   m_Name: Sofa
   m_TagString: Untagged
@@ -3975,6 +3976,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 34.207916, y: 14.198984}
   m_EdgeRadius: 0
+--- !u!114 &386831857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386831853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e0e47bec463fd4aa2e7e11f70986a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalePunchVector: {x: 0.05, y: 0.05, z: 0.05}
+  scaleFreequency: 3
+  scaleDuration: 1
 --- !u!1 &392730900
 GameObject:
   m_ObjectHideFlags: 0
@@ -7413,7 +7429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &622271774
 Transform:
   m_ObjectHideFlags: 0
@@ -14390,6 +14406,7 @@ GameObject:
   - component: {fileID: 1251772525}
   - component: {fileID: 1251772526}
   - component: {fileID: 1251772527}
+  - component: {fileID: 1251772528}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Untagged
@@ -14490,6 +14507,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.5360413, y: 6.931486}
   m_EdgeRadius: 0
+--- !u!114 &1251772528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251772524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e0e47bec463fd4aa2e7e11f70986a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalePunchVector: {x: 0.2, y: 0.2, z: 0.2}
+  scaleFreequency: 3
+  scaleDuration: 0.5
 --- !u!1 &1257645133
 GameObject:
   m_ObjectHideFlags: 0
@@ -28358,7 +28390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: levelState
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: chooseGameLevelButton

@@ -41,7 +41,13 @@ public class PuzzleInputManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.down, 20f);
             Debug.DrawRay(touchPos, Vector3.forward * 100f, Color.blue);
             if (hit.collider != null)
-            Debug.Log($"{hit.collider.name}");
+            {
+                Debug.Log($"{hit.collider.name}");
+                if(hit.collider.TryGetComponent(out PuzzleGameItemInteractionHandler item))
+                {
+                    item.Interact();
+                }
+            }
         }
     }
 }
