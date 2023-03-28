@@ -40,8 +40,8 @@ public class PuzzleInputManager : MonoBehaviour
             if(Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-                RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.down, 20f);
-                Debug.DrawRay(touchPos, Vector3.forward * 100f, Color.blue);
+                RaycastHit2D hit = Physics2D.Raycast(touchPos, transform.forward, 20f);
+                Debug.DrawRay(touchPos, transform.forward * 20f, Color.blue);
                 if (hit.collider != null)
                 {
                     Debug.Log($"{hit.collider.name}");
