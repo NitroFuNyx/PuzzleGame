@@ -13,6 +13,7 @@ public class PuzzleGameItem_SmallDrawer : PuzzleGameItemInteractionHandler
     [SerializeField] private Sprite openDoorSprite;
 
     private bool isOpen = false;
+    private bool keyIsCollected = false;
 
     private void Awake()
     {
@@ -32,6 +33,10 @@ public class PuzzleGameItem_SmallDrawer : PuzzleGameItemInteractionHandler
         }
         else
         {
+            if(containsKey)
+            {
+                key.gameObject.SetActive(true);
+            }
             door.sprite = openDoorSprite;
         }
     }
