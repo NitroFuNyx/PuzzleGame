@@ -1,11 +1,11 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class PuzzleGameItemStandart : PuzzleGameItemInteractionHandler
+public class PuzzleGameItem_Standart : PuzzleGameItemInteractionHandler
 {
     [Header("Scale Data")]
     [Space]
-    [SerializeField] private Vector3 scalePunchVector = new Vector3(0.2f, 0.2f, 0.2f);
+    [SerializeField] private Vector3 scalePunchVector = new Vector3(-0.2f, -0.2f, -0.2f);
     [SerializeField] private int scaleFreequency = 3;
     [SerializeField] private float scaleDuration = 0.5f;
 

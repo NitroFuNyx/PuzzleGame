@@ -263,8 +263,9 @@ GameObject:
   - component: {fileID: 3540912411654489488}
   - component: {fileID: 3540912411654489487}
   - component: {fileID: 6747226071922189778}
+  - component: {fileID: 69062384995666618}
   m_Layer: 0
-  m_Name: Small Shelf 2
+  m_Name: Small Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 3540912411654489489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.51, y: -2.98, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3540912411935668219}
@@ -367,6 +368,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.341822, y: 11.460197}
   m_EdgeRadius: 0
+--- !u!114 &69062384995666618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3540912411654489489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3204126859f13554db13bef42eaedf0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containsKey: 0
+  key: {fileID: 0}
+  door: {fileID: 3540912411035852107}
+  closedDoorSprite: {fileID: 21300000, guid: 52c1d5cc4ce1c384b8ccda8c986a23bb, type: 3}
+  openDoorSprite: {fileID: 21300000, guid: 0ea403fba20f8cb4ba39f887453953a9, type: 3}
 --- !u!1 &3540912411935668220
 GameObject:
   m_ObjectHideFlags: 0
