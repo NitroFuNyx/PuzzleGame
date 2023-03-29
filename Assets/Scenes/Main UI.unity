@@ -6537,7 +6537,7 @@ Transform:
   - {fileID: 1583031980}
   - {fileID: 1368853133}
   m_Father: {fileID: 1765623661}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538330735
 GameObject:
@@ -10498,6 +10498,8 @@ MonoBehaviour:
   bonusTimeTextChangeAlphaDurationMin: 0.01
   kitchenMiniGameBonusTimersPanel: {fileID: 0}
   gameFinishedPanelActivationManager: {fileID: 0}
+  inventoryPanel: {fileID: 1545441813}
+  keyImagePrefab: {fileID: 8119790511509268523, guid: 1e4736bac291de148a5d3b1fe7f3aa19, type: 3}
 --- !u!1 &879338862
 GameObject:
   m_ObjectHideFlags: 0
@@ -13651,7 +13653,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765623661}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1100395485
 MonoBehaviour:
@@ -23578,8 +23580,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 536639252}
   - {fileID: 1100395484}
+  - {fileID: 536639252}
   - {fileID: 2092619679}
   - {fileID: 1483643039}
   - {fileID: 1849235210}
@@ -29131,7 +29133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540912411654489488, guid: dcfeafd7a872bad4e8f7f0a631b206d1, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3540912411654489488, guid: dcfeafd7a872bad4e8f7f0a631b206d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29384,24 +29386,12 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.9199994
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.72000027
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.z
