@@ -27,20 +27,23 @@ public class PuzzleGameUI : MainCanvasPanel
     [SerializeField] private PanelActivationManager gameFinishedPanelActivationManager;
     [Header("Inventory Panel")]
     [Space]
-    [SerializeField] private Transform inventoryPanel;
+    [SerializeField] private PuzzleGameInventoryPanel inventoryPanel;
     [Header("Prefabs")]
     [Space]
-    [SerializeField] private Image keyImagePrefab;
+    [SerializeField] private PuzzleKeyImage keyImagePrefab;
 
-    public Transform InventoryPanel { get => inventoryPanel; }
+    private Sprite newItemSprite;
 
     public void MoveKeyToInventoryBar(SpriteRenderer key)
     {
+        newItemSprite = key.sprite;
         Vector3 spawnPos = Camera.main.WorldToScreenPoint(new Vector3(key.transform.position.x, key.transform.position.y, 0f));
         var keyImage = Instantiate(keyImagePrefab, spawnPos, Quaternion.identity, transform);
-        keyImage.transform.DOMove(inventoryPanel.position, moveToInventoryPanelDuration).OnComplete(() =>
-        {
-            
-        });
+        keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, ShowKeyImageInInventoryPanel);
+    }
+
+    private void ShowKeyImageInInventoryPanel()
+    {
+        inventoryPanel.PutItemInInventoryCell(newItemSprite);
     }
 }
