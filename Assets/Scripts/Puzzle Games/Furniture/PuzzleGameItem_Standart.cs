@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class PuzzleGameItem_Standart : PuzzleGameItemInteractionHandler
+public class PuzzleGameItem_Standart : PuzzleGameFurnitureItemInteractionHandler
 {
     [Header("Scale Data")]
     [Space]

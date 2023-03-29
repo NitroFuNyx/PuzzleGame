@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PuzzleGameItemInteractionHandler : MonoBehaviour
+public abstract class PuzzleGameFurnitureItemInteractionHandler : MonoBehaviour
 {
     [Header("Item Data")]
     [Space]

@@ -45,9 +45,13 @@ public class PuzzleInputManager : MonoBehaviour
                 if (hit.collider != null)
                 {
                     Debug.Log($"{hit.collider.name}");
-                    if (hit.collider.TryGetComponent(out PuzzleGameItemInteractionHandler item))
+                    if (hit.collider.TryGetComponent(out PuzzleGameFurnitureItemInteractionHandler item_Furniture))
                     {
-                        item.Interact();
+                        item_Furniture.Interact();
+                    }
+                    else if (hit.collider.TryGetComponent(out PuzzleCollectableItem item_Collectable))
+                    {
+                        item_Collectable.Interact();
                     }
                 }
             }

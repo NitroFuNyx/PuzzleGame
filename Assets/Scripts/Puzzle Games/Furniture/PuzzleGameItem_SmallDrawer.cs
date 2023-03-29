@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleGameItem_SmallDrawer : PuzzleGameItemInteractionHandler
+public class PuzzleGameItem_SmallDrawer : PuzzleGameFurnitureItemInteractionHandler
 {
     [Header("Door Data")]
     [Space]

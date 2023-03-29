@@ -15,12 +15,14 @@ public class PuzzleGameEnvironment : MonoBehaviour
     [Header("Internal References")]
     [Space]
     [SerializeField] private PuzzleInputManager inputManager;
+    [SerializeField] private PuzzleCollectableItemsManager collectableItemsManager;
 
     private PuzzleGameUI _puzzleGameUI;
     private TimersManager _timersManager;
     private CurrentGameManager _currentGameManager;
 
     public int EnvironmentIndex { get => environmentIndex; }
+    public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
 
     private void Start()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Zenject;
 
-public class PuzzleKey : PuzzleGameItemInteractionHandler
+public class PuzzleKey : PuzzleCollectableItem
 {
     [Header("Key Data")]
     [Space]
@@ -29,6 +29,7 @@ public class PuzzleKey : PuzzleGameItemInteractionHandler
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        item = (PuzzleGameKitchenItems)keyIndex;
     }
 
     #region Zenject
@@ -56,6 +57,7 @@ public class PuzzleKey : PuzzleGameItemInteractionHandler
         transform.DOPunchRotation(rotationPunchVector, punchDuration, punchFreequency).OnComplete(() =>
         {
             _puzzleGameUI.MoveKeyToInventoryBar(spriteRenderer);
+            _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.CollectableItemsManager.AddItemToInventory(this);
             gameObject.SetActive(false);
         });
     }
