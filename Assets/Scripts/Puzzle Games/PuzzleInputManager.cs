@@ -14,23 +14,32 @@ public class PuzzleInputManager : MonoBehaviour
 
     private float horizontalMove = 0f;
 
-    private bool canCheckInput = true;
+    private bool canCheckInput = false;
 
     [SerializeField] private Joystick joystick;
 
     private void Update()
     {
-        //if (canCheckInput)
-        //{
-            
-            horizontalMove = joystick.Horizontal * moveSpeed * Time.deltaTime;
+        if (canCheckInput)
+        {
+            MoveCamera();
 
-            float clampedPosX = Mathf.Clamp(Camera.main.transform.position.x + (horizontalMove), clampXUnitMin, clampXUnitMax);
+            CreateRaycast();
+        }
+    }
 
-            Camera.main.transform.position = new Vector3(clampedPosX, Camera.main.transform.position.y, Camera.main.transform.position.z);
-        //}
+    public void ChangeCheckInputState(bool canCheck)
+    {
+        canCheckInput = canCheck;
+    }
 
-        CreateRaycast();
+    private void MoveCamera()
+    {
+        horizontalMove = joystick.Horizontal * moveSpeed * Time.deltaTime;
+
+        float clampedPosX = Mathf.Clamp(Camera.main.transform.position.x + (horizontalMove), clampXUnitMin, clampXUnitMax);
+
+        Camera.main.transform.position = new Vector3(clampedPosX, Camera.main.transform.position.y, Camera.main.transform.position.z);
     }
 
     private void CreateRaycast()

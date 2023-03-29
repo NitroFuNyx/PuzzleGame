@@ -31,8 +31,28 @@ public class PuzzleGameUI : MainCanvasPanel
     [Header("Prefabs")]
     [Space]
     [SerializeField] private PuzzleKeyImage keyImagePrefab;
+    [Header("Panels")]
+    [Space]
+    [SerializeField] private PanelActivationManager mainModePanel;
+    [SerializeField] private PanelActivationManager popitModePanel;
+
+    private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
 
     private Sprite newItemSprite;
+
+    private void Start()
+    {
+        mainModePanel.ShowPanel();
+        popitModePanel.HidePanel();
+    }
+
+    #region Zenject
+    [Inject]
+    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder)
+    {
+        _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
+    }
+    #endregion Zenject
 
     public void MoveKeyToInventoryBar(SpriteRenderer key)
     {
@@ -40,6 +60,12 @@ public class PuzzleGameUI : MainCanvasPanel
         Vector3 spawnPos = Camera.main.WorldToScreenPoint(new Vector3(key.transform.position.x, key.transform.position.y, 0f));
         var keyImage = Instantiate(keyImagePrefab, spawnPos, Quaternion.identity, transform);
         keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, ShowKeyImageInInventoryPanel);
+    }
+
+    public void ShowMiniGamePanel_PopIt()
+    {
+        popitModePanel.HidePanel();
+        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(false);
     }
 
     private void ShowKeyImageInInventoryPanel()

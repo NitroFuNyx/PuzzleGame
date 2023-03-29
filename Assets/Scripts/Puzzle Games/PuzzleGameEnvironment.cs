@@ -23,6 +23,7 @@ public class PuzzleGameEnvironment : MonoBehaviour
 
     public int EnvironmentIndex { get => environmentIndex; }
     public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
+    public PuzzleInputManager InputManager { get => inputManager; }
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class PuzzleGameEnvironment : MonoBehaviour
 
     public void StartGame()
     {
+        inputManager.ChangeCheckInputState(true);
         StartCoroutine(StartGameCoroutine());
     }
 
