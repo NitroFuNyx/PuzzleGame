@@ -8,6 +8,7 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
     [Header("Inventory Items Cells")]
     [Space]
     [SerializeField] private List<Image> allInventoryCellsList = new List<Image>();
+    [SerializeField] private List<Image> freeInventoryCellsList = new List<Image>();
 
     public void PutItemInInventoryCell(Sprite sprite)
     {
