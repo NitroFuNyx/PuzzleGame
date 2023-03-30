@@ -1,13 +1,18 @@
 using UnityEngine;
 using Zenject;
 
-public abstract class PuzzleCollectableItem : MonoBehaviour
+public abstract class PuzzleCollectableItem : MonoBehaviour, Iinteractable
 {
     [Header("Item Data")]
     [Space]
     [SerializeField] protected PuzzleGameKitchenItems item;
 
     protected PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
+
+    public void Interact()
+    {
+        InteractOnTouch();
+    }
 
     #region Zenject
     [Inject]
@@ -17,5 +22,5 @@ public abstract class PuzzleCollectableItem : MonoBehaviour
     }
     #endregion Zenject
 
-    public abstract void Interact();
+    public abstract void InteractOnTouch();
 }

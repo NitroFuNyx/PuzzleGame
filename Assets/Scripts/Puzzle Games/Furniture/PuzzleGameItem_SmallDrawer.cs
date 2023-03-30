@@ -23,7 +23,7 @@ public class PuzzleGameItem_SmallDrawer : PuzzleGameFurnitureItemInteractionHand
         }
     }
 
-    public override void Interact()
+    public override void InteractOnTouch()
     {
         isOpen = !isOpen;
 

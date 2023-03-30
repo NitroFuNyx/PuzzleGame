@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PuzzleGameFurnitureItemInteractionHandler : MonoBehaviour
+public abstract class PuzzleGameFurnitureItemInteractionHandler : MonoBehaviour, Iinteractable
 {
     [Header("Item Data")]
     [Space]
@@ -9,5 +9,10 @@ public abstract class PuzzleGameFurnitureItemInteractionHandler : MonoBehaviour
     [Space]
     [SerializeField] protected PuzzleKey key;
 
-    public abstract void Interact();
+    public void Interact()
+    {
+        InteractOnTouch();
+    }
+
+    public abstract void InteractOnTouch();
 }

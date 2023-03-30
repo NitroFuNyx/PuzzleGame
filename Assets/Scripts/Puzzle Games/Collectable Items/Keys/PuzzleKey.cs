@@ -40,7 +40,7 @@ public class PuzzleKey : PuzzleCollectableItem
     }
     #endregion Zenject
 
-    public override void Interact()
+    public override void InteractOnTouch()
     {
         if(!collected)
         {

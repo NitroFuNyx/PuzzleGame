@@ -11,7 +11,7 @@ public class PuzzleGameItem_Standart : PuzzleGameFurnitureItemInteractionHandler
 
     private bool isAnimating = false;
 
-    public override void Interact()
+    public override void InteractOnTouch()
     {
         if(!isAnimating)
         {
