@@ -29,7 +29,7 @@ public class PuzzleKey : PuzzleCollectableItem
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        item = (PuzzleGameKitchenItems)keyIndex;
+        keyIndex = (int)item;
     }
 
     #region Zenject
@@ -45,7 +45,7 @@ public class PuzzleKey : PuzzleCollectableItem
         if(!collected)
         {
             collected = true;
-            Debug.Log($"Save Key {keyIndex}");
+            Debug.Log($"Save {item}");
             MoveToInventory();
         }
     }

@@ -1,17 +1,21 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PuzzleGameInventoryPanel : MonoBehaviour
 {
     [Header("Inventory Items Cells")]
     [Space]
-    [SerializeField] private List<Image> allInventoryCellsList = new List<Image>();
-    [SerializeField] private List<Image> freeInventoryCellsList = new List<Image>();
+    [SerializeField] private List<InventoryPanelItemCell> inventoryCellsList = new List<InventoryPanelItemCell>();
+    [Header("Internal References")]
+    [Space]
+    [SerializeField] private Transform inventoryGrid;
+    [Header("Prefabs")]
+    [Space]
+    [SerializeField] private InventoryPanelItemCell invenoryCellPrefab;
 
     public void PutItemInInventoryCell(Sprite sprite)
     {
-        allInventoryCellsList[0].sprite = sprite;
+        var cell = Instantiate(invenoryCellPrefab, Vector3.zero, Quaternion.identity, inventoryGrid);
+        cell.SetItemImage(sprite);
     }
 }
