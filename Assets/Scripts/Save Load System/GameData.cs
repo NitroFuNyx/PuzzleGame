@@ -49,6 +49,7 @@ public class PuzzleGameLevelData
     public int currentInGameTime;
     public int bestFinishTime;
     public List<int> usedKeysList;
+    public List<int> collectedItemsList;
 
     public PuzzleGameLevelData()
     {
@@ -58,5 +59,6 @@ public class PuzzleGameLevelData
         currentInGameTime = 0;
         bestFinishTime = 0;
         usedKeysList = new List<int>();
+        collectedItemsList = new List<int>();
     }
 }

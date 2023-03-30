@@ -37,5 +37,5 @@ public enum PuzzleGameKitchenItems
 
 public enum PuzzleGameKitchenMiniGames
 {
-    PopIt, Safe
+    PopIt, Safe, Bookshelf, Mixer, Window
 }

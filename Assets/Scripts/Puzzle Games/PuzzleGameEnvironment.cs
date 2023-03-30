@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Zenject;
 
-public class PuzzleGameEnvironment : MonoBehaviour
+public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
 {
     [Header("Environment Data")]
     [Space]
@@ -20,10 +20,17 @@ public class PuzzleGameEnvironment : MonoBehaviour
     private PuzzleGameUI _puzzleGameUI;
     private TimersManager _timersManager;
     private CurrentGameManager _currentGameManager;
+    private DataPersistanceManager _dataPersistanceManager;
 
     public int EnvironmentIndex { get => environmentIndex; }
     public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
     public PuzzleInputManager InputManager { get => inputManager; }
+
+    private void Awake()
+    {
+        _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
+        collectableItemsManager.CashComponents(this);
+    }
 
     private void Start()
     {
@@ -37,11 +44,12 @@ public class PuzzleGameEnvironment : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(TimersManager timersManager, CurrentGameManager currentGameManager, PuzzleGameUI puzzleGameUI)
+    private void Construct(TimersManager timersManager, CurrentGameManager currentGameManager, PuzzleGameUI puzzleGameUI, DataPersistanceManager dataPersistanceManager)
     {
         _timersManager = timersManager;
         _currentGameManager = currentGameManager;
         _puzzleGameUI = puzzleGameUI;
+        _dataPersistanceManager = dataPersistanceManager;
     }
     #endregion Zenject
 
@@ -49,6 +57,11 @@ public class PuzzleGameEnvironment : MonoBehaviour
     {
         inputManager.ChangeCheckInputState(true);
         StartCoroutine(StartGameCoroutine());
+    }
+
+    public void UpdateEnvironmentSavedData()
+    {
+        _dataPersistanceManager.SaveGame();
     }
 
     private void SubscribeOnEvents()
@@ -80,5 +93,15 @@ public class PuzzleGameEnvironment : MonoBehaviour
         //playerMoveManager.ChangeCheckingInputState(true);
         //playerCollisionManager.ChangeState_CanCollectItems(true);
         //kitchenMiniGameSpawnManager.StartSpawningItems();
+    }
+
+    public void LoadData(GameData data)
+    {
+        
+    }
+
+    public void SaveData(GameData data)
+    {
+        
     }
 }

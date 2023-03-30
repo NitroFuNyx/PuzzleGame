@@ -35,9 +35,7 @@ public class PuzzleGameUI : MainCanvasPanel
     [Header("Panels")]
     [Space]
     [SerializeField] private PanelActivationManager mainModePanel;
-    [SerializeField] private PanelActivationManager popitModePanel;
-
-    private List<PanelActivationManager> miniGamesModesPanelsList = new List<PanelActivationManager>();
+    [SerializeField] private List<PuzzleGame_MiniGameModePanel> minigamesPanelsList = new List<PuzzleGame_MiniGameModePanel>();
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
 
@@ -46,8 +44,7 @@ public class PuzzleGameUI : MainCanvasPanel
     private void Start()
     {
         mainModePanel.ShowPanel();
-        popitModePanel.HidePanel();
-        FillMiniGameModesPanelsList();
+        HideMiniGamesPanels();
     }
 
     #region Zenject
@@ -66,19 +63,26 @@ public class PuzzleGameUI : MainCanvasPanel
         keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, ShowKeyImageInInventoryPanel);
     }
 
-    public void ShowMiniGamePanel_PopIt()
-    {
-        popitModePanel.HidePanel();
-        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(false);
-    }
-
     public void ShowMainModePanel()
     {
-        for(int i = 0; i < miniGamesModesPanelsList.Count; i++)
-        {
-            miniGamesModesPanelsList[i].HidePanel();
-        }
+        HideMiniGamesPanels();
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
+    }
+
+    public void ShowMiniGamePanel(PuzzleGameKitchenMiniGames gameType)
+    {
+        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(false);
+        for (int i = 0; i < minigamesPanelsList.Count; i++)
+        {
+            if (minigamesPanelsList[i].GameType != gameType)
+            {
+                minigamesPanelsList[i].HidePanel();
+            }
+            else
+            {
+                minigamesPanelsList[i].ShowPanel();
+            }
+        }
     }
 
     private void ShowKeyImageInInventoryPanel()
@@ -86,8 +90,11 @@ public class PuzzleGameUI : MainCanvasPanel
         inventoryPanel.PutItemInInventoryCell(newItemSprite);
     }
 
-    private void FillMiniGameModesPanelsList()
+    private void HideMiniGamesPanels()
     {
-        miniGamesModesPanelsList.Add(popitModePanel);
+        for (int i = 0; i < minigamesPanelsList.Count; i++)
+        {
+            minigamesPanelsList[i].HidePanel();
+        }
     }
 }
