@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using DG.Tweening;
 using Zenject;
@@ -36,6 +37,8 @@ public class PuzzleGameUI : MainCanvasPanel
     [SerializeField] private PanelActivationManager mainModePanel;
     [SerializeField] private PanelActivationManager popitModePanel;
 
+    private List<PanelActivationManager> miniGamesModesPanelsList = new List<PanelActivationManager>();
+
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
 
     private Sprite newItemSprite;
@@ -44,6 +47,7 @@ public class PuzzleGameUI : MainCanvasPanel
     {
         mainModePanel.ShowPanel();
         popitModePanel.HidePanel();
+        FillMiniGameModesPanelsList();
     }
 
     #region Zenject
@@ -68,8 +72,22 @@ public class PuzzleGameUI : MainCanvasPanel
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(false);
     }
 
+    public void ShowMainModePanel()
+    {
+        for(int i = 0; i < miniGamesModesPanelsList.Count; i++)
+        {
+            miniGamesModesPanelsList[i].HidePanel();
+        }
+        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
+    }
+
     private void ShowKeyImageInInventoryPanel()
     {
         inventoryPanel.PutItemInInventoryCell(newItemSprite);
+    }
+
+    private void FillMiniGameModesPanelsList()
+    {
+        miniGamesModesPanelsList.Add(popitModePanel);
     }
 }

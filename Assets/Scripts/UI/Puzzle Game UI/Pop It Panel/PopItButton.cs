@@ -6,15 +6,13 @@ public class PopItButton : ButtonInteractionHandler
     [Header("Button Data")]
     [Space]
     [SerializeField] private bool isInCorrectPos = false;
-    [Header("Sprites")]
-    [Space]
-    [SerializeField] private Sprite pressedButtonSprite;
-    [SerializeField] private Sprite releasedButtonSprite;
     [Header("Durations")]
     [Space]
     [SerializeField] private float changeAlphaDuration = 0.2f;
 
-    private SpriteRenderer spriteRenderer;
+    private PopItGameStateManager _popItGameStateManager;
+
+    public bool IsInCorrectPos { get => isInCorrectPos; private set => isInCorrectPos = value; }
 
     private void Start()
     {
@@ -25,6 +23,12 @@ public class PopItButton : ButtonInteractionHandler
     {
         isInCorrectPos = !isInCorrectPos;
         ChangeButtonAlpha();
+        _popItGameStateManager.CheckButtonsState();
+    }
+
+    public void CashComponents(PopItGameStateManager popItGameStateManager)
+    {
+        _popItGameStateManager = popItGameStateManager;
     }
 
     private void ChangeButtonAlpha()
