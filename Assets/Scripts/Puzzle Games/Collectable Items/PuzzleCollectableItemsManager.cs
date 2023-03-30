@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,25 +6,35 @@ public class PuzzleCollectableItemsManager : MonoBehaviour
 {
     [Header("Inventory Items")]
     [Space]
-    [SerializeField] private List<PuzzleCollectableItem> itemsInInventoryList = new List<PuzzleCollectableItem>();
+    [SerializeField] private List<PuzzleGameKitchenItems> itemsInInventoryList = new List<PuzzleGameKitchenItems>();
 
     private PuzzleGameEnvironment levelEnvironment;
 
-    public List<PuzzleCollectableItem> ItemsInInventoryList { get => itemsInInventoryList; private set => itemsInInventoryList = value; }
+    public List<PuzzleGameKitchenItems> ItemsInInventoryList { get => itemsInInventoryList; private set => itemsInInventoryList = value; }
 
     public void AddItemToInventory(PuzzleCollectableItem item)
     {
-        itemsInInventoryList.Add(item);
+        itemsInInventoryList.Add(item.Item);
         levelEnvironment.UpdateEnvironmentSavedData();
     }
 
     public void RemoveItemFromInventory(PuzzleCollectableItem item)
     {
-        itemsInInventoryList.Remove(item);
+        itemsInInventoryList.Remove(item.Item);
     }
 
     public void CashComponents(PuzzleGameEnvironment puzzleGameEnvironment)
     {
         levelEnvironment = puzzleGameEnvironment;
+    }
+
+    public void LoadCollectedItemsData(List<int> collectedItemsIndexesList, Action OnDataLoaded)
+    {
+        for(int i = 0; i < collectedItemsIndexesList.Count; i++)
+        {
+            itemsInInventoryList.Add((PuzzleGameKitchenItems)collectedItemsIndexesList[i]);
+        }
+
+        OnDataLoaded?.Invoke();
     }
 }

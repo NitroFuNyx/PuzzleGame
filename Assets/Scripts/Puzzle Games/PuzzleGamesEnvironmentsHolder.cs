@@ -14,7 +14,8 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
 
     private void Start()
     {
-        HideAllEnvironments();
+        StartCoroutine(HideLevelsCoroutine());
+        //HideAllEnvironments();
     }
 
     public void ActivateEnvironment(int levelIndex)
@@ -39,5 +40,11 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
         {
             gamesEnvironmentsList[i].gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator HideLevelsCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        HideLevelsCoroutine();
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class PuzzleGameItem_Standart : PuzzleGameFurnitureItemInteractionHandler
 {
@@ -11,6 +12,11 @@ public class PuzzleGameItem_Standart : PuzzleGameFurnitureItemInteractionHandler
 
     private bool isAnimating = false;
 
+    public override void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList)
+    {
+        
+    }
+
     public override void InteractOnTouch()
     {
         if(!isAnimating)
@@ -21,5 +27,10 @@ public class PuzzleGameItem_Standart : PuzzleGameFurnitureItemInteractionHandler
                 isAnimating = false;
             });
         }
+    }
+
+    public override void KeyCollected_ExecuteReaction()
+    {
+        
     }
 }

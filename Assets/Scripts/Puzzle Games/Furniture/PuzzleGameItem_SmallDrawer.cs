@@ -13,14 +13,10 @@ public class PuzzleGameItem_SmallDrawer : PuzzleGameFurnitureItemInteractionHand
     [SerializeField] private Sprite openDoorSprite;
 
     private bool isOpen = false;
-    private bool keyIsCollected = false;
 
     private void Awake()
     {
-        if(containsKey && key != null)
-        {
-            key.gameObject.SetActive(false);
-        }
+        StartCoroutine(SetStartSettingsCoroutine());
     }
 
     public override void InteractOnTouch()
@@ -38,6 +34,28 @@ public class PuzzleGameItem_SmallDrawer : PuzzleGameFurnitureItemInteractionHand
                 key.gameObject.SetActive(true);
             }
             door.sprite = openDoorSprite;
+        }
+    }
+
+    public override void KeyCollected_ExecuteReaction()
+    {
+        containsKey = false;
+    }
+
+    public override void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList)
+    {
+        if(key != null && collectedItemsList.Contains(key.Item))
+        {
+            containsKey = false;
+        }
+    }
+
+    private IEnumerator SetStartSettingsCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        if (key != null)
+        {
+            key.gameObject.SetActive(false);
         }
     }
 }

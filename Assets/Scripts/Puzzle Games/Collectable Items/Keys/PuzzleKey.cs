@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,10 +27,14 @@ public class PuzzleKey : PuzzleCollectableItem
 
     private bool collected = false;
 
+    #region Events Declaration
+    public event Action OnKeyCollected;
+    #endregion Events Declaration
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        keyIndex = (int)item;
+        keyIndex = (int)Item;
     }
 
     #region Zenject
@@ -45,7 +50,8 @@ public class PuzzleKey : PuzzleCollectableItem
         if(!collected)
         {
             collected = true;
-            Debug.Log($"Save {item}");
+            OnKeyCollected?.Invoke();
+            Debug.Log($"Save {Item}");
             MoveToInventory();
         }
     }

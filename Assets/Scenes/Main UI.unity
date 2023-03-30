@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7477c542431474c9f31254ec0c8c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsInInventoryList: []
+  itemsInInventoryList: 
 --- !u!1 &65580053
 GameObject:
   m_ObjectHideFlags: 0
@@ -4531,6 +4531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containsKey: 0
   key: {fileID: 0}
+  keyContainerComponent: {fileID: 0}
   scalePunchVector: {x: -0.02, y: -0.02, z: -0.02}
   scaleFreequency: 3
   scaleDuration: 1
@@ -12255,6 +12256,7 @@ GameObject:
   - component: {fileID: 940687785}
   - component: {fileID: 940687786}
   - component: {fileID: 940687787}
+  - component: {fileID: 940687788}
   m_Layer: 0
   m_Name: Fringe With Key
   m_TagString: Untagged
@@ -12371,9 +12373,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containsKey: 1
   key: {fileID: 98346722}
+  keyContainerComponent: {fileID: 940687788}
   door: {fileID: 1588825912}
   closedDoorSprite: {fileID: 21300000, guid: 521044f1c5c273f43bbb041698c8ca5e, type: 3}
   openDoorSprite: {fileID: 21300000, guid: e04fc83bbbebbcb4e8fb32e9ab4dac6b, type: 3}
+--- !u!114 &940687788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940687783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363c42bb1bee8d04a81d5e1e3a413004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &950792738
 GameObject:
   m_ObjectHideFlags: 0
@@ -16555,6 +16570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containsKey: 0
   key: {fileID: 0}
+  keyContainerComponent: {fileID: 0}
   scalePunchVector: {x: -0.05, y: -0.05, z: -0.05}
   scaleFreequency: 3
   scaleDuration: 0.5
@@ -25497,6 +25513,9 @@ MonoBehaviour:
   startTime: 0
   inputManager: {fileID: 1100395485}
   collectableItemsManager: {fileID: 65186431}
+  keyContainersList:
+  - {fileID: 3540912410575564065}
+  - {fileID: 940687788}
 --- !u!1 &1768189374
 GameObject:
   m_ObjectHideFlags: 0
@@ -31125,6 +31144,10 @@ PrefabInstance:
       propertyPath: containsKey
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 69062384995666618, guid: dcfeafd7a872bad4e8f7f0a631b206d1, type: 3}
+      propertyPath: keyContainerComponent
+      value: 
+      objectReference: {fileID: 3540912410575564065}
     - target: {fileID: 3540912411035852107, guid: dcfeafd7a872bad4e8f7f0a631b206d1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -31183,6 +31206,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfeafd7a872bad4e8f7f0a631b206d1, type: 3}
+--- !u!1 &3540912410575564064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3540912411654489489, guid: dcfeafd7a872bad4e8f7f0a631b206d1, type: 3}
+  m_PrefabInstance: {fileID: 3540912410575564063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3540912410575564065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3540912410575564064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363c42bb1bee8d04a81d5e1e3a413004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3934135885994448904
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Zenject;
 
 public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
@@ -16,6 +18,9 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private PuzzleInputManager inputManager;
     [SerializeField] private PuzzleCollectableItemsManager collectableItemsManager;
+    [Header("Environment Items With Keys")]
+    [Space]
+    [SerializeField] protected List<PuzzleKeyContainer> keyContainersList = new List<PuzzleKeyContainer>();
 
     private PuzzleGameUI _puzzleGameUI;
     private TimersManager _timersManager;
@@ -97,11 +102,26 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData data)
     {
-        
+        collectableItemsManager.LoadCollectedItemsData(data.puzzleGameLevelsDataList[environmentIndex].collectedItemsList, CollectedItemsDataLoaded_ExecuteReaction);
     }
 
     public void SaveData(GameData data)
     {
-        
+        List<int> collectedItemsIndexesList = new List<int>();
+
+        for(int i = 0; i < collectableItemsManager.ItemsInInventoryList.Count; i++)
+        {
+            collectedItemsIndexesList.Add((int)collectableItemsManager.ItemsInInventoryList[i]);
+        }
+
+        data.puzzleGameLevelsDataList[environmentIndex].collectedItemsList = collectedItemsIndexesList;
+    }
+
+    public void CollectedItemsDataLoaded_ExecuteReaction()
+    {
+        for (int i = 0; i < keyContainersList.Count; i++)
+        {
+            keyContainersList[i].EnvironmentCollectedItemsDataLoaded(collectableItemsManager.ItemsInInventoryList);
+        }
     }
 }
