@@ -21710,6 +21710,19 @@ MonoBehaviour:
   inventoryCellsList: []
   inventoryGrid: {fileID: 413151414}
   invenoryCellPrefab: {fileID: 1983751398803501279, guid: 3a328a2294a0ffc47a4b267d661b235d, type: 3}
+  collectableItemsSpritesList:
+  - {fileID: 21300000, guid: a7b6861104698c146b8e9d1ee02ce88a, type: 3}
+  - {fileID: 21300000, guid: f88fd8bc240a6304796dc240040f52ea, type: 3}
+  - {fileID: 21300000, guid: 7e0c4bd70a37d4f4da8cfb027631b8d2, type: 3}
+  - {fileID: 21300000, guid: 65e8ac00367299c4d9662485b6c1740a, type: 3}
+  - {fileID: 21300000, guid: ba580b8977a90f34eb6da8358234bce4, type: 3}
+  - {fileID: 21300000, guid: 95261b7d7aafbb74ab87a8ff141d4d33, type: 3}
+  - {fileID: 21300000, guid: ee97a3f4b7aaaf44cb2cd9ec8372e35c, type: 3}
+  - {fileID: 21300000, guid: 73c025364dc664443955fa229a70dda0, type: 3}
+  - {fileID: 21300000, guid: 76998524f75c0e34faf5c9206f55637f, type: 3}
+  - {fileID: 21300000, guid: 810cbb3e15a2e134fb63d4b3de6f22ea, type: 3}
+  - {fileID: 21300000, guid: 1a60869250df4b74c8e3fc1559b831de, type: 3}
+  - {fileID: 21300000, guid: bcf297ef3e8eeab42828e646f2874978, type: 3}
 --- !u!1 &1545714331
 GameObject:
   m_ObjectHideFlags: 0

@@ -85,6 +85,11 @@ public class PuzzleGameUI : MainCanvasPanel
         }
     }
 
+    public void SetLevelLoadedData(PuzzleGameLevelData puzzleLevelLoadedData)
+    {
+        inventoryPanel.LoadCollectedItems(puzzleLevelLoadedData.collectedItemsList);
+    }
+
     private void ShowKeyImageInInventoryPanel()
     {
         inventoryPanel.PutItemInInventoryCell(newItemSprite);

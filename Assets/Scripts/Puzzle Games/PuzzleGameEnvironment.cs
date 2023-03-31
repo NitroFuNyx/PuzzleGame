@@ -102,6 +102,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData data)
     {
+        _puzzleGameUI.SetLevelLoadedData(data.puzzleGameLevelsDataList[environmentIndex]); 
         collectableItemsManager.LoadCollectedItemsData(data.puzzleGameLevelsDataList[environmentIndex].collectedItemsList, CollectedItemsDataLoaded_ExecuteReaction);
     }
 
