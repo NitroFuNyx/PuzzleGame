@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleGameItem_SmallDrawer : PuzzleGameFurnitureItemInteractionHandler
+public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHandler
 {
     [Header("Door Data")]
     [Space]
@@ -11,6 +11,9 @@ public class PuzzleGameItem_SmallDrawer : PuzzleGameFurnitureItemInteractionHand
     [Space]
     [SerializeField] private Sprite closedDoorSprite;
     [SerializeField] private Sprite openDoorSprite;
+    [Header("Internal References")]
+    [Space]
+    [SerializeField] private GameObject doorAdditionalItem;
 
     private bool isOpen = false;
 
@@ -26,12 +29,20 @@ public class PuzzleGameItem_SmallDrawer : PuzzleGameFurnitureItemInteractionHand
         if(!isOpen)
         {
             door.sprite = closedDoorSprite;
+            if (doorAdditionalItem)
+            {
+                doorAdditionalItem.SetActive(true);
+            }
         }
         else
         {
             if(containsKey)
             {
                 key.gameObject.SetActive(true);
+            }
+            if(doorAdditionalItem)
+            {
+                doorAdditionalItem.SetActive(false);
             }
             door.sprite = openDoorSprite;
         }

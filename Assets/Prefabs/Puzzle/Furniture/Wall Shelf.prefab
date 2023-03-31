@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 7527227188569222040}
   - component: {fileID: 7527227188569222041}
   - component: {fileID: 5712629368522086290}
+  - component: {fileID: 9091048404139239077}
   m_Layer: 0
   m_Name: Wall Shelf
   m_TagString: Untagged
@@ -281,3 +282,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.172896, y: 11.697632}
   m_EdgeRadius: 0
+--- !u!114 &9091048404139239077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527227188569222047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3204126859f13554db13bef42eaedf0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containsKey: 0
+  key: {fileID: 0}
+  keyContainerComponent: {fileID: 0}
+  door: {fileID: 7527227188129856760}
+  closedDoorSprite: {fileID: 21300000, guid: b7215c681babee04f922381e977b4b11, type: 3}
+  openDoorSprite: {fileID: 21300000, guid: 0b367128a062b034a86fbd373ea689a0, type: 3}
+  doorAdditionalItem: {fileID: 0}
