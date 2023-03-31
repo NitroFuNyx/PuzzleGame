@@ -62,7 +62,7 @@ public class PuzzleKey : PuzzleCollectableItem
         transform.DOJump(startPos, jumpPower, 1, jumpDuration);
         transform.DOPunchRotation(rotationPunchVector, punchDuration, punchFreequency).OnComplete(() =>
         {
-            _puzzleGameUI.MoveKeyToInventoryBar(spriteRenderer);
+            _puzzleGameUI.MoveKeyToInventoryBar(spriteRenderer, Item);
             _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.CollectableItemsManager.AddItemToInventory(this);
             gameObject.SetActive(false);
         });

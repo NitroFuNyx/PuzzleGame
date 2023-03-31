@@ -40,6 +40,7 @@ public class PuzzleGameUI : MainCanvasPanel
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
 
     private Sprite newItemSprite;
+    private PuzzleGameKitchenItems newItemType;
 
     private void Start()
     {
@@ -55,9 +56,10 @@ public class PuzzleGameUI : MainCanvasPanel
     }
     #endregion Zenject
 
-    public void MoveKeyToInventoryBar(SpriteRenderer key)
+    public void MoveKeyToInventoryBar(SpriteRenderer key, PuzzleGameKitchenItems item)
     {
         newItemSprite = key.sprite;
+        newItemType = item;
         Vector3 spawnPos = Camera.main.WorldToScreenPoint(new Vector3(key.transform.position.x, key.transform.position.y, 0f));
         var keyImage = Instantiate(keyImagePrefab, spawnPos, Quaternion.identity, transform);
         keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, ShowKeyImageInInventoryPanel);
@@ -92,7 +94,7 @@ public class PuzzleGameUI : MainCanvasPanel
 
     private void ShowKeyImageInInventoryPanel()
     {
-        inventoryPanel.PutItemInInventoryCell(newItemSprite);
+        inventoryPanel.PutItemInInventoryCell(newItemSprite, newItemType);
     }
 
     private void HideMiniGamesPanels()

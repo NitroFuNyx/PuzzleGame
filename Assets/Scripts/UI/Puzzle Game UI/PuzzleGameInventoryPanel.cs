@@ -37,10 +37,10 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         UnsubscribeFromEvents();
     }
 
-    public void PutItemInInventoryCell(Sprite sprite)
+    public void PutItemInInventoryCell(Sprite sprite, PuzzleGameKitchenItems item)
     {
         var cell = Instantiate(invenoryCellPrefab, Vector3.zero, Quaternion.identity, inventoryGrid);
-        cell.SetItemImage(sprite);
+        cell.SetItemData(sprite, item);
         inventoryCellsList.Add(cell);
 
         if (inventoryCellsList.Count > inventoryCellsTreshold)
@@ -59,7 +59,7 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         {
             Sprite itemSprite = collectableItemsSpritesList[collectedItemsList[i]];
 
-            PutItemInInventoryCell(itemSprite);
+            PutItemInInventoryCell(itemSprite, (PuzzleGameKitchenItems)collectedItemsList[i]);
         }
 
         if (collectedItemsList.Count > inventoryCellsTreshold)
@@ -98,18 +98,18 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
 
     private void RightScrollButtonPressed_ExecuteReaction()
     {
-        if (scrollRect.horizontalNormalizedPosition <= 0f)
-        {
+        //if (scrollRect.horizontalNormalizedPosition <= 0f)
+        //{
             scrollRect.horizontalNormalizedPosition += scrollDelta;
-        }
+        //}
     }
 
     private void LeftScrollButtonPressed_ExecuteReaction()
     {
-        if(scrollRect.horizontalNormalizedPosition >= 0f)
-        {
+        //if(scrollRect.horizontalNormalizedPosition >= 0f)
+        //{
             scrollRect.horizontalNormalizedPosition -= scrollDelta;
-        }
+        //}
     }
 
     private void ScrollButtonReleased_ExecuteReaction()
