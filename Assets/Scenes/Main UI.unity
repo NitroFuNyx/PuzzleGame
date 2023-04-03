@@ -7266,7 +7266,7 @@ Transform:
   - {fileID: 1583031980}
   - {fileID: 1368853133}
   m_Father: {fileID: 1765623661}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538330735
 GameObject:
@@ -21384,7 +21384,7 @@ Transform:
   - {fileID: 1366309102}
   - {fileID: 312266699}
   m_Father: {fileID: 1765623661}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1489999841
 GameObject:
@@ -26477,6 +26477,7 @@ Transform:
   m_Children:
   - {fileID: 1100395484}
   - {fileID: 65186430}
+  - {fileID: 1912088964}
   - {fileID: 536639252}
   - {fileID: 2092619679}
   - {fileID: 1483643039}
@@ -27924,7 +27925,7 @@ Transform:
   - {fileID: 1292571751}
   - {fileID: 1251772525}
   m_Father: {fileID: 1765623661}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1857105613
 GameObject:
@@ -28772,6 +28773,37 @@ MonoBehaviour:
   buttonImage: {fileID: 1897771253}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+--- !u!1 &1912088963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1912088964}
+  m_Layer: 0
+  m_Name: Clues Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1912088964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912088963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1765623661}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1913863075
 GameObject:
   m_ObjectHideFlags: 0
@@ -30478,7 +30510,7 @@ Transform:
   - {fileID: 1079044239}
   - {fileID: 940687784}
   m_Father: {fileID: 1765623661}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2096513064
 PrefabInstance:
