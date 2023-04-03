@@ -16,8 +16,6 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private Languages currentLanguage;
 
-    [SerializeField] TextMeshProUGUI text;
-
     private LanguageTextsHolder englishTextsHolder = new LanguageTextsHolder();
     private LanguageTextsHolder ukrainianTextsHolder = new LanguageTextsHolder();
     private LanguageTextsHolder spanishTextsHolder = new LanguageTextsHolder();
@@ -50,7 +48,6 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
         if(languagesHoldersDictionary.ContainsKey(language))
         {
             currentLanguage = language;
-            text.text = $"Language target {language}, {currentLanguage}";
             _dataPersistanceManager.SaveGame();
             OnLanguageChanged?.Invoke(languagesHoldersDictionary[language]);
         }

@@ -38,6 +38,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         {
             if(containsKey)
             {
+                containsKey = false;
                 key.gameObject.SetActive(true);
             }
             if(doorAdditionalItem)

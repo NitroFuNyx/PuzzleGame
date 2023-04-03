@@ -27,6 +27,11 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
 
     private int inventoryCellsTreshold = 4;
 
+    private void Awake()
+    {
+        ChangeScrollButtonsState(false);
+    }
+
     private void Start()
     {
         SubscribeOnEvents();
