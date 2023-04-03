@@ -18,6 +18,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private PuzzleInputManager inputManager;
     [SerializeField] private PuzzleCollectableItemsManager collectableItemsManager;
+    [SerializeField] private PuzzleCluesManager cluesManager;
     [Header("Environment Items With Keys")]
     [Space]
     [SerializeField] protected List<PuzzleKeyContainer> keyContainersList = new List<PuzzleKeyContainer>();
@@ -30,11 +31,13 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     public int EnvironmentIndex { get => environmentIndex; }
     public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
     public PuzzleInputManager InputManager { get => inputManager; }
+    public PuzzleCluesManager CluesManager { get => cluesManager; }
 
     private void Awake()
     {
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
         collectableItemsManager.CashComponents(this);
+        cluesManager.SetEnvironmentIndex(environmentIndex);
     }
 
     private void Start()
