@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 7527227188569222041}
   - component: {fileID: 5712629368522086290}
   - component: {fileID: 9091048404139239077}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall Shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
