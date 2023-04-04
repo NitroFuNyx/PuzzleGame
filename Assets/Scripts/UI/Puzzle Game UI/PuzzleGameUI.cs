@@ -74,6 +74,8 @@ public class PuzzleGameUI : MainCanvasPanel
     public void ShowMiniGamePanel(PuzzleGameKitchenMiniGames gameType)
     {
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(false);
+        mainModePanel.HidePanel();
+
         for (int i = 0; i < minigamesPanelsList.Count; i++)
         {
             if (minigamesPanelsList[i].GameType != gameType)
@@ -99,6 +101,8 @@ public class PuzzleGameUI : MainCanvasPanel
 
     private void HideMiniGamesPanels()
     {
+        mainModePanel.ShowPanel();
+
         for (int i = 0; i < minigamesPanelsList.Count; i++)
         {
             minigamesPanelsList[i].HidePanel();
