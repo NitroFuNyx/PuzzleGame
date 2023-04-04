@@ -5,7 +5,7 @@ using System.IO;
 
 public static class FileDataHandler
 {
-    private const string PlayerDataSaveFilePath = "Assets/Save Files/Player Save Files/PlayerSaveFile.json";
+    private const string PlayerDataSaveFilePath = "Assets/Save Files/PlayerSaveFile.json";
     private static string playerDataSaveFilePathInBuild = $"{Application.persistentDataPath}/{fileName}";
 
     private static string fileName = "PlayerSaveFile.json";
