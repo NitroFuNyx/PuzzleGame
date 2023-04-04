@@ -11,21 +11,20 @@ public class PuzzleClueHolder : MonoBehaviour
     [Space]
     [SerializeField] private ParticleSystem clueVFX;
 
+    private bool isActive = false;
+
     public int ClueIndex { get => clueIndex; }
+    public bool IsActive { get => isActive; private set => isActive = value; }
 
     public void ShowClue()
     {
-        //if(ClueIndex == index)
-        //{
-            clueVFX.Play();
-        //}
+        isActive = true;
+        clueVFX.Play();
     }
 
     public void HideClue()
     {
-        //if (ClueIndex == index)
-        //{
-            clueVFX.Stop();
-        //}
+        isActive = false;
+        clueVFX.Stop();
     }
 }

@@ -15,6 +15,8 @@ public class PuzzleCluesManager : MonoBehaviour, IDataPersistance
 
     private int environmentIndex;
 
+    private PuzzleClueHolder currentlyActiveClue;
+
     #region Zenject
     [Inject]
     private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, DataPersistanceManager dataPersistanceManager)
@@ -34,14 +36,23 @@ public class PuzzleCluesManager : MonoBehaviour, IDataPersistance
         environmentIndex = index;
     }
 
-    [ContextMenu("Show Clue")]
     public void ShowRandomClue()
     {
+        if(currentlyActiveClue != null)
+        {
+            if(currentlyActiveClue.IsActive)
+            {
+                currentlyActiveClue.HideClue();
+            }
+        }
+
         if(unusedCluesHoldersList.Count > 0)
         {
             int randomIndex = Random.Range(0, unusedCluesHoldersList.Count);
 
             unusedCluesHoldersList[randomIndex].ShowClue();
+
+            currentlyActiveClue = unusedCluesHoldersList[randomIndex];
         }
     }
 
