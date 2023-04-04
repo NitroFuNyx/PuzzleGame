@@ -14,6 +14,8 @@ public class InventoryPanelItemCell : ButtonInteractionHandler
     [SerializeField] private Sprite standartSprite;
     [SerializeField] private Sprite selectedSprite;
 
+    private PuzzleGameInventoryPanel inventoryPanel;
+
     private bool selected = false;
 
     public PuzzleGameKitchenItems ItemType { get => itemType; private set => itemType = value; }
@@ -25,6 +27,7 @@ public class InventoryPanelItemCell : ButtonInteractionHandler
         if(selected)
         {
             buttonImage.sprite = selectedSprite;
+            inventoryPanel.InventoryItemButtonPressed(this);
         }
         else
         {
@@ -32,9 +35,20 @@ public class InventoryPanelItemCell : ButtonInteractionHandler
         }
     }
 
+    public void CashComponents(PuzzleGameInventoryPanel panel)
+    {
+        inventoryPanel = panel;
+    }
+
     public void SetItemData(Sprite sprite, PuzzleGameKitchenItems item)
     {
         itemImage.sprite = sprite;
         itemType = item;
+    }
+
+    public void ResetSelectedState()
+    {
+        selected = false;
+        buttonImage.sprite = standartSprite;
     }
 }

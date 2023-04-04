@@ -25,6 +25,8 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
     [Space]
     [SerializeField] private float scrollDelta = 100f;
 
+    private InventoryPanelItemCell currentlySelectedInventoryCell;
+
     private int inventoryCellsTreshold = 4;
 
     private void Awake()
@@ -47,6 +49,7 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         var cell = Instantiate(invenoryCellPrefab, Vector3.zero, Quaternion.identity, inventoryGrid);
         cell.SetItemData(sprite, item);
         inventoryCellsList.Add(cell);
+        cell.CashComponents(this);
 
         if (inventoryCellsList.Count > inventoryCellsTreshold)
         {
@@ -75,6 +78,19 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         {
             ChangeScrollButtonsState(false);
         }
+    }
+
+    public void InventoryItemButtonPressed(InventoryPanelItemCell cell)
+    {
+        for(int i = 0; i < inventoryCellsList.Count; i++)
+        {
+            if(inventoryCellsList[i] != cell)
+            {
+                inventoryCellsList[i].ResetSelectedState();
+            }
+        }
+
+        currentlySelectedInventoryCell = cell;
     }
 
     private void ChangeScrollButtonsState(bool isActive)
