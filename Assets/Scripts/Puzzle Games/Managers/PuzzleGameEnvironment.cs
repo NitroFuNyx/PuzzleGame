@@ -33,6 +33,11 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     public PuzzleInputManager InputManager { get => inputManager; }
     public PuzzleCluesManager CluesManager { get => cluesManager; }
 
+    #region Events Declaration
+    public event Action OnLockOpened;
+    public event Action OnLockKeyMismatched;
+    #endregion Events Declaration
+
     private void Awake()
     {
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
@@ -126,6 +131,23 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         for (int i = 0; i < keyContainersList.Count; i++)
         {
             keyContainersList[i].EnvironmentCollectedItemsDataLoaded(collectableItemsManager.ItemsInInventoryList);
+        }
+    }
+
+    public void LockSelect(PuzzleLock puzzleLock)
+    {
+        if(_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell != null)
+        {
+            if((int)_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == puzzleLock.LockIndex)
+            {
+                _puzzleGameUI.InventoryPanel.LockOpened_ExecuteReaction();
+                puzzleLock.OpenLock();
+            }
+            else
+            {
+                _puzzleGameUI.InventoryPanel.LockKeyMismatched_ExecuteReaction();
+                puzzleLock.ResetLock();
+            }
         }
     }
 }

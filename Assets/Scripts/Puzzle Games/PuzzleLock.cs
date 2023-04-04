@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class PuzzleLock : MonoBehaviour
+public class PuzzleLock : MonoBehaviour, Iinteractable
 {
     [Header("Lock Type Data")]
     [Space]
@@ -14,6 +14,23 @@ public class PuzzleLock : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
+
+    public int LockIndex { get => lockIndex; }
+
+    #region Zenject
+    [Inject]
+    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder)
+    {
+        _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
+    }
+    #endregion Zenject
+
+    public void Interact()
+    {
+        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.LockSelect(this);
+    }
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -22,5 +39,15 @@ public class PuzzleLock : MonoBehaviour
     private void Start()
     {
         spriteRenderer.sprite = closedLocksSpritesList[lockIndex];
+    }
+
+    public void OpenLock()
+    {
+        spriteRenderer.sprite = openLocksSpritesList[lockIndex];
+    }
+
+    public void ResetLock()
+    {
+
     }
 }

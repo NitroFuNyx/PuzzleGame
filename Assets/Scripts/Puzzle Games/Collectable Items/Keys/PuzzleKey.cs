@@ -20,6 +20,9 @@ public class PuzzleKey : PuzzleCollectableItem
     [SerializeField] private float jumpDelta = 1f;
     [SerializeField] private float jumpPower = 1f;
     [SerializeField] private float jumpDuration = 1f;
+    [Header("Sprites")]
+    [Space]
+    [SerializeField] private List<Sprite> keysSprites = new List<Sprite>();
 
     private PuzzleGameUI _puzzleGameUI;
 
@@ -35,6 +38,7 @@ public class PuzzleKey : PuzzleCollectableItem
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         keyIndex = (int)Item;
+        SetKeySprite();
     }
 
     #region Zenject
@@ -67,5 +71,10 @@ public class PuzzleKey : PuzzleCollectableItem
             _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.CollectableItemsManager.AddItemToInventory(this);
             gameObject.SetActive(false);
         });
+    }
+
+    private void SetKeySprite()
+    {
+        spriteRenderer.sprite = keysSprites[keyIndex];
     }
 }

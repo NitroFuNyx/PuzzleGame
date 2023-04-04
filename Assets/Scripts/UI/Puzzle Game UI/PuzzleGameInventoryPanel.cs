@@ -29,6 +29,8 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
 
     private int inventoryCellsTreshold = 4;
 
+    public InventoryPanelItemCell CurrentlySelectedInventoryCell { get => currentlySelectedInventoryCell; private set => currentlySelectedInventoryCell = value; }
+
     private void Awake()
     {
         ChangeScrollButtonsState(false);
@@ -91,6 +93,25 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         }
 
         currentlySelectedInventoryCell = cell;
+    }
+
+    public void InventoryItemButtonSelectionReset()
+    {
+        currentlySelectedInventoryCell = null;
+    }
+
+    public void LockKeyMismatched_ExecuteReaction()
+    {
+        for (int i = 0; i < inventoryCellsList.Count; i++)
+        {
+            inventoryCellsList[i].ResetSelectedState();
+        }
+    }
+
+    public void LockOpened_ExecuteReaction()
+    {
+        inventoryCellsList.Remove(currentlySelectedInventoryCell);
+        Destroy(currentlySelectedInventoryCell.gameObject);
     }
 
     private void ChangeScrollButtonsState(bool isActive)

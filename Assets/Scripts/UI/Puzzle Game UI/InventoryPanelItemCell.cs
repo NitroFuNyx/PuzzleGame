@@ -32,6 +32,7 @@ public class InventoryPanelItemCell : ButtonInteractionHandler
         else
         {
             buttonImage.sprite = standartSprite;
+            inventoryPanel.InventoryItemButtonSelectionReset();
         }
     }
 

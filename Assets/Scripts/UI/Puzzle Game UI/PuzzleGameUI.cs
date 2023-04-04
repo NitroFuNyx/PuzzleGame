@@ -42,6 +42,8 @@ public class PuzzleGameUI : MainCanvasPanel
     private Sprite newItemSprite;
     private PuzzleGameKitchenItems newItemType;
 
+    public PuzzleGameInventoryPanel InventoryPanel { get => inventoryPanel; }
+
     private void Start()
     {
         mainModePanel.ShowPanel();
