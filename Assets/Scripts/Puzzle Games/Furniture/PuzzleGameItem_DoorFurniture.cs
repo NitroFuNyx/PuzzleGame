@@ -31,7 +31,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             door.sprite = closedDoorSprite;
             if (doorAdditionalItem)
             {
-                doorAdditionalItem.SetActive(false);
+                doorAdditionalItem.SetActive(true);
             }
         }
         else
@@ -43,7 +43,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             }
             if(doorAdditionalItem)
             {
-                doorAdditionalItem.SetActive(true);
+                doorAdditionalItem.SetActive(false);
             }
             door.sprite = openDoorSprite;
         }
