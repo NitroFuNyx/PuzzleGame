@@ -72,6 +72,10 @@ public class CurrentGameManager : MonoBehaviour
         {
             _miniGamesEnvironmentsHolder.CurrentlyActiveGame.ResetEnvironment();
         }
+        else
+        {
+            // save time
+        }
     }
 
     private IEnumerator FinishGameWithSavingCoroutine()

@@ -128,13 +128,29 @@ public class MainUI : MonoBehaviour
     public void HidePauseUI()
     {
         _systemTimeManager.ResumeGame();
-        ActivateMainCanvasPanel(UIPanels.MiniGamePanel);
+
+        if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
+        {
+            ActivateMainCanvasPanel(UIPanels.MiniGamePanel);
+        }
+        else
+        {
+            ActivateMainCanvasPanel(UIPanels.PuzzleGamePanel);
+        }
     }
 
     public void ExitGameMode()
     {
         _systemTimeManager.ResumeGame();
-        ShowSelectGameLevel();
+
+        if (_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
+        {
+            ShowSelectGameLevel();
+        }
+        else
+        {
+            ShowSelectGameModeUI();
+        } 
     }
     #endregion Buttons Methods
 
