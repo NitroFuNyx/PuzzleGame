@@ -21,8 +21,8 @@ public class PuzzleGameKitchenFlower : MonoBehaviour, Iinteractable
     [SerializeField] private PuzzleKey key;
     [SerializeField] private PuzzleKeyContainer keyContainerComponent;
 
-    [SerializeField] private bool animationInProcess = false;
-    [SerializeField] private bool containsKey = true;
+    private bool animationInProcess = false;
+    private bool containsKey = true;
 
     private int scaleCounter = 0;
 
