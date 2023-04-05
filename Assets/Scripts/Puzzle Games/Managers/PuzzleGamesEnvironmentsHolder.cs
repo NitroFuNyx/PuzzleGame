@@ -46,5 +46,6 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         HideLevelsCoroutine();
+        HideAllEnvironments();
     }
 }
