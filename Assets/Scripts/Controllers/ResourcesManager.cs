@@ -16,6 +16,7 @@ public class ResourcesManager : MonoBehaviour, IDataPersistance
 
     #region Events Declaration
     public event Action<int> OnLevelCoinsAmountChanged;
+    public event Action<int> OnGeneralCoinsAmountChanged;
     #endregion Events Declaration
 
     #region Zenject
@@ -50,6 +51,7 @@ public class ResourcesManager : MonoBehaviour, IDataPersistance
     public void AddCurrentLevelCoinsToWholeCoinsAmount()
     {
         wholeCoinsAmount += currentLevelCoinsAmount;
+        OnGeneralCoinsAmountChanged?.Invoke(wholeCoinsAmount);
     }
 
     public void ResetCurrentLevelCoinsData()
@@ -67,11 +69,13 @@ public class ResourcesManager : MonoBehaviour, IDataPersistance
     {
         wholeCoinsAmount -= price;
         _dataPersistanceManager.SaveGame();
+        OnGeneralCoinsAmountChanged?.Invoke(wholeCoinsAmount);
     }
 
     public void LoadData(GameData data)
     {
         wholeCoinsAmount = data.currentCoinsAmount;
+        OnGeneralCoinsAmountChanged?.Invoke(wholeCoinsAmount);
     }
 
     public void SaveData(GameData data)
