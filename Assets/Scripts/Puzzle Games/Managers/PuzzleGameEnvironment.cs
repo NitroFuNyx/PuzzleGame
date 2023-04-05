@@ -80,7 +80,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         _dataPersistanceManager.SaveGame();
     }
 
-    public void ResetEnvironment()
+    public void ResetEnvironmentWithoutSaving()
     {
         _cameraManager.SetCameraStartPos();
     }
