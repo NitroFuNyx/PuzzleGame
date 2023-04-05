@@ -32,6 +32,7 @@ public class PuzzleGameUI : MainCanvasPanel
     [Header("Prefabs")]
     [Space]
     [SerializeField] private PuzzleKeyImage keyImagePrefab;
+    [SerializeField] private PuzzleKeyImage colaStrawImagePrefab;
     [Header("Panels")]
     [Space]
     [SerializeField] private PanelActivationManager mainModePanel;
@@ -64,7 +65,19 @@ public class PuzzleGameUI : MainCanvasPanel
         newItemType = item;
         Vector3 spawnPos = Camera.main.WorldToScreenPoint(new Vector3(key.transform.position.x, key.transform.position.y, 0f));
         var keyImage = Instantiate(keyImagePrefab, spawnPos, Quaternion.identity, transform);
-        keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, ShowKeyImageInInventoryPanel);
+        keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, ShowItemImageInInventoryPanel);
+    }
+
+    public void MoveItemToInventoryBar(SpriteRenderer itemSprite, PuzzleGameKitchenItems item)
+    {
+        newItemSprite = itemSprite.sprite;
+        newItemType = item;
+        Vector3 spawnPos = Camera.main.WorldToScreenPoint(new Vector3(itemSprite.transform.position.x, itemSprite.transform.position.y, 0f));
+        if(item == PuzzleGameKitchenItems.ColaStraw)
+        {
+            var itemImage = Instantiate(colaStrawImagePrefab, spawnPos, Quaternion.identity, transform);
+            itemImage.MoveToInventoryPanel(inventoryPanel.transform.position, itemSprite.sprite, ShowItemImageInInventoryPanel);
+        }
     }
 
     public void ShowMainModePanel()
@@ -96,7 +109,7 @@ public class PuzzleGameUI : MainCanvasPanel
         inventoryPanel.LoadCollectedItems(puzzleLevelLoadedData.collectedItemsList);
     }
 
-    private void ShowKeyImageInInventoryPanel()
+    private void ShowItemImageInInventoryPanel()
     {
         inventoryPanel.PutItemInInventoryCell(newItemSprite, newItemType);
     }

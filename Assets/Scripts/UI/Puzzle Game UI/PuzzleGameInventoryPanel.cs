@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class PuzzleGameInventoryPanel : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
     [SerializeField] private float scrollDelta = 100f;
 
     private InventoryPanelItemCell currentlySelectedInventoryCell;
+    private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
 
     private int inventoryCellsTreshold = 4;
 
@@ -45,6 +47,14 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
     {
         UnsubscribeFromEvents();
     }
+
+    #region Zenject
+    [Inject]
+    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder)
+    {
+        _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
+    }
+    #endregion Zenject
 
     public void PutItemInInventoryCell(Sprite sprite, PuzzleGameKitchenItems item)
     {
@@ -108,10 +118,11 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         }
     }
 
-    public void LockOpened_ExecuteReaction()
+    public void ItemUsed_ExecuteReaction()
     {
         inventoryCellsList.Remove(currentlySelectedInventoryCell);
         Destroy(currentlySelectedInventoryCell.gameObject);
+        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.CollectableItemsManager.RemoveItemFromInventory(currentlySelectedInventoryCell.ItemType);
     }
 
     private void ChangeScrollButtonsState(bool isActive)

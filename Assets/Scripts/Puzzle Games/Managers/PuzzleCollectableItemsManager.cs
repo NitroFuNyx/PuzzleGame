@@ -18,9 +18,10 @@ public class PuzzleCollectableItemsManager : MonoBehaviour
         levelEnvironment.UpdateEnvironmentSavedData();
     }
 
-    public void RemoveItemFromInventory(PuzzleCollectableItem item)
+    public void RemoveItemFromInventory(PuzzleGameKitchenItems item)
     {
-        itemsInInventoryList.Remove(item.Item);
+        itemsInInventoryList.Remove(item);
+        levelEnvironment.UpdateEnvironmentSavedData();
     }
 
     public void CashComponents(PuzzleGameEnvironment puzzleGameEnvironment)

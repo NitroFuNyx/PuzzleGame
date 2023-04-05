@@ -148,13 +148,13 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         {
             if((int)_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == puzzleLock.LockIndex)
             {
-                _puzzleGameUI.InventoryPanel.LockOpened_ExecuteReaction();
                 puzzleLock.OpenLock();
+                _puzzleGameUI.InventoryPanel.ItemUsed_ExecuteReaction();
             }
             else
             {
-                _puzzleGameUI.InventoryPanel.LockKeyMismatched_ExecuteReaction();
                 puzzleLock.ResetLock();
+                _puzzleGameUI.InventoryPanel.LockKeyMismatched_ExecuteReaction();
             }
         }
     }

@@ -1,0 +1,108 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Zenject;
+
+public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
+{
+    [Header("Additional Items")]
+    [Space]
+    [SerializeField] private PuzzleColaStraw straw;
+    [Header("Internal References")]
+    [Space]
+    [SerializeField] private PuzzleKey key;
+    [SerializeField] private PuzzleKeyContainer keyContainerComponent;
+
+    private DataPersistanceManager _dataPersistanceManager;
+    private PuzzleGameUI _puzzleGameUI;
+
+    private bool containsKey = true;
+
+    private void Awake()
+    {
+        _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
+        straw.CashComponents(this);
+    }
+
+    private void Start()
+    {
+        if (TryGetComponent(out PuzzleClueHolder clueHolder))
+        {
+            clueHolder.ClueIndex = key.KeyIndex;
+        }
+        if (key)
+        {
+            key.OnKeyCollected += KeyCollected_ExecuteReaction;
+        }
+        if (keyContainerComponent)
+        {
+            keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+        }
+        StartCoroutine(SetStartSettingsCoroutine());
+    }
+
+    private void OnDestroy()
+    {
+        if (key)
+        {
+            key.OnKeyCollected -= KeyCollected_ExecuteReaction;
+        }
+        if (keyContainerComponent)
+        {
+            keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+        }
+    }
+
+    #region Zenject
+    [Inject]
+    private void Construct(DataPersistanceManager dataPersistanceManager, PuzzleGameUI puzzleGameUI)
+    {
+        _dataPersistanceManager = dataPersistanceManager;
+        _puzzleGameUI = puzzleGameUI;
+    }
+    #endregion Zenject
+
+    public void LoadData(GameData data)
+    {
+        if (data.puzzleGameLevelsDataList[0].collectedItemsList.Contains((int)PuzzleGameKitchenItems.ColaStraw))
+        {
+            straw.gameObject.SetActive(false);
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        
+    }
+
+    private void KeyCollected_ExecuteReaction()
+    {
+        containsKey = false;
+    }
+
+    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList)
+    {
+        if (key != null && collectedItemsList.Contains(key.Item))
+        {
+            containsKey = false;
+        }
+    }
+
+    private IEnumerator SetStartSettingsCoroutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        key.gameObject.SetActive(false);
+    }
+
+    public void Interact()
+    {
+        if (containsKey && _puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell != null)
+        {
+            if(_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == PuzzleGameKitchenItems.ColaStraw)
+            {
+                key.gameObject.SetActive(true);
+                _puzzleGameUI.InventoryPanel.ItemUsed_ExecuteReaction();
+            }
+        }
+    }
+}
