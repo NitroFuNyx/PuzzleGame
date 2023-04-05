@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class PuzzleInputManager : MonoBehaviour
 {
@@ -12,7 +12,10 @@ public class PuzzleInputManager : MonoBehaviour
     [SerializeField] private float clampXUnitMin = 0f;
     [SerializeField] private float clampXUnitMax = 40f;
 
+    private CurrentGameManager _currentGameManager;
+
     private float horizontalMove = 0f;
+    private float checkInteractDelay = 0.1f;
 
     private bool canCheckInput = false;
 
@@ -27,6 +30,14 @@ public class PuzzleInputManager : MonoBehaviour
             CreateRaycast();
         }
     }
+
+    #region Zenject
+    [Inject]
+    private void Construct(CurrentGameManager currentGameManager)
+    {
+        _currentGameManager = currentGameManager;
+    }
+    #endregion Zenject
 
     public void ChangeCheckInputState(bool canCheck)
     {
@@ -56,10 +67,18 @@ public class PuzzleInputManager : MonoBehaviour
                     Debug.Log($"{hit.collider.name}");
                     if (hit.collider.TryGetComponent(out Iinteractable item))
                     {
-                        item.Interact();
+                        //item.Interact();
+                        StartCoroutine(CheckInteractionCoroutine(item));
                     }
                 }
             }
         }
+    }
+
+    private IEnumerator CheckInteractionCoroutine(Iinteractable item)
+    {
+        yield return new WaitForSeconds(checkInteractDelay);
+        if(!_currentGameManager.PuzzleUIButtonPressed)
+        item.Interact();
     }
 }

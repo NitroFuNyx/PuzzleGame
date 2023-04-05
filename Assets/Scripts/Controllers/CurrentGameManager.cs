@@ -11,8 +11,11 @@ public class CurrentGameManager : MonoBehaviour
     [SerializeField] private CharacterTypes currentCharacter = CharacterTypes.Female;
     [SerializeField] private int currentLevelIndex = 0;
 
+    private bool puzzleUIButtonPressed = false;
+
     public GameLevelTypes CurrentGameType { get => currentGameType; private set => currentGameType = value; }
     public CharacterTypes CurrentCharacter { get => currentCharacter; private set => currentCharacter = value; }
+    public bool PuzzleUIButtonPressed { get => puzzleUIButtonPressed; set => puzzleUIButtonPressed = value; }
 
     private MiniGamesEnvironmentsHolder _miniGamesEnvironmentsHolder;
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironments;
