@@ -13,10 +13,38 @@ public class PuzzleLock : MonoBehaviour, Iinteractable
     [SerializeField] private List<Sprite> openLocksSpritesList = new List<Sprite>();
 
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb;
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
 
+    private Vector3 startPos = new Vector3();
+
     public int LockIndex { get => lockIndex; }
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+        startPos = transform.localPosition;
+    }
+
+    private void Start()
+    {
+        spriteRenderer.sprite = closedLocksSpritesList[lockIndex];
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == Layers.PuzzleBottomBorderCollider)
+        {
+            rb.gravityScale = 0f;
+            rb.simulated = false;
+            spriteRenderer.sprite = closedLocksSpritesList[lockIndex];
+            gameObject.SetActive(false);
+            transform.localPosition = startPos;
+        }
+    }
 
     #region Zenject
     [Inject]
@@ -31,19 +59,10 @@ public class PuzzleLock : MonoBehaviour, Iinteractable
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.LockSelect(this);
     }
 
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void Start()
-    {
-        spriteRenderer.sprite = closedLocksSpritesList[lockIndex];
-    }
-
     public void OpenLock()
     {
         spriteRenderer.sprite = openLocksSpritesList[lockIndex];
+        rb.gravityScale = 1f;
     }
 
     public void ResetLock()

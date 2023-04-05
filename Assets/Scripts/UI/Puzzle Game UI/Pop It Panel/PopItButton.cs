@@ -21,9 +21,12 @@ public class PopItButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        isInCorrectPos = !isInCorrectPos;
-        ChangeButtonAlpha();
-        _popItGameStateManager.CheckButtonsState();
+        if(!_popItGameStateManager.Finished)
+        {
+            isInCorrectPos = !isInCorrectPos;
+            ChangeButtonAlpha();
+            _popItGameStateManager.CheckButtonsState();
+        }
     }
 
     public void CashComponents(PopItGameStateManager popItGameStateManager)

@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,14 @@ public class PopItGameStateManager : MonoBehaviour
     [Header("Buttons")]
     [Space]
     [SerializeField] private List<PopItButton> buttonsList = new List<PopItButton>();
+
+    private bool finished = false;
+
+    public bool Finished { get => finished; private set => finished = value; }
+
+    #region Events Declaration
+    public event Action OnGameFinished;
+    #endregion Events Declaration
 
     private void Start()
     {
@@ -29,10 +37,9 @@ public class PopItGameStateManager : MonoBehaviour
             }
         }
 
-        Debug.Log($"{allButtonsInCorrectPos}");
         if(allButtonsInCorrectPos)
         {
-            // get key
+            OnGameFinished?.Invoke();
         }
     }
 }
