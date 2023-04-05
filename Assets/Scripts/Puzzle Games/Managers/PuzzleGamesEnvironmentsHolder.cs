@@ -43,7 +43,7 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
 
     private IEnumerator HideLevelsCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         HideLevelsCoroutine();
         HideAllEnvironments();
     }
