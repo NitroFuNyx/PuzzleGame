@@ -62,9 +62,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         containsKey = false;
     }
 
-    public override void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList)
+    public override void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
     {
-        if(key != null && collectedItemsList.Contains(key.Item))
+        Debug.Log($"{gameObject} Key {key == null} Collected {collectedItemsList.Contains(key.Item)} Used {usedItemsList.Contains(key.Item)}");
+        if(key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
             containsKey = false;
         }

@@ -119,26 +119,34 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     public void LoadData(GameData data)
     {
         _puzzleGameUI.SetLevelLoadedData(data.puzzleGameLevelsDataList[environmentIndex]); 
-        collectableItemsManager.LoadCollectedItemsData(data.puzzleGameLevelsDataList[environmentIndex].collectedItemsList, CollectedItemsDataLoaded_ExecuteReaction);
+        collectableItemsManager.LoadCollectedItemsData(data.puzzleGameLevelsDataList[environmentIndex].itemsInInventoryList,
+                                                       data.puzzleGameLevelsDataList[environmentIndex].useditemsList, CollectedItemsDataLoaded_ExecuteReaction);
     }
 
     public void SaveData(GameData data)
     {
         List<int> collectedItemsIndexesList = new List<int>();
+        List<int> usedItemsIndexesList = new List<int>();
 
         for(int i = 0; i < collectableItemsManager.ItemsInInventoryList.Count; i++)
         {
             collectedItemsIndexesList.Add((int)collectableItemsManager.ItemsInInventoryList[i]);
         }
 
-        data.puzzleGameLevelsDataList[environmentIndex].collectedItemsList = collectedItemsIndexesList;
+        for (int i = 0; i < collectableItemsManager.UsedItemsList.Count; i++)
+        {
+            usedItemsIndexesList.Add((int)collectableItemsManager.UsedItemsList[i]);
+        }
+
+        data.puzzleGameLevelsDataList[environmentIndex].itemsInInventoryList = collectedItemsIndexesList;
+        data.puzzleGameLevelsDataList[environmentIndex].useditemsList = usedItemsIndexesList;
     }
 
     public void CollectedItemsDataLoaded_ExecuteReaction()
     {
         for (int i = 0; i < keyContainersList.Count; i++)
         {
-            keyContainersList[i].EnvironmentCollectedItemsDataLoaded(collectableItemsManager.ItemsInInventoryList);
+            keyContainersList[i].EnvironmentCollectedItemsDataLoaded(collectableItemsManager.ItemsInInventoryList, collectableItemsManager.UsedItemsList);
         }
     }
 

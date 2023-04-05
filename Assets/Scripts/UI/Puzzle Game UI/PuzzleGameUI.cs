@@ -106,7 +106,7 @@ public class PuzzleGameUI : MainCanvasPanel
 
     public void SetLevelLoadedData(PuzzleGameLevelData puzzleLevelLoadedData)
     {
-        inventoryPanel.LoadCollectedItems(puzzleLevelLoadedData.collectedItemsList);
+        inventoryPanel.LoadCollectedItems(puzzleLevelLoadedData.itemsInInventoryList);
     }
 
     private void ShowItemImageInInventoryPanel()

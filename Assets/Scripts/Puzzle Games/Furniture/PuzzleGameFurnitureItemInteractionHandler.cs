@@ -12,7 +12,7 @@ public abstract class PuzzleGameFurnitureItemInteractionHandler : MonoBehaviour,
     [Header("Internal References")]
     [Space]
     [SerializeField] protected PuzzleKeyContainer keyContainerComponent;
-
+    
     private void Start()
     {
         if (key)
@@ -44,7 +44,7 @@ public abstract class PuzzleGameFurnitureItemInteractionHandler : MonoBehaviour,
 
     public abstract void KeyCollected_ExecuteReaction();
 
-    public abstract void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList);
+    public abstract void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList);
 
     public abstract void InteractOnTouch();
 }

@@ -64,7 +64,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
 
     public void LoadData(GameData data)
     {
-        if (data.puzzleGameLevelsDataList[0].collectedItemsList.Contains((int)PuzzleGameKitchenItems.ColaStraw))
+        if (data.puzzleGameLevelsDataList[0].itemsInInventoryList.Contains((int)PuzzleGameKitchenItems.ColaStraw))
         {
             straw.gameObject.SetActive(false);
         }
@@ -80,9 +80,9 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
         containsKey = false;
     }
 
-    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList)
+    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
     {
-        if (key != null && collectedItemsList.Contains(key.Item))
+        if (key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
             containsKey = false;
         }

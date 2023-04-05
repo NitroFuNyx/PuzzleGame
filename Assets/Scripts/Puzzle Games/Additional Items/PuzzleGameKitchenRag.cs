@@ -79,9 +79,9 @@ public class PuzzleGameKitchenRag : MonoBehaviour, Iinteractable
         containsKey = false;
     }
 
-    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList)
+    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
     {
-        if (key != null && collectedItemsList.Contains(key.Item))
+        if (key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
             containsKey = false;
         }
