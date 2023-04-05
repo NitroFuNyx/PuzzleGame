@@ -26,7 +26,8 @@ public class CurrentGameManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, ResourcesManager resourcesManager, DataPersistanceManager dataPersistanceManager)
+    private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, 
+                           ResourcesManager resourcesManager, DataPersistanceManager dataPersistanceManager)
     {
         _miniGamesEnvironmentsHolder = miniGamesEnvironmentsHolder;
         _puzzleGamesEnvironments = puzzleGamesEnvironmentsHolder;
@@ -74,6 +75,7 @@ public class CurrentGameManager : MonoBehaviour
         }
         else
         {
+            _puzzleGamesEnvironments.CurrentlyActiveGame.ResetEnvironment();
             // save time
         }
     }

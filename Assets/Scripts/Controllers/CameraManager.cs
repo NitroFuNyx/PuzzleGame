@@ -10,6 +10,11 @@ public class CameraManager : MonoBehaviour
 
     private void Awake()
     {
+        SetCameraStartPos();
+    }
+
+    public void SetCameraStartPos()
+    {
         Camera.main.transform.position = mainCameraStartPos;
     }
 }

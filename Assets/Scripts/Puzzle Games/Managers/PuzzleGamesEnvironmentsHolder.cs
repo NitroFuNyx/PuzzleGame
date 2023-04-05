@@ -15,7 +15,6 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
     private void Start()
     {
         StartCoroutine(HideLevelsCoroutine());
-        //HideAllEnvironments();
     }
 
     public void ActivateEnvironment(int levelIndex)

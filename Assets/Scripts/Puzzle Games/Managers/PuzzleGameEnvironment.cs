@@ -27,6 +27,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private TimersManager _timersManager;
     private CurrentGameManager _currentGameManager;
     private DataPersistanceManager _dataPersistanceManager;
+    private CameraManager _cameraManager;
 
     public int EnvironmentIndex { get => environmentIndex; }
     public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
@@ -57,12 +58,14 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
 
     #region Zenject
     [Inject]
-    private void Construct(TimersManager timersManager, CurrentGameManager currentGameManager, PuzzleGameUI puzzleGameUI, DataPersistanceManager dataPersistanceManager)
+    private void Construct(TimersManager timersManager, CurrentGameManager currentGameManager, PuzzleGameUI puzzleGameUI, 
+                           DataPersistanceManager dataPersistanceManager, CameraManager cameraManager)
     {
         _timersManager = timersManager;
         _currentGameManager = currentGameManager;
         _puzzleGameUI = puzzleGameUI;
         _dataPersistanceManager = dataPersistanceManager;
+        _cameraManager = cameraManager;
     }
     #endregion Zenject
 
@@ -75,6 +78,11 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     public void UpdateEnvironmentSavedData()
     {
         _dataPersistanceManager.SaveGame();
+    }
+
+    public void ResetEnvironment()
+    {
+        _cameraManager.SetCameraStartPos();
     }
 
     private void SubscribeOnEvents()
