@@ -16,11 +16,14 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
     protected PuzzleGameUI _puzzleGameUI;
     private PopItGameStateManager _popItGameStateManager;
 
-    private bool ragMoved = false;
     private bool containsKey = true;
 
     private void Start()
     {
+        if (TryGetComponent(out PuzzleClueHolder clueHolder))
+        {
+            clueHolder.ClueIndex = key.KeyIndex;
+        }
         if (key)
         {
             key.OnKeyCollected += KeyCollected_ExecuteReaction;
@@ -84,7 +87,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
 
     private IEnumerator SetStartSettingsCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         if(key)
         key.gameObject.SetActive(false);
     }

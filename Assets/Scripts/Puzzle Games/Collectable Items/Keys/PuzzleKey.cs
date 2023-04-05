@@ -30,6 +30,8 @@ public class PuzzleKey : PuzzleCollectableItem
 
     private bool collected = false;
 
+    public int KeyIndex { get => keyIndex; private set => keyIndex = value; }
+
     #region Events Declaration
     public event Action OnKeyCollected;
     #endregion Events Declaration

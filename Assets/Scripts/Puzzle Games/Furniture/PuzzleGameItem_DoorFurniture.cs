@@ -22,6 +22,14 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         StartCoroutine(SetStartSettingsCoroutine());
     }
 
+    private void Start()
+    {
+        if (TryGetComponent(out PuzzleClueHolder clueHolder))
+        {
+            clueHolder.ClueIndex = key.KeyIndex;
+        }
+    }
+
     public override void InteractOnTouch()
     {
         isOpen = !isOpen;
@@ -64,7 +72,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
 
     private IEnumerator SetStartSettingsCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         if (key != null)
         {
             key.gameObject.SetActive(false);

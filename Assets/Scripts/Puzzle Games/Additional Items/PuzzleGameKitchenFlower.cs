@@ -28,6 +28,10 @@ public class PuzzleGameKitchenFlower : MonoBehaviour, Iinteractable
 
     private void Start()
     {
+        if (TryGetComponent(out PuzzleClueHolder clueHolder))
+        {
+            clueHolder.ClueIndex = key.KeyIndex;
+        }
         if (key)
         {
             key.OnKeyCollected += KeyCollected_ExecuteReaction;
@@ -102,7 +106,7 @@ public class PuzzleGameKitchenFlower : MonoBehaviour, Iinteractable
 
     private IEnumerator SetStartSettingsCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         key.gameObject.SetActive(false);
     }
 }

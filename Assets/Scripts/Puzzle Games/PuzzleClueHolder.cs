@@ -11,7 +11,7 @@ public class PuzzleClueHolder : MonoBehaviour
 
     private bool isActive = false;
 
-    public int ClueIndex { get => clueIndex; }
+    public int ClueIndex { get => clueIndex; set => clueIndex = value;  }
     public bool IsActive { get => isActive; private set => isActive = value; }
 
     public void ShowClue()
