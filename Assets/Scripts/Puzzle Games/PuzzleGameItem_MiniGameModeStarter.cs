@@ -57,6 +57,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
 
     public void Interact()
     {
+        if(containsKey)
         _puzzleGameUI.ShowMiniGamePanel(gameType);
     }
 
