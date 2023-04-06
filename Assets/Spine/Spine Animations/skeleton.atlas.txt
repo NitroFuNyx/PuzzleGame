@@ -1,49 +1,147 @@
 skeleton.png
-size:2033,1986
+size:1976,1972
+filter:Linear,Linear
+pma:true
+Boy/2
+bounds:1215,170,408,583
+offsets:360,158,972,2006
+rotate:90
+Boy/3
+bounds:2,1298,365,254
+offsets:374,20,972,2006
+Boy/4
+bounds:2,560,356,590
+offsets:216,165,972,2006
+rotate:90
+Boy/5
+bounds:1120,1146,426,275
+offsets:124,0,972,2006
+Boy/6 закрыл глаза
+bounds:1330,1841,437,129
+offsets:237,1522,972,2006
+Ded/3
+bounds:736,1204,382,258
+offsets:392,21,1018,2042
+Ded/4
+bounds:1527,580,355,564
+offsets:244,205,1018,2042
+Ded/5
+bounds:2,946,446,280
+offsets:130,0,1018,2042
+Ded/Closed eyes
+bounds:928,1857,400,113
+offsets:283,1523,1018,2042
+Ded/Left arm 1
+bounds:550,1484,235,380
+offsets:656,806,1018,2042
+rotate:90
+Ded/Left arm 2
+bounds:292,1731,130,294
+offsets:776,608,1018,2042
+rotate:90
+Ded/Left arm 3
+bounds:1324,1673,166,175
+offsets:738,487,1018,2042
+rotate:90
+Ded/Right arm 1
+bounds:932,1464,246,389
+offsets:129,806,1018,2042
+rotate:90
+Ded/Right arm 2
+bounds:2,1738,129,288
+offsets:123,610,1018,2042
+rotate:90
+Ded/Right arm 3
+bounds:1501,1673,166,181
+offsets:129,487,1018,2042
+rotate:90
+Girl/2
+bounds:2,2,419,610
+offsets:378,181,972,2006
+rotate:90
+Girl/3
+bounds:369,1228,365,254
+offsets:374,20,972,2006
+Girl/4
+bounds:971,805,339,554
+offsets:233,201,972,2006
+rotate:90
+Girl/5
+bounds:1548,1146,426,275
+offsets:124,0,972,2006
+Girl/6 глаза закр
+bounds:588,1721,428,134
+offsets:221,1472,972,2006
+Items/dd 15
+bounds:1769,1837,133,166
+offsets:83,70,290,313
+rotate:90
+Kid/Body
+bounds:594,423,380,619
+offsets:90,460,595,1599
+rotate:90
+Kid/Leg l 1
+bounds:450,918,284,519
+offsets:189,142,595,1599
+rotate:90
+Kid/Leg l 2
+bounds:2,1557,236,179
+offsets:203,14,595,1599
+Kid/Leg r 1
+bounds:1323,1423,238,488
+offsets:98,149,595,1599
+rotate:90
+Kid/Leg r 2
+bounds:1684,1663,240,172
+offsets:71,22,595,1599
+Kid/left arm
+bounds:322,1863,107,300
+offsets:465,419,595,1599
+rotate:90
+Kid/left arm 2
+bounds:240,1554,175,308
+offsets:392,655,595,1599
+rotate:90
+Kid/right arm
+bounds:624,1858,112,302
+offsets:6,416,595,1599
+rotate:90
+Kid/right arm 2
+bounds:1018,1712,143,304
+offsets:16,664,595,1599
+rotate:90
+Kid/глаза закр
+bounds:2,1869,318,101
+offsets:113,1242,595,1599
+
+skeleton_2.png
+size:1993,1083
+filter:Linear,Linear
+pma:true
+Ded/2
+bounds:2,642,439,620
+offsets:396,185,1018,2042
+rotate:90
+Ded/Body
+bounds:1239,542,539,752
+offsets:242,570,1018,2042
+rotate:90
+Ded/Head
+bounds:2,2,580,791
+offsets:207,1165,1018,2042
+rotate:90
+Kid/head
+bounds:624,584,497,613
+offsets:38,986,595,1599
+rotate:90
+
+skeleton_3.png
+size:1934,1755
 filter:Linear,Linear
 pma:true
 Boy/1
 bounds:2,2,964,1751
 offsets:7,228,972,2006
-rotate:90
-Boy/2
-bounds:1578,1124,408,583
-offsets:360,158,972,2006
-Boy/3
-bounds:871,1730,365,254
-offsets:374,20,972,2006
-Boy/4
-bounds:986,1372,356,590
-offsets:216,165,972,2006
-rotate:90
-Boy/5
-bounds:1605,1709,426,275
-offsets:124,0,972,2006
-Boy/6 закрыл глаза
-bounds:2,1855,437,129
-offsets:237,1522,972,2006
-Girl/2
-bounds:2,968,419,610
-offsets:378,181,972,2006
-rotate:90
-Girl/3
-bounds:1238,1730,365,254
-offsets:374,20,972,2006
-Girl/4
-bounds:430,1389,339,554
-offsets:233,201,972,2006
-rotate:90
-Girl/5
-bounds:2,1578,426,275
-offsets:124,0,972,2006
-Girl/6 глаза закр
-bounds:441,1850,428,134
-offsets:221,1472,972,2006
-
-skeleton_2.png
-size:968,1755
-filter:Linear,Linear
-pma:true
 Girl/1
-bounds:2,2,964,1751
+bounds:968,2,964,1751
 offsets:7,228,972,2006
