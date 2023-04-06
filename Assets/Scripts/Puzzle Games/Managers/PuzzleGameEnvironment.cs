@@ -23,6 +23,9 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [Header("Environment Items With Keys")]
     [Space]
     [SerializeField] protected List<PuzzleKeyContainer> keyContainersList = new List<PuzzleKeyContainer>();
+    [Header("Delays")]
+    [Space]
+    [SerializeField] private float finishGameDelay = 2f;
 
     private PuzzleGameUI _puzzleGameUI;
     private TimersManager _timersManager;
@@ -152,8 +155,16 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         }
     }
 
+    [ContextMenu("Finish")]
     public void AllLocksOpened_ExecuteReaction()
     {
         inputManager.ChangeCheckInputState(false);
+        StartCoroutine(FinishGameCoroutine());
+    }
+
+    private IEnumerator FinishGameCoroutine()
+    {
+        yield return new WaitForSeconds(finishGameDelay);
+        _puzzleGameUI.ShowGameFinishedPanel();
     }
 }

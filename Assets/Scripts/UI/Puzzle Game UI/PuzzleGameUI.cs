@@ -22,10 +22,6 @@ public class PuzzleGameUI : MainCanvasPanel
     [SerializeField] private float bonusTimeTextChangeAlphaDurationMax = 1f;
     [SerializeField] private float bonusTimeTextChangeAlphaDurationMin = 0.01f;
     [SerializeField] private float moveToInventoryPanelDuration = 1f;
-    [Header("Panels")]
-    [Space]
-    [SerializeField] private KitchenMiniGameBonusTimersPanel kitchenMiniGameBonusTimersPanel;
-    [SerializeField] private PanelActivationManager gameFinishedPanelActivationManager;
     [Header("Inventory Panel")]
     [Space]
     [SerializeField] private PuzzleGameInventoryPanel inventoryPanel;
@@ -36,6 +32,7 @@ public class PuzzleGameUI : MainCanvasPanel
     [Header("Panels")]
     [Space]
     [SerializeField] private PanelActivationManager mainModePanel;
+    [SerializeField] private PanelActivationManager gameFinishedPanel;
     [SerializeField] private List<PuzzleGame_MiniGameModePanel> minigamesPanelsList = new List<PuzzleGame_MiniGameModePanel>();
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
@@ -84,6 +81,12 @@ public class PuzzleGameUI : MainCanvasPanel
     {
         HideMiniGamesPanels();
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
+    }
+
+    public void ShowGameFinishedPanel()
+    {
+        HideMiniGamesPanels();
+        gameFinishedPanel.ShowPanel();
     }
 
     public void ShowMiniGamePanel(PuzzleGameKitchenMiniGames gameType)
