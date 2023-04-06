@@ -57,7 +57,7 @@ public class PuzzleLock : MonoBehaviour, Iinteractable
 
     public void Interact()
     {
-        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.LockSelect(this);
+        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.LocksHolder.LockSelect(this);
     }
 
     public void OpenLock()

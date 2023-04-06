@@ -19,6 +19,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [SerializeField] private PuzzleInputManager inputManager;
     [SerializeField] private PuzzleCollectableItemsManager collectableItemsManager;
     [SerializeField] private PuzzleCluesManager cluesManager;
+    [SerializeField] private PuzzleLocksHolder locksHolder;
     [Header("Environment Items With Keys")]
     [Space]
     [SerializeField] protected List<PuzzleKeyContainer> keyContainersList = new List<PuzzleKeyContainer>();
@@ -33,6 +34,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
     public PuzzleInputManager InputManager { get => inputManager; }
     public PuzzleCluesManager CluesManager { get => cluesManager; }
+    public PuzzleLocksHolder LocksHolder { get => locksHolder; }
 
     #region Events Declaration
     public event Action OnLockOpened;
@@ -150,20 +152,8 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         }
     }
 
-    public void LockSelect(PuzzleLock puzzleLock)
+    public void AllLocksOpened_ExecuteReaction()
     {
-        if(_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell != null)
-        {
-            if((int)_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == puzzleLock.LockIndex)
-            {
-                puzzleLock.OpenLock();
-                _puzzleGameUI.InventoryPanel.ItemUsed_ExecuteReaction();
-            }
-            else
-            {
-                puzzleLock.ResetLock();
-                _puzzleGameUI.InventoryPanel.LockKeyMismatched_ExecuteReaction();
-            }
-        }
+        inputManager.ChangeCheckInputState(false);
     }
 }

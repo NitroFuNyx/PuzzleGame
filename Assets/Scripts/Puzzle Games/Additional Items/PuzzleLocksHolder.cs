@@ -12,6 +12,7 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
 
     private DataPersistanceManager _dataPersistanceManager;
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
+    private PuzzleGameUI _puzzleGameUI;
 
     private void Awake()
     {
@@ -25,10 +26,11 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
 
     #region Zenject
     [Inject]
-    private void Construct(DataPersistanceManager dataPersistanceManager, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder)
+    private void Construct(DataPersistanceManager dataPersistanceManager, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, PuzzleGameUI puzzleGameUI)
     {
         _dataPersistanceManager = dataPersistanceManager;
         _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
+        _puzzleGameUI = puzzleGameUI;
     }
     #endregion Zenject
 
@@ -64,5 +66,31 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
     {
         openedLocksList.Add(puzzleLock.LockIndex);
         _dataPersistanceManager.SaveGame();
+        CheckClodesLocksAmount();
+    }
+
+    public void LockSelect(PuzzleLock puzzleLock)
+    {
+        if (_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell != null)
+        {
+            if ((int)_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == puzzleLock.LockIndex)
+            {
+                puzzleLock.OpenLock();
+                _puzzleGameUI.InventoryPanel.ItemUsed_ExecuteReaction();
+            }
+            else
+            {
+                puzzleLock.ResetLock();
+                _puzzleGameUI.InventoryPanel.LockKeyMismatched_ExecuteReaction();
+            }
+        }
+    }
+
+    private void CheckClodesLocksAmount()
+    {
+        if(openedLocksList.Count == allLocksList.Count)
+        {
+            _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.AllLocksOpened_ExecuteReaction();
+        }
     }
 }
