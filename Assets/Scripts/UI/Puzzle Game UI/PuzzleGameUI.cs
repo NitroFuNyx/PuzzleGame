@@ -65,7 +65,7 @@ public class PuzzleGameUI : MainCanvasPanel
         newItemType = item;
         Vector3 spawnPos = Camera.main.WorldToScreenPoint(new Vector3(key.transform.position.x, key.transform.position.y, 0f));
         var keyImage = Instantiate(keyImagePrefab, spawnPos, Quaternion.identity, transform);
-        keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, ShowItemImageInInventoryPanel);
+        keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, item, this/*, ShowItemImageInInventoryPanel*/);
     }
 
     public void MoveItemToInventoryBar(SpriteRenderer itemSprite, PuzzleGameKitchenItems item)
@@ -76,7 +76,7 @@ public class PuzzleGameUI : MainCanvasPanel
         if(item == PuzzleGameKitchenItems.ColaStraw)
         {
             var itemImage = Instantiate(colaStrawImagePrefab, spawnPos, Quaternion.identity, transform);
-            itemImage.MoveToInventoryPanel(inventoryPanel.transform.position, itemSprite.sprite, ShowItemImageInInventoryPanel);
+            itemImage.MoveToInventoryPanel(inventoryPanel.transform.position, itemSprite.sprite, item, this/*, ShowItemImageInInventoryPanel*/);
         }
     }
 
@@ -109,9 +109,10 @@ public class PuzzleGameUI : MainCanvasPanel
         inventoryPanel.LoadCollectedItems(puzzleLevelLoadedData.itemsInInventoryList);
     }
 
-    private void ShowItemImageInInventoryPanel()
+    public void ShowItemImageInInventoryPanel(Sprite sprite, PuzzleGameKitchenItems item)
     {
-        inventoryPanel.PutItemInInventoryCell(newItemSprite, newItemType);
+        //inventoryPanel.PutItemInInventoryCell(newItemSprite, newItemType);
+        inventoryPanel.PutItemInInventoryCell(sprite, item);
     }
 
     private void HideMiniGamesPanels()

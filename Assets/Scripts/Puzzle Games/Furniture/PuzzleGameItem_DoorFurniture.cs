@@ -34,7 +34,6 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         }
         if (keyContainerComponent)
         {
-            Debug.Log($"Subscription {gameObject}");
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
         }
     }
@@ -85,7 +84,6 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
 
     public override void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
     {
-        Debug.Log($"{gameObject} Key {key == null} Collected {collectedItemsList.Contains(key.Item)} Used {usedItemsList.Contains(key.Item)}");
         if(key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
             containsKey = false;

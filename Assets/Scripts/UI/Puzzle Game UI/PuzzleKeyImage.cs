@@ -17,29 +17,35 @@ public class PuzzleKeyImage : MonoBehaviour
     [Space]
     [SerializeField] private float destroyObjectDelay = 2f;
 
+    private PuzzleGameUI _puzzleGameUI;
+
     private Image keyImage;
+    private PuzzleGameKitchenItems itemType;
 
     private void Awake()
     {
         keyImage = GetComponent<Image>();
     }
 
-    public void MoveToInventoryPanel(Vector3 inventoryPanelPos, Sprite keySprite, Action OnImageHidden)
+    public void MoveToInventoryPanel(Vector3 inventoryPanelPos, Sprite keySprite, PuzzleGameKitchenItems item, PuzzleGameUI puzzleGameUI/*, Action OnImageHidden*/)
     {
         keyImage.sprite = keySprite;
+        itemType = item;
+        _puzzleGameUI = puzzleGameUI;
 
         transform.DOMove(inventoryPanelPos, moveToInventoryPanelDuration).OnComplete(() =>
         {
             keyImageDestructionVFX.Play();
             keyImage.DOFade(0f, changeAlphaDuration);
-            StartCoroutine(DestroyObjectCoroutine(OnImageHidden));
+            StartCoroutine(DestroyObjectCoroutine(/*OnImageHidden*/));
         });
     }
 
-    private IEnumerator DestroyObjectCoroutine(Action OnImageHidden)
+    private IEnumerator DestroyObjectCoroutine(/*Action OnImageHidden*/)
     {
         yield return new WaitForSeconds(destroyObjectDelay / 2);
-        OnImageHidden?.Invoke();
+        //OnImageHidden?.Invoke();
+        _puzzleGameUI.ShowItemImageInInventoryPanel(keyImage.sprite, itemType);
         yield return new WaitForSeconds(destroyObjectDelay / 2);
         Destroy(gameObject);
     }
