@@ -44,6 +44,10 @@ public class PuzzleGameUI : MainCanvasPanel
 
     public PuzzleGameInventoryPanel InventoryPanel { get => inventoryPanel; }
 
+    #region Events Declaration
+    public event Action OnMixerGameFinished;
+    #endregion Events Declaration
+
     private void Start()
     {
         mainModePanel.ShowPanel();
@@ -109,6 +113,11 @@ public class PuzzleGameUI : MainCanvasPanel
             else
             {
                 minigamesPanelsList[i].ShowPanel();
+
+                if (gameType == PuzzleGameKitchenMiniGames.Mixer)
+                {
+                    minigamesPanelsList[i].StartMixerGame(MixerGameFinished_ExecuteReaction);
+                }
             }
         }
     }
@@ -128,6 +137,12 @@ public class PuzzleGameUI : MainCanvasPanel
     {
         currentGameStopwatchText.text = $"{_timersManager.GetHoursAndMinutesAmount((int)startValue)}:{_timersManager.GetSecondsAmount((int)startValue)}";
         _timersManager.StartStopwatch(startValue, currentGameStopwatchText, OnStopwatchStoped);
+    }
+
+    private void MixerGameFinished_ExecuteReaction()
+    {
+        ShowMainModePanel();
+        OnMixerGameFinished?.Invoke();
     }
 
     private void HideMiniGamesPanels()

@@ -25,11 +25,11 @@ public class PuzzleWindowItem : MonoBehaviour
     {
         _collider = GetComponent<Collider2D>();
         gameStarter = GetComponent<PuzzleGameItem_MiniGameModeStarter>();
-        windowCharacter.ChangeColliderState(false);
     }
 
     private void Start()
     {
+        windowCharacter.ChangeColliderState(false);
         windowCharacter.OnCharacterActivated += WindowCharacterActivated_ExecuteReaction;
     }
 

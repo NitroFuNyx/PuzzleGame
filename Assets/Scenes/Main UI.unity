@@ -986,6 +986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameType: 0
+  mixerButton: {fileID: 0}
 --- !u!1 &54829472
 GameObject:
   m_ObjectHideFlags: 0
@@ -14427,11 +14428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.07
+      value: 5.22
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.24
+      value: -0.82
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36219,6 +36220,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875228248}
     m_Modifications:
+    - target: {fileID: 3434432, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 152242146, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213055590, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 483604673, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519022511, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 688541833, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 716805271, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763218929, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238454242, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135555755, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2339601097401933986, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -36309,10 +36350,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2339601097647237220, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339601097647237222, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
-      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

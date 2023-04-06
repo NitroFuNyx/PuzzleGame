@@ -33,6 +33,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
         }
         _popItGameStateManager.OnGameFinished += PopItGameFinished_ExecuteReaction;
+        _puzzleGameUI.OnMixerGameFinished += MixerGameFinished_ExecuteReaction;
         StartCoroutine(SetStartSettingsCoroutine());
     }
 
@@ -47,6 +48,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
         }
         _popItGameStateManager.OnGameFinished -= PopItGameFinished_ExecuteReaction;
+        _puzzleGameUI.OnMixerGameFinished -= MixerGameFinished_ExecuteReaction;
     }
 
     #region Zenject
@@ -98,6 +100,14 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
     private void PopItGameFinished_ExecuteReaction()
     {
         if(gameType == PuzzleGameKitchenMiniGames.PopIt)
+        {
+            key.gameObject.SetActive(true);
+        }
+    }
+
+    private void MixerGameFinished_ExecuteReaction()
+    {
+        if (gameType == PuzzleGameKitchenMiniGames.Mixer)
         {
             key.gameObject.SetActive(true);
         }
