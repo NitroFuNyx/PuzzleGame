@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef4579b4-aa92-4212-afc7-f3d54af79f6c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Basics/circle_AB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Basics/circle_AB.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Basics/cloud_magic_AB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Basics/cloud_magic_AB.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Basics/glow1_ADD.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Materials/Basics/glow1_ADD.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Zenject-ReflectionBaking.csproj.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Zenject-Signals.csproj.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Zenject.csproj.meta" beforeDir="false" />
+    <list default="true" id="ef4579b4-aa92-4212-afc7-f3d54af79f6c" name="Changes" comment="Prefabs/ui/puzzle/gamemodes/buttonmodepanel -&gt; UI/puzzlegame&#10;Prefabs/puzzle/chars/ded - &gt; minigameenviroment/puzzlegame/puzzlegame/middlescreen/ded">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.hubabu-game-12-keys/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hubabu-game-12-keys/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Instruments/Enums.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Instruments/Enums.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Puzzle Games/PuzzleButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Puzzle Games/PuzzleButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Puzzle Game UI/PuzzleGame_MiniGameModePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Puzzle Game UI/PuzzleGame_MiniGameModePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton.atlas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton.atlas.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine/Spine Animations/skeleton_Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine/spine-csharp/spine-csharp.csproj.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine/spine-csharp/spine-csharp.sln.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +22,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/DedVFXLauncher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/79/3c4603f5/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/Scenes/Main UI.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Toggle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/Scripts/Controllers/CameraManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/Noise/noise3Dgrad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SafeButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/Scenes/Main UI.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SafeButtonsHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TogglePuzzleGame.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2NZKWJUlFvuPfxJ6w7537duHt2I" />
@@ -91,7 +80,7 @@
       <workItem from="1680509321071" duration="9454000" />
       <workItem from="1680619759721" duration="1308000" />
       <workItem from="1680682570458" duration="10694000" />
-      <workItem from="1680769327362" duration="313000" />
+      <workItem from="1680769327362" duration="2212000" />
     </task>
     <task id="LOCAL-00001" summary=" Added Unity Ads&#10; Made Rewarded ads&#10; New prefabs: Prefabs/Controllers/AdsManager&#10; Prefabs/UI/Button">
       <created>1679928388249</created>
@@ -107,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680001519843</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Prefabs/ui/puzzle/gamemodes/buttonmodepanel -&gt; UI/puzzlegame&#10;Prefabs/puzzle/chars/ded - &gt; minigameenviroment/puzzlegame/puzzlegame/middlescreen/ded">
+      <created>1680769886996</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680769886996</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +123,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Ads" />
+                        <option value="origin/Minigames" />
                       </list>
                     </value>
                   </entry>
@@ -145,6 +141,7 @@
     <MESSAGE value=" Added Unity Ads&#10; Made Rewarded ads" />
     <MESSAGE value=" Added Unity Ads&#10; Made Rewarded ads&#10; New prefabs: Prefabs/Controllers/AdsManager&#10; Prefabs/UI/Button" />
     <MESSAGE value="added InterstitialAd" />
-    <option name="LAST_COMMIT_MESSAGE" value="added InterstitialAd" />
+    <MESSAGE value="Prefabs/ui/puzzle/gamemodes/buttonmodepanel -&gt; UI/puzzlegame&#10;Prefabs/puzzle/chars/ded - &gt; minigameenviroment/puzzlegame/puzzlegame/middlescreen/ded" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prefabs/ui/puzzle/gamemodes/buttonmodepanel -&gt; UI/puzzlegame&#10;Prefabs/puzzle/chars/ded - &gt; minigameenviroment/puzzlegame/puzzlegame/middlescreen/ded" />
   </component>
 </project>
