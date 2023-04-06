@@ -25,7 +25,7 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     {
         if (TryGetComponent(out Button button))
         {
-            ButtonComponent = button;
+            _button = button;
             ButtonComponent.onClick.AddListener(ButtonActivated);
         }
         if (TryGetComponent(out Image image))

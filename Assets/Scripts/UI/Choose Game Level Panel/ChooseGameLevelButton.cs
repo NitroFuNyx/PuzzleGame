@@ -67,8 +67,6 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        Debug.Log($"Button");
-        Debug.Log($"Button Activated Ad {_adsManager.NeedToShowAdBeforeLevelStart()} RewardButton {_rewardedAdsButton} State {gameLevelPanel.LevelState}");
         if (gameLevelPanel.LevelState != GameLevelStates.Locked)
         {
             if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null)
