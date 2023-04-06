@@ -33,6 +33,8 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private DataPersistanceManager _dataPersistanceManager;
     private CameraManager _cameraManager;
 
+    private float startStopwatchValue = 0f;
+
     public int EnvironmentIndex { get => environmentIndex; }
     public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
     public PuzzleInputManager InputManager { get => inputManager; }
@@ -100,27 +102,6 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         
     }
 
-    private IEnumerator StartGameCoroutine()
-    {
-        float currentCounterValue = startGameDelay;
-        yield return new WaitForSeconds(startGameCoroutineDelay);
-
-        //while (currentCounterValue > 0)
-        //{
-        //    _miniGameUI.UpdateStartGameDelayTimerText(currentCounterValue);
-        //    currentCounterValue--;
-        //    yield return new WaitForSeconds(1f);
-        //    _miniGameUI.UpdateStartGameDelayTimerText(currentCounterValue);
-        //}
-
-        //yield return new WaitForSeconds(startGameCoroutineDelay);
-        //_miniGameUI.HideDelayTimerText();
-        //_miniGameUI.StartCurrentGameTimer(timeForLevel, TimerFinished_ExecuteReaction);
-        //playerMoveManager.ChangeCheckingInputState(true);
-        //playerCollisionManager.ChangeState_CanCollectItems(true);
-        //kitchenMiniGameSpawnManager.StartSpawningItems();
-    }
-
     public void LoadData(GameData data)
     {
         _puzzleGameUI.SetLevelLoadedData(data.puzzleGameLevelsDataList[environmentIndex]); 
@@ -162,9 +143,38 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         StartCoroutine(FinishGameCoroutine());
     }
 
+    private void OnStopwatchStoped_ExecuteReaction(float stopwatchValue)
+    {
+        Debug.Log($"Stopwatch {stopwatchValue}");
+    }
+
+    private IEnumerator StartGameCoroutine()
+    {
+        yield return null;
+        _puzzleGameUI.StartStopwatchCount(startStopwatchValue, OnStopwatchStoped_ExecuteReaction);
+        //float currentCounterValue = startGameDelay;
+        //yield return new WaitForSeconds(startGameCoroutineDelay);
+
+        //while (currentCounterValue > 0)
+        //{
+        //    _miniGameUI.UpdateStartGameDelayTimerText(currentCounterValue);
+        //    currentCounterValue--;
+        //    yield return new WaitForSeconds(1f);
+        //    _miniGameUI.UpdateStartGameDelayTimerText(currentCounterValue);
+        //}
+
+        //yield return new WaitForSeconds(startGameCoroutineDelay);
+        //_miniGameUI.HideDelayTimerText();
+        //_miniGameUI.StartCurrentGameTimer(timeForLevel, TimerFinished_ExecuteReaction);
+        //playerMoveManager.ChangeCheckingInputState(true);
+        //playerCollisionManager.ChangeState_CanCollectItems(true);
+        //kitchenMiniGameSpawnManager.StartSpawningItems();
+    }
+
     private IEnumerator FinishGameCoroutine()
     {
         yield return new WaitForSeconds(finishGameDelay);
         _puzzleGameUI.ShowGameFinishedPanel();
+        _timersManager.StopStopwatch();
     }
 }

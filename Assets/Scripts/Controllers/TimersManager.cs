@@ -59,11 +59,11 @@ public class TimersManager : MonoBehaviour
         timerCoroutine =  StartCoroutine(StartTimerCoroutine(startTimerValue, timerText, OnTimerFinished));
     }
 
-    public void StartStopwatch(float startStopwatchValue, Action<float> OnStopwatchStopped)
+    public void StartStopwatch(float startStopwatchValue, TextMeshProUGUI timerText, Action<float> OnStopwatchStopped)
     {
         startStopwatchValue = testStopwatchStartValue;
         stopwatchActive = true;
-        StartCoroutine(StartStopwatchCoroutine(startStopwatchValue, OnStopwatchStopped));
+        StartCoroutine(StartStopwatchCoroutine(startStopwatchValue, timerText, OnStopwatchStopped));
     }
 
     public void StopTimer()
@@ -150,7 +150,7 @@ public class TimersManager : MonoBehaviour
         //OnTimerFinished?.Invoke();
     }
 
-    private IEnumerator StartStopwatchCoroutine(float startStopwatchValue, Action<float> OnStopwatchStopped)
+    private IEnumerator StartStopwatchCoroutine(float startStopwatchValue, TextMeshProUGUI timerText, Action<float> OnStopwatchStopped)
     {
         float currentStopwatchValue = startStopwatchValue;
 
@@ -158,7 +158,7 @@ public class TimersManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             currentStopwatchValue++;
-            testStopwatchText.text = $"Stopwatch {GetHoursAndMinutesAmount((int)currentStopwatchValue)}:{GetSecondsAmount((int)currentStopwatchValue)}";
+            timerText.text = $"{GetHoursAndMinutesAmount((int)currentStopwatchValue)}:{GetSecondsAmount((int)currentStopwatchValue)}";
         }
 
         OnStopwatchStopped?.Invoke(currentStopwatchValue);

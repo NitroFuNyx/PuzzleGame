@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 using TMPro;
 using Zenject;
 
@@ -36,6 +37,7 @@ public class PuzzleGameUI : MainCanvasPanel
     [SerializeField] private ClueButton clueButton;
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
+    private TimersManager _timersManager;
 
     private Sprite newItemSprite;
     private PuzzleGameKitchenItems newItemType;
@@ -50,9 +52,10 @@ public class PuzzleGameUI : MainCanvasPanel
 
     #region Zenject
     [Inject]
-    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder)
+    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, TimersManager timersManager)
     {
         _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
+        _timersManager = timersManager;
     }
     #endregion Zenject
 
@@ -119,6 +122,12 @@ public class PuzzleGameUI : MainCanvasPanel
     {
         //inventoryPanel.PutItemInInventoryCell(newItemSprite, newItemType);
         inventoryPanel.PutItemInInventoryCell(sprite, item);
+    }
+
+    public void StartStopwatchCount(float startValue, Action<float> OnStopwatchStoped)
+    {
+        currentGameStopwatchText.text = $"+ {_timersManager.GetHoursAndMinutesAmount((int)startValue)}:{_timersManager.GetSecondsAmount((int)startValue)}";
+        _timersManager.StartStopwatch(startValue, currentGameStopwatchText, OnStopwatchStoped);
     }
 
     private void HideMiniGamesPanels()

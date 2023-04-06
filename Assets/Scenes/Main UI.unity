@@ -9939,7 +9939,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619237215}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -10962,7 +10962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &664512645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10980,7 +10980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 257, y: -106}
+  m_AnchoredPosition: {x: 257, y: -85}
   m_SizeDelta: {x: 419, y: 95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &664512646
@@ -11003,7 +11003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 3556
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4cf33409e359704dbbc6b4f83280a8b, type: 2}
   m_sharedMaterial: {fileID: 3773738615130779145, guid: f4cf33409e359704dbbc6b4f83280a8b, type: 2}
@@ -11037,7 +11037,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -14221,7 +14221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelType: 8
-  currentGameStopwatchText: {fileID: 0}
+  currentGameStopwatchText: {fileID: 664512646}
   delayGameTimerTitleText: {fileID: 0}
   startGameDelayTimerText: {fileID: 0}
   hideBonusTimeTextDelay: 2
