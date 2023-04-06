@@ -1962,11 +1962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.02
+      value: 35.84
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.04
+      value: 1.877
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39281,7 +39281,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 914299587054866272, guid: 3d551fcfab7a73a46903df76492ebe35, type: 3}
       propertyPath: cameraSizeChangeDelta
-      value: 0.003
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 914299587054866272, guid: 3d551fcfab7a73a46903df76492ebe35, type: 3}
       propertyPath: cameraSizeNearPuzzleWindow

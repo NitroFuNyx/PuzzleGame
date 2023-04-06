@@ -74,6 +74,14 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         }
     }
 
+    public void ShowKey()
+    {
+        if(containsKey)
+        {
+            key.gameObject.SetActive(true);
+        }    
+    }
+
     private void KeyCollected_ExecuteReaction()
     {
         containsKey = false;
