@@ -12,7 +12,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     string _adUnitId = null; // This will remain null for unsupported platforms
 
     #region Events Declaration
-    public event Action OnRewardReadyToBeShown;
+    public event Action OnRewardReadyToBeGranted;
     #endregion Events Declaration
 
     void Awake()
@@ -65,7 +65,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
-            OnRewardReadyToBeShown?.Invoke();
+            OnRewardReadyToBeGranted?.Invoke();
             // Grant a reward.
 
             // Load another ad:

@@ -3024,7 +3024,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180787121
 GameObject:
@@ -8097,7 +8097,7 @@ Transform:
   m_Children:
   - {fileID: 1197905648}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &523497010
 GameObject:
@@ -9503,6 +9503,7 @@ GameObject:
   - component: {fileID: 587583387}
   - component: {fileID: 587583386}
   - component: {fileID: 587583385}
+  - component: {fileID: 587583390}
   m_Layer: 5
   m_Name: Clue Button
   m_TagString: Untagged
@@ -9641,6 +9642,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587583383}
   m_CullTransparentMesh: 1
+--- !u!114 &587583390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587583383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 587583387}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &588693590
 GameObject:
   m_ObjectHideFlags: 0
@@ -10339,7 +10355,7 @@ Transform:
   - {fileID: 1765623661}
   - {fileID: 1262331477}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &622271775
 MonoBehaviour:
@@ -14545,15 +14561,16 @@ MonoBehaviour:
   moveToInventoryPanelDuration: 1
   inventoryPanel: {fileID: 1545441816}
   keyImagePrefab: {fileID: 4766745202666574207, guid: 1e4736bac291de148a5d3b1fe7f3aa19, type: 3}
-  colaStrawImagePrefab: {fileID: 0}
+  colaStrawImagePrefab: {fileID: 4766745202666574207, guid: a006d37b96da0994abca5f72508c3ed8, type: 3}
   mainModePanel: {fileID: 291376942}
-  gameFinishedPanel: {fileID: 0}
+  gameFinishedPanel: {fileID: 619237217}
   minigamesPanelsList:
   - {fileID: 54074233}
   - {fileID: 748482481}
   - {fileID: 649711733}
   - {fileID: 1971996261}
   - {fileID: 640310880}
+  - {fileID: 2131942430}
   pauseButton: {fileID: 0}
   clueButton: {fileID: 0}
 --- !u!1 &879338862
@@ -35561,6 +35578,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6621046047425342631, guid: 39aa5b3b98bdec54ab5d5a0165e01370, type: 3}
   m_PrefabInstance: {fileID: 182008684}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2131942430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6621046047425342616, guid: 39aa5b3b98bdec54ab5d5a0165e01370, type: 3}
+  m_PrefabInstance: {fileID: 182008684}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95450254b10e5049b432be649a4882c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2132342714
 GameObject:
   m_ObjectHideFlags: 0
@@ -35687,6 +35715,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &603814695709174854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: _iOSGameId
+      value: 5216778
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: _androidGameId
+      value: 5216779
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButton
+      value: 
+      objectReference: {fileID: 587583390}
+    - target: {fileID: 4167937353221010891, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_Name
+      value: Ads Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241968061399783450, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
 --- !u!1001 &1819813545294908958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38149,7 +38246,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8069017711027801632, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8069017711027801632, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
       propertyPath: m_LocalPosition.x

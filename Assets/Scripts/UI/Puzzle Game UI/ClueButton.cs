@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System;
 using Zenject;
 
 public class ClueButton : ButtonInteractionHandler
@@ -7,8 +8,24 @@ public class ClueButton : ButtonInteractionHandler
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
 
     private CurrentGameManager _currentGameManager;
+    private RewardedAdsButton rewardedAdsButton;
 
     private float buttonStatusResetDelay = 0.3f;
+
+    private void Awake()
+    {
+        rewardedAdsButton = GetComponent<RewardedAdsButton>();
+    }
+
+    private void Start()
+    {
+        rewardedAdsButton.OnRewardReadyToBeGranted += ShowClue;
+    }
+
+    private void OnDestroy()
+    {
+        rewardedAdsButton.OnRewardReadyToBeGranted -= ShowClue;
+    }
 
     #region Zenject
     [Inject]
@@ -24,6 +41,11 @@ public class ClueButton : ButtonInteractionHandler
         _currentGameManager.PuzzleUIButtonPressed = true;
         StartCoroutine(ResetButtonCoroutine());
         ShowAnimation_ButtonPressed();
+        rewardedAdsButton.ShowAd();
+    }
+
+    private void ShowClue()
+    {
         StartCoroutine(ActivateDelayedButtonMethodCoroutine(_puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.CluesManager.ShowRandomClue));
     }
 
