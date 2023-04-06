@@ -14239,6 +14239,8 @@ MonoBehaviour:
   - {fileID: 649711733}
   - {fileID: 1971996261}
   - {fileID: 640310880}
+  pauseButton: {fileID: 910417427}
+  clueButton: {fileID: 587583385}
 --- !u!1 &879338862
 GameObject:
   m_ObjectHideFlags: 0

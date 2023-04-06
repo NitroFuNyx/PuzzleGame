@@ -1,10 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using DG.Tweening;
 using Zenject;
 
 public class PuzzleGameUI : MainCanvasPanel
@@ -34,6 +30,10 @@ public class PuzzleGameUI : MainCanvasPanel
     [SerializeField] private PanelActivationManager mainModePanel;
     [SerializeField] private PanelActivationManager gameFinishedPanel;
     [SerializeField] private List<PuzzleGame_MiniGameModePanel> minigamesPanelsList = new List<PuzzleGame_MiniGameModePanel>();
+    [Header("Buttons")]
+    [Space]
+    [SerializeField] private PauseButton pauseButton;
+    [SerializeField] private ClueButton clueButton;
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
 
@@ -80,12 +80,14 @@ public class PuzzleGameUI : MainCanvasPanel
     public void ShowMainModePanel()
     {
         HideMiniGamesPanels();
+        ShowAdditionalButtons();
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
     }
 
     public void ShowGameFinishedPanel()
     {
         HideMiniGamesPanels();
+        HideAdditionalButtons();
         gameFinishedPanel.ShowPanel();
     }
 
@@ -93,6 +95,7 @@ public class PuzzleGameUI : MainCanvasPanel
     {
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(false);
         mainModePanel.HidePanel();
+        HideAdditionalButtons();
 
         for (int i = 0; i < minigamesPanelsList.Count; i++)
         {
@@ -126,5 +129,17 @@ public class PuzzleGameUI : MainCanvasPanel
         {
             minigamesPanelsList[i].HidePanel();
         }
+    }
+
+    private void ShowAdditionalButtons()
+    {
+        pauseButton.ShowButton();
+        clueButton.ShowButton();
+    }
+
+    private void HideAdditionalButtons()
+    {
+        pauseButton.HideButton();
+        clueButton.HideButton();
     }
 }

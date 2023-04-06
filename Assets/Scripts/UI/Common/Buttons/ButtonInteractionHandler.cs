@@ -15,6 +15,9 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     [SerializeField] private float scaleDuration = 0.3f;
 
     private Button _button;
+    private Image _image;
+
+    private float changeButtonAlphaDuration = 0.1f;
 
     protected Button ButtonComponent { get => _button; private set => _button = value; }
 
@@ -24,6 +27,10 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
         {
             ButtonComponent = button;
             ButtonComponent.onClick.AddListener(ButtonActivated);
+        }
+        if (TryGetComponent(out Image image))
+        {
+            _image = image;
         }
     }
 
@@ -35,6 +42,18 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     public void SetButtonDisabled()
     {
         ButtonComponent.interactable = false;
+    }
+
+    public void ShowButton()
+    {
+        SetButtonActive();
+        _image.DOFade(1f, changeButtonAlphaDuration);
+    }
+
+    public void HideButton()
+    {
+        SetButtonDisabled();
+        _image.DOFade(0f, changeButtonAlphaDuration);
     }
 
     public void ShowAnimation_ButtonPressed()
