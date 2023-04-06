@@ -10,13 +10,13 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
     [SerializeField] protected PuzzleGameKitchenMiniGames gameType;
     [Header("Key Data")]
     [Space]
-    [SerializeField] private PuzzleKey key;
-    [SerializeField] private PuzzleKeyContainer keyContainerComponent;
+    [SerializeField] protected PuzzleKey key;
+    [SerializeField] protected PuzzleKeyContainer keyContainerComponent;
 
     protected PuzzleGameUI _puzzleGameUI;
-    private PopItGameStateManager _popItGameStateManager;
+    protected PopItGameStateManager _popItGameStateManager;
 
-    private bool containsKey = true;
+    protected bool containsKey = true;
 
     private void Start()
     {
@@ -61,7 +61,17 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
     public void Interact()
     {
         if(containsKey)
-        _puzzleGameUI.ShowMiniGamePanel(gameType);
+        {
+            _puzzleGameUI.ShowMiniGamePanel(gameType);
+
+            if(gameType == PuzzleGameKitchenMiniGames.Window)
+            {
+                if(TryGetComponent(out PuzzleWindowItem puzzleWindowItem))
+                {
+                    puzzleWindowItem.WindowInteraction_ExecuteReaction();
+                }
+            }
+        }
     }
 
     private void KeyCollected_ExecuteReaction()

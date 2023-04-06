@@ -18,14 +18,20 @@ public class PuzzleInputManager : MonoBehaviour
     private float checkInteractDelay = 0.1f;
 
     private bool canCheckInput = false;
+    private bool canMoveCamera = true;
 
     [SerializeField] private Joystick joystick;
+
+    public bool CanMoveCamera { get => canMoveCamera; set => canMoveCamera = value; }
 
     private void Update()
     {
         if (canCheckInput)
         {
-            MoveCamera();
+            if(canMoveCamera)
+            {
+                MoveCamera();
+            }
 
             CreateRaycast();
         }
