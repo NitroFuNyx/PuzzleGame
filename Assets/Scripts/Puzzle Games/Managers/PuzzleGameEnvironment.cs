@@ -33,7 +33,9 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private DataPersistanceManager _dataPersistanceManager;
     private CameraManager _cameraManager;
 
-    private float startStopwatchValue = 0f;
+    //private float startStopwatchValue = 0f;
+
+    private float currentStopWatchValue;
 
     public int EnvironmentIndex { get => environmentIndex; }
     public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
@@ -90,6 +92,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     public void ResetEnvironmentWithoutSaving()
     {
         _cameraManager.SetCameraStartPos();
+        _timersManager.StopStopwatch();
     }
 
     private void SubscribeOnEvents()
@@ -107,6 +110,13 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         _puzzleGameUI.SetLevelLoadedData(data.puzzleGameLevelsDataList[environmentIndex]); 
         collectableItemsManager.LoadCollectedItemsData(data.puzzleGameLevelsDataList[environmentIndex].itemsInInventoryList,
                                                        data.puzzleGameLevelsDataList[environmentIndex].useditemsList, CollectedItemsDataLoaded_ExecuteReaction);
+
+        currentStopWatchValue = data.puzzleGameLevelsDataList[0].currentInGameTime;
+
+        if(data.puzzleGameLevelsDataList[0].levelStateIndex == (int)GameLevelStates.Available_Finished)
+        {
+            currentStopWatchValue = 0f;
+        }
     }
 
     public void SaveData(GameData data)
@@ -126,6 +136,8 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
 
         data.puzzleGameLevelsDataList[environmentIndex].itemsInInventoryList = collectedItemsIndexesList;
         data.puzzleGameLevelsDataList[environmentIndex].useditemsList = usedItemsIndexesList;
+
+        data.puzzleGameLevelsDataList[0].currentInGameTime = currentStopWatchValue;
     }
 
     public void CollectedItemsDataLoaded_ExecuteReaction()
@@ -146,12 +158,14 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private void OnStopwatchStoped_ExecuteReaction(float stopwatchValue)
     {
         Debug.Log($"Stopwatch {stopwatchValue}");
+        currentStopWatchValue = stopwatchValue;
+        _dataPersistanceManager.SaveGame();
     }
 
     private IEnumerator StartGameCoroutine()
     {
         yield return null;
-        _puzzleGameUI.StartStopwatchCount(startStopwatchValue, OnStopwatchStoped_ExecuteReaction);
+        _puzzleGameUI.StartStopwatchCount(currentStopWatchValue, OnStopwatchStoped_ExecuteReaction);
         //float currentCounterValue = startGameDelay;
         //yield return new WaitForSeconds(startGameCoroutineDelay);
 

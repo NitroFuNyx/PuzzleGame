@@ -126,7 +126,7 @@ public class PuzzleGameUI : MainCanvasPanel
 
     public void StartStopwatchCount(float startValue, Action<float> OnStopwatchStoped)
     {
-        currentGameStopwatchText.text = $"+ {_timersManager.GetHoursAndMinutesAmount((int)startValue)}:{_timersManager.GetSecondsAmount((int)startValue)}";
+        currentGameStopwatchText.text = $"{_timersManager.GetHoursAndMinutesAmount((int)startValue)}:{_timersManager.GetSecondsAmount((int)startValue)}";
         _timersManager.StartStopwatch(startValue, currentGameStopwatchText, OnStopwatchStoped);
     }
 

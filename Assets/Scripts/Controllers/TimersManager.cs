@@ -61,7 +61,7 @@ public class TimersManager : MonoBehaviour
 
     public void StartStopwatch(float startStopwatchValue, TextMeshProUGUI timerText, Action<float> OnStopwatchStopped)
     {
-        startStopwatchValue = testStopwatchStartValue;
+        //startStopwatchValue = testStopwatchStartValue;
         stopwatchActive = true;
         StartCoroutine(StartStopwatchCoroutine(startStopwatchValue, timerText, OnStopwatchStopped));
     }
