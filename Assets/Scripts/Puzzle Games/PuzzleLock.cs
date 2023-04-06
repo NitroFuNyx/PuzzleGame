@@ -16,6 +16,7 @@ public class PuzzleLock : MonoBehaviour, Iinteractable
     private Rigidbody2D rb;
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
+    private PuzzleLocksHolder locksHolder;
 
     private Vector3 startPos = new Vector3();
 
@@ -63,10 +64,16 @@ public class PuzzleLock : MonoBehaviour, Iinteractable
     {
         spriteRenderer.sprite = openLocksSpritesList[lockIndex];
         rb.gravityScale = 1f;
+        locksHolder.AddLockToOpenList(this);
     }
 
     public void ResetLock()
     {
 
+    }
+
+    public void CashComponents(PuzzleLocksHolder puzzleLocksHolder)
+    {
+        locksHolder = puzzleLocksHolder;
     }
 }

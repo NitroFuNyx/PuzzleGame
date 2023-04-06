@@ -51,6 +51,7 @@ public class PuzzleGameLevelData
     public List<int> unavailableCluesList;
     public List<int> itemsInInventoryList;
     public List<int> useditemsList;
+    public List<int> openedLocksList;
 
     public PuzzleGameLevelData()
     {
@@ -62,5 +63,6 @@ public class PuzzleGameLevelData
         unavailableCluesList = new List<int>();
         itemsInInventoryList = new List<int>();
         useditemsList = new List<int>();
+        openedLocksList = new List<int>();
     }
 }
