@@ -53,7 +53,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
     public override void InteractOnTouch()
     {
         isOpen = !isOpen;
-
+        
         if(!isOpen)
         {
             door.sprite = closedDoorSprite;
@@ -61,12 +61,16 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             {
                 doorAdditionalItem.SetActive(true);
             }
+            if(key)
+            {
+                key.gameObject.SetActive(false);
+            }
         }
         else
         {
             if(containsKey)
             {
-                containsKey = false;
+                //containsKey = false;
                 key.gameObject.SetActive(true);
             }
             if(doorAdditionalItem)

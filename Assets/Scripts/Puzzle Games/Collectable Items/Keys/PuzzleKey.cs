@@ -57,7 +57,7 @@ public class PuzzleKey : PuzzleCollectableItem
         {
             collected = true;
             _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.CluesManager.KeyCollected_ExecuteReaction(keyIndex);
-            //OnKeyCollected?.Invoke();
+            OnKeyCollected?.Invoke();
             Debug.Log($"Save {Item}");
             MoveToInventory();
         }

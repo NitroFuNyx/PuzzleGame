@@ -14228,13 +14228,11 @@ MonoBehaviour:
   bonusTimeTextChangeAlphaDurationMax: 1
   bonusTimeTextChangeAlphaDurationMin: 0.01
   moveToInventoryPanelDuration: 1
-  kitchenMiniGameBonusTimersPanel: {fileID: 0}
-  gameFinishedPanelActivationManager: {fileID: 0}
   inventoryPanel: {fileID: 1545441816}
   keyImagePrefab: {fileID: 4766745202666574207, guid: 1e4736bac291de148a5d3b1fe7f3aa19, type: 3}
   colaStrawImagePrefab: {fileID: 4766745202666574207, guid: a006d37b96da0994abca5f72508c3ed8, type: 3}
   mainModePanel: {fileID: 291376942}
-  gameFinishedPanel: {fileID: 0}
+  gameFinishedPanel: {fileID: 619237217}
   minigamesPanelsList:
   - {fileID: 54074233}
   - {fileID: 748482481}
@@ -30324,6 +30322,7 @@ MonoBehaviour:
   - {fileID: 714299105}
   - {fileID: 301605964}
   - {fileID: 934076942}
+  finishGameDelay: 2
 --- !u!1 &1768189374
 GameObject:
   m_ObjectHideFlags: 0
