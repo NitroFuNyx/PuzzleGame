@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 6662102891544206257}
   - component: {fileID: 5987539394336529267}
   - component: {fileID: 8556802377885284084}
+  - component: {fileID: 5510784419821102039}
   m_Layer: 5
   m_Name: Game Level Button
   m_TagString: Untagged
@@ -744,9 +745,6 @@ MonoBehaviour:
   buttonImage: {fileID: 6662102891544206257}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
-  gameType: 0
-  levelState: 0
-  levelIndex: 0
   lockImage: {fileID: 6662102891674828721}
   costAmountText: {fileID: 6662102891344377601}
   rotationPunchVector: {x: 0, y: 0, z: 30}
@@ -755,6 +753,22 @@ MonoBehaviour:
   costTextPunchVector: {x: 0.2, y: 0.2, z: 0.2}
   costTextPunchScaleFreequency: 4
   costTextBlockedColor: {r: 0.735849, g: 0, b: 0, a: 1}
+  canBeBoughtColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &5510784419821102039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6662102891544206271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 5987539394336529267}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &6662102891674828732
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +925,11 @@ MonoBehaviour:
   levelState: 0
   gameType: 0
   gameLevelIndex: 0
+  highestScore: 0
+  currentTimeInGame: 0
+  bestFinishTime: 0
+  canBeBought: 0
+  levelPrice: 10000
   buttonImage: {fileID: 6662102891010816743}
   darkFilterImage: {fileID: 6662102890770251400}
   lockImage: {fileID: 6662102891674828721}
@@ -920,6 +939,7 @@ MonoBehaviour:
   costAmountText: {fileID: 6662102891344377601}
   levelButton: {fileID: 8556802377885284084}
   changeAlphaDuration: 0.01
+  chooseGameLevelButton: {fileID: 0}
 --- !u!1 &6662102891810567858
 GameObject:
   m_ObjectHideFlags: 0

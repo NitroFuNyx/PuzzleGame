@@ -25,6 +25,9 @@ public class MiniGameUI : MainCanvasPanel
     [Space]
     [SerializeField] private KitchenMiniGameBonusTimersPanel kitchenMiniGameBonusTimersPanel;
     [SerializeField] private PanelActivationManager gameFinishedPanelActivationManager;
+    [Header("Buttons")]
+    [Space]
+    [SerializeField] private WatchVideoButton watchVideoButton;
 
     private TimersManager _timersManager;
     private ResourcesManager _resourcesManager;
@@ -94,6 +97,7 @@ public class MiniGameUI : MainCanvasPanel
     public void ShowGameFinishedPanel()
     {
         miniGameFinishedPanel.SetCoinsText(_resourcesManager.CurrentLevelCoinsAmount);
+        watchVideoButton.VideoWatched = false;
         gameFinishedPanelActivationManager.ShowPanel();
         ResetUIData();
     }
@@ -106,16 +110,23 @@ public class MiniGameUI : MainCanvasPanel
     private void SubscribeOnEvents()
     {
         _resourcesManager.OnLevelCoinsAmountChanged += OnLevelCoinsAmountChanged_ExecuteReaction;
+        _resourcesManager.OnAdditionalCoinsAdedAsAdReward += OnAdditionalCoinsAsAdRewardAdded_ExecuteReaction;
     }
 
     private void UnsubscribeFromEvents()
     {
         _resourcesManager.OnLevelCoinsAmountChanged -= OnLevelCoinsAmountChanged_ExecuteReaction;
+        _resourcesManager.OnAdditionalCoinsAdedAsAdReward -= OnAdditionalCoinsAsAdRewardAdded_ExecuteReaction;
     }
 
     private void OnLevelCoinsAmountChanged_ExecuteReaction(int coinsAmount)
     {
         coinsText.text = $"{coinsAmount}";
+    }
+
+    private void OnAdditionalCoinsAsAdRewardAdded_ExecuteReaction(int coinsAmount)
+    {
+        miniGameFinishedPanel.SetCoinsText(coinsAmount);
     }
 
     private IEnumerator HideBonusTimeTextCoroutine()

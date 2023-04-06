@@ -8,6 +8,7 @@ public class ResourcesManager : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private int wholeCoinsAmount;
     [SerializeField] private int currentLevelCoinsAmount;
+    [SerializeField] private int finishedLevelCoinsAmount;
 
     private DataPersistanceManager _dataPersistanceManager;
 
@@ -17,6 +18,7 @@ public class ResourcesManager : MonoBehaviour, IDataPersistance
     #region Events Declaration
     public event Action<int> OnLevelCoinsAmountChanged;
     public event Action<int> OnGeneralCoinsAmountChanged;
+    public event Action<int> OnAdditionalCoinsAdedAsAdReward;
     #endregion Events Declaration
 
     #region Zenject
@@ -51,7 +53,17 @@ public class ResourcesManager : MonoBehaviour, IDataPersistance
     public void AddCurrentLevelCoinsToWholeCoinsAmount()
     {
         wholeCoinsAmount += currentLevelCoinsAmount;
+        finishedLevelCoinsAmount = currentLevelCoinsAmount;
         OnGeneralCoinsAmountChanged?.Invoke(wholeCoinsAmount);
+    }
+
+    public void AddCoinsAsAdReward()
+    {
+        wholeCoinsAmount += finishedLevelCoinsAmount;
+        OnGeneralCoinsAmountChanged?.Invoke(wholeCoinsAmount);
+        OnAdditionalCoinsAdedAsAdReward?.Invoke(finishedLevelCoinsAmount * 2);
+        finishedLevelCoinsAmount = 0;
+        _dataPersistanceManager.SaveGame();
     }
 
     public void ResetCurrentLevelCoinsData()

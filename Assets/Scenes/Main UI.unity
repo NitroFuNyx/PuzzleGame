@@ -560,6 +560,10 @@ PrefabInstance:
       propertyPath: gameLevelIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: chooseGameLevelButton
+      value: 
+      objectReference: {fileID: 636568700}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -668,7 +672,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5510784419821102039, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
 --- !u!224 &42709536 stripped
 RectTransform:
@@ -785,6 +790,10 @@ PrefabInstance:
       propertyPath: gameLevelIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: chooseGameLevelButton
+      value: 
+      objectReference: {fileID: 1161357613}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -893,7 +902,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5510784419821102039, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
 --- !u!224 &53994922 stripped
 RectTransform:
@@ -2425,7 +2435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4120700985642374, guid: d1b5f65f34ff0bc4ebcda3f442d4a587, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4120700985642374, guid: d1b5f65f34ff0bc4ebcda3f442d4a587, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2979,6 +2989,17 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &167799184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5510784419821102039, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+  m_PrefabInstance: {fileID: 1951438933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &168962881
 GameObject:
   m_ObjectHideFlags: 0
@@ -10659,6 +10680,17 @@ MonoBehaviour:
   buttonImage: {fileID: 635116489}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+--- !u!114 &636568700 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8556802377885284084, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+  m_PrefabInstance: {fileID: 42709535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b996bff5a522d468151cc23b9d9026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &640310879 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5580920263759189960, guid: 264fcead63ce1974e9be2b00eff7b17b, type: 3}
@@ -10750,6 +10782,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1209b10b3a63bb442ac3e72aeb12f3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &645098668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5510784419821102039, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+  m_PrefabInstance: {fileID: 6662102891361739833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &649649516
@@ -11721,6 +11764,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3270995943092538953, guid: 39c78d844f83aba4f9f6ec208016d853, type: 3}
   m_PrefabInstance: {fileID: 682159652}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &682301927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8556802377885284084, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+  m_PrefabInstance: {fileID: 1427999150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b996bff5a522d468151cc23b9d9026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &705458597 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4898986501325962034, guid: 5e0e080b950710a4f86e995e20a9a827, type: 3}
@@ -18769,6 +18823,8 @@ GameObject:
   - component: {fileID: 1130153480}
   - component: {fileID: 1130153479}
   - component: {fileID: 1130153478}
+  - component: {fileID: 1130153483}
+  - component: {fileID: 1130153482}
   m_Layer: 5
   m_Name: Video Button
   m_TagString: Untagged
@@ -18892,6 +18948,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130153476}
   m_CullTransparentMesh: 1
+--- !u!114 &1130153482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130153476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 1130153479}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
+--- !u!114 &1130153483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130153476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221797289149e854bbab6e8c13f9c64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonImage: {fileID: 1130153480}
+  minScale: {x: 0.8, y: 0.8, z: 0.8}
+  scaleDuration: 0.3
+  videoWatched: 1
 --- !u!1 &1138549763
 GameObject:
   m_ObjectHideFlags: 0
@@ -19244,6 +19331,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1209b10b3a63bb442ac3e72aeb12f3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1161357613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8556802377885284084, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+  m_PrefabInstance: {fileID: 53994921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b996bff5a522d468151cc23b9d9026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1162493757
@@ -20231,7 +20329,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 60
+  timeForLevel: 10
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!1001 &1203510329
@@ -24255,6 +24353,10 @@ PrefabInstance:
       propertyPath: gameLevelIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
+      propertyPath: chooseGameLevelButton
+      value: 
+      objectReference: {fileID: 682301927}
     - target: {fileID: 6662102890415345047, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -24363,7 +24465,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5510784419821102039, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
 --- !u!224 &1427999151 stripped
 RectTransform:
@@ -26663,6 +26766,7 @@ MonoBehaviour:
   poolItemsManager: {fileID: 116157837}
   systemTimeManager: {fileID: 4576828761973131606}
   dataPersistanceManager: {fileID: 1986429762}
+  adsManager: {fileID: 603814695709174855}
   cameraManager: {fileID: 413128834}
 --- !u!4 &1550159806
 Transform:
@@ -28766,6 +28870,7 @@ MonoBehaviour:
   bonusTimeTextChangeAlphaDurationMin: 0.01
   kitchenMiniGameBonusTimersPanel: {fileID: 1028784597}
   gameFinishedPanelActivationManager: {fileID: 774725342}
+  watchVideoButton: {fileID: 1130153483}
 --- !u!1 &1664162472
 GameObject:
   m_ObjectHideFlags: 0
@@ -35723,17 +35828,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
-      propertyPath: _iOSGameId
-      value: 5216778
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
-      propertyPath: _androidGameId
-      value: 5216779
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButton
       value: 
       objectReference: {fileID: 587583390}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButtonsList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButtonsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 587583390}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButtonsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 645098668}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButtonsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 167799184}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButtonsList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1130153482}
     - target: {fileID: 4167937353221010891, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: m_Name
       value: Ads Manager
@@ -35784,6 +35901,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+--- !u!114 &603814695709174855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9117914883295254920, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+  m_PrefabInstance: {fileID: 603814695709174854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421c029d2f1107a44b37218339d5ebf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1819813545294908958
 PrefabInstance:
   m_ObjectHideFlags: 0

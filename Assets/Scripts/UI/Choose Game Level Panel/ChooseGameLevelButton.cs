@@ -24,31 +24,67 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
 
     private MainUI _mainUI;
     private CurrentGameManager _currentGameManager;
+    private AdsManager _adsManager;
 
     private ChooseGameLevelPanel gameLevelPanel;
+    private RewardedAdsButton _rewardedAdsButton;
 
     private bool isAnimationInProcess = false;
 
+    private void Awake()
+    {
+        if(TryGetComponent(out RewardedAdsButton rewardedAdsButton))
+        {
+            _rewardedAdsButton = rewardedAdsButton;
+        }
+    }
+
+    private void Start()
+    {
+        if(_rewardedAdsButton)
+        {
+            _rewardedAdsButton.OnRewardReadyToBeGranted += AdFinished_ExecuteReaction;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(_rewardedAdsButton)
+        {
+            _rewardedAdsButton.OnRewardReadyToBeGranted -= AdFinished_ExecuteReaction;
+        }
+    }
+
     #region Zenject
     [Inject]
-    private void Construct(MainUI mainUI, CurrentGameManager currentGameManager)
+    private void Construct(MainUI mainUI, CurrentGameManager currentGameManager, AdsManager adsManager)
     {
         _mainUI = mainUI;
         _currentGameManager = currentGameManager;
+        _adsManager = adsManager;
     }
     #endregion Zenject
 
     public override void ButtonActivated()
     {
-        if(gameLevelPanel.LevelState != GameLevelStates.Locked)
+        Debug.Log($"Button");
+        Debug.Log($"Button Activated Ad {_adsManager.NeedToShowAdBeforeLevelStart()} RewardButton {_rewardedAdsButton} State {gameLevelPanel.LevelState}");
+        if (gameLevelPanel.LevelState != GameLevelStates.Locked)
         {
-            ShowAnimation_ButtonPressed();
-            _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex);
-            StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
+            if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null)
+            {
+                _rewardedAdsButton.ShowAd();
+            }
+            else
+            {
+                ShowAnimation_ButtonPressed();
+                _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex);
+                StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
+            }
         }
         else
         {
-            if(!isAnimationInProcess && !gameLevelPanel.CanBeBought)
+            if (!isAnimationInProcess && !gameLevelPanel.CanBeBought)
             {
                 isAnimationInProcess = true;
                 lockImage.transform.DOKill();
@@ -66,7 +102,7 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
                     isAnimationInProcess = false;
                 });
             }
-            else if(gameLevelPanel.CanBeBought)
+            else if (gameLevelPanel.CanBeBought)
             {
                 gameLevelPanel.SetBoughtState();
             }
@@ -92,4 +128,49 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
     {
         gameLevelPanel = chooseGameLevelPanel;
     }
+
+    private void AdFinished_ExecuteReaction()
+    {
+        if (gameLevelPanel.LevelState != GameLevelStates.Locked)
+        {
+            ShowAnimation_ButtonPressed();
+            _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex);
+            StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
+        }
+        else
+        {
+            if (!isAnimationInProcess && !gameLevelPanel.CanBeBought)
+            {
+                isAnimationInProcess = true;
+                lockImage.transform.DOKill();
+                costAmountText.DOKill();
+                costAmountText.transform.DOKill();
+                costAmountText.DOColor(costTextBlockedColor, punchDuration / 2).OnComplete(() =>
+                {
+                    costAmountText.transform.DOScale(Vector3.one, punchDuration / 2);
+                    costAmountText.DOColor(Color.white, punchDuration);
+                });
+                costAmountText.transform.DOPunchScale(costTextPunchVector, punchDuration, costTextPunchScaleFreequency);
+                lockImage.transform.DOPunchRotation(rotationPunchVector, punchDuration, punchFreequency).OnComplete(() =>
+                {
+                    lockImage.transform.DORotate(Vector3.zero, punchDuration);
+                    isAnimationInProcess = false;
+                });
+            }
+            else if (gameLevelPanel.CanBeBought)
+            {
+                gameLevelPanel.SetBoughtState();
+            }
+        }
+    }
+
+//    Debug.Log($"Button Activated Ad {_adsManager.NeedToShowAdBeforeLevelStart()} RewardButton {_rewardedAdsButton} State {gameLevelPanel.LevelState}");
+//        if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null && gameLevelPanel.LevelState != GameLevelStates.Locked)
+//        {
+//            _rewardedAdsButton.ShowAd();
+//        }
+//        else
+//{
+//    AdFinished_ExecuteReaction();
+//}
 }

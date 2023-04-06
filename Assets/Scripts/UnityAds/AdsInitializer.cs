@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.Advertisements; 
  
 public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
@@ -6,7 +7,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] string _androidGameId;
     [SerializeField] string _iOSGameId;
     [SerializeField] bool _testMode = true;
-    [SerializeField] private RewardedAdsButton rewardedAdsButton;
+    [SerializeField] private List<RewardedAdsButton> rewardedAdsButtonsList = new List<RewardedAdsButton>();
 
     private string _gameId;
     
@@ -27,7 +28,11 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     {
         Debug.Log("Unity Ads initialization complete.");
         //WRITE HERE ALL AD LOADINGS!!!
-        rewardedAdsButton.LoadAd();
+
+        for(int i = 0; i < rewardedAdsButtonsList.Count; i++)
+        {
+            rewardedAdsButtonsList[i].LoadAd();
+        }
     }
  
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
