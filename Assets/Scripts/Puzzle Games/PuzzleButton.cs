@@ -1,15 +1,29 @@
 using UnityEngine;
+using Zenject;
 
 public class PuzzleButton : MonoBehaviour, Iinteractable
 {
+    [Header("Item Type")]
+    [Space]
+    [SerializeField] protected PuzzleGameKitchenMiniGames gameType;
     [Header("Sprites")]
     [Space]
     [SerializeField] private Sprite buttonPressedSprite;
     [SerializeField] private Sprite buttonReleasedSprite;
+    
 
     private SpriteRenderer spriteRenderer;
 
     private bool buttonPressed = false;
+    private PuzzleGameUI _puzzleGameUI;
+    
+    #region Zenject
+    [Inject]
+    private void Construct(PuzzleGameUI puzzleGameUI)
+    {
+        _puzzleGameUI = puzzleGameUI;
+    }
+    #endregion Zenject
 
     private void Awake()
     {
@@ -23,11 +37,12 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
 
         if(buttonPressed)
         {
-            spriteRenderer.sprite = buttonPressedSprite;
+            _puzzleGameUI.ShowMiniGamePanel(gameType);
         }
         else
         {
-            spriteRenderer.sprite = buttonReleasedSprite;
+            /*spriteRenderer.sprite = buttonPressedSprite;
+            spriteRenderer.sprite = buttonReleasedSprite;*/
         }
     }
 }
