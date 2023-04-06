@@ -13,29 +13,31 @@ public abstract class PuzzleGameFurnitureItemInteractionHandler : MonoBehaviour,
     [Space]
     [SerializeField] protected PuzzleKeyContainer keyContainerComponent;
     
-    private void Start()
-    {
-        if (key)
-        {
-            key.OnKeyCollected += KeyCollected_ExecuteReaction;
-        }
-        if (keyContainerComponent)
-        {
-            keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
-        }
-    }
+    //private void Start()
+    //{
+    //    if (key)
+    //    {
+    //        Debug.Log($"Subscription Key {gameObject}");
+    //        key.OnKeyCollected += KeyCollected_ExecuteReaction;
+    //    }
+    //    if (keyContainerComponent)
+    //    {
+    //        Debug.Log($"Subscription {gameObject}");
+    //        keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+    //    }
+    //}
 
-    private void OnDestroy()
-    {
-        if(key)
-        {
-            key.OnKeyCollected -= KeyCollected_ExecuteReaction;
-        }
-        if(keyContainerComponent)
-        {
-            keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
-        }
-    }
+    //private void OnDestroy()
+    //{
+    //    if(key)
+    //    {
+    //        key.OnKeyCollected -= KeyCollected_ExecuteReaction;
+    //    }
+    //    if(keyContainerComponent)
+    //    {
+    //        keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+    //    }
+    //}
 
     public void Interact()
     {

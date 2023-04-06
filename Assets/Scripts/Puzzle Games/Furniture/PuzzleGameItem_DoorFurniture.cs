@@ -28,6 +28,27 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         {
             clueHolder.ClueIndex = key.KeyIndex;
         }
+        if (key)
+        {
+            key.OnKeyCollected += KeyCollected_ExecuteReaction;
+        }
+        if (keyContainerComponent)
+        {
+            Debug.Log($"Subscription {gameObject}");
+            keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (key)
+        {
+            key.OnKeyCollected -= KeyCollected_ExecuteReaction;
+        }
+        if (keyContainerComponent)
+        {
+            keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+        }
     }
 
     public override void InteractOnTouch()
