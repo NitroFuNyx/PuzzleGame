@@ -33,7 +33,7 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
         }
     }
 
-    private void HideAllEnvironments()
+    public void HideAllEnvironments()
     {
         for (int i = 0; i < gamesEnvironmentsList.Count; i++)
         {
@@ -44,7 +44,6 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
     private IEnumerator HideLevelsCoroutine()
     {
         yield return new WaitForSeconds(2f);
-        HideLevelsCoroutine();
         HideAllEnvironments();
     }
 }

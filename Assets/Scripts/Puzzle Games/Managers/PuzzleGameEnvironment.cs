@@ -93,6 +93,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     {
         _cameraManager.SetCameraStartPos();
         _timersManager.StopStopwatch();
+
     }
 
     private void SubscribeOnEvents()

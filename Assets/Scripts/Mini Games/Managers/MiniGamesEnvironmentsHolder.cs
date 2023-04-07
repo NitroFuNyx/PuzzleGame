@@ -32,7 +32,7 @@ public class MiniGamesEnvironmentsHolder : MonoBehaviour
         }
     }
 
-    private void HideAllEnvironments()
+    public void HideAllEnvironments()
     {
         for (int i = 0; i < gamesEnvironmentsList.Count; i++)
         {

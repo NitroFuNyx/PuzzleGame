@@ -81,6 +81,8 @@ public class CurrentGameManager : MonoBehaviour
             _puzzleGamesEnvironments.CurrentlyActiveGame.ResetEnvironmentWithoutSaving();
             // save time
         }
+
+        StartCoroutine(ResetEnvironmentsCoroutine());
     }
 
     private IEnumerator FinishGameWithSavingCoroutine()
@@ -90,5 +92,12 @@ public class CurrentGameManager : MonoBehaviour
 
         yield return null;
         _miniGamesEnvironmentsHolder.CurrentlyActiveGame.ResetEnvironment();
+    }
+
+    private IEnumerator ResetEnvironmentsCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        _puzzleGamesEnvironments.HideAllEnvironments();
+        _miniGamesEnvironmentsHolder.HideAllEnvironments();
     }
 }
