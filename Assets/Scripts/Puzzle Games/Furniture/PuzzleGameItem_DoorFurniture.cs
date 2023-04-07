@@ -14,7 +14,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
     [Header("Internal References")]
     [Space]
     [SerializeField] private GameObject doorAdditionalItem;
-    [SerializeField] private GameObject miniGameButton;
+    [SerializeField] private PuzzleButton miniGameButton;
 
     private bool isOpen = false;
 
@@ -36,10 +36,6 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
-        }
-        if(miniGameButton)
-        {
-            miniGameButton.gameObject.SetActive(false);
         }
     }
 
@@ -113,6 +109,11 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if (key != null)
         {
             key.gameObject.SetActive(false);
+        }
+        yield return new WaitForSeconds(1f);
+        if (miniGameButton)
+        {
+            miniGameButton.gameObject.SetActive(false);
         }
     }
 }

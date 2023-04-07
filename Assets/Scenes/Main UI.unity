@@ -7546,6 +7546,8 @@ GameObject:
   - component: {fileID: 484496579}
   - component: {fileID: 484496580}
   - component: {fileID: 484496582}
+  - component: {fileID: 484496585}
+  - component: {fileID: 484496584}
   - component: {fileID: 484496583}
   m_Layer: 15
   m_Name: Puzzle Button
@@ -7634,6 +7636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameType: 5
+  key: {fileID: 883302377}
+  keyContainerComponent: {fileID: 484496585}
   buttonPressedSprite: {fileID: 0}
   buttonReleasedSprite: {fileID: 0}
 --- !u!61 &484496583
@@ -7662,6 +7666,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.455125, y: 6.342631}
   m_EdgeRadius: 0
+--- !u!114 &484496584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484496578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07261b7087cc4340a80b01b49a5ff07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clueIndex: 0
+  clueVFX: {fileID: 537449708}
+--- !u!114 &484496585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484496578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363c42bb1bee8d04a81d5e1e3a413004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &484604459
 GameObject:
   m_ObjectHideFlags: 0
@@ -28336,15 +28366,15 @@ PrefabInstance:
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: key
       value: 
-      objectReference: {fileID: 883302377}
+      objectReference: {fileID: 0}
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: containsKey
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: miniGameButton
       value: 
-      objectReference: {fileID: 484496578}
+      objectReference: {fileID: 484496582}
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: doorAdditionalItem
       value: 
@@ -28352,7 +28382,7 @@ PrefabInstance:
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: keyContainerComponent
       value: 
-      objectReference: {fileID: 1837647148}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
 --- !u!4 &1715600795 stripped
@@ -29552,7 +29582,7 @@ MonoBehaviour:
   keyContainersList:
   - {fileID: 3540912410575564065}
   - {fileID: 940687788}
-  - {fileID: 1837647148}
+  - {fileID: 484496585}
   - {fileID: 1393664461}
   - {fileID: 1193806936}
   - {fileID: 63922890}
@@ -31114,37 +31144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1209b10b3a63bb442ac3e72aeb12f3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1837647140 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7527227188569222047, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
-  m_PrefabInstance: {fileID: 1715600794}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1837647144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837647140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c07261b7087cc4340a80b01b49a5ff07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clueIndex: 0
-  clueVFX: {fileID: 537449708}
---- !u!114 &1837647148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837647140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 363c42bb1bee8d04a81d5e1e3a413004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1844239953 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3618393165675850245, guid: d3a4791faa0b57641ba766f5ce146ed4, type: 3}
@@ -32149,7 +32148,7 @@ MonoBehaviour:
   - {fileID: 1393664462}
   - {fileID: 678809077}
   - {fileID: 63922892}
-  - {fileID: 1837647144}
+  - {fileID: 484496584}
   - {fileID: 918824327}
   - {fileID: 714299104}
   - {fileID: 301605965}
@@ -34039,6 +34038,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: afd7a5caeddc13c42997d884b01cee6b, type: 3}
+    - target: {fileID: 7527227187942309742, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7527227188569222040, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: m_RootOrder
       value: 3
