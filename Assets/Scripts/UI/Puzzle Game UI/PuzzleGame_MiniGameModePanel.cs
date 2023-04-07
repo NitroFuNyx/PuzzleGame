@@ -9,6 +9,7 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
     [Header("Mini Game Items")]
     [Space]
     [SerializeField] private MixerButton mixerButton;
+    [SerializeField] private PuzzleKitchenBooksPositionsManager puzzleKitchenBooksPositionsManager;
 
     public PuzzleGameKitchenMiniGames GameType { get => gameType; }
 
@@ -17,6 +18,14 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
         if(mixerButton)
         {
             mixerButton.StartGame(OnMixerGameComplete);
+        }
+    }
+
+    public void StartBookshelfGame(Action OnBookshelfGameComplete)
+    {
+        if (puzzleKitchenBooksPositionsManager)
+        {
+            puzzleKitchenBooksPositionsManager.StartGame(OnBookshelfGameComplete);
         }
     }
 }

@@ -44,3 +44,8 @@ public enum PuzzleGameKitchenPzintings
 {
     Left, Middle, Right
 }
+
+public enum PuzzleGameKitchenBooks
+{
+    Green, Yellow, Blue
+}

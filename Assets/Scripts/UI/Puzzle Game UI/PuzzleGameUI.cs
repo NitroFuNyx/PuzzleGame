@@ -118,6 +118,10 @@ public class PuzzleGameUI : MainCanvasPanel
                 {
                     minigamesPanelsList[i].StartMixerGame(MixerGameFinished_ExecuteReaction);
                 }
+                else if (gameType == PuzzleGameKitchenMiniGames.Bookshelf)
+                {
+                    minigamesPanelsList[i].StartBookshelfGame(BookshelfGameFinished_ExecuteReaction);
+                }
             }
         }
     }
@@ -143,6 +147,11 @@ public class PuzzleGameUI : MainCanvasPanel
     {
         ShowMainModePanel();
         OnMixerGameFinished?.Invoke();
+    }
+
+    private void BookshelfGameFinished_ExecuteReaction()
+    {
+        ShowMainModePanel();
     }
 
     private void HideMiniGamesPanels()

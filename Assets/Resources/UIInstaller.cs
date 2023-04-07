@@ -11,6 +11,7 @@ public class UIInstaller : MonoInstaller
     [Space]
     [SerializeField] private PuzzleGameUI puzzleGameUI;
     [SerializeField] private PopItGameStateManager popItGameStateManager;
+    [SerializeField] private PuzzleKitchenBooksPositionsManager puzzleKitchenBooksPositionsManager;
     [Space]
     [SerializeField] private MiniGameUI miniGameUI;
     [SerializeField] private KitchenMiniGameBonusTimersPanel kitchenMiniGameBonusTimers;
@@ -23,6 +24,7 @@ public class UIInstaller : MonoInstaller
 
         Container.Bind<PuzzleGameUI>().FromInstance(puzzleGameUI).AsSingle().NonLazy();
         Container.Bind<PopItGameStateManager>().FromInstance(popItGameStateManager).AsSingle().NonLazy();
+        Container.Bind<PuzzleKitchenBooksPositionsManager>().FromInstance(puzzleKitchenBooksPositionsManager).AsSingle().NonLazy();
 
         Container.Bind<MiniGameUI>().FromInstance(miniGameUI).AsSingle().NonLazy();
         Container.Bind<KitchenMiniGameBonusTimersPanel>().FromInstance(kitchenMiniGameBonusTimers).AsSingle().NonLazy();
