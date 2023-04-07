@@ -86,6 +86,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
         {
             containsKey = false;
             key.ChangeKeySimulattionState(false);
+            straw.gameObject.SetActive(false);
         }
     }
 
