@@ -680,6 +680,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6662102891726806611, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
   m_PrefabInstance: {fileID: 42709535}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &47415347 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7527227187942309742, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+  m_PrefabInstance: {fileID: 907447339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &52344613
 GameObject:
   m_ObjectHideFlags: 0
@@ -15030,6 +15035,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Shelf (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 47415347}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: openDoorSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a768f29526245c741ba171eec929d31e, type: 3}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: closedDoorSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: afd7a5caeddc13c42997d884b01cee6b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
 --- !u!4 &907447340 stripped
@@ -16052,6 +16069,7 @@ MonoBehaviour:
   closedDoorSprite: {fileID: 21300000, guid: 521044f1c5c273f43bbb041698c8ca5e, type: 3}
   openDoorSprite: {fileID: 21300000, guid: e04fc83bbbebbcb4e8fb32e9ab4dac6b, type: 3}
   doorAdditionalItem: {fileID: 1913863075}
+  miniGameButton: {fileID: 0}
 --- !u!114 &940687788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17009,6 +17027,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5731626, y: 3.9456294}
   m_EdgeRadius: 0
+--- !u!212 &1016731733 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7527227187942309742, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+  m_PrefabInstance: {fileID: 2096513064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1028784593
 GameObject:
   m_ObjectHideFlags: 0
@@ -28315,9 +28338,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 883302377}
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
-      propertyPath: doorAdditionalItem
+      propertyPath: containsKey
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: miniGameButton
       value: 
       objectReference: {fileID: 484496578}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: doorAdditionalItem
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: keyContainerComponent
       value: 
@@ -34056,6 +34087,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Shelf (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1016731733}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: openDoorSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a768f29526245c741ba171eec929d31e, type: 3}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: closedDoorSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: afd7a5caeddc13c42997d884b01cee6b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
 --- !u!4 &2096513065 stripped

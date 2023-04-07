@@ -31,8 +31,7 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
     }
 
     public void Interact()
-    {
-        Debug.Log($"Puzzle Button");
+    {        
         buttonPressed = !buttonPressed;
 
         if(buttonPressed)

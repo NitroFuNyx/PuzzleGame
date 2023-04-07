@@ -14,6 +14,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
     [Header("Internal References")]
     [Space]
     [SerializeField] private GameObject doorAdditionalItem;
+    [SerializeField] private GameObject miniGameButton;
 
     private bool isOpen = false;
 
@@ -35,6 +36,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+        }
+        if(miniGameButton)
+        {
+            miniGameButton.gameObject.SetActive(false);
         }
     }
 
@@ -65,6 +70,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             {
                 key.gameObject.SetActive(false);
             }
+            if(miniGameButton)
+            {
+                miniGameButton.gameObject.SetActive(false);
+            }
         }
         else
         {
@@ -76,6 +85,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             if(doorAdditionalItem)
             {
                 doorAdditionalItem.SetActive(false);
+            }
+            if(miniGameButton)
+            {
+                miniGameButton.gameObject.SetActive(true);
             }
             door.sprite = openDoorSprite;
         }
