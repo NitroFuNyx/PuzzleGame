@@ -208,13 +208,17 @@ public class PuzzleGameUI : MainCanvasPanel
 
     private void ShowAdditionalButtons()
     {
-        pauseButton.ShowButton();
+        //pauseButton.ShowButton();
         //clueButton.ShowButton();
+        pauseButton.gameObject.SetActive(true);
+        clueButton.gameObject.SetActive(true);
     }
 
     private void HideAdditionalButtons()
     {
-        pauseButton.HideButton();
+        //pauseButton.HideButton();
         //clueButton.HideButton();
+        pauseButton.gameObject.SetActive(false);
+        clueButton.gameObject.SetActive(false);
     }
 }
