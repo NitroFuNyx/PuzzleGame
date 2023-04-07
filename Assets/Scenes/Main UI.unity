@@ -15178,7 +15178,7 @@ SpriteRenderer:
   m_Size: {x: 7.51, y: 7.89}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &918824325
@@ -34539,8 +34539,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2339601097647237222, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
-      propertyPath: m_Alpha
+    - target: {fileID: 3958634624468036983, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -35821,22 +35821,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3618393165362016035, guid: d3a4791faa0b57641ba766f5ce146ed4, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618393165362016045, guid: d3a4791faa0b57641ba766f5ce146ed4, type: 3}
-      propertyPath: minScaleVector.x
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618393165362016045, guid: d3a4791faa0b57641ba766f5ce146ed4, type: 3}
-      propertyPath: minScaleVector.y
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618393165362016045, guid: d3a4791faa0b57641ba766f5ce146ed4, type: 3}
-      propertyPath: minScaleVector.z
-      value: 0.001
-      objectReference: {fileID: 0}
     - target: {fileID: 3618393166271429946, guid: d3a4791faa0b57641ba766f5ce146ed4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -36350,14 +36334,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875228248}
     m_Modifications:
-    - target: {fileID: 956563278, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: shelfBooksbookType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237279459, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: shelfBooksbookType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1616142938, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -36369,10 +36345,6 @@ PrefabInstance:
     - target: {fileID: 2118298341, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251622752056256574, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: bookType
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5958861390586668770, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_Name
@@ -36460,10 +36432,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5958861390586668797, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5958861390586668799, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5958861390857252717, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}

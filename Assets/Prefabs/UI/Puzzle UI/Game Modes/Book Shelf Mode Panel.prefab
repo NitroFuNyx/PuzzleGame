@@ -24,7 +24,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138359080}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,8 +32,8 @@ RectTransform:
   - {fileID: 5958861391586619155}
   - {fileID: 4236581259823066162}
   - {fileID: 4236581259366214352}
-  m_Father: {fileID: 5958861390586668797}
-  m_RootOrder: 4
+  m_Father: {fileID: 5958861391783521424}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -82,7 +82,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956563276}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -90,8 +90,8 @@ RectTransform:
   - {fileID: 4236581260424522596}
   - {fileID: 4236581259809329818}
   - {fileID: 4236581260663524980}
-  m_Father: {fileID: 5958861390586668797}
-  m_RootOrder: 6
+  m_Father: {fileID: 5958861391783521424}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7399409a301c5834ba8c54e37b3cb71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfBooksbookType: 0
+  shelfBooksbookType: 2
   booksAtShelfList:
   - {fileID: 3251622752436803535}
   - {fileID: 3251622750887865905}
@@ -140,7 +140,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237279457}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -148,8 +148,8 @@ RectTransform:
   - {fileID: 4236581261385383922}
   - {fileID: 4236581260127307502}
   - {fileID: 4236581260813194389}
-  m_Father: {fileID: 5958861390586668797}
-  m_RootOrder: 5
+  m_Father: {fileID: 5958861391783521424}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7399409a301c5834ba8c54e37b3cb71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfBooksbookType: 0
+  shelfBooksbookType: 1
   booksAtShelfList:
   - {fileID: 3251622752558203737}
   - {fileID: 3251622751668795973}
@@ -205,8 +205,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5958861390586668797}
-  m_RootOrder: 7
+  m_Father: {fileID: 5958861391783521424}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -296,8 +296,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5958861390586668797}
-  m_RootOrder: 9
+  m_Father: {fileID: 5958861391783521424}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -387,8 +387,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5958861390586668797}
-  m_RootOrder: 8
+  m_Father: {fileID: 5958861391783521424}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -538,12 +538,6 @@ RectTransform:
   - {fileID: 5958861391506740324}
   - {fileID: 5958861391783521424}
   - {fileID: 5958861390857252717}
-  - {fileID: 138359081}
-  - {fileID: 1237279458}
-  - {fileID: 956563277}
-  - {fileID: 1616142938}
-  - {fileID: 2118298341}
-  - {fileID: 2012681548}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -587,6 +581,10 @@ MonoBehaviour:
   gameType: 2
   mixerButton: {fileID: 0}
   puzzleKitchenBooksPositionsManager: {fileID: 5958861391315700047}
+  popItGameStateManager: {fileID: 0}
+  panelMainImage: {fileID: 5958861391783521424}
+  minScaleVector: {x: 0.001, y: 0.001, z: 0.001}
+  scaleDuration: 1
 --- !u!1 &5958861390857252690
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +843,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 138359081}
+  - {fileID: 1237279458}
+  - {fileID: 956563277}
+  - {fileID: 1616142938}
+  - {fileID: 2118298341}
+  - {fileID: 2012681548}
   m_Father: {fileID: 5958861390586668797}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1268,6 +1272,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1237279458}
     m_Modifications:
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: bookType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804225, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Sprite
       value: 
