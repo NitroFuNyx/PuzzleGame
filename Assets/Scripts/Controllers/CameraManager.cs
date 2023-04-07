@@ -38,6 +38,15 @@ public class CameraManager : MonoBehaviour
         mainCamera.transform.DOMoveX(target.position.x,time).SetEase(Ease.InOutSine);
     }
 
+    public void CameraMoveTo(Transform target, float time, Action OnComplete)
+    {
+        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(false);
+        mainCamera.transform.DOMoveX(target.position.x, time).SetEase(Ease.InOutSine).OnComplete(() =>
+        {
+            OnComplete?.Invoke();
+        });
+    }
+
     public void SetCameraStartPos()
     {
         mainCamera.transform.position = mainCameraStartPos;
