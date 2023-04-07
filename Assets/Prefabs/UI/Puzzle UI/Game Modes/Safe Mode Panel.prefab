@@ -1613,7 +1613,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4229676927619579867}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1630,6 +1630,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameType: 1
+  mixerButton: {fileID: 0}
+  puzzleKitchenBooksPositionsManager: {fileID: 0}
+  popItGameStateManager: {fileID: 0}
+  panelMainImage: {fileID: 0}
+  minScaleVector: {x: 0.001, y: 0.001, z: 0.001}
+  scaleDuration: 1
 --- !u!1 &4229676928520888148
 GameObject:
   m_ObjectHideFlags: 0
