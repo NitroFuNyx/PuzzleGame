@@ -159,6 +159,8 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     {
         Debug.Log($"Stopwatch {stopwatchValue}");
         currentStopWatchValue = stopwatchValue;
+        string timeInForm = $"{_timersManager.GetHoursAndMinutesAmount((int)currentStopWatchValue)}:{_timersManager.GetSecondsAmount((int)currentStopWatchValue)}";
+        _puzzleGameUI.GameFinishedPanel.GetComponent<PuzzleGameFinishedPanel>().SetFinishTimeText(timeInForm);
         _dataPersistanceManager.SaveGame();
     }
 
@@ -187,8 +189,9 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
 
     private IEnumerator FinishGameCoroutine()
     {
-        yield return new WaitForSeconds(finishGameDelay);
-        _puzzleGameUI.ShowGameFinishedPanel();
+        yield return new WaitForSeconds(finishGameDelay / 2);
         _timersManager.StopStopwatch();
+        yield return new WaitForSeconds(finishGameDelay / 2);
+        _puzzleGameUI.ShowGameFinishedPanel();
     }
 }

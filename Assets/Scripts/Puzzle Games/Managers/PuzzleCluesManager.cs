@@ -71,6 +71,8 @@ public class PuzzleCluesManager : MonoBehaviour, IDataPersistance
 
         unusedCluesHoldersList.Remove(keyRelatedClueHolder);
         usedCluesHoldersList.Add(keyRelatedClueHolder);
+
+        if(keyRelatedClueHolder != null)
         keyRelatedClueHolder.HideClue();
     }
 

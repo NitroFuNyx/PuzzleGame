@@ -47,6 +47,7 @@ public class PuzzleGameUI : MainCanvasPanel
 
     public PuzzleGameInventoryPanel InventoryPanel { get => inventoryPanel; }
     public TogglePuzzleGame TogglePuzzleGame { get => togglePuzzleGame; }
+    public PanelActivationManager GameFinishedPanel { get => gameFinishedPanel; }
 
     #region Events Declaration
     public event Action OnMixerGameFinished;
