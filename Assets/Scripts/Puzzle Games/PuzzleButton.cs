@@ -17,6 +17,13 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
     [SerializeField] private bool containsKey = true;
     private PuzzleGameUI _puzzleGameUI;
 
+    private BoxCollider2D _collider;
+
+    private void Awake()
+    {
+        _collider = GetComponent<BoxCollider2D>();
+    }
+
     private void Start()
     {
         if (TryGetComponent(out PuzzleClueHolder clueHolder))
@@ -31,6 +38,8 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
         }
+
+        _puzzleGameUI.TogglePuzzleGame.OnCharacterAnimationFinished += CharacterAnimationFinished_ExecuteReaction;
         
         StartCoroutine(SetStartSettingsCoroutine());
     }
@@ -45,6 +54,8 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
         }
+
+        _puzzleGameUI.TogglePuzzleGame.OnCharacterAnimationFinished -= CharacterAnimationFinished_ExecuteReaction;
     }
 
     #region Zenject
@@ -65,6 +76,11 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
         }
     }
 
+    public void SetButtonActivation(bool isActive)
+    {
+        _collider.enabled = isActive;
+    }
+
     private void KeyCollected_ExecuteReaction()
     {
         containsKey = false;
@@ -80,13 +96,17 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
         }
     }
 
+    private void CharacterAnimationFinished_ExecuteReaction()
+    {
+        key.gameObject.SetActive(true);
+        key.ChangeKeySimulattionState(true);
+    }
+
     private IEnumerator SetStartSettingsCoroutine()
     {
-        Debug.Log($"Key Start");
         yield return new WaitForSeconds(1.5f);
         if (key)
         {
-            Debug.Log($"Key");
             key.gameObject.SetActive(false);
         }
     }

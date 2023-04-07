@@ -378,6 +378,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23555117}
   m_CullTransparentMesh: 1
+--- !u!114 &30265765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1102118085, guid: 39aa5b3b98bdec54ab5d5a0165e01370, type: 3}
+  m_PrefabInstance: {fileID: 182008684}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06c4671400ef6e4b84a8e047eb38d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &30678305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,10 +3173,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875228248}
     m_Modifications:
+    - target: {fileID: 1102118080, guid: 39aa5b3b98bdec54ab5d5a0165e01370, type: 3}
+      propertyPath: m_Name
+      value: Button Image
+      objectReference: {fileID: 0}
     - target: {fileID: 1102118085, guid: 39aa5b3b98bdec54ab5d5a0165e01370, type: 3}
       propertyPath: ded
       value: 
       objectReference: {fileID: 181801743}
+    - target: {fileID: 1067908426571334812, guid: 39aa5b3b98bdec54ab5d5a0165e01370, type: 3}
+      propertyPath: m_Name
+      value: Button Holder
+      objectReference: {fileID: 0}
     - target: {fileID: 6621046046785819460, guid: 39aa5b3b98bdec54ab5d5a0165e01370, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -7638,8 +7657,7 @@ MonoBehaviour:
   gameType: 5
   key: {fileID: 883302377}
   keyContainerComponent: {fileID: 484496585}
-  buttonPressedSprite: {fileID: 0}
-  buttonReleasedSprite: {fileID: 0}
+  containsKey: 1
 --- !u!61 &484496583
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14584,6 +14602,7 @@ MonoBehaviour:
   - {fileID: 2131942430}
   pauseButton: {fileID: 910417427}
   clueButton: {fileID: 587583385}
+  togglePuzzleGame: {fileID: 30265765}
 --- !u!1 &879338862
 GameObject:
   m_ObjectHideFlags: 0
@@ -14704,11 +14723,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 25.45
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.37
+      value: -0.69
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700632, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14766,7 +14785,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5941433258194700634, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
   m_PrefabInstance: {fileID: 883302375}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1742241888}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c49e15509de20fd46b832972e9fbb70f, type: 3}
@@ -28801,6 +28820,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740704664}
   m_CullTransparentMesh: 1
+--- !u!1 &1742241888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5941433258194700639, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
+  m_PrefabInstance: {fileID: 883302375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1742241892
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742241888}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1742874093
 GameObject:
   m_ObjectHideFlags: 0

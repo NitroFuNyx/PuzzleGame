@@ -36,6 +36,7 @@ public class PuzzleGameUI : MainCanvasPanel
     [Space]
     [SerializeField] private PauseButton pauseButton;
     [SerializeField] private ClueButton clueButton;
+    [SerializeField] private TogglePuzzleGame togglePuzzleGame;
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
     private TimersManager _timersManager;
@@ -45,6 +46,7 @@ public class PuzzleGameUI : MainCanvasPanel
     private PuzzleGameKitchenItems newItemType;
 
     public PuzzleGameInventoryPanel InventoryPanel { get => inventoryPanel; }
+    public TogglePuzzleGame TogglePuzzleGame { get => togglePuzzleGame; }
 
     #region Events Declaration
     public event Action OnMixerGameFinished;

@@ -37,6 +37,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
         }
+        if (miniGameButton)
+        {
+            miniGameButton.SetButtonActivation(false);
+        }
     }
 
     private void OnDestroy()
@@ -68,14 +72,14 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             }
             if(miniGameButton)
             {
-                miniGameButton.gameObject.SetActive(false);
+                //miniGameButton.gameObject.SetActive(false);
+                miniGameButton.SetButtonActivation(false);
             }
         }
         else
         {
             if(containsKey)
             {
-                //containsKey = false;
                 key.gameObject.SetActive(true);
             }
             if(doorAdditionalItem)
@@ -84,7 +88,8 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             }
             if(miniGameButton)
             {
-                miniGameButton.gameObject.SetActive(true);
+                //miniGameButton.gameObject.SetActive(true);
+                miniGameButton.SetButtonActivation(true);
             }
             door.sprite = openDoorSprite;
         }
@@ -109,11 +114,6 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if (key != null)
         {
             key.gameObject.SetActive(false);
-        }
-        yield return new WaitForSeconds(1f);
-        if (miniGameButton)
-        {
-            miniGameButton.gameObject.SetActive(false);
         }
     }
 }

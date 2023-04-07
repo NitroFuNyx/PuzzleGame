@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 using Zenject;
 
 public class TogglePuzzleGame : MonoBehaviour
@@ -11,6 +12,10 @@ public class TogglePuzzleGame : MonoBehaviour
 
     private CameraManager _cameraManager;
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
+
+    #region Events Declaration
+    public event Action OnCharacterAnimationFinished;
+    #endregion Events Declaration
 
     #region Zenject
     [Inject]
@@ -24,7 +29,6 @@ public class TogglePuzzleGame : MonoBehaviour
     
     private void Start()
     {
-        
         redButton.onValueChanged.AddListener(delegate {
             ForbidToggling(redButton);
         });
@@ -47,7 +51,7 @@ public class TogglePuzzleGame : MonoBehaviour
 
         }
     }
-
+     
     private IEnumerator SpawnAMan()
     {
         yield return new WaitForSeconds(1f);
@@ -58,5 +62,6 @@ public class TogglePuzzleGame : MonoBehaviour
         ded.SetTrigger("Appear");
         yield return new WaitForSeconds(3.5f);
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
+        OnCharacterAnimationFinished?.Invoke();
     }
 }
