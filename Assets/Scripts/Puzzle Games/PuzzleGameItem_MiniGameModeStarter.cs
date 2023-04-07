@@ -71,7 +71,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
 
     public void Interact()
     {
-        if(containsKey)
+        if(containsKey && !key.gameObject.activeInHierarchy)
         {
             if (gameType == PuzzleGameKitchenMiniGames.PopIt || gameType == PuzzleGameKitchenMiniGames.Bookshelf || gameType == PuzzleGameKitchenMiniGames.Mixer)
             {
