@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using DG.Tweening;
 using TMPro;
 using Zenject;
 
@@ -157,7 +158,7 @@ public class PuzzleGameUI : MainCanvasPanel
         {
             if(minigamesPanelsList[i].GameType == PuzzleGameKitchenMiniGames.Mixer)
             {
-                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel);
+                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel, Ease.OutExpo);
                 break;
             }
         }
@@ -171,7 +172,7 @@ public class PuzzleGameUI : MainCanvasPanel
         {
             if (minigamesPanelsList[i].GameType == PuzzleGameKitchenMiniGames.Bookshelf)
             {
-                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel);
+                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel, Ease.InBack);
                 break;
             }
         }
@@ -185,7 +186,7 @@ public class PuzzleGameUI : MainCanvasPanel
         {
             if (minigamesPanelsList[i].GameType == PuzzleGameKitchenMiniGames.PopIt)
             {
-                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel);
+                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel, Ease.InBack);
                 break;
             }
         }

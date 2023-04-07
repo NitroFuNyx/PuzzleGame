@@ -55,9 +55,9 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
         }
     }
 
-    public void ScaleToMinSize(Action OnComplete)
+    public void ScaleToMinSize(Action OnComplete, Ease easeFunction)
     {
-        panelMainImage.DOScale(minScaleVector, scaleDuration).SetEase(Ease.InBack).OnComplete(() =>
+        panelMainImage.DOScale(minScaleVector, scaleDuration).SetEase(easeFunction).OnComplete(() =>
         {
             OnComplete?.Invoke();
         });
