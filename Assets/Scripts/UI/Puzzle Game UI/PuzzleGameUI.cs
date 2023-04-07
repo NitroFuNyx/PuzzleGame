@@ -38,6 +38,7 @@ public class PuzzleGameUI : MainCanvasPanel
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
     private TimersManager _timersManager;
+    private PopItGameStateManager _popItGameStateManager;
 
     private Sprite newItemSprite;
     private PuzzleGameKitchenItems newItemType;
@@ -47,6 +48,7 @@ public class PuzzleGameUI : MainCanvasPanel
     #region Events Declaration
     public event Action OnMixerGameFinished;
     public event Action OnBookshelfGameFinished;
+    public event Action OnPopItGameFinished;
     #endregion Events Declaration
 
     private void Start()
@@ -57,10 +59,11 @@ public class PuzzleGameUI : MainCanvasPanel
 
     #region Zenject
     [Inject]
-    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, TimersManager timersManager)
+    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, TimersManager timersManager, PopItGameStateManager popItGameStateManager)
     {
         _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
         _timersManager = timersManager;
+        _popItGameStateManager = popItGameStateManager;
     }
     #endregion Zenject
 
@@ -123,6 +126,10 @@ public class PuzzleGameUI : MainCanvasPanel
                 {
                     minigamesPanelsList[i].StartBookshelfGame(BookshelfGameFinished_ExecuteReaction);
                 }
+                else if (gameType == PuzzleGameKitchenMiniGames.PopIt)
+                {
+                    minigamesPanelsList[i].StartPopItGame(PopItGameFinished_ExecuteReaction);
+                }
             }
         }
     }
@@ -154,6 +161,13 @@ public class PuzzleGameUI : MainCanvasPanel
     {
         ShowMainModePanel();
         OnBookshelfGameFinished?.Invoke();
+    }
+
+    private void PopItGameFinished_ExecuteReaction()
+    {
+        Debug.Log($"Pop it");
+        ShowMainModePanel();
+        OnPopItGameFinished?.Invoke();
     }
 
     private void HideMiniGamesPanels()

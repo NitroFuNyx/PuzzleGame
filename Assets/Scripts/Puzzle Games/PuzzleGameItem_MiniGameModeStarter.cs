@@ -36,7 +36,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
         }
-        _popItGameStateManager.OnGameFinished += PopItGameFinished_ExecuteReaction;
+        _puzzleGameUI.OnPopItGameFinished += PopItGameFinished_ExecuteReaction;
         _puzzleGameUI.OnMixerGameFinished += MixerGameFinished_ExecuteReaction;
         _puzzleGameUI.OnBookshelfGameFinished += BookshelfGameFinished_ExecuteReaction;
         StartCoroutine(SetStartSettingsCoroutine());
@@ -52,7 +52,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
         }
-        _popItGameStateManager.OnGameFinished -= PopItGameFinished_ExecuteReaction;
+        _puzzleGameUI.OnPopItGameFinished -= PopItGameFinished_ExecuteReaction;
         _puzzleGameUI.OnMixerGameFinished -= MixerGameFinished_ExecuteReaction;
         _puzzleGameUI.OnBookshelfGameFinished -= BookshelfGameFinished_ExecuteReaction;
     }

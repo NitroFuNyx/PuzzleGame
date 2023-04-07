@@ -12,9 +12,7 @@ public class PopItGameStateManager : MonoBehaviour
 
     public bool Finished { get => finished; private set => finished = value; }
 
-    #region Events Declaration
-    public event Action OnGameFinished;
-    #endregion Events Declaration
+    private Action OnGameFinished;
 
     private void Start()
     {
@@ -23,6 +21,11 @@ public class PopItGameStateManager : MonoBehaviour
             buttonsList[i].CashComponents(this);
         }
     }
+
+    public void StartGame(Action OnGameComplete)
+    {
+        OnGameFinished = OnGameComplete;
+    }    
 
     public void CheckButtonsState()
     {
