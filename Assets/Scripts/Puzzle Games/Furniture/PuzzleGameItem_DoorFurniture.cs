@@ -15,12 +15,17 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
     [Space]
     [SerializeField] private GameObject doorAdditionalItem;
     [SerializeField] private PuzzleButton miniGameButton;
+    [SerializeField] private PuzzleGameItem_MiniGameModeStarter miniGameModeStarter;
 
     private bool isOpen = false;
 
     private void Awake()
     {
         StartCoroutine(SetStartSettingsCoroutine());
+        if(miniGameModeStarter)
+        {
+            miniGameModeStarter.ChangeItemActivation(false);
+        }
     }
 
     private void Start()
@@ -75,6 +80,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
                 //miniGameButton.gameObject.SetActive(false);
                 miniGameButton.SetButtonActivation(false);
             }
+            if (miniGameModeStarter)
+            {
+                miniGameModeStarter.ChangeItemActivation(false);
+            }
         }
         else
         {
@@ -91,6 +100,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
                 //miniGameButton.gameObject.SetActive(true);
                 miniGameButton.SetButtonActivation(true);
             }
+            if (miniGameModeStarter)
+            {
+                miniGameModeStarter.ChangeItemActivation(true);
+            }
             door.sprite = openDoorSprite;
         }
     }
@@ -98,6 +111,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
     public override void KeyCollected_ExecuteReaction()
     {
         containsKey = false;
+        if (miniGameModeStarter && containsKey)
+        {
+            miniGameModeStarter.ChangeItemActivation(false);
+        }
     }
 
     public override void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
@@ -105,6 +122,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if(key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
             containsKey = false;
+            if (miniGameModeStarter && containsKey)
+            {
+                miniGameModeStarter.ChangeItemActivation(false);
+            }
         }
     }
 

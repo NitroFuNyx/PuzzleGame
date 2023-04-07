@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 828517238}
   - component: {fileID: 56552943}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Safe Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1633,7 +1633,8 @@ MonoBehaviour:
   mixerButton: {fileID: 0}
   puzzleKitchenBooksPositionsManager: {fileID: 0}
   popItGameStateManager: {fileID: 0}
-  panelMainImage: {fileID: 0}
+  safeButtonsHandler: {fileID: 56552943}
+  panelMainImage: {fileID: 828517237}
   minScaleVector: {x: 0.001, y: 0.001, z: 0.001}
   scaleDuration: 1
 --- !u!1 &4229676928520888148

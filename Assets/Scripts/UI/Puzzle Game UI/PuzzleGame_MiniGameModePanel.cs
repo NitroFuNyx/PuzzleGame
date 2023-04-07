@@ -12,6 +12,7 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
     [SerializeField] private MixerButton mixerButton;
     [SerializeField] private PuzzleKitchenBooksPositionsManager puzzleKitchenBooksPositionsManager;
     [SerializeField] private PopItGameStateManager popItGameStateManager;
+    [SerializeField] private SafeButtonsHandler safeButtonsHandler;
     [Header("Scale Object")]
     [Space]
     [SerializeField] private Transform panelMainImage;
@@ -52,6 +53,15 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
         {
             ScaleToStandartSize();
             popItGameStateManager.StartGame(OnPopItGameComplete);
+        }
+    }
+
+    public void StartOpenSafeGame(Action OnOpenSafeGameComplete)
+    {
+        if (safeButtonsHandler)
+        {
+            ScaleToStandartSize();
+            safeButtonsHandler.StartGame(OnOpenSafeGameComplete);
         }
     }
 

@@ -10,12 +10,16 @@ public class SafeButtonsHandler : MonoBehaviour
 {
     [SerializeField] private List<SafeButton> numButtons;
     [SerializeField] private TextMeshProUGUI safeString;
+    
     private PuzzleGameUI _puzzleGameUI;
+
+    public Action _OnGameFinished;
 
     private void Start()
     {
         StartCoroutine(LateStart());
     }
+
     #region Zenject
     [Inject]
     private void Construct(PuzzleGameUI puzzleGameUI)
@@ -23,6 +27,7 @@ public class SafeButtonsHandler : MonoBehaviour
         _puzzleGameUI = puzzleGameUI;
     }
     #endregion Zenject
+
     public IEnumerator LateStart()
     {
         yield return new WaitForSeconds(.5f);
@@ -43,28 +48,31 @@ public class SafeButtonsHandler : MonoBehaviour
         {
             if (safeString.text == "631128")// Successfully written code
             {
-                
                 StartCoroutine(ClosingSafeUi());
             }
             else// Wrong written code
             {
                 StartCoroutine(DeletingText());
-
             }
         }
+    }
+
+    public void StartGame(Action OnGameFinished)
+    {
+        _OnGameFinished = OnGameFinished;
     }
 
     public IEnumerator ClosingSafeUi()
     {
         yield return new WaitForSeconds(0.75f);
-        _puzzleGameUI.ShowMainModePanel();
-
+        _OnGameFinished?.Invoke();
+        //_puzzleGameUI.ShowMainModePanel();
     }
+
     public IEnumerator DeletingText()
     {
         yield return new WaitForSeconds(0.75f);
         safeString.text = "";
-
     }
 
 }

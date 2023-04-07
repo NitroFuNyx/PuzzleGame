@@ -53,6 +53,7 @@ public class PuzzleGameUI : MainCanvasPanel
     public event Action OnMixerGameFinished;
     public event Action OnBookshelfGameFinished;
     public event Action OnPopItGameFinished;
+    public event Action OnOpenSafeGameFinished;
     #endregion Events Declaration
 
     private void Start()
@@ -134,6 +135,10 @@ public class PuzzleGameUI : MainCanvasPanel
                 {
                     minigamesPanelsList[i].StartPopItGame(PopItGameFinished_ExecuteReaction);
                 }
+                else if (gameType == PuzzleGameKitchenMiniGames.Safe)
+                {
+                    minigamesPanelsList[i].StartOpenSafeGame(OpenSafeGameFinished_ExecuteReaction);
+                }
             }
         }
     }
@@ -165,7 +170,6 @@ public class PuzzleGameUI : MainCanvasPanel
                 break;
             }
         }
-        //ShowMainModePanel();
         OnMixerGameFinished?.Invoke();
     }
 
@@ -179,7 +183,6 @@ public class PuzzleGameUI : MainCanvasPanel
                 break;
             }
         }
-        //ShowMainModePanel();
         OnBookshelfGameFinished?.Invoke();
     }
 
@@ -193,8 +196,20 @@ public class PuzzleGameUI : MainCanvasPanel
                 break;
             }
         }
-        //ShowMainModePanel();
         OnPopItGameFinished?.Invoke();
+    }
+
+    private void OpenSafeGameFinished_ExecuteReaction()
+    {
+        for (int i = 0; i < minigamesPanelsList.Count; i++)
+        {
+            if (minigamesPanelsList[i].GameType == PuzzleGameKitchenMiniGames.Safe)
+            {
+                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel, Ease.InBack);
+                break;
+            }
+        }
+        OnOpenSafeGameFinished?.Invoke();
     }
 
     private void HideMiniGamesPanels()
@@ -209,16 +224,12 @@ public class PuzzleGameUI : MainCanvasPanel
 
     private void ShowAdditionalButtons()
     {
-        //pauseButton.ShowButton();
-        //clueButton.ShowButton();
         pauseButton.gameObject.SetActive(true);
         clueButton.gameObject.SetActive(true);
     }
 
     private void HideAdditionalButtons()
     {
-        //pauseButton.HideButton();
-        //clueButton.HideButton();
         pauseButton.gameObject.SetActive(false);
         clueButton.gameObject.SetActive(false);
     }

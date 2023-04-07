@@ -20,7 +20,17 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
 
     private float cameraMoveTowardsObjectDuration = 1f;
 
+    private BoxCollider2D _collider;
+
     protected bool containsKey = true;
+
+    private void Awake()
+    {
+        if(TryGetComponent(out BoxCollider2D boxCollider2D))
+        {
+            _collider = boxCollider2D;
+        }
+    }
 
     private void Start()
     {
@@ -39,6 +49,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         _puzzleGameUI.OnPopItGameFinished += PopItGameFinished_ExecuteReaction;
         _puzzleGameUI.OnMixerGameFinished += MixerGameFinished_ExecuteReaction;
         _puzzleGameUI.OnBookshelfGameFinished += BookshelfGameFinished_ExecuteReaction;
+        _puzzleGameUI.OnOpenSafeGameFinished += OpenSafeGameFinished_ExecuteReaction;
         StartCoroutine(SetStartSettingsCoroutine());
     }
 
@@ -55,6 +66,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         _puzzleGameUI.OnPopItGameFinished -= PopItGameFinished_ExecuteReaction;
         _puzzleGameUI.OnMixerGameFinished -= MixerGameFinished_ExecuteReaction;
         _puzzleGameUI.OnBookshelfGameFinished -= BookshelfGameFinished_ExecuteReaction;
+        _puzzleGameUI.OnOpenSafeGameFinished -= OpenSafeGameFinished_ExecuteReaction;
     }
 
     #region Zenject
@@ -73,7 +85,8 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
     {
         if(containsKey && !key.gameObject.activeInHierarchy)
         {
-            if (gameType == PuzzleGameKitchenMiniGames.PopIt || gameType == PuzzleGameKitchenMiniGames.Bookshelf || gameType == PuzzleGameKitchenMiniGames.Mixer)
+            if (gameType == PuzzleGameKitchenMiniGames.PopIt || gameType == PuzzleGameKitchenMiniGames.Bookshelf || gameType == PuzzleGameKitchenMiniGames.Mixer
+                || gameType == PuzzleGameKitchenMiniGames.Safe)
             {
                 _cameraManager.CameraMoveTo(transform, cameraMoveTowardsObjectDuration, ShowMiniGame);
             }
@@ -81,15 +94,6 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
             {
                 ShowMiniGame();
             }
-            //_puzzleGameUI.ShowMiniGamePanel(gameType);
-
-            //if(gameType == PuzzleGameKitchenMiniGames.Window)
-            //{
-            //    if(TryGetComponent(out PuzzleWindowItem puzzleWindowItem))
-            //    {
-            //        puzzleWindowItem.WindowInteraction_ExecuteReaction();
-            //    }
-            //}
         }
     }
 
@@ -100,6 +104,14 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
             key.gameObject.SetActive(true);
             key.ChangeKeySimulattionState(true);
         }    
+    }
+
+    public void ChangeItemActivation(bool isActive)
+    {
+        if(_collider)
+        {
+            _collider.enabled = isActive;
+        }
     }
 
     private void KeyCollected_ExecuteReaction()
@@ -122,7 +134,6 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
         if (gameType == PuzzleGameKitchenMiniGames.PopIt)
         {
-            //key.gameObject.SetActive(true);
             ShowKey();
         }
     }
@@ -132,7 +143,6 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
         if (gameType == PuzzleGameKitchenMiniGames.Mixer)
         {
-            //key.gameObject.SetActive(true);
             ShowKey();
         }
     }
@@ -142,7 +152,15 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
         if (gameType == PuzzleGameKitchenMiniGames.Bookshelf)
         {
-            //key.gameObject.SetActive(true);
+            ShowKey();
+        }
+    }
+
+    private void OpenSafeGameFinished_ExecuteReaction()
+    {
+        _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
+        if (gameType == PuzzleGameKitchenMiniGames.Safe)
+        {
             ShowKey();
         }
     }
