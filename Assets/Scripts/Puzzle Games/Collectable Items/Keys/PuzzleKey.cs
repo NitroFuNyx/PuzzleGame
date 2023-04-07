@@ -28,6 +28,8 @@ public class PuzzleKey : PuzzleCollectableItem
 
     private SpriteRenderer spriteRenderer;
 
+    private Rigidbody2D rb;
+
     private bool collected = false;
 
     public int KeyIndex { get => keyIndex; private set => keyIndex = value; }
@@ -41,6 +43,12 @@ public class PuzzleKey : PuzzleCollectableItem
         spriteRenderer = GetComponent<SpriteRenderer>();
         keyIndex = (int)Item;
         SetKeySprite();
+
+        if(TryGetComponent(out Rigidbody2D rigidbody2D))
+        {
+            rb = rigidbody2D;
+            rb.simulated = false;
+        }
     }
 
     #region Zenject
@@ -63,9 +71,21 @@ public class PuzzleKey : PuzzleCollectableItem
         }
     }
 
+    public void ChangeKeySimulattionState(bool isSimulated)
+    {
+        if(rb)
+        {
+            rb.simulated = isSimulated;
+        }
+    }
+
     private void MoveToInventory()
     {
         Vector3 startPos = transform.position;
+        if(rb)
+        {
+            rb.simulated = false;
+        }
         transform.DOJump(startPos, jumpPower, 1, jumpDuration);
         transform.DOPunchRotation(rotationPunchVector, punchDuration, punchFreequency).OnComplete(() =>
         {

@@ -85,6 +85,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
         if (key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
             containsKey = false;
+            key.ChangeKeySimulattionState(false);
         }
     }
 
@@ -92,6 +93,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
     {
         yield return new WaitForSeconds(1.5f);
         key.gameObject.SetActive(false);
+        key.ChangeKeySimulattionState(false);
     }
 
     public void Interact()
@@ -101,6 +103,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
             if(_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == PuzzleGameKitchenItems.ColaStraw)
             {
                 key.gameObject.SetActive(true);
+                key.ChangeKeySimulattionState(true);
                 _puzzleGameUI.InventoryPanel.ItemUsed_ExecuteReaction();
             }
         }

@@ -57,6 +57,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
             if(leftPainting.IsInCorrectPos && middlePainting.IsInCorrectPos)
             {
                 key.gameObject.SetActive(true);
+                key.ChangeKeySimulattionState(true);
             }
         }
     }
@@ -64,6 +65,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
     private void KeyCollected_ExecuteReaction()
     {
         containsKey = false;
+        key.ChangeKeySimulattionState(false);
     }
 
     private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
@@ -71,6 +73,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
         if (key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
             containsKey = false;
+            key.ChangeKeySimulattionState(false);
         }
     }
 

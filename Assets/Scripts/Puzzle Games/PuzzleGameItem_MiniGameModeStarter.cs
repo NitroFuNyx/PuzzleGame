@@ -98,12 +98,14 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         if(containsKey)
         {
             key.gameObject.SetActive(true);
+            key.ChangeKeySimulattionState(true);
         }    
     }
 
     private void KeyCollected_ExecuteReaction()
     {
         containsKey = false;
+        key.ChangeKeySimulattionState(false);
     }
 
     private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
@@ -111,6 +113,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         if (key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
             containsKey = false;
+            key.ChangeKeySimulattionState(false);
         }
     }
 
@@ -119,7 +122,8 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
         if (gameType == PuzzleGameKitchenMiniGames.PopIt)
         {
-            key.gameObject.SetActive(true);
+            //key.gameObject.SetActive(true);
+            ShowKey();
         }
     }
 
@@ -128,7 +132,8 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
         if (gameType == PuzzleGameKitchenMiniGames.Mixer)
         {
-            key.gameObject.SetActive(true);
+            //key.gameObject.SetActive(true);
+            ShowKey();
         }
     }
 
@@ -137,7 +142,8 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
         if (gameType == PuzzleGameKitchenMiniGames.Bookshelf)
         {
-            key.gameObject.SetActive(true);
+            //key.gameObject.SetActive(true);
+            ShowKey();
         }
     }
 
