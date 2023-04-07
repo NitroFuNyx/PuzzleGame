@@ -16,6 +16,8 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
 
     private Action OnGameComplete;
 
+    private float hidePanelDelay = 0.5f;
+
     public bool CanCheckBooksInput { get => canCheckBooksInput; private set => canCheckBooksInput = value; }
 
     public void StartGame(Action OnBookshelfGameComplete)
@@ -29,11 +31,13 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
         if (firstSelectedBook == null)
         {
             firstSelectedBook = book;
+            firstSelectedBook.ScaleToMax();
         }
         else
         {
-            if(book.CurrentShelf != firstSelectedBook.CurrentShelf)
+            //if(book.CurrentShelf != firstSelectedBook.CurrentShelf)
             secondSelectedBook = book;
+            secondSelectedBook.ScaleToMax();
         }
 
         if (firstSelectedBook && secondSelectedBook)
@@ -41,7 +45,7 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
             canCheckBooksInput = false;
 
             Vector3 firstBookStartPos = firstSelectedBook.transform.localPosition;
-            Vector3 secondBookStartPos = firstSelectedBook.transform.localPosition;
+            Vector3 secondBookStartPos = secondSelectedBook.transform.localPosition;
 
             firstSelectedBook.transform.SetParent(secondSelectedBook.CurrentShelf.transform);
             secondSelectedBook.transform.SetParent(firstSelectedBook.CurrentShelf.transform);
@@ -54,17 +58,7 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
                 booksShelvesList[i].UpdateBooksData();
             }
 
-            if (CheckShelvesState())
-            {
-                // win
-                Debug.Log($"Win");
-            }
-            else
-            {
-                firstSelectedBook = null;
-                secondSelectedBook = null;
-                canCheckBooksInput = true;
-            }
+            StartCoroutine(CheckBookShelvesResultsCoroutine());
         }
     }
 
@@ -82,5 +76,31 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
         }
 
         return allShelvesBooksAreCorrect;
+    }
+
+    private IEnumerator CheckBookShelvesResultsCoroutine()
+    {
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+
+        if (CheckShelvesState())
+        {
+            firstSelectedBook.ScaleToStandart();
+            secondSelectedBook.ScaleToStandart();
+            canCheckBooksInput = false;
+            yield return new WaitForSeconds(hidePanelDelay);
+            OnGameComplete?.Invoke();
+        }
+        else
+        {
+            firstSelectedBook.ScaleToStandart();
+            secondSelectedBook.ScaleToStandart();
+
+            firstSelectedBook = null;
+            secondSelectedBook = null;
+            canCheckBooksInput = true;
+        }
     }
 }

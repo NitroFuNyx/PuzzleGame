@@ -32,7 +32,6 @@ RectTransform:
   - {fileID: 5958861391586619155}
   - {fileID: 4236581259823066162}
   - {fileID: 4236581259366214352}
-  - {fileID: 1616142938}
   m_Father: {fileID: 5958861390586668797}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -91,7 +90,6 @@ RectTransform:
   - {fileID: 4236581260424522596}
   - {fileID: 4236581259809329818}
   - {fileID: 4236581260663524980}
-  - {fileID: 2012681548}
   m_Father: {fileID: 5958861390586668797}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,7 +148,6 @@ RectTransform:
   - {fileID: 4236581261385383922}
   - {fileID: 4236581260127307502}
   - {fileID: 4236581260813194389}
-  - {fileID: 2118298341}
   m_Father: {fileID: 5958861390586668797}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -203,17 +200,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616142937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 138359081}
-  m_RootOrder: 3
+  m_Father: {fileID: 5958861390586668797}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 189.7, y: -22}
+  m_AnchoredPosition: {x: 189.7, y: 252}
   m_SizeDelta: {x: 75.2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1616142941
@@ -294,17 +291,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012681547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 956563277}
-  m_RootOrder: 3
+  m_Father: {fileID: 5958861390586668797}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 189.7, y: -22}
+  m_AnchoredPosition: {x: 189.7, y: -158}
   m_SizeDelta: {x: 75.2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2012681551
@@ -385,17 +382,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118298340}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1237279458}
-  m_RootOrder: 3
+  m_Father: {fileID: 5958861390586668797}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 189.7, y: -22}
+  m_AnchoredPosition: {x: 189.7, y: 37.099976}
   m_SizeDelta: {x: 75.2, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2118298344
@@ -544,6 +541,9 @@ RectTransform:
   - {fileID: 138359081}
   - {fileID: 1237279458}
   - {fileID: 956563277}
+  - {fileID: 1616142938}
+  - {fileID: 2118298341}
+  - {fileID: 2012681548}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -798,15 +798,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.2, g: 0.2, b: 0.2, a: 0.6666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -915,7 +915,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Green Book Button
+      value: Green Book Button 1
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -983,11 +983,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -107.7
+      value: -120.52667
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1036,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Blue Book Button
+      value: Blue Book Button 1
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -1104,11 +1104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -107.7
+      value: -120.52667
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1157,7 +1157,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Blue Book Button
+      value: Blue Book Button 2
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -1225,11 +1225,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 106.5
+      value: 120.32663
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1274,7 +1274,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Yellow Book Button (2)
+      value: Yellow Book Button 2
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -1342,11 +1342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 106.5
+      value: 120.32663
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1395,7 +1395,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Blue Book Button
+      value: Blue Book Button 3
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -1463,11 +1463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -107.7
+      value: -120.52667
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1516,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Yellow Book Button
+      value: Yellow Book Button 3
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -1584,11 +1584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 106.5
+      value: 120.32663
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1601,6 +1601,10 @@ PrefabInstance:
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9486897efbb266646af8f7c111814136, type: 3}
@@ -1629,7 +1633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Green Book Button (1)
+      value: Green Book Button 3
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -1697,11 +1701,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.8
+      value: -0.10002136
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1742,7 +1746,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Green Book Button (1)
+      value: Green Book Button 2
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -1810,11 +1814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.8
+      value: -0.10002136
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1863,7 +1867,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
-      value: Yellow Book Button
+      value: Yellow Book Button 1
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Pivot.x
@@ -1931,11 +1935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.8
+      value: -0.10002136
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -17.9
+      value: -18.850006
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804287, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -2213,17 +2213,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &138359082 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 138359082, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-  m_PrefabInstance: {fileID: 5958861391315700045}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7399409a301c5834ba8c54e37b3cb71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &139347720
 GameObject:
   m_ObjectHideFlags: 0
@@ -16631,17 +16620,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955237564}
   m_CullTransparentMesh: 1
---- !u!114 &956563278 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 956563278, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-  m_PrefabInstance: {fileID: 5958861391315700045}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7399409a301c5834ba8c54e37b3cb71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &957761225
 GameObject:
   m_ObjectHideFlags: 0
@@ -20934,17 +20912,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1237279459 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1237279459, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-  m_PrefabInstance: {fileID: 5958861391315700045}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7399409a301c5834ba8c54e37b3cb71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1244913735
 GameObject:
   m_ObjectHideFlags: 0
@@ -38037,6 +38004,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875228248}
     m_Modifications:
+    - target: {fileID: 956563278, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
+      propertyPath: shelfBooksbookType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237279459, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
+      propertyPath: shelfBooksbookType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1616142938, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -38049,18 +38024,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1249885232326480465, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: m_Name
-      value: Books Positions Manager
+    - target: {fileID: 3251622752056256574, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
+      propertyPath: bookType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5958861390586668770, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_Name
       value: Book Shelf Mode Panel
       objectReference: {fileID: 0}
-    - target: {fileID: 5958861390586668796, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: puzzleKitchenBooksPositionsManager
-      value: 
-      objectReference: {fileID: 5958861391315700047}
     - target: {fileID: 5958861390586668797, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -38155,30 +38126,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
---- !u!1 &5958861391315700046 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1249885232326480465, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
+--- !u!114 &5958861391315700047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5958861391315700047, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
   m_PrefabInstance: {fileID: 5958861391315700045}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5958861391315700047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5958861391315700046}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3f5e66eda4d91d41a8c6bd15f04233c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  booksShelvesList:
-  - {fileID: 138359082}
-  - {fileID: 1237279459}
-  - {fileID: 956563278}
-  firstSelectedBook: {fileID: 0}
-  secondSelectedBook: {fileID: 0}
-  canCheckBooksInput: 0
 --- !u!1001 &6311008079406867247
 PrefabInstance:
   m_ObjectHideFlags: 0

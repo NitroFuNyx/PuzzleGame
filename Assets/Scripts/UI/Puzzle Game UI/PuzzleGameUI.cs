@@ -46,6 +46,7 @@ public class PuzzleGameUI : MainCanvasPanel
 
     #region Events Declaration
     public event Action OnMixerGameFinished;
+    public event Action OnBookshelfGameFinished;
     #endregion Events Declaration
 
     private void Start()
@@ -152,6 +153,7 @@ public class PuzzleGameUI : MainCanvasPanel
     private void BookshelfGameFinished_ExecuteReaction()
     {
         ShowMainModePanel();
+        OnBookshelfGameFinished?.Invoke();
     }
 
     private void HideMiniGamesPanels()

@@ -25,13 +25,12 @@ public class PuzzleKitchenBookShelf : MonoBehaviour
 
     public void UpdateBooksData()
     {
-        UpdateBooksList();
+        StartCoroutine(CheckBooksCoroutine());
     }
 
     private void UpdateBooksList()
     {
         booksAtShelfList.Clear();
-
         for (int i = 0; i < transform.childCount; i++)
         {
             if(transform.GetChild(i).TryGetComponent(out PuzzleKitchenBook book))
@@ -41,14 +40,15 @@ public class PuzzleKitchenBookShelf : MonoBehaviour
             }
         }
 
-        CheckBooksType();
+        StartCoroutine(CheckRearrangedBooksCoroutine());
+        //CheckBooksType();
     }
 
     private void CheckBooksType()
     {
         allBooksInShelfAreCorrect = true;
 
-        for(int i = 0; i < booksAtShelfList.Count; i++)
+        for (int i = 0; i < booksAtShelfList.Count; i++)
         {
             if (booksAtShelfList[i].BookType != shelfBooksbookType)
             {
@@ -56,5 +56,17 @@ public class PuzzleKitchenBookShelf : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private IEnumerator CheckBooksCoroutine()
+    {
+        yield return null;
+        UpdateBooksList();
+    }
+
+    private IEnumerator CheckRearrangedBooksCoroutine()
+    {
+        yield return null;
+        CheckBooksType();
     }
 }
