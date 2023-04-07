@@ -153,20 +153,43 @@ public class PuzzleGameUI : MainCanvasPanel
 
     private void MixerGameFinished_ExecuteReaction()
     {
-        ShowMainModePanel();
+        for(int i = 0; i < minigamesPanelsList.Count; i++)
+        {
+            if(minigamesPanelsList[i].GameType == PuzzleGameKitchenMiniGames.Mixer)
+            {
+                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel);
+                break;
+            }
+        }
+        //ShowMainModePanel();
         OnMixerGameFinished?.Invoke();
     }
 
     private void BookshelfGameFinished_ExecuteReaction()
     {
-        ShowMainModePanel();
+        for (int i = 0; i < minigamesPanelsList.Count; i++)
+        {
+            if (minigamesPanelsList[i].GameType == PuzzleGameKitchenMiniGames.Bookshelf)
+            {
+                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel);
+                break;
+            }
+        }
+        //ShowMainModePanel();
         OnBookshelfGameFinished?.Invoke();
     }
 
     private void PopItGameFinished_ExecuteReaction()
     {
-        Debug.Log($"Pop it");
-        ShowMainModePanel();
+        for (int i = 0; i < minigamesPanelsList.Count; i++)
+        {
+            if (minigamesPanelsList[i].GameType == PuzzleGameKitchenMiniGames.PopIt)
+            {
+                minigamesPanelsList[i].ScaleToMinSize(ShowMainModePanel);
+                break;
+            }
+        }
+        //ShowMainModePanel();
         OnPopItGameFinished?.Invoke();
     }
 

@@ -693,6 +693,9 @@ MonoBehaviour:
   mixerButton: {fileID: 0}
   puzzleKitchenBooksPositionsManager: {fileID: 0}
   popItGameStateManager: {fileID: 3618393165675850245}
+  panelMainImage: {fileID: 3618393166284084252}
+  minScaleVector: {x: 0.001, y: 0.001, z: 0.001}
+  scaleDuration: 1
 --- !u!1 &3618393165675850267
 GameObject:
   m_ObjectHideFlags: 0

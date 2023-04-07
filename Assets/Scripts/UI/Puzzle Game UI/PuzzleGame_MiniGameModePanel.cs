@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class PuzzleGame_MiniGameModePanel : PanelActivationManager
 {
@@ -11,13 +12,27 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
     [SerializeField] private MixerButton mixerButton;
     [SerializeField] private PuzzleKitchenBooksPositionsManager puzzleKitchenBooksPositionsManager;
     [SerializeField] private PopItGameStateManager popItGameStateManager;
+    [Header("Scale Object")]
+    [Space]
+    [SerializeField] private Transform panelMainImage;
+    [Header("Scale Data")]
+    [Space]
+    [SerializeField] private Vector3 minScaleVector = new Vector3(0.001f, 0.001f, 0.001f);
+    [SerializeField] private float scaleDuration = 1f;
 
     public PuzzleGameKitchenMiniGames GameType { get => gameType; }
+
+    private void Start()
+    {
+        if(panelMainImage)
+        panelMainImage.localScale = minScaleVector;
+    }
 
     public void StartMixerGame(Action OnMixerGameComplete)
     {
         if(mixerButton)
         {
+            ScaleToStandartSize();
             mixerButton.StartGame(OnMixerGameComplete);
         }
     }
@@ -26,6 +41,7 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
     {
         if (puzzleKitchenBooksPositionsManager)
         {
+            ScaleToStandartSize();
             puzzleKitchenBooksPositionsManager.StartGame(OnBookshelfGameComplete);
         }
     }
@@ -34,7 +50,21 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
     {
         if (popItGameStateManager)
         {
+            ScaleToStandartSize();
             popItGameStateManager.StartGame(OnPopItGameComplete);
         }
+    }
+
+    public void ScaleToMinSize(Action OnComplete)
+    {
+        panelMainImage.DOScale(minScaleVector, scaleDuration).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            OnComplete?.Invoke();
+        });
+    }
+
+    public void ScaleToStandartSize()
+    {
+        panelMainImage.DOScale(Vector3.one, scaleDuration).SetEase(Ease.OutBounce);
     }
 }
