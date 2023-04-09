@@ -47,7 +47,7 @@ public class PuzzleGameLevelData
     public int levelStateIndex;
     public int levelPrice;
     public float currentInGameTime;
-    public int bestFinishTime;
+    public float bestFinishTime;
     public List<int> unavailableCluesList;
     public List<int> itemsInInventoryList;
     public List<int> useditemsList;

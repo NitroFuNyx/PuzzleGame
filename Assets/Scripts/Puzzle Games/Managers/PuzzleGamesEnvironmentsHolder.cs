@@ -11,6 +11,7 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
     private PuzzleGameEnvironment currentlyActiveGame;
 
     public PuzzleGameEnvironment CurrentlyActiveGame { get => currentlyActiveGame; private set => currentlyActiveGame = value; }
+    public List<PuzzleGameEnvironment> GamesEnvironmentsList { get => gamesEnvironmentsList; }
 
     private void Start()
     {

@@ -45,4 +45,13 @@ public class PopItGameStateManager : MonoBehaviour
             OnGameFinished?.Invoke();
         }
     }
+
+    public void ResetGame()
+    {
+        finished = false;
+        for(int i = 0; i < buttonsList.Count; i++)
+        {
+            buttonsList[i].ResetButton();
+        }
+    }
 }

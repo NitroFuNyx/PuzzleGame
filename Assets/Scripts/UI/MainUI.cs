@@ -99,6 +99,7 @@ public class MainUI : MonoBehaviour
         if(_currentGameManager.CurrentGameType == GameLevelTypes.Puzzle)
         {
             ActivateMainCanvasPanel(UIPanels.SelectGameLevel_Puzzle);
+            puzzleGameUI.ShowMainModePanel();
         }
         else if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
         {

@@ -20,6 +20,9 @@ public class CameraManager : MonoBehaviour
 
     private float cameraSizeTreshold = 0.05f;
 
+    private bool cameraOnPos = false;
+    private bool cameraSizeIsCorrect = false;
+
     [Inject]
     private void InjectDependencies(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder)
     {
@@ -54,22 +57,37 @@ public class CameraManager : MonoBehaviour
 
     public void MoveCameraToWindow(Transform target, float time, Action OnCameraMovementComplete)
     {
+        StartCoroutine(CheckCameraCoroutine(OnCameraMovementComplete));
         Vector3 updatedTargetVector = new Vector3(target.position.x, target.position.y, mainCamera.transform.position.z);
         StartCoroutine(DecreaseCameraSize());
         mainCamera.transform.DOMove(updatedTargetVector, time).SetEase(Ease.InOutSine).OnComplete(() =>
         {
-            OnCameraMovementComplete?.Invoke();
+            cameraOnPos = true;
+            //OnCameraMovementComplete?.Invoke();
         });
     }
 
     public void ReturnCameraToStartPos(float time, Action OnCameraMovementComplete)
     {
+        StartCoroutine(CheckCameraCoroutine(OnCameraMovementComplete));
         Vector3 updatedTargetVector = new Vector3(mainCamera.transform.position.x, mainCameraStartPos.y, mainCamera.transform.position.z);
         StartCoroutine(IncreaseCameraSize());
         mainCamera.transform.DOMove(updatedTargetVector, time).SetEase(Ease.InOutSine).OnComplete(() =>
         {
-            OnCameraMovementComplete?.Invoke();
+            cameraOnPos = true;
+            //OnCameraMovementComplete?.Invoke();
         });
+    }
+
+    private IEnumerator CheckCameraCoroutine(Action OnCameraMovementComplete)
+    {
+        while(!cameraOnPos || !cameraSizeIsCorrect)
+        {
+            yield return null;
+        }
+        cameraOnPos = false;
+        cameraSizeIsCorrect = false;
+        OnCameraMovementComplete?.Invoke();
     }
 
     private IEnumerator DecreaseCameraSize()
@@ -81,6 +99,7 @@ public class CameraManager : MonoBehaviour
             mainCamera.orthographicSize -= changeAmount * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        cameraSizeIsCorrect = true;
     }
 
     private IEnumerator IncreaseCameraSize()
@@ -92,5 +111,6 @@ public class CameraManager : MonoBehaviour
             mainCamera.orthographicSize += changeAmount * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        cameraSizeIsCorrect = true;
     }
 }

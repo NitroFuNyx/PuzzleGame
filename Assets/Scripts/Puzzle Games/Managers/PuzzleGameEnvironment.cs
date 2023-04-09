@@ -26,6 +26,13 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [Header("Delays")]
     [Space]
     [SerializeField] private float finishGameDelay = 2f;
+    [Header("Items For Reset")]
+    [Space]
+    [SerializeField] private List<PuzzleGameItem_DoorFurniture> furnitureItemsList;
+    [SerializeField] private List<PuzzleKey> keysList;
+    [SerializeField] private PuzzleGamePaintingsHolder paintingsHolder;
+    [SerializeField] private PuzzleGameKitchenFlower flower;
+    [SerializeField] private PuzzleColaGlass colaGlass;
 
     private PuzzleGameUI _puzzleGameUI;
     private TimersManager _timersManager;
@@ -33,15 +40,16 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private DataPersistanceManager _dataPersistanceManager;
     private CameraManager _cameraManager;
 
-    //private float startStopwatchValue = 0f;
-
     private float currentStopWatchValue;
+
+    private bool gameFinished = false;
 
     public int EnvironmentIndex { get => environmentIndex; }
     public PuzzleCollectableItemsManager CollectableItemsManager { get => collectableItemsManager; }
     public PuzzleInputManager InputManager { get => inputManager; }
     public PuzzleCluesManager CluesManager { get => cluesManager; }
     public PuzzleLocksHolder LocksHolder { get => locksHolder; }
+    public bool GameFinished { get => gameFinished; private set => gameFinished = value; }
 
     #region Events Declaration
     public event Action OnLockOpened;
@@ -93,7 +101,6 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     {
         _cameraManager.SetCameraStartPos();
         _timersManager.StopStopwatch();
-
     }
 
     private void SubscribeOnEvents()
@@ -125,20 +132,38 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         List<int> collectedItemsIndexesList = new List<int>();
         List<int> usedItemsIndexesList = new List<int>();
 
-        for(int i = 0; i < collectableItemsManager.ItemsInInventoryList.Count; i++)
+        if(!gameFinished)
         {
-            collectedItemsIndexesList.Add((int)collectableItemsManager.ItemsInInventoryList[i]);
+            for (int i = 0; i < collectableItemsManager.ItemsInInventoryList.Count; i++)
+            {
+                collectedItemsIndexesList.Add((int)collectableItemsManager.ItemsInInventoryList[i]);
+            }
+
+            for (int i = 0; i < collectableItemsManager.UsedItemsList.Count; i++)
+            {
+                usedItemsIndexesList.Add((int)collectableItemsManager.UsedItemsList[i]);
+            }
+        }
+        else
+        {
+            collectableItemsManager.ResetData();
+
+            if(data.puzzleGameLevelsDataList[0].bestFinishTime == 0f)
+            {
+                data.puzzleGameLevelsDataList[0].bestFinishTime = currentStopWatchValue;
+            }
+            else if(currentStopWatchValue < data.puzzleGameLevelsDataList[0].bestFinishTime && data.puzzleGameLevelsDataList[0].bestFinishTime != 0f)
+            {
+                data.puzzleGameLevelsDataList[0].bestFinishTime = currentStopWatchValue;
+            }
+            currentStopWatchValue = 0f;
         }
 
-        for (int i = 0; i < collectableItemsManager.UsedItemsList.Count; i++)
-        {
-            usedItemsIndexesList.Add((int)collectableItemsManager.UsedItemsList[i]);
-        }
-
+        data.puzzleGameLevelsDataList[0].currentInGameTime = currentStopWatchValue;
         data.puzzleGameLevelsDataList[environmentIndex].itemsInInventoryList = collectedItemsIndexesList;
         data.puzzleGameLevelsDataList[environmentIndex].useditemsList = usedItemsIndexesList;
 
-        data.puzzleGameLevelsDataList[0].currentInGameTime = currentStopWatchValue;
+        //data.puzzleGameLevelsDataList[0].currentInGameTime = currentStopWatchValue;
     }
 
     public void CollectedItemsDataLoaded_ExecuteReaction()
@@ -152,16 +177,46 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [ContextMenu("Finish")]
     public void AllLocksOpened_ExecuteReaction()
     {
+        gameFinished = true;
         inputManager.ChangeCheckInputState(false);
         StartCoroutine(FinishGameCoroutine());
     }
 
+    public void FullResetEnvironment()
+    {
+        for(int i = 0; i < keyContainersList.Count; i++)
+        {
+            keyContainersList[i].ResetKeyData();
+        }
+
+        for(int i = 0; i < furnitureItemsList.Count; i++)
+        {
+            furnitureItemsList[i].ResetItem();
+        }
+
+        for(int i = 0; i < keysList.Count; i++)
+        {
+            keysList[i].ResetKey();
+        }
+
+        _puzzleGameUI.ResetMiniGamesUI();
+        paintingsHolder.ResetPaintings();
+        flower.ResetFlower();
+        colaGlass.ResetItem();
+        //_dataPersistanceManager.SaveGame();
+    }
+
     private void OnStopwatchStoped_ExecuteReaction(float stopwatchValue)
     {
-        Debug.Log($"Stopwatch {stopwatchValue}");
         currentStopWatchValue = stopwatchValue;
-        string timeInForm = $"{_timersManager.GetHoursAndMinutesAmount((int)currentStopWatchValue)}:{_timersManager.GetSecondsAmount((int)currentStopWatchValue)}";
-        _puzzleGameUI.GameFinishedPanel.GetComponent<PuzzleGameFinishedPanel>().SetFinishTimeText(timeInForm);
+
+        if (gameFinished)
+        {
+            string timeInForm = $"{_timersManager.GetHoursAndMinutesAmount((int)currentStopWatchValue)}:{_timersManager.GetSecondsAmount((int)currentStopWatchValue)}";
+            _puzzleGameUI.GameFinishedPanel.GetComponent<PuzzleGameFinishedPanel>().SetFinishTimeText(timeInForm);
+            FullResetEnvironment();
+        }
+
         _dataPersistanceManager.SaveGame();
     }
 
@@ -169,23 +224,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     {
         yield return null;
         _puzzleGameUI.StartStopwatchCount(currentStopWatchValue, OnStopwatchStoped_ExecuteReaction);
-        //float currentCounterValue = startGameDelay;
-        //yield return new WaitForSeconds(startGameCoroutineDelay);
-
-        //while (currentCounterValue > 0)
-        //{
-        //    _miniGameUI.UpdateStartGameDelayTimerText(currentCounterValue);
-        //    currentCounterValue--;
-        //    yield return new WaitForSeconds(1f);
-        //    _miniGameUI.UpdateStartGameDelayTimerText(currentCounterValue);
-        //}
-
-        //yield return new WaitForSeconds(startGameCoroutineDelay);
-        //_miniGameUI.HideDelayTimerText();
-        //_miniGameUI.StartCurrentGameTimer(timeForLevel, TimerFinished_ExecuteReaction);
-        //playerMoveManager.ChangeCheckingInputState(true);
-        //playerCollisionManager.ChangeState_CanCollectItems(true);
-        //kitchenMiniGameSpawnManager.StartSpawningItems();
+        gameFinished = false;
     }
 
     private IEnumerator FinishGameCoroutine()
@@ -194,5 +233,6 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         _timersManager.StopStopwatch();
         yield return new WaitForSeconds(finishGameDelay / 2);
         _puzzleGameUI.ShowGameFinishedPanel();
+        _cameraManager.SetCameraStartPos();
     }
 }

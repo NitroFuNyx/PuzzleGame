@@ -16,8 +16,15 @@ public class PuzzleKitchenBook : ButtonInteractionHandler
 
     private PuzzleKitchenBookShelf currentShelf;
 
+    private Vector3 startPos = new Vector3();
+
     public PuzzleGameKitchenBooks BookType { get => bookType; }
     public PuzzleKitchenBookShelf CurrentShelf { get => currentShelf; set => currentShelf = value; }
+
+    private void Start()
+    {
+        startPos = transform.localPosition;
+    }
 
     #region Zenject
     [Inject]
@@ -48,5 +55,11 @@ public class PuzzleKitchenBook : ButtonInteractionHandler
     public void ScaleToStandart()
     {
         transform.DOScale(Vector3.one, bookScaleDuration).SetEase(Ease.InOutBack);
+    }
+
+    public void ResetBook(PuzzleKitchenBookShelf shelf)
+    {
+        transform.SetParent(shelf.transform);
+        transform.localPosition = startPos;
     }
 }

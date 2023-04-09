@@ -62,6 +62,18 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
         }
     }
 
+    public void ResetGame()
+    {
+        canCheckBooksInput = false;
+        firstSelectedBook = null;
+        secondSelectedBook = null;
+
+        for(int i = 0; i < booksShelvesList.Count; i++)
+        {
+            booksShelvesList[i].ResetShelf();
+        }
+    }
+
     private bool CheckShelvesState()
     {
         bool allShelvesBooksAreCorrect = true;

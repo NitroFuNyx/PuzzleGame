@@ -70,7 +70,7 @@ public class PuzzleInputManager : MonoBehaviour
                 Debug.DrawRay(touchPos, transform.forward * 20f, Color.blue);
                 if (hit.collider != null)
                 {
-                    Debug.Log($"{hit.collider.name}");
+
                     if (hit.collider.TryGetComponent(out Iinteractable item))
                     {
                         //item.Interact();

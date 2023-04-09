@@ -13,10 +13,17 @@ public class PuzzleGamePainting : MonoBehaviour, Iinteractable
 
     private PuzzleGamePaintingsHolder paintingsHolder;
 
+    private Quaternion startRotation;
+
     private bool isInCorrectPos = false;
     private bool animationInProccess = false;
 
     public bool IsInCorrectPos { get => isInCorrectPos; private set => isInCorrectPos = value; }
+
+    private void Start()
+    {
+        startRotation = transform.rotation;
+    }
 
     public void Interact()
     {
@@ -37,6 +44,12 @@ public class PuzzleGamePainting : MonoBehaviour, Iinteractable
     public void CashComponents(PuzzleGamePaintingsHolder puzzleGamePaintingsHolder)
     {
         paintingsHolder = puzzleGamePaintingsHolder;
+    }
+
+    public void ResetPainting()
+    {
+        isInCorrectPos = false;
+        transform.rotation = startRotation;
     }
 
     private void Rotate(Vector3 rotationVector)

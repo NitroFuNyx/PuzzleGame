@@ -30,6 +30,9 @@ public class PuzzleKey : PuzzleCollectableItem
 
     private Rigidbody2D rb;
 
+    private Vector3 startPos = new Vector3();
+    private Quaternion startRot;
+
     private bool collected = false;
 
     public int KeyIndex { get => keyIndex; private set => keyIndex = value; }
@@ -43,6 +46,8 @@ public class PuzzleKey : PuzzleCollectableItem
         spriteRenderer = GetComponent<SpriteRenderer>();
         keyIndex = (int)Item;
         SetKeySprite();
+        startPos = transform.position;
+        startRot = transform.rotation;
 
         if(TryGetComponent(out Rigidbody2D rigidbody2D))
         {
@@ -77,6 +82,14 @@ public class PuzzleKey : PuzzleCollectableItem
         {
             rb.simulated = isSimulated;
         }
+    }
+
+    public void ResetKey()
+    {
+        collected = false;
+        ChangeKeySimulattionState(false);
+        transform.position = startPos;
+        transform.rotation = startRot;
     }
 
     private void MoveToInventory()

@@ -34,6 +34,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset += ResetKeyData_ExecuteReaction;
         }
         StartCoroutine(SetStartSettingsCoroutine());
     }
@@ -47,6 +48,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset -= ResetKeyData_ExecuteReaction;
         }
     }
 
@@ -75,6 +77,17 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
             containsKey = false;
             key.ChangeKeySimulattionState(false);
         }
+    }
+
+    public void ResetKeyData_ExecuteReaction()
+    {
+        containsKey = true;
+    }
+
+    public void ResetPaintings()
+    {
+        leftPainting.ResetPainting();
+        middlePainting.ResetPainting();
     }
 
     private IEnumerator SetStartSettingsCoroutine()

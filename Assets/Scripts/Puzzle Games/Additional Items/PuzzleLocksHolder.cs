@@ -54,9 +54,16 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
     {
         List<int> openedLocksIndexesList = new List<int>();
        
-        for (int i = 0; i < openedLocksList.Count; i++)
+        if(!_puzzleGamesEnvironmentsHolder.GamesEnvironmentsList[0].GameFinished)
         {
-            openedLocksIndexesList.Add(openedLocksList[i]);
+            for (int i = 0; i < openedLocksList.Count; i++)
+            {
+                openedLocksIndexesList.Add(openedLocksList[i]);
+            }
+        }
+        else
+        {
+            openedLocksIndexesList.Clear();
         }
 
         data.puzzleGameLevelsDataList[0].openedLocksList = openedLocksIndexesList;

@@ -101,12 +101,19 @@ public class PuzzleCluesManager : MonoBehaviour, IDataPersistance
     {
         List<int> usedCluesIndexes = new List<int>();
 
-        for(int i = 0; i < usedCluesHoldersList.Count; i++)
+        if(!_puzzleGamesEnvironmentsHolder.GamesEnvironmentsList[0].GameFinished)
         {
-            usedCluesIndexes.Add(usedCluesHoldersList[i].ClueIndex);
+            for (int i = 0; i < usedCluesHoldersList.Count; i++)
+            {
+                usedCluesIndexes.Add(usedCluesHoldersList[i].ClueIndex);
+            }
+        }
+        else
+        {
+            usedCluesHoldersList.Clear();
         }
 
-        if(usedCluesIndexes.Count > 0)
+        //if(usedCluesIndexes.Count > 0)
         data.puzzleGameLevelsDataList[environmentIndex].unavailableCluesList = usedCluesIndexes;
     }
 }

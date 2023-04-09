@@ -21,6 +21,9 @@ public class PuzzleGameKitchenFlower : MonoBehaviour, Iinteractable
     [SerializeField] private PuzzleKey key;
     [SerializeField] private PuzzleKeyContainer keyContainerComponent;
 
+    private Vector3 startPos = new Vector3();
+    private Vector3 startScale = new Vector3();
+
     private bool animationInProcess = false;
     private bool containsKey = true;
 
@@ -39,7 +42,12 @@ public class PuzzleGameKitchenFlower : MonoBehaviour, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset += ResetKeyData_ExecuteReaction;
         }
+
+        startPos = transform.position;
+        startScale = transform.localScale;
+
         StartCoroutine(SetStartSettingsCoroutine());
     }
 
@@ -52,12 +60,21 @@ public class PuzzleGameKitchenFlower : MonoBehaviour, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset -= ResetKeyData_ExecuteReaction;
         }
     }
 
     public void Interact()
     {
         ScaleObject();
+    }
+
+    public void ResetFlower()
+    {
+        transform.localScale = startScale;
+        transform.position = startPos;
+        animationInProcess = false;
+        scaleCounter = 0;
     }
 
     private void ScaleObject()
@@ -95,6 +112,11 @@ public class PuzzleGameKitchenFlower : MonoBehaviour, Iinteractable
         {
             containsKey = false;
         }
+    }
+
+    public void ResetKeyData_ExecuteReaction()
+    {
+        containsKey = true;
     }
 
     private IEnumerator JumpCoroutine(float delay)

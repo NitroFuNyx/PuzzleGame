@@ -37,6 +37,7 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset += ResetKeyData_ExecuteReaction;
         }
 
         _puzzleGameUI.TogglePuzzleGame.OnCharacterAnimationFinished += CharacterAnimationFinished_ExecuteReaction;
@@ -53,6 +54,7 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset -= ResetKeyData_ExecuteReaction;
         }
 
         _puzzleGameUI.TogglePuzzleGame.OnCharacterAnimationFinished -= CharacterAnimationFinished_ExecuteReaction;
@@ -94,6 +96,11 @@ public class PuzzleButton : MonoBehaviour, Iinteractable
             containsKey = false;
             key.ChangeKeySimulattionState(false);
         }
+    }
+
+    public void ResetKeyData_ExecuteReaction()
+    {
+        containsKey = true;
     }
 
     private void CharacterAnimationFinished_ExecuteReaction()

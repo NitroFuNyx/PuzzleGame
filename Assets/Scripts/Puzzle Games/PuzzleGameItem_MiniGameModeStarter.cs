@@ -45,6 +45,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset += ResetKeyData_ExecuteReaction;
         }
         _puzzleGameUI.OnPopItGameFinished += PopItGameFinished_ExecuteReaction;
         _puzzleGameUI.OnMixerGameFinished += MixerGameFinished_ExecuteReaction;
@@ -62,6 +63,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset -= ResetKeyData_ExecuteReaction;
         }
         _puzzleGameUI.OnPopItGameFinished -= PopItGameFinished_ExecuteReaction;
         _puzzleGameUI.OnMixerGameFinished -= MixerGameFinished_ExecuteReaction;
@@ -127,6 +129,11 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
             containsKey = false;
             key.ChangeKeySimulattionState(false);
         }
+    }
+
+    public void ResetKeyData_ExecuteReaction()
+    {
+        containsKey = true;
     }
 
     private void PopItGameFinished_ExecuteReaction()

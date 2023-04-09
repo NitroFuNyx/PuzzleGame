@@ -62,6 +62,11 @@ public class SafeButtonsHandler : MonoBehaviour
         _OnGameFinished = OnGameFinished;
     }
 
+    public void ResetGame()
+    {
+        safeString.text = "";
+    }
+
     public IEnumerator ClosingSafeUi()
     {
         yield return new WaitForSeconds(0.75f);

@@ -26,8 +26,7 @@ public class MixerButton : ButtonInteractionHandler
 
     private void Start()
     {
-        currentProgressValue = 0f;
-        progressImage.fillAmount = 0f;
+        ResetGame();
     }
 
     public void StartGame(Action OnGameFinished)
@@ -48,6 +47,14 @@ public class MixerButton : ButtonInteractionHandler
             gameInProgress = false;
             StartCoroutine(HidePanelCoroutine());
         }
+    }
+
+    public void ResetGame()
+    {
+        gameInProgress = false;
+        currentProgressValue = 0f;
+        progressImage.fillAmount = 0f;
+        StopAllCoroutines();
     }
 
     private IEnumerator DecreaseProgressCoroutine()

@@ -12,6 +12,8 @@ public class PuzzleKitchenBookShelf : MonoBehaviour
     [SerializeField] private List<PuzzleKitchenBook> booksAtShelfList = new List<PuzzleKitchenBook>();
     [SerializeField] private bool allBooksInShelfAreCorrect = false;
 
+    private List<PuzzleKitchenBook> startStateBooksAtShelfList = new List<PuzzleKitchenBook>();
+
     public PuzzleGameKitchenBooks ShelfBooksbookType { get => shelfBooksbookType; }
     public bool AllBooksInShelfAreCorrect { get => allBooksInShelfAreCorrect; private set => allBooksInShelfAreCorrect = value; }
 
@@ -21,11 +23,27 @@ public class PuzzleKitchenBookShelf : MonoBehaviour
         {
             booksAtShelfList[i].UpdateShelf(this);
         }
+
+        for (int i = 0; i < booksAtShelfList.Count; i++)
+        {
+            startStateBooksAtShelfList.Add(booksAtShelfList[i]);
+        }
     }
 
     public void UpdateBooksData()
     {
         StartCoroutine(CheckBooksCoroutine());
+    }
+
+    public void ResetShelf()
+    {
+        allBooksInShelfAreCorrect = false;
+        booksAtShelfList.Clear();
+        for(int i = 0; i < startStateBooksAtShelfList.Count; i++)
+        {
+            startStateBooksAtShelfList[i].ResetBook(this);
+            booksAtShelfList.Add(startStateBooksAtShelfList[i]);
+        }
     }
 
     private void UpdateBooksList()

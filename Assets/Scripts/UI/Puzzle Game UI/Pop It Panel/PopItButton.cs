@@ -34,6 +34,12 @@ public class PopItButton : ButtonInteractionHandler
         _popItGameStateManager = popItGameStateManager;
     }
 
+    public void ResetButton()
+    {
+        isInCorrectPos = false;
+        ChangeButtonAlpha();
+    }
+
     private void ChangeButtonAlpha()
     {
         float alpha = 1f;

@@ -37,6 +37,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset += ResetKeyData_ExecuteReaction;
         }
         StartCoroutine(SetStartSettingsCoroutine());
     }
@@ -50,6 +51,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset -= ResetKeyData_ExecuteReaction;
         }
     }
 
@@ -75,6 +77,11 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
         
     }
 
+    public void ResetItem()
+    {
+        straw.gameObject.SetActive(true);
+    }
+
     private void KeyCollected_ExecuteReaction()
     {
         containsKey = false;
@@ -88,6 +95,11 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
             key.ChangeKeySimulattionState(false);
             straw.gameObject.SetActive(false);
         }
+    }
+
+    public void ResetKeyData_ExecuteReaction()
+    {
+        containsKey = true;
     }
 
     private IEnumerator SetStartSettingsCoroutine()

@@ -96,8 +96,9 @@ public class PuzzleGameUI : MainCanvasPanel
     public void ShowMainModePanel()
     {
         HideMiniGamesPanels();
+        gameFinishedPanel.HidePanel();
         ShowAdditionalButtons();
-        _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);
+        _puzzleGamesEnvironmentsHolder.GamesEnvironmentsList[0].InputManager.ChangeCheckInputState(true);
     }
 
     public void ShowGameFinishedPanel()
@@ -158,6 +159,14 @@ public class PuzzleGameUI : MainCanvasPanel
     {
         currentGameStopwatchText.text = $"{_timersManager.GetHoursAndMinutesAmount((int)startValue)}:{_timersManager.GetSecondsAmount((int)startValue)}";
         _timersManager.StartStopwatch(startValue, currentGameStopwatchText, OnStopwatchStoped);
+    }
+
+    public void ResetMiniGamesUI()
+    {
+        for(int i = 0; i < minigamesPanelsList.Count; i++)
+        {
+            minigamesPanelsList[i].ResetMiniGamesPanelsUI();
+        }
     }
 
     private void MixerGameFinished_ExecuteReaction()

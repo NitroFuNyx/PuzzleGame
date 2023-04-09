@@ -77,4 +77,24 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
     {
         panelMainImage.DOScale(Vector3.one, scaleDuration).SetEase(Ease.OutBounce);
     }
+
+    public void ResetMiniGamesPanelsUI()
+    {
+        if(mixerButton)
+        {
+            mixerButton.ResetGame();
+        }
+        if(puzzleKitchenBooksPositionsManager)
+        {
+            puzzleKitchenBooksPositionsManager.ResetGame();
+        }
+        if(popItGameStateManager)
+        {
+            popItGameStateManager.ResetGame();
+        }
+        if(safeButtonsHandler)
+        {
+            safeButtonsHandler.ResetGame();
+        }
+    }
 }

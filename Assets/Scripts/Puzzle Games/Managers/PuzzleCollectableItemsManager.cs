@@ -46,4 +46,10 @@ public class PuzzleCollectableItemsManager : MonoBehaviour
 
         OnDataLoaded?.Invoke();
     }
+
+    public void ResetData()
+    {
+        itemsInInventoryList.Clear();
+        usedItemsList.Clear();
+    }
 }

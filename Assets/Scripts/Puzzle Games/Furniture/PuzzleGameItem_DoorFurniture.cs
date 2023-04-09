@@ -37,6 +37,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset += ResetKeyData_ExecuteReaction;
         }
         if (miniGameButton)
         {
@@ -53,6 +54,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset -= ResetKeyData_ExecuteReaction;
         }
     }
 
@@ -122,6 +124,56 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             {
                 miniGameModeStarter.ChangeItemActivation(false);
             }
+        }
+    }
+
+    public void ResetKeyData_ExecuteReaction()
+    {
+        containsKey = true;
+    }
+
+    public void ResetItem()
+    {
+        isOpen = false;
+        if (!isOpen)
+        {
+            door.sprite = closedDoorSprite;
+            if (doorAdditionalItem)
+            {
+                doorAdditionalItem.SetActive(true);
+            }
+            if (key)
+            {
+                key.gameObject.SetActive(false);
+            }
+            if (miniGameButton)
+            {
+                miniGameButton.SetButtonActivation(false);
+            }
+            if (miniGameModeStarter)
+            {
+                miniGameModeStarter.ChangeItemActivation(false);
+            }
+        }
+        else
+        {
+            if (containsKey)
+            {
+                key.gameObject.SetActive(true);
+            }
+            if (doorAdditionalItem)
+            {
+                doorAdditionalItem.SetActive(false);
+            }
+            if (miniGameButton)
+            {
+                miniGameButton.SetButtonActivation(true);
+            }
+            if (miniGameModeStarter)
+            {
+                miniGameModeStarter.ChangeItemActivation(true);
+            }
+            door.sprite = openDoorSprite;
         }
     }
 

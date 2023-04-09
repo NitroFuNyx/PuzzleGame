@@ -36,6 +36,7 @@ public class PuzzleGameKitchenRag : MonoBehaviour, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded += CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset += ResetKeyData_ExecuteReaction;
         }
         StartCoroutine(SetStartSettingsCoroutine());
     }
@@ -49,6 +50,7 @@ public class PuzzleGameKitchenRag : MonoBehaviour, Iinteractable
         if (keyContainerComponent)
         {
             keyContainerComponent.OnCollectedItemsDataLoaded -= CollectedItemsDataLoaded_ExecuteReaction;
+            keyContainerComponent.OnKeyDataReset -= ResetKeyData_ExecuteReaction;
         }
     }
 
@@ -74,6 +76,12 @@ public class PuzzleGameKitchenRag : MonoBehaviour, Iinteractable
         }
     }
 
+    public void ResetItem()
+    {
+        ragMoved = false;
+        spriteRenderer.sprite = ragStandartSprite;
+    }
+
     private void KeyCollected_ExecuteReaction()
     {
         containsKey = false;
@@ -85,6 +93,11 @@ public class PuzzleGameKitchenRag : MonoBehaviour, Iinteractable
         {
             containsKey = false;
         }
+    }
+
+    public void ResetKeyData_ExecuteReaction()
+    {
+        containsKey = true;
     }
 
     private IEnumerator SetStartSettingsCoroutine()
