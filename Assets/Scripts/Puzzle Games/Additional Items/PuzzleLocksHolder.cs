@@ -63,7 +63,7 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
         }
         else
         {
-            openedLocksIndexesList.Clear();
+            openedLocksList.Clear();
         }
 
         data.puzzleGameLevelsDataList[0].openedLocksList = openedLocksIndexesList;
@@ -92,6 +92,15 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
                 puzzleLock.ResetLock();
                 _puzzleGameUI.InventoryPanel.LockKeyMismatched_ExecuteReaction();
             }
+        }
+    }
+
+    public void ResetLocks()
+    {
+        for(int i = 0; i < allLocksList.Count; i++)
+        {
+            allLocksList[i].gameObject.SetActive(true);
+            allLocksList[i].ResetLock();
         }
     }
 

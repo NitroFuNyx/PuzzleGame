@@ -69,7 +69,7 @@ public class PuzzleLock : MonoBehaviour, Iinteractable
 
     public void ResetLock()
     {
-
+        rb.simulated = true;
     }
 
     public void CashComponents(PuzzleLocksHolder puzzleLocksHolder)

@@ -205,6 +205,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         flower.ResetFlower();
         colaGlass.ResetItem();
         windowItem.ResetItem();
+        locksHolder.ResetLocks();
         //_dataPersistanceManager.SaveGame();
     }
 

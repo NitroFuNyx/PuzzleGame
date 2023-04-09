@@ -19441,6 +19441,10 @@ PrefabInstance:
       propertyPath: item
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5941433258194700635, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700639, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_Name
       value: Key 12 Safe
