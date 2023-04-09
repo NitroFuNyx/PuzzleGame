@@ -22,10 +22,6 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
     private void Awake()
     {
         StartCoroutine(SetStartSettingsCoroutine());
-        if(miniGameModeStarter)
-        {
-            miniGameModeStarter.ChangeItemActivation(false);
-        }
     }
 
     private void Start()
@@ -135,6 +131,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if (key != null)
         {
             key.gameObject.SetActive(false);
+        }
+        if (miniGameModeStarter)
+        {
+            miniGameModeStarter.ChangeItemActivation(false);
         }
     }
 }
