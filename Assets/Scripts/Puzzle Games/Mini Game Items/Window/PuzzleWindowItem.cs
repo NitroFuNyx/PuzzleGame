@@ -54,6 +54,12 @@ public class PuzzleWindowItem : MonoBehaviour
         _cameraManager.MoveCameraToWindow(this.transform, cameraMoveDurtation, CameraMovementToWindowComplete_ExecuteReaction);
     }
 
+    public void ResetItem()
+    {
+        windowCharacter.ChangeColliderState(false);
+        _collider.enabled = true;
+    }
+
     private void CameraMovementToWindowComplete_ExecuteReaction()
     {
         _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(true);

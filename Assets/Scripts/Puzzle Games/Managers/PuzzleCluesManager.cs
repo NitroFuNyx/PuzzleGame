@@ -9,6 +9,8 @@ public class PuzzleCluesManager : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private List<PuzzleClueHolder> unusedCluesHoldersList = new List<PuzzleClueHolder>();
     [SerializeField] private List<PuzzleClueHolder> usedCluesHoldersList = new List<PuzzleClueHolder>();
+   
+    private List<PuzzleClueHolder> allCluesHoldersList = new List<PuzzleClueHolder>();
 
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
     private DataPersistanceManager _dataPersistanceManager;
@@ -29,6 +31,11 @@ public class PuzzleCluesManager : MonoBehaviour, IDataPersistance
     private void Awake()
     {
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
+
+        for(int i = 0; i < unusedCluesHoldersList.Count; i++)
+        {
+            allCluesHoldersList.Add(unusedCluesHoldersList[i]);
+        }
     }
 
     public void SetEnvironmentIndex(int index)
@@ -111,6 +118,10 @@ public class PuzzleCluesManager : MonoBehaviour, IDataPersistance
         else
         {
             usedCluesHoldersList.Clear();
+            for(int i = 0; i < allCluesHoldersList.Count; i++)
+            {
+                unusedCluesHoldersList.Add(allCluesHoldersList[i]);
+            }
         }
 
         //if(usedCluesIndexes.Count > 0)

@@ -52,6 +52,11 @@ public class PuzzleColaStraw : PuzzleCollectableItem
         colaGlass = puzzleColaGlass;
     }
 
+    public void ResetItem()
+    {
+        collected = false;
+    }
+
     private void MoveToInventory()
     {
         Vector3 startPos = transform.position;

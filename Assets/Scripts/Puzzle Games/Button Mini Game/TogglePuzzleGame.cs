@@ -41,12 +41,20 @@ public class TogglePuzzleGame : MonoBehaviour
         });
     }
 
+    public void ResetGame()
+    {
+        ded.SetTrigger(OldManAnimations.Reset);
+        redButton.interactable = true;
+        
+    }
+
     private void ForbidToggling(bool toggleStatus)
     {
         Debug.Log("Toggle  works - "+ toggleStatus);
         if (toggleStatus)
         {
             redButton.interactable = false;
+            redButton.isOn = false;
             StartCoroutine(SpawnAMan());
 
         }

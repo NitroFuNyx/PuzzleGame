@@ -80,6 +80,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
     public void ResetItem()
     {
         straw.gameObject.SetActive(true);
+        straw.ResetItem();
     }
 
     private void KeyCollected_ExecuteReaction()

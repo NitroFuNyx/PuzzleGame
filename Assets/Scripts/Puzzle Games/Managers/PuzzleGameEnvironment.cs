@@ -33,6 +33,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [SerializeField] private PuzzleGamePaintingsHolder paintingsHolder;
     [SerializeField] private PuzzleGameKitchenFlower flower;
     [SerializeField] private PuzzleColaGlass colaGlass;
+    [SerializeField] private PuzzleWindowItem windowItem;
 
     private PuzzleGameUI _puzzleGameUI;
     private TimersManager _timersManager;
@@ -131,7 +132,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     {
         List<int> collectedItemsIndexesList = new List<int>();
         List<int> usedItemsIndexesList = new List<int>();
-
+        Debug.Log($"Time New {currentStopWatchValue}");
         if(!gameFinished)
         {
             for (int i = 0; i < collectableItemsManager.ItemsInInventoryList.Count; i++)
@@ -203,6 +204,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         paintingsHolder.ResetPaintings();
         flower.ResetFlower();
         colaGlass.ResetItem();
+        windowItem.ResetItem();
         //_dataPersistanceManager.SaveGame();
     }
 

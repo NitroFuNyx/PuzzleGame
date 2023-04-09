@@ -167,6 +167,7 @@ public class PuzzleGameUI : MainCanvasPanel
         {
             minigamesPanelsList[i].ResetMiniGamesPanelsUI();
         }
+        togglePuzzleGame.ResetGame();
     }
 
     private void MixerGameFinished_ExecuteReaction()

@@ -17,3 +17,8 @@ public class CharacterSkins
     public const string Male = "Boy";
     public const string Female = "Girl";
 }
+
+public class OldManAnimations
+{
+    public const string Reset = "Reset";
+}
