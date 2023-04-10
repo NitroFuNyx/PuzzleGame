@@ -1,0 +1,55 @@
+{
+   "data":{
+      "mainscreenUITexts":{
+         "titleText":"нажми для начала"
+      },
+      "settingsUITexts":{
+         "mainSettingsPanel":{
+            "uiTitleText":"настройки",
+            "soundsButtonText":"звуки",
+            "languageButtonText":"язык",
+            "infoButtonText":"инфо"
+         },
+         "changeLanguagePanel":{
+            "uiTitleText":"выбери язык"
+         },
+         "infoPanel":{
+            "uiTitleText":"про нас",
+            "infoText":"Игра разработана Bazuka Studio. Присоединяйтесь к нашему сообществу YouTube и получайте новейший контент!"
+         }
+      },
+      "selectGameModeUITexts":{
+         "uiTitleText":"выбери режим игры",
+         "puzzlePanelText":"головоломка",
+         "miniGamePanelText":"мини игра"
+      },
+      "selectCharacterUITexts":{
+         "uiTitleText":"выбери персонажа"
+      },
+      "choosePuzzleLevelUITexts":{
+         "uiTitleText":"головоломка",
+         "startText":"старт",
+         "bestTimeText":"лучшее время",
+         "currentTimeText":"Текущее время"
+      },
+      "chooseMiniGameLevelUITexts":{
+         "uiTitleText":"мини игра",
+         "startText":"старт",
+         "bestScore":"лучший результат"
+      },
+      "miniGameUITexts":{
+         "uiTitleText":"Собранные монеты",
+         "videoText":"Посмотри короткое видео, чтобы удвоить свой результат!"
+      },
+      "puzzleUITexts":{
+         "uiTitleText":"поздравления!",
+         "inJustText":"Всtго за:",
+         "finishTimeText":"ты решил загадки и заслуживаешь сладкого праздничного торта!"
+      },
+      "pauseUITexts":{
+         "uiTitleText":"игра остановлена",
+         "exitText":"выход",
+         "continueText":"к игре"
+      }
+   }
+}

@@ -12,6 +12,7 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
     [SerializeField] private TextAsset englishTextsJSON;
     [SerializeField] private TextAsset ukrainianTextsJSON;
     [SerializeField] private TextAsset spanishTextsJSON;
+    [SerializeField] private TextAsset otherTextsJSON;
     [Header("Current Language")]
     [Space]
     [SerializeField] private Languages currentLanguage;
@@ -19,6 +20,7 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
     private LanguageTextsHolder englishTextsHolder = new LanguageTextsHolder();
     private LanguageTextsHolder ukrainianTextsHolder = new LanguageTextsHolder();
     private LanguageTextsHolder spanishTextsHolder = new LanguageTextsHolder();
+    private LanguageTextsHolder otherTextsHolder = new LanguageTextsHolder();
 
     private Dictionary<Languages, LanguageTextsHolder> languagesHoldersDictionary = new Dictionary<Languages, LanguageTextsHolder>();
 
@@ -66,6 +68,7 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
         englishTextsHolder = SetLanguageTextHolder(englishTextsJSON);
         ukrainianTextsHolder = SetLanguageTextHolder(ukrainianTextsJSON);
         spanishTextsHolder = SetLanguageTextHolder(spanishTextsJSON);
+        otherTextsHolder = SetLanguageTextHolder(otherTextsJSON);
     }
 
     private void FillLanguagesHoldersDictionary()
@@ -73,6 +76,7 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
         languagesHoldersDictionary.Add(Languages.English, englishTextsHolder);
         languagesHoldersDictionary.Add(Languages.Ukrainian, ukrainianTextsHolder);
         languagesHoldersDictionary.Add(Languages.Spanish, spanishTextsHolder);
+        languagesHoldersDictionary.Add(Languages.Other, otherTextsHolder);
     }
 
     public void LoadData(GameData data)

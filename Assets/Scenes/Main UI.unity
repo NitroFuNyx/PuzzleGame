@@ -2114,7 +2114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef0e01e1adfda534a8325f91ad1dd69b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e925985cf0759f647bdc4db6b388f4d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13389,7 +13389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fourth
+  m_text: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f4cf33409e359704dbbc6b4f83280a8b, type: 2}
   m_sharedMaterial: {fileID: 3773738615130779145, guid: f4cf33409e359704dbbc6b4f83280a8b, type: 2}
@@ -14040,7 +14040,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772351153}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -25865,7 +25865,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466775589}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -31601,6 +31601,9 @@ MonoBehaviour:
   tiltleText: {fileID: 1626385518}
   puzzleText: {fileID: 1294448582}
   minigameText: {fileID: 1572986089}
+  panelsList:
+  - {fileID: 1530696891}
+  - {fileID: 787764742}
 --- !u!1 &1775691045
 GameObject:
   m_ObjectHideFlags: 0
@@ -34215,7 +34218,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923695421}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -36173,7 +36176,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064951624}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -39595,6 +39598,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: otherTextsJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 99a482164d151564083ad5e3b52e94c9, type: 3}
     - target: {fileID: 6632884457319223302, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
       propertyPath: m_RootOrder
       value: 13
