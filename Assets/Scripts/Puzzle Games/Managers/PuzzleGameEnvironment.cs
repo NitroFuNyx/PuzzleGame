@@ -157,6 +157,9 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
             {
                 data.puzzleGameLevelsDataList[0].bestFinishTime = currentStopWatchValue;
             }
+
+            _currentGameManager.UpdatePuzzleBestTimeData(data.puzzleGameLevelsDataList[0].bestFinishTime);
+
             currentStopWatchValue = 0f;
         }
 
@@ -212,6 +215,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private void OnStopwatchStoped_ExecuteReaction(float stopwatchValue)
     {
         currentStopWatchValue = stopwatchValue;
+        _currentGameManager.UpdatePuzzleLevelPanelData(gameFinished,currentStopWatchValue);
 
         if (gameFinished)
         {

@@ -27,6 +27,8 @@ public class CurrentGameManager : MonoBehaviour
     #region Events Declaration
     public event Action<CharacterTypes> OnCharacterChanged;
     public event Action<GameLevelTypes, int> OnGameLevelFinished;
+    public event Action<bool, float> OnPuzzleLevelProgressUpdate;
+    public event Action<float> OnPuzzleBestTimeDefined;
     #endregion Events Declaration
 
     #region Zenject
@@ -99,6 +101,16 @@ public class CurrentGameManager : MonoBehaviour
         }
 
         StartCoroutine(ResetEnvironmentsCoroutine());
+    }
+
+    public void UpdatePuzzleLevelPanelData(bool levelFinished, float time)
+    {
+        OnPuzzleLevelProgressUpdate?.Invoke(levelFinished, time);
+    }
+
+    public void UpdatePuzzleBestTimeData(float time)
+    {
+        OnPuzzleBestTimeDefined?.Invoke(time);
     }
 
     private IEnumerator FinishGameWithSavingCoroutine()

@@ -48,6 +48,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     private CurrentGameManager _currentGameManager;
     private ResourcesManager _resourcesManager;
     private DataPersistanceManager _dataPersistanceManager;
+    private TimersManager _timersManager;
 
     public GameLevelStates LevelState { get => levelState; private set => levelState = value; }
     public GameLevelTypes GameType { get => gameType; }
@@ -65,22 +66,29 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         SetPanelUIData();
         levelButton.SetButtonData(this);
         StopBuyingPossibilityAnimation();
+        
 
         _currentGameManager.OnGameLevelFinished += OnLevelFinished_ExecuteReaction;
+        _currentGameManager.OnPuzzleLevelProgressUpdate += PuzzleLevelProgressUpdate_ExecuteReaction;
+        _currentGameManager.OnPuzzleBestTimeDefined += PuzzleLevelBestTimeDefined_ExecuteReaction;
     }
 
     private void OnDestroy()
     {
         _currentGameManager.OnGameLevelFinished -= OnLevelFinished_ExecuteReaction;
+        _currentGameManager.OnPuzzleLevelProgressUpdate -= PuzzleLevelProgressUpdate_ExecuteReaction;
+        _currentGameManager.OnPuzzleBestTimeDefined -= PuzzleLevelBestTimeDefined_ExecuteReaction;
     }
 
     #region Zenject
     [Inject]
-    private void Construct(CurrentGameManager currentGameManager, DataPersistanceManager dataPersistanceManager, ResourcesManager resourcesManager)
+    private void Construct(CurrentGameManager currentGameManager, DataPersistanceManager dataPersistanceManager, ResourcesManager resourcesManager,
+                           TimersManager timersManager)
     {
         _currentGameManager = currentGameManager;
         _dataPersistanceManager = dataPersistanceManager;
         _resourcesManager = resourcesManager;
+        _timersManager = timersManager;
     }
     #endregion Zenject
 
@@ -130,7 +138,8 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
                 if (gameType == GameLevelTypes.Puzzle)
                 {
                     timeTitle_Text.text = "best time";
-                    timeValue_Text.text = "01:01"; // set time
+                    timeValue_Text.text = $"{_timersManager.GetHoursAndMinutesAmount((int)bestFinishTime)}:{_timersManager.GetSecondsAmount((int)bestFinishTime)}";
+                    
                 }
                 else
                 {
@@ -155,6 +164,36 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         }
 
         SetBuyingPossibilityState();
+    }
+
+    private void PuzzleLevelProgressUpdate_ExecuteReaction(bool levelFinished, float time)
+    {
+        if(gameType == GameLevelTypes.Puzzle)
+        {
+            if (!levelFinished)
+            {
+                levelState = GameLevelStates.Available_Started;
+                SetPanelUIData();
+                timeValue_Text.text = $"{_timersManager.GetHoursAndMinutesAmount((int)time)}:{_timersManager.GetSecondsAmount((int)time)}";
+            }
+            else
+            {
+                levelState = GameLevelStates.Available_Finished;
+                SetPanelUIData();
+            }
+        }
+    }
+
+    private void PuzzleLevelBestTimeDefined_ExecuteReaction(float time)
+    {
+        if(gameType == GameLevelTypes.Puzzle)
+        {
+            if (levelState == GameLevelStates.Available_Finished)
+            {
+                SetPanelUIData();
+                timeValue_Text.text = $"{_timersManager.GetHoursAndMinutesAmount((int)time)}:{_timersManager.GetSecondsAmount((int)time)}";
+            }
+        }
     }
 
     private void SetBuyingPossibilityState()
