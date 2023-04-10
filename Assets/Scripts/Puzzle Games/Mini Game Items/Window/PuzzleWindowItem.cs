@@ -11,6 +11,9 @@ public class PuzzleWindowItem : MonoBehaviour
     [Header("Characters")]
     [Space]
     [SerializeField] private PuzzleWindowCharacter windowCharacter;
+    [Header("Delays")]
+    [Space]
+    [SerializeField] private float finishWindowSequenceDelay = 1f;
 
     private CameraManager _cameraManager;
     private PuzzleGamesEnvironmentsHolder _environmentsHolder;
@@ -78,14 +81,20 @@ public class PuzzleWindowItem : MonoBehaviour
     {
         windowCharacter.ChangeColliderState(false);
         _environmentsHolder.CurrentlyActiveGame.InputManager.ChangeCheckInputState(false);
-        _environmentsHolder.CurrentlyActiveGame.InputManager.CanMoveCamera = true;
-        gameStarter.ShowKey();
-        StartCoroutine(ReturnToMainModeCoroutine());
+        StartCoroutine(FinishWIndowSequenceCoroutine());
     }
 
     private IEnumerator ReturnToMainModeCoroutine()
     {
         yield return new WaitForSeconds(returnToMainModeDelay);
         _cameraManager.ReturnCameraToStartPos(cameraMoveDurtation, CameraMovementToStartPosComplete_ExecuteReaction);
+    }
+
+    private IEnumerator FinishWIndowSequenceCoroutine()
+    {
+        yield return new WaitForSeconds(finishWindowSequenceDelay);
+        _environmentsHolder.CurrentlyActiveGame.InputManager.CanMoveCamera = true;
+        gameStarter.ShowKey();
+        StartCoroutine(ReturnToMainModeCoroutine());
     }
 }

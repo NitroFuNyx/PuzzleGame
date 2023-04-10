@@ -22,3 +22,8 @@ public class OldManAnimations
 {
     public const string Reset = "Reset";
 }
+
+public class WindowCharacterAnimations
+{
+    public const string GetKey = "Get Key";
+}

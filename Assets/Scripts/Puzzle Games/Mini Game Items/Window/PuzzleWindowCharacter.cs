@@ -3,6 +3,10 @@ using System;
 
 public class PuzzleWindowCharacter : MonoBehaviour, Iinteractable
 {
+    [Header("Internal References")]
+    [Space]
+    [SerializeField] private WindowCharacterVFXManager characterVFXManager;
+
     private Collider2D _collider;
 
     #region Events Declaration
@@ -21,6 +25,7 @@ public class PuzzleWindowCharacter : MonoBehaviour, Iinteractable
 
     public void Interact()
     {
+        characterVFXManager.SetAnimationState_GetKey();
         OnCharacterActivated?.Invoke();
     }
 }
