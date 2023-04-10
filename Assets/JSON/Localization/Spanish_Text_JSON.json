@@ -39,12 +39,12 @@
       },
       "miniGameUITexts":{
          "uiTitleText":"Colección de monedas",
-         "videoText":"Mire un anuncio de video corto para multiplicar su puntaje!"
+         "videoText":"¡Vea este breve vídeo para duplicar su puntuación!"
       },
       "puzzleUITexts":{
          "uiTitleText":"Felicidades!",
          "inJustText":"en solo:",
-         "finishTimeText":"resolviste los acertijos y te mereces un dulce pastel para celebrar!"
+         "finishTimeText":"¡Has resuelto los enigmas y te mereces una tarta dulce para celebrarlo!"
       },
       "pauseUITexts":{
          "uiTitleText":"nivel en progreso",
