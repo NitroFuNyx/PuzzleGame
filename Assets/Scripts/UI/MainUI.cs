@@ -13,8 +13,8 @@ public class MainUI : MonoBehaviour
     [SerializeField] private SettingsUI settingsUI;
     [SerializeField] private SelectModeUI selectModeUI;
     [SerializeField] private SelectCharacterUI selectCharacterUI;
-    [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_Puzzle;
-    [SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_MiniGame;
+    //[SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_Puzzle;
+    //[SerializeField] private ChooseGameLevelUI chooseGameLevelPanel_MiniGame;
     [SerializeField] private PuzzleGameUI puzzleGameUI;
     [SerializeField] private MiniGameUI miniGameUI;
     [SerializeField] private PauseUI pauseUI;
@@ -98,12 +98,12 @@ public class MainUI : MonoBehaviour
     {
         if(_currentGameManager.CurrentGameType == GameLevelTypes.Puzzle)
         {
-            ActivateMainCanvasPanel(UIPanels.SelectGameLevel_Puzzle);
+            ActivateMainCanvasPanel(UIPanels.SelectModePanel);
             puzzleGameUI.ShowMainModePanel();
         }
         else if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
         {
-            ActivateMainCanvasPanel(UIPanels.SelectGameLevel_MiniGame);
+            ActivateMainCanvasPanel(UIPanels.SelectModePanel);
             miniGameUI.HideGameFinishedPanel();
         }
     }
@@ -168,8 +168,8 @@ public class MainUI : MonoBehaviour
         panelsList.Add(settingsUI);
         panelsList.Add(selectModeUI);
         panelsList.Add(selectCharacterUI);
-        panelsList.Add(chooseGameLevelPanel_Puzzle);
-        panelsList.Add(chooseGameLevelPanel_MiniGame);
+        //panelsList.Add(chooseGameLevelPanel_Puzzle);
+        //panelsList.Add(chooseGameLevelPanel_MiniGame);
         panelsList.Add(puzzleGameUI);
         panelsList.Add(miniGameUI);
         panelsList.Add(pauseUI);

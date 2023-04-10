@@ -12,6 +12,7 @@ public class CurrentGameManager : MonoBehaviour
     [SerializeField] private int currentLevelIndex = 0;
 
     private bool puzzleUIButtonPressed = false;
+    private bool characterSet = false;
 
     public GameLevelTypes CurrentGameType { get => currentGameType; private set => currentGameType = value; }
     public CharacterTypes CurrentCharacter { get => currentCharacter; private set => currentCharacter = value; }
@@ -21,6 +22,7 @@ public class CurrentGameManager : MonoBehaviour
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironments;
     private ResourcesManager _resourcesManager;
     private DataPersistanceManager _dataPersistanceManager;
+    private MainUI _mainUI;
 
     #region Events Declaration
     public event Action<CharacterTypes> OnCharacterChanged;
@@ -30,12 +32,13 @@ public class CurrentGameManager : MonoBehaviour
     #region Zenject
     [Inject]
     private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, 
-                           ResourcesManager resourcesManager, DataPersistanceManager dataPersistanceManager)
+                           ResourcesManager resourcesManager, DataPersistanceManager dataPersistanceManager, MainUI mainUI)
     {
         _miniGamesEnvironmentsHolder = miniGamesEnvironmentsHolder;
         _puzzleGamesEnvironments = puzzleGamesEnvironmentsHolder;
         _resourcesManager = resourcesManager;
         _dataPersistanceManager = dataPersistanceManager;
+        _mainUI = mainUI;
     }
     #endregion Zenject
 
@@ -47,20 +50,33 @@ public class CurrentGameManager : MonoBehaviour
     public void SetCurrentCharacter(CharacterTypes choosenCharacter)
     {
         currentCharacter = choosenCharacter;
+        characterSet = true;
         OnCharacterChanged?.Invoke(currentCharacter);
+        ActivateGameLevelEnvironment(currentLevelIndex, currentGameType);
     }
 
-    public void ActivateGameLevelEnvironment(int levelIndex)
+    public void ActivateGameLevelEnvironment(int levelIndex, GameLevelTypes gameType)
     {
+        currentGameType = gameType;
         currentLevelIndex = levelIndex;
-
         if (currentGameType == GameLevelTypes.MiniGame)
         {
-            _miniGamesEnvironmentsHolder.ActivateEnvironment(levelIndex);
+            if (!characterSet)
+            {
+                //_mainUI.ShowSelectCharacterUI();
+                StartCoroutine(ShowDelayedMethodUICoroutine(_mainUI.ShowSelectCharacterUI));
+            }
+            else
+            {
+                _miniGamesEnvironmentsHolder.ActivateEnvironment(levelIndex);
+                StartCoroutine(ShowDelayedMethodUICoroutine(_mainUI.ShowGameLevelUI));
+                characterSet = false;
+            }
         }
         else
         {
             _puzzleGamesEnvironments.ActivateEnvironment(levelIndex);
+            StartCoroutine(ShowDelayedMethodUICoroutine(_mainUI.ShowGameLevelUI));
         }
     }
 
@@ -99,5 +115,11 @@ public class CurrentGameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         _puzzleGamesEnvironments.HideAllEnvironments();
         _miniGamesEnvironmentsHolder.HideAllEnvironments();
+    }
+
+    private IEnumerator ShowDelayedMethodUICoroutine(Action OnDelayComplete)
+    {
+        yield return new WaitForSeconds(0.6f);
+        OnDelayComplete?.Invoke();
     }
 }

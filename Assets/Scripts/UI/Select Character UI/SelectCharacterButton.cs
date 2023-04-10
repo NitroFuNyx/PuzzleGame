@@ -23,6 +23,6 @@ public class SelectCharacterButton : ButtonInteractionHandler
     {
         _currentGameManager.SetCurrentCharacter(characterType);
         ShowAnimation_ButtonPressed();
-        StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowSelectGameLevel));
+        //StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowSelectGameLevel));
     }
 }

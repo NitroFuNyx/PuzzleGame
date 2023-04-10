@@ -76,8 +76,8 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
             else
             {
                 ShowAnimation_ButtonPressed();
-                _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex);
-                StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
+                _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex, gameLevelPanel.GameType);
+                //StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
             }
         }
         else
@@ -132,8 +132,8 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
         if (gameLevelPanel.LevelState != GameLevelStates.Locked)
         {
             ShowAnimation_ButtonPressed();
-            _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex);
-            StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
+            _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex, gameLevelPanel.GameType);
+            //StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
         }
         else
         {
