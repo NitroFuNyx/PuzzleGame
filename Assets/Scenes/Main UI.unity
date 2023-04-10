@@ -21351,7 +21351,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 10
+  timeForLevel: 60
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!114 &1201697839 stripped
