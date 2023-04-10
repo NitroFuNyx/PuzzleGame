@@ -8459,9 +8459,9 @@ MonoBehaviour:
   scaleDuration: 0.3
   lockImage: {fileID: 382378126}
   costAmountText: {fileID: 526884994}
-  rotationPunchVector: {x: 1, y: 1, z: 1}
+  rotationPunchVector: {x: 0, y: 0, z: 30}
   punchDuration: 1
-  punchFreequency: 3
+  punchFreequency: 4
   costTextPunchVector: {x: 0.2, y: 0.2, z: 0.2}
   costTextPunchScaleFreequency: 4
   costTextBlockedColor: {r: 0.7372549, g: 0, b: 0, a: 1}
@@ -14680,9 +14680,9 @@ MonoBehaviour:
   scaleDuration: 0.3
   lockImage: {fileID: 559091286}
   costAmountText: {fileID: 950277208}
-  rotationPunchVector: {x: 1, y: 1, z: 1}
+  rotationPunchVector: {x: 0, y: 0, z: 30}
   punchDuration: 1
-  punchFreequency: 3
+  punchFreequency: 4
   costTextPunchVector: {x: 0.2, y: 0.2, z: 0.2}
   costTextPunchScaleFreequency: 4
   costTextBlockedColor: {r: 0.7372549, g: 0, b: 0, a: 1}
