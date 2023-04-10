@@ -12,6 +12,11 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
     [Space]
     [SerializeField] protected PuzzleKey key;
     [SerializeField] protected PuzzleKeyContainer keyContainerComponent;
+    [Header("Bookshelf Data")]
+    [Space]
+    [SerializeField] private List<PuzzleSceneBook> greenShelfBooksList = new List<PuzzleSceneBook>();
+    [SerializeField] private List<PuzzleSceneBook> yellowShelfBooksList = new List<PuzzleSceneBook>();
+    [SerializeField] private List<PuzzleSceneBook> blueShelfBooksList = new List<PuzzleSceneBook>();
 
     protected PuzzleGameUI _puzzleGameUI;
     protected PopItGameStateManager _popItGameStateManager;
@@ -134,6 +139,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
     public void ResetKeyData_ExecuteReaction()
     {
         containsKey = true;
+        ResetBooksSprites();
     }
 
     private void PopItGameFinished_ExecuteReaction()
@@ -160,6 +166,8 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         if (gameType == PuzzleGameKitchenMiniGames.Bookshelf)
         {
             ShowKey();
+
+            SetBooksSpritesFinished();
         }
     }
 
@@ -181,6 +189,44 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
             if (TryGetComponent(out PuzzleWindowItem puzzleWindowItem))
             {
                 puzzleWindowItem.WindowInteraction_ExecuteReaction();
+            }
+        }
+    }
+
+    private void ResetBooksSprites()
+    {
+        if(gameType == PuzzleGameKitchenMiniGames.Bookshelf)
+        {
+            for (int i = 0; i < greenShelfBooksList.Count; i++)
+            {
+                greenShelfBooksList[i].ChangeBookSpriteToStart();
+            }
+            for (int i = 0; i < yellowShelfBooksList.Count; i++)
+            {
+                yellowShelfBooksList[i].ChangeBookSpriteToStart();
+            }
+            for (int i = 0; i < blueShelfBooksList.Count; i++)
+            {
+                blueShelfBooksList[i].ChangeBookSpriteToStart();
+            }
+        }
+    }
+
+    private void SetBooksSpritesFinished()
+    {
+        if (gameType == PuzzleGameKitchenMiniGames.Bookshelf)
+        {
+            for (int i = 0; i < greenShelfBooksList.Count; i++)
+            {
+                greenShelfBooksList[i].ChangeSpriteToFinished(PuzzleGameKitchenBooks.Green);
+            }
+            for (int i = 0; i < yellowShelfBooksList.Count; i++)
+            {
+                yellowShelfBooksList[i].ChangeSpriteToFinished(PuzzleGameKitchenBooks.Yellow);
+            }
+            for (int i = 0; i < blueShelfBooksList.Count; i++)
+            {
+                blueShelfBooksList[i].ChangeSpriteToFinished(PuzzleGameKitchenBooks.Blue);
             }
         }
     }

@@ -4628,6 +4628,9 @@ MonoBehaviour:
   gameType: 0
   key: {fileID: 1852125097}
   keyContainerComponent: {fileID: 301605964}
+  greenShelfBooksList: []
+  yellowShelfBooksList: []
+  blueShelfBooksList: []
 --- !u!114 &301605964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8241,6 +8244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492505516}
   - component: {fileID: 492505517}
+  - component: {fileID: 492505518}
   m_Layer: 0
   m_Name: Book (5)
   m_TagString: Untagged
@@ -8315,6 +8319,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &492505518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492505515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &517106787
 GameObject:
   m_ObjectHideFlags: 0
@@ -9187,6 +9206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529914774}
   - component: {fileID: 529914775}
+  - component: {fileID: 529914776}
   m_Layer: 0
   m_Name: Book (11)
   m_TagString: Untagged
@@ -9261,6 +9281,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &529914776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529914773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &531232309
 GameObject:
   m_ObjectHideFlags: 0
@@ -10825,6 +10860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 598812665}
   - component: {fileID: 598812666}
+  - component: {fileID: 598812667}
   m_Layer: 0
   m_Name: Book (10)
   m_TagString: Untagged
@@ -10899,6 +10935,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &598812667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598812664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &599581060
 GameObject:
   m_ObjectHideFlags: 0
@@ -12721,6 +12772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690916098}
   - component: {fileID: 690916099}
+  - component: {fileID: 690916100}
   m_Layer: 0
   m_Name: Book (9)
   m_TagString: Untagged
@@ -12795,6 +12847,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &690916100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690916097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &702689283
 GameObject:
   m_ObjectHideFlags: 0
@@ -12805,6 +12872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702689284}
   - component: {fileID: 702689285}
+  - component: {fileID: 702689286}
   m_Layer: 0
   m_Name: Book (9)
   m_TagString: Untagged
@@ -12879,6 +12947,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &702689286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702689283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!114 &705458597 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4898986501325962034, guid: 5e0e080b950710a4f86e995e20a9a827, type: 3}
@@ -12997,6 +13080,21 @@ MonoBehaviour:
   gameType: 2
   key: {fileID: 527041689}
   keyContainerComponent: {fileID: 714299105}
+  greenShelfBooksList:
+  - {fileID: 1641827223}
+  - {fileID: 1228616075}
+  - {fileID: 690916100}
+  - {fileID: 598812667}
+  yellowShelfBooksList:
+  - {fileID: 492505518}
+  - {fileID: 1395026553}
+  - {fileID: 1803300149}
+  - {fileID: 2035868052}
+  blueShelfBooksList:
+  - {fileID: 1218495078}
+  - {fileID: 702689286}
+  - {fileID: 2061311360}
+  - {fileID: 529914776}
 --- !u!61 &714299103
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16626,6 +16724,9 @@ MonoBehaviour:
   gameType: 3
   key: {fileID: 1121154504}
   keyContainerComponent: {fileID: 918824328}
+  greenShelfBooksList: []
+  yellowShelfBooksList: []
+  blueShelfBooksList: []
 --- !u!61 &918824326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17041,6 +17142,9 @@ MonoBehaviour:
   gameType: 4
   key: {fileID: 811256230}
   keyContainerComponent: {fileID: 934076942}
+  greenShelfBooksList: []
+  yellowShelfBooksList: []
+  blueShelfBooksList: []
 --- !u!114 &934076941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21151,7 +21255,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 10
+  timeForLevel: 60
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!114 &1201697839 stripped
@@ -21571,6 +21675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1218495076}
   - component: {fileID: 1218495077}
+  - component: {fileID: 1218495078}
   m_Layer: 0
   m_Name: Book (8)
   m_TagString: Untagged
@@ -21645,6 +21750,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1218495078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218495075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &1228616072
 GameObject:
   m_ObjectHideFlags: 0
@@ -21655,6 +21775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1228616073}
   - component: {fileID: 1228616074}
+  - component: {fileID: 1228616075}
   m_Layer: 0
   m_Name: Book (8)
   m_TagString: Untagged
@@ -21729,6 +21850,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1228616075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228616072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &1230098106
 GameObject:
   m_ObjectHideFlags: 0
@@ -24718,6 +24854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1395026551}
   - component: {fileID: 1395026552}
+  - component: {fileID: 1395026553}
   m_Layer: 0
   m_Name: Book (6)
   m_TagString: Untagged
@@ -24792,6 +24929,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1395026553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395026550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!114 &1401375243 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5941433258194700634, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
@@ -25865,7 +26017,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466775589}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -27385,7 +27537,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541077088}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -29510,6 +29662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641827221}
   - component: {fileID: 1641827222}
+  - component: {fileID: 1641827223}
   m_Layer: 0
   m_Name: Book (4)
   m_TagString: Untagged
@@ -29584,6 +29737,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1641827223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641827220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &1653141446
 GameObject:
   m_ObjectHideFlags: 0
@@ -29871,7 +30039,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678922612}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -32480,6 +32648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1803300147}
   - component: {fileID: 1803300148}
+  - component: {fileID: 1803300149}
   m_Layer: 0
   m_Name: Book (7)
   m_TagString: Untagged
@@ -32554,6 +32723,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1803300149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803300146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &1824544941
 GameObject:
   m_ObjectHideFlags: 0
@@ -35612,6 +35796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035868050}
   - component: {fileID: 2035868051}
+  - component: {fileID: 2035868052}
   m_Layer: 0
   m_Name: Book (08)
   m_TagString: Untagged
@@ -35686,6 +35871,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2035868052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035868049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &2036329738
 GameObject:
   m_ObjectHideFlags: 0
@@ -36049,6 +36249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061311358}
   - component: {fileID: 2061311359}
+  - component: {fileID: 2061311360}
   m_Layer: 0
   m_Name: Book (10)
   m_TagString: Untagged
@@ -36123,6 +36324,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2061311360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061311357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f05ac278a8d9740a9d8c04e9005c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenBookSprite: {fileID: 21300000, guid: 4448212f1ad2f844d9e28bb4fbb45336, type: 3}
+  yellowBookSprite: {fileID: 21300000, guid: 17ef990f7bbade64aaa155b366c0e887, type: 3}
+  blueBookSprite: {fileID: 21300000, guid: 4302b3d97a81cad4ea04e3268a789542, type: 3}
 --- !u!1 &2064951624
 GameObject:
   m_ObjectHideFlags: 0
