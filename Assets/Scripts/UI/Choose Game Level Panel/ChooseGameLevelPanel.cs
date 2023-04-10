@@ -39,6 +39,11 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     [Header("Buttons")]
     [Space]
     [SerializeField] private ChooseGameLevelButton chooseGameLevelButton;
+    [Header("Scale Coins Panel")]
+    [Space]
+    [SerializeField] private Vector3 coinsPanelScaleVector = new Vector3(0.1f, 0.1f, 0.1f);
+    [SerializeField] private float coinsPanelScaleDuration = 1f;
+    [SerializeField] private int coinsPanelScaleFrequency = 4; 
 
     private CurrentGameManager _currentGameManager;
     private ResourcesManager _resourcesManager;
@@ -59,6 +64,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     {
         SetPanelUIData();
         levelButton.SetButtonData(this);
+        StopBuyingPossibilityAnimation();
 
         _currentGameManager.OnGameLevelFinished += OnLevelFinished_ExecuteReaction;
     }
@@ -161,6 +167,27 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         {
             canBeBought = false;
         }
+    }
+
+    public void ShowBuyingPossibilityState()
+    {
+        if(canBeBought)
+        {
+            costPanel.transform.DOPunchScale(coinsPanelScaleVector, coinsPanelScaleDuration, coinsPanelScaleFrequency).SetLoops(-1);
+            lockImage.transform.DOPunchScale(coinsPanelScaleVector, coinsPanelScaleDuration, coinsPanelScaleFrequency).SetLoops(-1);
+        }
+        else
+        {
+            StopBuyingPossibilityAnimation();
+        }
+    }
+
+    public void StopBuyingPossibilityAnimation()
+    {
+        costPanel.transform.DOKill();
+        lockImage.transform.DOKill();
+        costPanel.transform.localScale = Vector3.one;
+        lockImage.transform.localScale = Vector3.one;
     }
 
     public void SetBoughtState()

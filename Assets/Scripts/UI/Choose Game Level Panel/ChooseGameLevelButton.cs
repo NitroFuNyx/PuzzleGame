@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using Zenject;
 using DG.Tweening;
 using TMPro;
@@ -103,6 +104,7 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
             else if (gameLevelPanel.CanBeBought)
             {
                 gameLevelPanel.SetBoughtState();
+                StartCoroutine(StartBoughtLevelCoroutine());
             }
         }
     }
@@ -110,11 +112,11 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
     [ContextMenu("Button")]
     public void SetCanBePurchasedState()
     {
-        lockImage.transform.DOKill();
-        costAmountText.DOKill();
-        costAmountText.transform.DOKill();
+        //lockImage.transform.DOKill();
+        //costAmountText.DOKill();
+        //costAmountText.transform.DOKill();
 
-        costAmountText.transform.DOPunchScale(costTextPunchVector, punchDuration, costTextPunchScaleFreequency).SetLoops(-1);
+        //costAmountText.transform.DOPunchScale(costTextPunchVector, punchDuration, costTextPunchScaleFreequency).SetLoops(-1);
 
         //costAmountText.DOColor(canBeBoughtColor, punchDuration).SetLoops(-1).OnComplete(() =>
         //{
@@ -162,13 +164,10 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
         }
     }
 
-//    Debug.Log($"Button Activated Ad {_adsManager.NeedToShowAdBeforeLevelStart()} RewardButton {_rewardedAdsButton} State {gameLevelPanel.LevelState}");
-//        if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null && gameLevelPanel.LevelState != GameLevelStates.Locked)
-//        {
-//            _rewardedAdsButton.ShowAd();
-//        }
-//        else
-//{
-//    AdFinished_ExecuteReaction();
-//}
+    private IEnumerator StartBoughtLevelCoroutine()
+    {
+        yield return null;
+        ShowAnimation_ButtonPressed();
+        _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex, gameLevelPanel.GameType);
+    }
 }

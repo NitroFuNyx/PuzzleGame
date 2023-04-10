@@ -14520,6 +14520,9 @@ MonoBehaviour:
   levelButton: {fileID: 804083928}
   changeAlphaDuration: 0.01
   chooseGameLevelButton: {fileID: 804083928}
+  coinsPanelScaleVector: {x: 0.1, y: 0.1, z: 0.1}
+  coinsPanelScaleDuration: 2
+  coinsPanelScaleFrequency: 2
 --- !u!1 &804083921
 GameObject:
   m_ObjectHideFlags: 0
@@ -27277,7 +27280,7 @@ MonoBehaviour:
   currentTimeInGame: 0
   bestFinishTime: 0
   canBeBought: 0
-  levelPrice: 10000
+  levelPrice: 8
   buttonImage: {fileID: 1635898872}
   darkFilterImage: {fileID: 392167267}
   lockImage: {fileID: 382378126}
@@ -27288,6 +27291,9 @@ MonoBehaviour:
   levelButton: {fileID: 517106794}
   changeAlphaDuration: 0.01
   chooseGameLevelButton: {fileID: 517106794}
+  coinsPanelScaleVector: {x: 0.1, y: 0.1, z: 0.1}
+  coinsPanelScaleDuration: 1
+  coinsPanelScaleFrequency: 2
 --- !u!1 &1541077088
 GameObject:
   m_ObjectHideFlags: 0
@@ -35970,6 +35976,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelType: 3
+  panelsList:
+  - {fileID: 1530696891}
+  - {fileID: 787764742}
 --- !u!1 &2084024149
 GameObject:
   m_ObjectHideFlags: 0

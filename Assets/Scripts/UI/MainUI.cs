@@ -183,6 +183,14 @@ public class MainUI : MonoBehaviour
 
     private void ActivateMainCanvasPanel(UIPanels panel)
     {
+        if(panel == UIPanels.SelectModePanel)
+        {
+            selectModeUI.StartPanelsAnimations();
+        }
+        else
+        {
+            selectModeUI.StopPanelsAnimations();
+        }
         //StartCoroutine(MakeScreenTransitionCoroutine(panel));
         for (int i = 0; i < panelsList.Count; i++)
         {
