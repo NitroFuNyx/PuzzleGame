@@ -36,6 +36,20 @@
          "uiTitleText":"mini game",
          "startText":"start",
          "bestScore":"best score"
+      },
+      "miniGameUITexts":{
+         "uiTitleText":"Coin collection",
+         "videoText":"Watch short Video Ad to multiply your score!"
+      },
+      "puzzleUITexts":{
+         "uiTitleText":"Congratulations!",
+         "inJustText":"In just:",
+         "finishTimeText":"you solved the riddles and deserve a sweet cake to celebrate!"
+      },
+      "pauseUITexts":{
+         "uiTitleText":"level in progress",
+         "exitText":"exit",
+         "continueText":"continue"
       }
    }
 }

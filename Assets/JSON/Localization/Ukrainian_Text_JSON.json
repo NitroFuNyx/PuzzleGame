@@ -36,6 +36,20 @@
          "uiTitleText":"міні гра",
          "startText":"старт",
          "bestScore":"кращий результат"
+      },
+      "miniGameUITexts":{
+         "uiTitleText":"Зібрані монети",
+         "videoText":"Подивись коротке відео щоб подвоїти свій результат!"
+      },
+      "puzzleUITexts":{
+         "uiTitleText":"Вітання!",
+         "inJustText":"Всьго за:",
+         "finishTimeText":"ти вирішив загадки і заслуговуєш на солодкий святковий торт!"
+      },
+      "pauseUITexts":{
+         "uiTitleText":"гра призупинена",
+         "exitText":"вихід",
+         "continueText":"до гри"
       }
    }
 }

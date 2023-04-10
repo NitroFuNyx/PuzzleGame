@@ -36,6 +36,20 @@
          "uiTitleText":"minijuego",
          "startText":"iniciar",
          "bestScore":"mejor puntuacin"
+      },
+      "miniGameUITexts":{
+         "uiTitleText":"Colección de monedas",
+         "videoText":"Mire un anuncio de video corto para multiplicar su puntaje!"
+      },
+      "puzzleUITexts":{
+         "uiTitleText":"Felicidades!",
+         "inJustText":"en solo:",
+         "finishTimeText":"resolviste los acertijos y te mereces un dulce pastel para celebrar!"
+      },
+      "pauseUITexts":{
+         "uiTitleText":"nivel en progreso",
+         "exitText":"salida",
+         "continueText":"continuar"
       }
    }
 }

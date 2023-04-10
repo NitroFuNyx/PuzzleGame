@@ -17,6 +17,9 @@ namespace Localization
         public SelectCharacterUIData selectCharacterUITexts;
         public ChoosePuzzleLevelUIData choosePuzzleLevelUITexts;
         public ChooseMiniGameLevelUIData chooseMiniGameLevelUITexts;
+        public miniGameUIData miniGameUITexts;
+        public puzzleUIData puzzleUITexts;
+        public pauseUIData pauseUITexts;
     }
 
     [Serializable]
@@ -84,5 +87,28 @@ namespace Localization
         public string uiTitleText;
         public string startText;
         public string bestScore;
+    }
+
+    [Serializable]
+    public class miniGameUIData
+    {
+        public string uiTitleText;
+        public string videoText;
+    }
+
+    [Serializable]
+    public class puzzleUIData
+    {
+        public string uiTitleText;
+        public string inJustText;
+        public string finishTimeText;
+    }
+
+    [Serializable]
+    public class pauseUIData
+    {
+        public string uiTitleText;
+        public string exitText;
+        public string continueText;
     }
 }
