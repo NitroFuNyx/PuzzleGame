@@ -21255,7 +21255,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 60
+  timeForLevel: 10
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!114 &1201697839 stripped
@@ -31622,6 +31622,7 @@ MonoBehaviour:
   flower: {fileID: 1193806934}
   colaGlass: {fileID: 678809082}
   windowItem: {fileID: 934076943}
+  rag: {fileID: 0}
 --- !u!1 &1768189374
 GameObject:
   m_ObjectHideFlags: 0

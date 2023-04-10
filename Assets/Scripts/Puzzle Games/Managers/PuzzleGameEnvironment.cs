@@ -34,6 +34,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [SerializeField] private PuzzleGameKitchenFlower flower;
     [SerializeField] private PuzzleColaGlass colaGlass;
     [SerializeField] private PuzzleWindowItem windowItem;
+    [SerializeField] private PuzzleGameKitchenRag rag;
 
     private PuzzleGameUI _puzzleGameUI;
     private TimersManager _timersManager;
@@ -209,6 +210,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         colaGlass.ResetItem();
         windowItem.ResetItem();
         locksHolder.ResetLocks();
+        rag.ResetItem();
         //_dataPersistanceManager.SaveGame();
     }
 
