@@ -10,6 +10,11 @@ public enum Languages
     English, Ukrainian, Spanish, Other
 }
 
+public enum SelectModePanelProgressTexts
+{
+    BestTime, CurrentTime, BestScore, Start
+}
+
 public enum GameLevelStates
 {
     Available_New, Available_Started, Available_Finished, Locked

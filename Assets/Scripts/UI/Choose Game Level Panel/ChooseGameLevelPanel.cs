@@ -43,12 +43,17 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private Vector3 coinsPanelScaleVector = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] private float coinsPanelScaleDuration = 1f;
-    [SerializeField] private int coinsPanelScaleFrequency = 4; 
+    [SerializeField] private int coinsPanelScaleFrequency = 4;
+    [Header("External References")]
+    [Space]
+    [SerializeField] private TextsLanguageUpdateHandler_SelectModeUI textsLanguageUpdateHandler;
 
     private CurrentGameManager _currentGameManager;
     private ResourcesManager _resourcesManager;
     private DataPersistanceManager _dataPersistanceManager;
     private TimersManager _timersManager;
+
+    private float fillPanelTextsDelay = 1f;
 
     public GameLevelStates LevelState { get => levelState; private set => levelState = value; }
     public GameLevelTypes GameType { get => gameType; }
@@ -63,7 +68,8 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
 
     private void Start()
     {
-        SetPanelUIData();
+        //SetPanelUIData();
+        StartCoroutine(FillPanelDataTextsCoroutine());
         levelButton.SetButtonData(this);
         StopBuyingPossibilityAnimation();
         
@@ -110,7 +116,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         }
     }
 
-    private void SetPanelUIData()
+    public void SetPanelUIData()
     {
         darkFilterImage.DOFade(0f, changeAlphaDuration);
         lockImage.DOFade(0f, changeAlphaDuration);
@@ -125,25 +131,25 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
 
             if (levelState == GameLevelStates.Available_New)
             {
-                timeTitle_Text.text = "start";
+                timeTitle_Text.text = textsLanguageUpdateHandler.GetTranslatedText(SelectModePanelProgressTexts.Start);
                 timeValue_Text.text = "";
             }
             else if (levelState == GameLevelStates.Available_Started)
             {
-                timeTitle_Text.text = "current time";
+                timeTitle_Text.text = textsLanguageUpdateHandler.GetTranslatedText(SelectModePanelProgressTexts.CurrentTime);
                 timeValue_Text.text = "01:01"; // set time
             }
             else if (levelState == GameLevelStates.Available_Finished)
             {
                 if (gameType == GameLevelTypes.Puzzle)
                 {
-                    timeTitle_Text.text = "best time";
+                    timeTitle_Text.text = textsLanguageUpdateHandler.GetTranslatedText(SelectModePanelProgressTexts.BestTime);
                     timeValue_Text.text = $"{_timersManager.GetHoursAndMinutesAmount((int)bestFinishTime)}:{_timersManager.GetSecondsAmount((int)bestFinishTime)}";
                     
                 }
                 else
                 {
-                    timeTitle_Text.text = "best score";
+                    timeTitle_Text.text = textsLanguageUpdateHandler.GetTranslatedText(SelectModePanelProgressTexts.BestScore);
                     timeValue_Text.text = $"{highestScore}";
                 }
             }
@@ -269,6 +275,12 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
     {
         yield return null;
         SetBuyingPossibilityState();
+        SetPanelUIData();
+    }
+
+    private IEnumerator FillPanelDataTextsCoroutine()
+    {
+        yield return new WaitForSeconds(fillPanelTextsDelay);
         SetPanelUIData();
     }
 }
