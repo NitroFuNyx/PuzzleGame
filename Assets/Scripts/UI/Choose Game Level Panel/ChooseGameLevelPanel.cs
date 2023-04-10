@@ -204,7 +204,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
 
     private void SetBuyingPossibilityState()
     {
-        if (_resourcesManager.WholeCoinsAmount > levelPrice)
+        if (_resourcesManager.WholeCoinsAmount >= levelPrice)
         {
             canBeBought = true;
         }
