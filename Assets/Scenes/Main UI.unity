@@ -1808,7 +1808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700634, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: item
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700635, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_Sprite
@@ -1816,7 +1816,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f88fd8bc240a6304796dc240040f52ea, type: 3}
     - target: {fileID: 5941433258194700639, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_Name
-      value: Key 2 Fringe
+      value: Key 11 Fringe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
@@ -1992,7 +1992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700634, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: item
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700635, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_SortingOrder
@@ -2000,7 +2000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5941433258194700639, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
       propertyPath: m_Name
-      value: Key 11 Window
+      value: Key 2 Window
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
