@@ -13,6 +13,12 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
     [SerializeField] private PuzzleKitchenBook firstSelectedBook;
     [SerializeField] private PuzzleKitchenBook secondSelectedBook;
     [SerializeField] private bool canCheckBooksInput = false;
+    [Header("Prefabs")]
+    [Space]
+    [SerializeField] private BookshelfImage bookshelfImagePrefab;
+    [SerializeField] private PuzzleGame_MiniGameModePanel bookshelfImageParent;
+
+    private BookshelfImage bookShelf;
 
     private Action OnGameComplete;
 
@@ -24,6 +30,7 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
     {
         canCheckBooksInput = true;
         OnGameComplete = OnBookshelfGameComplete;
+        //SpawnBookshelfImage();
     }
 
     public void SelectBookForMoving(PuzzleKitchenBook book)
@@ -68,10 +75,29 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
         firstSelectedBook = null;
         secondSelectedBook = null;
 
-        for(int i = 0; i < booksShelvesList.Count; i++)
+        //for(int i = 0; i < booksShelvesList.Count; i++)
+        //{
+        //    booksShelvesList[i].ResetShelf();
+        //}
+    }
+
+    public void SpawnBookshelfImage(Action OnSpawnComplete, Vector3 scale)
+    {
+        if(bookShelf != null)
         {
-            booksShelvesList[i].ResetShelf();
+            Destroy(bookShelf.gameObject);
         }
+        booksShelvesList.Clear();
+
+        bookShelf = Instantiate(bookshelfImagePrefab, Vector3.zero, Quaternion.identity, bookshelfImageParent.transform);
+        bookShelf.transform.localPosition = Vector3.zero;
+        bookshelfImageParent.PanelMainImage = bookShelf.transform;
+        bookShelf.transform.localScale = scale;
+        for(int i = 0; i < bookShelf.BooksShelvesList.Count; i++)
+        {
+            booksShelvesList.Add(bookShelf.BooksShelvesList[i]);
+        }
+        OnSpawnComplete?.Invoke();
     }
 
     private bool CheckShelvesState()

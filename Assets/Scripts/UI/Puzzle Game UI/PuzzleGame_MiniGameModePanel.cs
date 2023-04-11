@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 using DG.Tweening;
 
 public class PuzzleGame_MiniGameModePanel : PanelActivationManager
@@ -22,6 +23,9 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
     [SerializeField] private float scaleDuration = 1f;
 
     public PuzzleGameKitchenMiniGames GameType { get => gameType; }
+    public Transform PanelMainImage { get => panelMainImage; set => panelMainImage = value; }
+
+    private Action _OnBookshelfGameComplete;
 
     private void Start()
     {
@@ -42,8 +46,11 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
     {
         if (puzzleKitchenBooksPositionsManager)
         {
-            ScaleToStandartSize();
-            puzzleKitchenBooksPositionsManager.StartGame(OnBookshelfGameComplete);
+            _OnBookshelfGameComplete = OnBookshelfGameComplete;
+            puzzleKitchenBooksPositionsManager.SpawnBookshelfImage(CallBackFromBooksGame, minScaleVector);
+            //StartCoroutine(StartBooksGameCoroutine(OnBookshelfGameComplete));
+            //ScaleToStandartSize();
+            //puzzleKitchenBooksPositionsManager.StartGame(OnBookshelfGameComplete);
         }
     }
 
@@ -96,5 +103,17 @@ public class PuzzleGame_MiniGameModePanel : PanelActivationManager
         {
             safeButtonsHandler.ResetGame();
         }
+    }
+
+    public void CallBackFromBooksGame()
+    {
+        StartCoroutine(StartBooksGameCoroutine(_OnBookshelfGameComplete));
+    }
+
+    private IEnumerator StartBooksGameCoroutine(Action OnBookshelfGameComplete)
+    {
+        yield return null;
+        ScaleToStandartSize();
+        puzzleKitchenBooksPositionsManager.StartGame(OnBookshelfGameComplete);
     }
 }

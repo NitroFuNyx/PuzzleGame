@@ -11425,7 +11425,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619237215}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -15997,7 +15997,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875228247}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -27743,7 +27743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d0081e75a804d4d866e03aacf3264b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelState: 3
+  levelState: 0
   gameType: 0
   gameLevelIndex: 0
   highestScore: 0
@@ -39888,21 +39888,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875228248}
     m_Modifications:
-    - target: {fileID: 1616142938, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2012681548, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2118298341, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5958861390586668770, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_Name
       value: Book Shelf Mode Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958861390586668796, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
+      propertyPath: panelMainImage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5958861390586668797, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_Pivot.x
@@ -39988,15 +39980,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5958861390586668799, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5958861390857252717, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5958861391783521424, guid: 17a08e79d840f124690e8d7ea7d76b60, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}

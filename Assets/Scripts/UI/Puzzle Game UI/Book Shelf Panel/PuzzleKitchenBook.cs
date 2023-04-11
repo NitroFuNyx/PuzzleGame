@@ -1,6 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
-using Zenject;
+//using Zenject;
 
 public class PuzzleKitchenBook : ButtonInteractionHandler
 {
@@ -24,15 +24,21 @@ public class PuzzleKitchenBook : ButtonInteractionHandler
     private void Start()
     {
         startPos = transform.localPosition;
+
     }
 
-    #region Zenject
-    [Inject]
-    private void Construct(PuzzleKitchenBooksPositionsManager puzzleKitchenBooksPositionsManager)
+    private void OnEnable()
     {
-        _booksPositionsManager = puzzleKitchenBooksPositionsManager;
+        _booksPositionsManager = FindObjectOfType<PuzzleKitchenBooksPositionsManager>();
     }
-    #endregion Zenject
+
+    //#region Zenject
+    //[Inject]
+    //private void Construct(PuzzleKitchenBooksPositionsManager puzzleKitchenBooksPositionsManager)
+    //{
+    //    _booksPositionsManager = puzzleKitchenBooksPositionsManager;
+    //}
+    //#endregion Zenject
 
     public void UpdateShelf(PuzzleKitchenBookShelf shelf)
     {
