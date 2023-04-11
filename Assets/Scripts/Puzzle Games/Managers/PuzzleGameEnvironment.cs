@@ -223,7 +223,8 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         {
             string timeInForm = $"{_timersManager.GetHoursAndMinutesAmount((int)currentStopWatchValue)}:{_timersManager.GetSecondsAmount((int)currentStopWatchValue)}";
             _puzzleGameUI.GameFinishedPanel.GetComponent<PuzzleGameFinishedPanel>().SetFinishTimeText(timeInForm);
-            FullResetEnvironment();
+            //FullResetEnvironment();
+            StartCoroutine(FullResetCoroutine());
         }
 
         _dataPersistanceManager.SaveGame();
@@ -243,5 +244,12 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         yield return new WaitForSeconds(finishGameDelay / 2);
         _puzzleGameUI.ShowGameFinishedPanel();
         _cameraManager.SetCameraStartPos();
+    }
+
+    private IEnumerator FullResetCoroutine()
+    {
+        yield return new WaitForSeconds(finishGameDelay);
+        yield return null;
+        FullResetEnvironment();
     }
 }
