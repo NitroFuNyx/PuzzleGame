@@ -21351,7 +21351,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 60
+  timeForLevel: 10
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!114 &1201697839 stripped
@@ -24345,6 +24345,7 @@ GameObject:
   - component: {fileID: 1360686916}
   - component: {fileID: 1360686917}
   - component: {fileID: 1360686918}
+  - component: {fileID: 1360686919}
   m_Layer: 0
   m_Name: Painting Right
   m_TagString: Untagged
@@ -24359,14 +24360,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360686915}
-  m_LocalRotation: {x: 0, y: 0, z: 0.11736405, w: 0.99308896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.71, y: 0.7, z: 0}
   m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1393664460}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.48}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1360686917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24445,6 +24446,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.182861, y: 7.0633783}
   m_EdgeRadius: 0
+--- !u!114 &1360686919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360686915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec285ea1b03aef1428d44287db0a5065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintingType: 2
+  correctRotationVector: {x: 0, y: 0, z: 13.479998}
+  rotateDuration: 1
 --- !u!114 &1364336028 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5802171544744621135, guid: 95ace46c17b66694587c48bbf0480216, type: 3}
@@ -24940,6 +24956,7 @@ MonoBehaviour:
   keyContainerComponent: {fileID: 1393664461}
   leftPainting: {fileID: 1751019528}
   middlePainting: {fileID: 1871952700}
+  rightPainting: {fileID: 1360686919}
 --- !u!1 &1395026550
 GameObject:
   m_ObjectHideFlags: 0
@@ -31137,14 +31154,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751019524}
-  m_LocalRotation: {x: 0, y: 0, z: -0.17519486, w: 0.98453385}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.55, y: 0.77, z: 0}
   m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1393664460}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.18}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1751019526
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31236,7 +31253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingType: 0
-  incorrectRotationVector: {x: 0, y: 0, z: -20.18}
+  correctRotationVector: {x: 0, y: 0, z: 339.82}
   rotateDuration: 1
 --- !u!1 &1751928179
 GameObject:
@@ -33877,14 +33894,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871952696}
-  m_LocalRotation: {x: 0, y: 0, z: 0.16341203, w: 0.9865579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.97, y: 1.87, z: 0}
   m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1393664460}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.81}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1871952698
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -33976,7 +33993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingType: 1
-  incorrectRotationVector: {x: 1, y: 1, z: 18.81}
+  correctRotationVector: {x: 0, y: 0, z: 18.809998}
   rotateDuration: 1
 --- !u!1 &1872796309
 GameObject:

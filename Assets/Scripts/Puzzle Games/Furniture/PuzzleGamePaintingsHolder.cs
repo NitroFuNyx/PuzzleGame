@@ -12,6 +12,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
     [Space]
     [SerializeField] private PuzzleGamePainting leftPainting;
     [SerializeField] private PuzzleGamePainting middlePainting;
+    [SerializeField] private PuzzleGamePainting rightPainting;
 
     private bool containsKey = true;
 
@@ -19,6 +20,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
     {
         leftPainting.CashComponents(this);
         middlePainting.CashComponents(this);
+        rightPainting.CashComponents(this);
     }
 
     private void Start()
@@ -56,10 +58,12 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
     {
         if(containsKey)
         {
-            if(leftPainting.IsInCorrectPos && middlePainting.IsInCorrectPos)
+            if(leftPainting.IsInCorrectPos && middlePainting.IsInCorrectPos && rightPainting.IsInCorrectPos)
             {
                 key.gameObject.SetActive(true);
                 key.ChangeKeySimulattionState(true);
+                leftPainting.RotatePaintingAfterGettingKey();
+                middlePainting.RotatePaintingAfterGettingKey();
             }
         }
     }

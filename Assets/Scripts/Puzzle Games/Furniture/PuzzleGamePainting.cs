@@ -8,7 +8,7 @@ public class PuzzleGamePainting : MonoBehaviour, Iinteractable
     [SerializeField] private PuzzleGameKitchenPzintings paintingType;
     [Header("Rotation")]
     [Space]
-    [SerializeField] private Vector3 incorrectRotationVector = new Vector3(1f, 1f, 1f);
+    [SerializeField] private Vector3 correctRotationVector = new Vector3(1f, 1f, 1f);
     [SerializeField] private float rotateDuration = 1f;
 
     private PuzzleGamePaintingsHolder paintingsHolder;
@@ -17,6 +17,7 @@ public class PuzzleGamePainting : MonoBehaviour, Iinteractable
 
     private bool isInCorrectPos = false;
     private bool animationInProccess = false;
+    private bool canRotate = true;
 
     public bool IsInCorrectPos { get => isInCorrectPos; private set => isInCorrectPos = value; }
 
@@ -27,18 +28,20 @@ public class PuzzleGamePainting : MonoBehaviour, Iinteractable
 
     public void Interact()
     {
-        Debug.Log($"{gameObject}");
-        isInCorrectPos = !isInCorrectPos;
+        if(canRotate)
+        {
+            isInCorrectPos = !isInCorrectPos;
 
-        if(isInCorrectPos)
-        {
-            Rotate(Vector3.zero);
-            paintingsHolder.PaintingRotated_ExecuteReaction();
-        }
-        else
-        {
-            Rotate(incorrectRotationVector);
-        }
+            if (isInCorrectPos)
+            {
+                Rotate(correctRotationVector);
+                paintingsHolder.PaintingRotated_ExecuteReaction();
+            }
+            else
+            {
+                Rotate(Vector3.zero);
+            }
+        }    
     }
 
     public void CashComponents(PuzzleGamePaintingsHolder puzzleGamePaintingsHolder)
@@ -49,7 +52,15 @@ public class PuzzleGamePainting : MonoBehaviour, Iinteractable
     public void ResetPainting()
     {
         isInCorrectPos = false;
+        canRotate = true;
         transform.rotation = startRotation;
+    }
+
+    public void RotatePaintingAfterGettingKey()
+    {
+        isInCorrectPos = false;
+        canRotate = false;
+        Rotate(Vector3.zero);
     }
 
     private void Rotate(Vector3 rotationVector)
