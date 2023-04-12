@@ -9,6 +9,7 @@ public class PoolItemsManager : MonoBehaviour
     [Header("Holders")]
     [Space]
     [SerializeField] private Transform spawnedItemsHolder;
+    [SerializeField] private Transform vfxHolder;
     [Header("Active Kitchen Mini Game Pools")]
     [Space]
     [SerializeField] private List<PoolItem> miniGameItemsCoinsPool_Coin1 = new List<PoolItem>();
@@ -137,7 +138,7 @@ public class PoolItemsManager : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             PoolItem poolItem = Instantiate(poolItemPrefab, Vector3.zero, Quaternion.identity, poolItemsParent.transform);
-            poolItem.CashComponents();
+            poolItem.CashComponents(vfxHolder);
             poolItem.transform.localPosition = Vector3.zero;
             poolItem.gameObject.SetActive(false);
             poolItemsList.Add(poolItem);

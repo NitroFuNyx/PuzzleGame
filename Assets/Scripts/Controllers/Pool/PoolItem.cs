@@ -6,11 +6,12 @@ public class PoolItem : MonoBehaviour
 
     public KitchenMiniGameItem KitchenMiniGameItem { get => kitchenMiniGameItem; private set => kitchenMiniGameItem = value; }
 
-    public void CashComponents()
+    public void CashComponents(Transform vfxHolder)
     {
         if(TryGetComponent(out KitchenMiniGameItem item))
         {
             kitchenMiniGameItem = item;
+            kitchenMiniGameItem.VfxHolder = vfxHolder;
         }    
     }
 

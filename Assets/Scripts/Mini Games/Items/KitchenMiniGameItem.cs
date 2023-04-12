@@ -19,11 +19,14 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     protected PoolItem poolItemComponent;
 
+    private Transform vfxHolder;
+
     private Vector3 startPos;
 
     private float vfxResetDelay = 0.1f;
 
     public KitchenMiniGameItems ItemType { get => itemType; }
+    public Transform VfxHolder { get => vfxHolder; set => vfxHolder = value; }
 
     private void Awake()
     {
@@ -68,7 +71,7 @@ public abstract class KitchenMiniGameItem : MonoBehaviour
 
     protected void PlayItemInteractionVFX()
     {
-        playerStandartInteractionVFX.transform.SetParent(null);
+        playerStandartInteractionVFX.transform.SetParent(vfxHolder);
         playerStandartInteractionVFX.transform.position = transform.position;
         playerStandartInteractionVFX.Play();
     }
