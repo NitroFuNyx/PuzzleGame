@@ -93,7 +93,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         if(containsKey && !key.gameObject.activeInHierarchy)
         {
             if (gameType == PuzzleGameKitchenMiniGames.PopIt || gameType == PuzzleGameKitchenMiniGames.Bookshelf || gameType == PuzzleGameKitchenMiniGames.Mixer
-                || gameType == PuzzleGameKitchenMiniGames.Safe)
+                || gameType == PuzzleGameKitchenMiniGames.Safe)//TODO: CHANGE CAMERA CLAMP
             {
                 _cameraManager.CameraMoveTo(transform, cameraMoveTowardsObjectDuration, ShowMiniGame);
             }

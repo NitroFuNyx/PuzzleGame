@@ -13,8 +13,7 @@ public class SafeButtonsHandler : MonoBehaviour
     
     private PuzzleGameUI _puzzleGameUI;
     
-    public event Action _OnGameFinished;
-
+    public Action _OnGameFinished;
     private void Start()
     {
         StartCoroutine(LateStart());
@@ -71,7 +70,6 @@ public class SafeButtonsHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f);
         _OnGameFinished?.Invoke();
-        Debug.Log("Opened");
         //_puzzleGameUI.ShowMainModePanel();
     }
 
