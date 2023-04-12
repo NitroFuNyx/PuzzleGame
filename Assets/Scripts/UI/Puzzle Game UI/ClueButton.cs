@@ -53,10 +53,6 @@ public class ClueButton : ButtonInteractionHandler
         {
             rewardedAdsButton.ShowAd();
         }
-        else
-        {
-            ShowClue();
-        }
     }
 
     private void ShowClue()

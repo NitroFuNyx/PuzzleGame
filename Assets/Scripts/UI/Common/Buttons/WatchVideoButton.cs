@@ -52,10 +52,6 @@ public class WatchVideoButton : ButtonInteractionHandler
             {
                 StartCoroutine(ActivateDelayedButtonMethodCoroutine(rewardedAdsButton.ShowAd));
             }
-            else
-            {
-                GrandReward();
-            }
         }
     }
 
