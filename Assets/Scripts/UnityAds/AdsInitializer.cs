@@ -10,10 +10,21 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] private List<RewardedAdsButton> rewardedAdsButtonsList = new List<RewardedAdsButton>();
 
     private string _gameId;
-    
+    private bool adsCanBeLoaded = true;
+
+    public bool AdsCanBeLoaded { get => adsCanBeLoaded; private set => adsCanBeLoaded = value; }
+
     void Awake()
     {
-        InitializeAds();
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            adsCanBeLoaded = false;
+        }
+        else
+        {
+            adsCanBeLoaded = true;
+            InitializeAds();
+        }
     }
  
     public void InitializeAds()

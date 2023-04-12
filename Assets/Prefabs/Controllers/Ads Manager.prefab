@@ -48,7 +48,11 @@ MonoBehaviour:
   _androidGameId: 5216779
   _iOSGameId: 5216778
   _testMode: 1
-  rewardedAdsButton: {fileID: 0}
+  rewardedAdsButtonsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &9117914883295254920
 MonoBehaviour:
   m_ObjectHideFlags: 0
