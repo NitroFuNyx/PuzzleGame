@@ -19910,7 +19910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   clampXUnitMin: -2.75
-  clampXUnitMax: 40
+  clampXUnitMax: 43
   joystick: {fileID: 8135886326369244972}
 --- !u!1001 &1116600596
 PrefabInstance:
@@ -37913,14 +37913,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
-      propertyPath: rewardedAdsButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
-      propertyPath: rewardedAdsButtonsList.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButtonsList.Array.data[0]
       value: 
