@@ -12,8 +12,8 @@ public class SafeButtonsHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI safeString;
     
     private PuzzleGameUI _puzzleGameUI;
-
-    public Action _OnGameFinished;
+    
+    public event Action _OnGameFinished;
 
     private void Start()
     {
@@ -71,6 +71,7 @@ public class SafeButtonsHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f);
         _OnGameFinished?.Invoke();
+        Debug.Log("Opened");
         //_puzzleGameUI.ShowMainModePanel();
     }
 
