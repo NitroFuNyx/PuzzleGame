@@ -19,7 +19,7 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
 
     private float changeButtonAlphaDuration = 0.1f;
 
-    protected Button ButtonComponent { get => _button; private set => _button = value; }
+    protected Button ButtonComponent { get => _button; set => _button = value; }
 
     private void Awake()
     {

@@ -13,17 +13,23 @@ public class WatchVideoButton : ButtonInteractionHandler
 
     private void Awake()
     {
-        rewardedAdsButton = GetComponent<RewardedAdsButton>();
+        if (TryGetComponent(out RewardedAdsButton button))
+        {
+            rewardedAdsButton = button;
+            rewardedAdsButton.SetStartData();
+        }
     }
 
     private void Start()
     {
-        rewardedAdsButton.OnRewardReadyToBeGranted += GrandReward;
+        if (rewardedAdsButton)
+            rewardedAdsButton.OnRewardReadyToBeGranted += GrandReward;
     }
 
     private void OnDestroy()
     {
-        rewardedAdsButton.OnRewardReadyToBeGranted -= GrandReward;
+        if (rewardedAdsButton)
+            rewardedAdsButton.OnRewardReadyToBeGranted -= GrandReward;
     }
 
     #region Zenject
@@ -40,7 +46,10 @@ public class WatchVideoButton : ButtonInteractionHandler
         {
             videoWatched = true;
             ShowAnimation_ButtonPressed();
-            StartCoroutine(ActivateDelayedButtonMethodCoroutine(rewardedAdsButton.ShowAd));
+            if(rewardedAdsButton)
+            {
+                StartCoroutine(ActivateDelayedButtonMethodCoroutine(rewardedAdsButton.ShowAd));
+            }
         }
     }
 

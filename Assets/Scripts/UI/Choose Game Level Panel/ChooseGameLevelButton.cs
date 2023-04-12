@@ -37,6 +37,7 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
         if(TryGetComponent(out RewardedAdsButton rewardedAdsButton))
         {
             _rewardedAdsButton = rewardedAdsButton;
+            _rewardedAdsButton.SetStartData();
         }
     }
 
@@ -45,6 +46,12 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
         if(_rewardedAdsButton)
         {
             _rewardedAdsButton.OnRewardReadyToBeGranted += AdFinished_ExecuteReaction;
+        }
+
+        if(ButtonComponent == null)
+        {
+            ButtonComponent = GetComponent<Button>();
+            ButtonComponent.onClick.AddListener(ButtonActivated);
         }
     }
 
@@ -68,6 +75,7 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
+        Debug.Log($"Button Activated");
         if (gameLevelPanel.LevelState != GameLevelStates.Locked)
         {
             if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null)

@@ -14,19 +14,25 @@ public class ClueButton : ButtonInteractionHandler
 
     private void Awake()
     {
-        rewardedAdsButton = GetComponent<RewardedAdsButton>();
+        if(TryGetComponent(out RewardedAdsButton button))
+        {
+            rewardedAdsButton = button;
+            rewardedAdsButton.SetStartData();
+        }
     }
 
     private void Start()
     {
-        rewardedAdsButton.OnRewardReadyToBeGranted += ShowClue;
+        if(rewardedAdsButton)
+            rewardedAdsButton.OnRewardReadyToBeGranted += ShowClue;
     }
 
     private void OnDestroy()
     {
-        rewardedAdsButton.OnRewardReadyToBeGranted -= ShowClue;
+        if (rewardedAdsButton)
+            rewardedAdsButton.OnRewardReadyToBeGranted -= ShowClue;
     }
-
+  
     #region Zenject
     [Inject]
     private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, CurrentGameManager currentGameManager)
@@ -41,7 +47,10 @@ public class ClueButton : ButtonInteractionHandler
         _currentGameManager.PuzzleUIButtonPressed = true;
         StartCoroutine(ResetButtonCoroutine());
         ShowAnimation_ButtonPressed();
-        rewardedAdsButton.ShowAd();
+        if(rewardedAdsButton)
+        {
+            rewardedAdsButton.ShowAd();
+        }
     }
 
     private void ShowClue()
