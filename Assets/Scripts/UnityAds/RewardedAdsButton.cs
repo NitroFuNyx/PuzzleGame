@@ -17,20 +17,30 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public event Action OnRewardReadyToBeGranted;
     #endregion Events Declaration
 
-    void Awake()
-    {   
+ 
         // Get the Ad Unit ID for the current platform:
+//#if UNITY_IOS
+//        _adUnitId = _iOSAdUnitId;
+//#elif UNITY_ANDROID
+//        _adUnitId = _androidAdUnitId;
+//#endif
+
+        //Disable the button until the ad is ready to show:
+        //_showAdButton.interactable = false;
+        //button = GetComponent<ButtonInteractionHandler>();
+
+
+    public void SetStartData()
+    {
 #if UNITY_IOS
         _adUnitId = _iOSAdUnitId;
 #elif UNITY_ANDROID
         _adUnitId = _androidAdUnitId;
 #endif
-
-        //Disable the button until the ad is ready to show:
-        _showAdButton.interactable = false;
         button = GetComponent<ButtonInteractionHandler>();
+        _showAdButton.onClick.AddListener(button.ButtonActivated);
     }
- 
+
     // Load content to the Ad Unit:
     public void LoadAd()
     {
@@ -49,7 +59,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             // Configure the button to call the ShowAd() method when clicked:
 
             //_showAdButton.onClick.AddListener(ShowAd); // Blocked For Control Through Other Scripts
-            _showAdButton.onClick.AddListener(button.ButtonActivated);
+            //_showAdButton.onClick.AddListener(button.ButtonActivated);
 
             // Enable the button for users to click:
             _showAdButton.interactable = true;

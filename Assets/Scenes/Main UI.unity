@@ -2696,6 +2696,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147978672}
   m_CullTransparentMesh: 1
+--- !u!1 &155810224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155810225}
+  m_Layer: 0
+  m_Name: VFX Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &155810225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155810224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1197905648}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &155876071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8473,7 +8504,7 @@ GameObject:
   - component: {fileID: 517106789}
   - component: {fileID: 517106792}
   - component: {fileID: 517106794}
-  - component: {fileID: 517106793}
+  - component: {fileID: 517106795}
   m_Layer: 5
   m_Name: Game Type Button
   m_TagString: Untagged
@@ -8588,21 +8619,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &517106793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517106787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showAdButton: {fileID: 517106792}
-  _androidAdUnitId: Rewarded_Android
-  _iOSAdUnitId: Rewarded_iOS
 --- !u!114 &517106794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8627,6 +8643,21 @@ MonoBehaviour:
   costTextPunchScaleFreequency: 4
   costTextBlockedColor: {r: 0.7372549, g: 0, b: 0, a: 1}
   canBeBoughtColor: {r: 0.05882353, g: 0.2627451, b: 0.7254902, a: 1}
+--- !u!114 &517106795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517106787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 517106792}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -14779,7 +14810,7 @@ GameObject:
   - component: {fileID: 804083923}
   - component: {fileID: 804083926}
   - component: {fileID: 804083928}
-  - component: {fileID: 804083927}
+  - component: {fileID: 804083929}
   m_Layer: 5
   m_Name: Game Type Button
   m_TagString: Untagged
@@ -14894,21 +14925,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &804083927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804083921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showAdButton: {fileID: 804083926}
-  _androidAdUnitId: Rewarded_Android
-  _iOSAdUnitId: Rewarded_iOS
 --- !u!114 &804083928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14933,6 +14949,21 @@ MonoBehaviour:
   costTextPunchScaleFreequency: 4
   costTextBlockedColor: {r: 0.7372549, g: 0, b: 0, a: 1}
   canBeBoughtColor: {r: 0.05882353, g: 0.2627451, b: 0.7254902, a: 1}
+--- !u!114 &804083929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804083921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 804083926}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!114 &811256230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5941433258194700634, guid: 6bb3a41a62cafa24ba85e3e7ba101822, type: 3}
@@ -20012,7 +20043,7 @@ GameObject:
   - component: {fileID: 1130153479}
   - component: {fileID: 1130153478}
   - component: {fileID: 1130153483}
-  - component: {fileID: 1130153482}
+  - component: {fileID: 1130153484}
   m_Layer: 5
   m_Name: Video Button
   m_TagString: Untagged
@@ -20136,21 +20167,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130153476}
   m_CullTransparentMesh: 1
---- !u!114 &1130153482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130153476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showAdButton: {fileID: 1130153479}
-  _androidAdUnitId: Rewarded_Android
-  _iOSAdUnitId: Rewarded_iOS
 --- !u!114 &1130153483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20167,6 +20183,21 @@ MonoBehaviour:
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
   videoWatched: 1
+--- !u!114 &1130153484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130153476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 1130153479}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &1138549763
 GameObject:
   m_ObjectHideFlags: 0
@@ -21457,6 +21488,7 @@ Transform:
   - {fileID: 1796588108}
   - {fileID: 899594256}
   - {fileID: 81467125}
+  - {fileID: 155810225}
   m_Father: {fileID: 522045784}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36852,7 +36884,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064951624}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -37883,7 +37915,7 @@ PrefabInstance:
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButton
       value: 
-      objectReference: {fileID: 587583390}
+      objectReference: {fileID: 0}
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButtonsList.Array.size
       value: 4
@@ -37895,15 +37927,15 @@ PrefabInstance:
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButtonsList.Array.data[1]
       value: 
-      objectReference: {fileID: 1130153482}
+      objectReference: {fileID: 1130153484}
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButtonsList.Array.data[2]
       value: 
-      objectReference: {fileID: 517106793}
+      objectReference: {fileID: 517106795}
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButtonsList.Array.data[3]
       value: 
-      objectReference: {fileID: 804083927}
+      objectReference: {fileID: 804083929}
     - target: {fileID: 4167937353221010891, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: m_Name
       value: Ads Manager
@@ -40696,6 +40728,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pool Items Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8069017711027801647, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
+      propertyPath: vfxHolder
+      value: 
+      objectReference: {fileID: 155810225}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
 --- !u!1001 &8116893676423644673
