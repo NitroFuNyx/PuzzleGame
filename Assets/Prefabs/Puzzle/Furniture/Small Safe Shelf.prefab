@@ -339,7 +339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4058b449a9a60f74eacc9bfc47ce4f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeButtonsHandler: {fileID: 0}
   openedDoor: {fileID: 21300000, guid: 21d498a02a60beb4db8369e14272015f, type: 3}
   spriteRenderer: {fileID: 3197833318659130192}
 --- !u!1 &3197833319047372394

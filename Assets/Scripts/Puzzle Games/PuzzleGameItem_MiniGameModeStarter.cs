@@ -23,6 +23,8 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
     private CameraManager _cameraManager;
     private PuzzleGamesEnvironmentsHolder _environmentsHolder;
 
+    private SafeOpener _safeOpener;
+
     private float cameraMoveTowardsObjectDuration = 1f;
 
     private BoxCollider2D _collider;
@@ -133,12 +135,21 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         {
             containsKey = false;
             key.ChangeKeySimulattionState(false);
+            if (gameType == PuzzleGameKitchenMiniGames.Safe)
+            {
+                _safeOpener.OpenSafe();
+            }
+            
         }
     }
 
     public void ResetKeyData_ExecuteReaction()
     {
         containsKey = true;
+        if (gameType == PuzzleGameKitchenMiniGames.Safe)
+        {
+            _safeOpener.CloseSafe();
+        }
         ResetBooksSprites();
     }
 
