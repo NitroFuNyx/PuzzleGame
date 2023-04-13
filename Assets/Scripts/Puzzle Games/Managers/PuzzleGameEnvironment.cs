@@ -20,6 +20,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     [SerializeField] private PuzzleCollectableItemsManager collectableItemsManager;
     [SerializeField] private PuzzleCluesManager cluesManager;
     [SerializeField] private PuzzleLocksHolder locksHolder;
+    [SerializeField] private PuzzleKitchenCake cake;
     [Header("Environment Items With Keys")]
     [Space]
     [SerializeField] protected List<PuzzleKeyContainer> keyContainersList = new List<PuzzleKeyContainer>();
@@ -239,6 +240,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
 
     private IEnumerator FinishGameCoroutine()
     {
+        cake.SetAnimationState_Jump();
         yield return new WaitForSeconds(finishGameDelay / 2);
         _timersManager.StopStopwatch();
         yield return new WaitForSeconds(finishGameDelay / 2);

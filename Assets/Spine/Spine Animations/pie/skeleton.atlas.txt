@@ -1,0 +1,14 @@
+skeleton.png
+size:1157,688
+filter:Linear,Linear
+pma:true
+Торт/1
+bounds:2,264,818,422
+offsets:9,7,839,826
+Торт/2
+bounds:822,53,633,333
+offsets:104,309,839,826
+rotate:90
+Торт/3
+bounds:2,2,485,260
+offsets:183,562,839,826

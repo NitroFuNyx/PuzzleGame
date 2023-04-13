@@ -27,3 +27,8 @@ public class WindowCharacterAnimations
 {
     public const string GetKey = "Get Key";
 }
+
+public class CakeAnimations
+{
+    public const string Jump = "Jump";
+}
