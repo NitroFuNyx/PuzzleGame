@@ -15270,6 +15270,7 @@ GameObject:
   - component: {fileID: 784075545}
   - component: {fileID: 784075544}
   - component: {fileID: 784075543}
+  - component: {fileID: 784075547}
   m_Layer: 0
   m_Name: Female Character
   m_TagString: Untagged
@@ -15411,6 +15412,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784075541}
   m_Mesh: {fileID: 0}
+--- !u!61 &784075547
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784075541}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04619789, y: 9.24416}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.322838, y: 19.51141}
+  m_EdgeRadius: 0
 --- !u!1 &787764739
 GameObject:
   m_ObjectHideFlags: 0
@@ -16416,6 +16443,7 @@ GameObject:
   - component: {fileID: 860522250}
   - component: {fileID: 860522249}
   - component: {fileID: 860522248}
+  - component: {fileID: 860522252}
   m_Layer: 0
   m_Name: Male Character
   m_TagString: Untagged
@@ -16553,6 +16581,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860522246}
   m_Mesh: {fileID: 0}
+--- !u!61 &860522252
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860522246}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.15240908, y: 9.354433}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.723996, y: 19.65406}
+  m_EdgeRadius: 0
 --- !u!1001 &868370551
 PrefabInstance:
   m_ObjectHideFlags: 0

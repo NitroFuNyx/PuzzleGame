@@ -32,3 +32,11 @@ public class CakeAnimations
 {
     public const string Jump = "Jump";
 }
+
+public class EmotionAnimations
+{
+    public const string Shocked = "Shocked";
+    public const string Cunning = "Cunning";
+    public const string Normal = "Normal";
+    public const string IsGirl = "IsGirl";
+}
