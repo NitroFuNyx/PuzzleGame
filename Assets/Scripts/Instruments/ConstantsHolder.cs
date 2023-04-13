@@ -40,3 +40,8 @@ public class EmotionAnimations
     public const string Normal = "Normal";
     public const string IsGirl = "IsGirl";
 }
+
+public class SkinAnimations
+{
+    public const string MiniGameCharacterIndex = "Mini Game Character Index";
+}

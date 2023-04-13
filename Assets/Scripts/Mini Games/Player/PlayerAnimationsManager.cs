@@ -6,6 +6,11 @@ public class PlayerAnimationsManager : MonoBehaviour
     [Space]
     [SerializeField] private Animator animator;
 
+    private void OnEnable()
+    {
+        animator.SetInteger(SkinAnimations.MiniGameCharacterIndex, 1);
+    }
+
     public void SetAnimationState_StartWalking()
     {
         animator.SetTrigger(CharacterMoveAnimations.StartWalking);

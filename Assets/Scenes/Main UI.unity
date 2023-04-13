@@ -15332,8 +15332,8 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 010000000000000000000000
-    layerBlendModes: 010000000300000002000000
+    layerMixModes: 01000000000000000000000000000000
+    layerBlendModes: 01000000030000000200000003000000
   updateTiming: 1
 --- !u!95 &784075544
 Animator:
@@ -16517,8 +16517,8 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 010000000000000000000000
-    layerBlendModes: 010000000300000002000000
+    layerMixModes: 01000000000000000000000000000000
+    layerBlendModes: 01000000030000000200000003000000
   updateTiming: 1
 --- !u!95 &860522249
 Animator:
@@ -27530,8 +27530,8 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 010000000000000000000000
-    layerBlendModes: 010000000300000002000000
+    layerMixModes: 01000000000000000000000000000000
+    layerBlendModes: 01000000030000000200000003000000
   updateTiming: 1
 --- !u!95 &1469213253
 Animator:
@@ -38922,8 +38922,8 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 010000000000000000000000
-    layerBlendModes: 010000000300000002000000
+    layerMixModes: 01000000000000000000000000000000
+    layerBlendModes: 01000000030000000200000003000000
   updateTiming: 1
 --- !u!95 &2105536469
 Animator:
