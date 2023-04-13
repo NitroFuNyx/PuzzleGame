@@ -63,14 +63,7 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         inventoryCellsList.Add(cell);
         cell.CashComponents(this);
 
-        if (inventoryCellsList.Count > inventoryCellsTreshold)
-        {
-            ChangeScrollButtonsState(true);
-        }
-        else
-        {
-            ChangeScrollButtonsState(false);
-        }
+        CheckArrowButtons();
     }
 
     public void LoadCollectedItems(List<int> collectedItemsList)
@@ -123,6 +116,7 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         inventoryCellsList.Remove(currentlySelectedInventoryCell);
         Destroy(currentlySelectedInventoryCell.gameObject);
         _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.CollectableItemsManager.RemoveItemFromInventory(currentlySelectedInventoryCell.ItemType);
+        CheckArrowButtons();
     }
 
     private void ChangeScrollButtonsState(bool isActive)
@@ -168,5 +162,17 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
     private void ScrollButtonReleased_ExecuteReaction()
     {
         Debug.Log($"Stop");
+    }
+
+    private void CheckArrowButtons()
+    {
+        if (inventoryCellsList.Count > inventoryCellsTreshold)
+        {
+            ChangeScrollButtonsState(true);
+        }
+        else
+        {
+            ChangeScrollButtonsState(false);
+        }
     }
 }

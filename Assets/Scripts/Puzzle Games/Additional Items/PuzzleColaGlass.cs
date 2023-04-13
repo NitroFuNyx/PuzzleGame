@@ -12,9 +12,15 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
     [Space]
     [SerializeField] private PuzzleKey key;
     [SerializeField] private PuzzleKeyContainer keyContainerComponent;
+    [Header("Sprites")]
+    [Space]
+    [SerializeField] private Sprite colaFullSprite;
+    [SerializeField] private Sprite colaEmptySprite;
 
     private DataPersistanceManager _dataPersistanceManager;
     private PuzzleGameUI _puzzleGameUI;
+
+    private SpriteRenderer spriteRenderer;
 
     private bool containsKey = true;
 
@@ -22,6 +28,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
     {
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
         straw.CashComponents(this);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -80,6 +87,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
     public void ResetItem()
     {
         straw.gameObject.SetActive(true);
+        spriteRenderer.sprite = colaFullSprite;
         straw.ResetItem();
     }
 
@@ -95,6 +103,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
             containsKey = false;
             key.ChangeKeySimulattionState(false);
             straw.gameObject.SetActive(false);
+            spriteRenderer.sprite = colaEmptySprite;
         }
     }
 
@@ -117,6 +126,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
             if(_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == PuzzleGameKitchenItems.ColaStraw)
             {
                 key.gameObject.SetActive(true);
+                spriteRenderer.sprite = colaEmptySprite;
                 key.ChangeKeySimulattionState(true);
                 _puzzleGameUI.InventoryPanel.ItemUsed_ExecuteReaction();
             }

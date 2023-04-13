@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using Zenject;
 
 public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
@@ -9,10 +9,15 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private List<PuzzleLock> allLocksList = new List<PuzzleLock>();
     [SerializeField] private List<int> openedLocksList = new List<int>();
+    [Header("Change Alpha Data")]
+    [Space]
+    [SerializeField] private float changeAlphaDuration;
 
     private DataPersistanceManager _dataPersistanceManager;
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
     private PuzzleGameUI _puzzleGameUI;
+
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -22,6 +27,7 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
         }
 
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     #region Zenject
@@ -102,6 +108,8 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
             allLocksList[i].gameObject.SetActive(true);
             allLocksList[i].ResetLock();
         }
+
+        spriteRenderer.DOFade(1f, changeAlphaDuration);
     }
 
     private void CheckClodesLocksAmount()
@@ -109,6 +117,7 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
         if(openedLocksList.Count == allLocksList.Count)
         {
             _puzzleGamesEnvironmentsHolder.CurrentlyActiveGame.AllLocksOpened_ExecuteReaction();
+            spriteRenderer.DOFade(0f, changeAlphaDuration);
         }
     }
 }

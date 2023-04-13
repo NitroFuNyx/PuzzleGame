@@ -68,6 +68,7 @@ public class TimersManager : MonoBehaviour
 
     public void StopTimer()
     {
+        if(timerCoroutine != null)
         StopCoroutine(timerCoroutine);
     }
 
