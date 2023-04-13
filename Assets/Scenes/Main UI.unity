@@ -13530,7 +13530,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692234549}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -20062,7 +20062,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 580182689}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.27556428
+  m_Size: 0.22208026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -27435,7 +27435,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466775589}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -29222,8 +29222,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 400.65}
-  m_SizeDelta: {x: 1304.04, y: 801.3}
+  m_AnchoredPosition: {x: 0, y: 324.53802}
+  m_SizeDelta: {x: 1304.04, y: 649.076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547143777
 MonoBehaviour:
