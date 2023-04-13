@@ -9,9 +9,12 @@ public class SettingsUI : MainCanvasPanel
     [SerializeField] private PanelActivationManager infoPanel;
     [SerializeField] private PanelActivationManager privacyPolicyPanel;
 
+    private PrivacyPolicyPanel privacyPolicyComponent;
+
     private void Start()
     {
         SetStartSettings();
+        privacyPolicyComponent = privacyPolicyPanel.GetComponent<PrivacyPolicyPanel>();
     }
 
     public void ShowPanel_MainPanel()
@@ -44,6 +47,7 @@ public class SettingsUI : MainCanvasPanel
         chooseLanguagePanel.HidePanel();
         infoPanel.HidePanel();
         privacyPolicyPanel.ShowPanel();
+        //privacyPolicyComponent.SetStartSettings();
     }
 
     private void SetStartSettings()

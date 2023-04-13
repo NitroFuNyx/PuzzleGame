@@ -13408,6 +13408,7 @@ GameObject:
   - component: {fileID: 692234553}
   - component: {fileID: 692234552}
   - component: {fileID: 692234551}
+  - component: {fileID: 692234554}
   m_Layer: 5
   m_Name: Privacy Policy Panel
   m_TagString: Untagged
@@ -13471,6 +13472,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692234549}
   m_CullTransparentMesh: 1
+--- !u!114 &692234554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692234549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5521dc23577a0c341b7df75fc0ffd850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 1547143777}
 --- !u!1 &702689283
 GameObject:
   m_ObjectHideFlags: 0
@@ -27374,7 +27388,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466775589}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
