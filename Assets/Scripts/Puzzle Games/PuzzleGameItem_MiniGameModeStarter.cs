@@ -37,6 +37,10 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         {
             _collider = boxCollider2D;
         }
+        if(TryGetComponent(out SafeOpener safeOpener))
+        {
+            _safeOpener = safeOpener;
+        }
     }
 
     private void Start()

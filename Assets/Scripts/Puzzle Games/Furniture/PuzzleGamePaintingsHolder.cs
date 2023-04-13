@@ -80,6 +80,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
         {
             containsKey = false;
             key.ChangeKeySimulattionState(false);
+            rightPainting.RotateToCorrectPos();
         }
     }
 
@@ -92,6 +93,7 @@ public class PuzzleGamePaintingsHolder : MonoBehaviour
     {
         leftPainting.ResetPainting();
         middlePainting.ResetPainting();
+        rightPainting.ResetPainting();
     }
 
     private IEnumerator SetStartSettingsCoroutine()

@@ -63,6 +63,11 @@ public class PuzzleGamePainting : MonoBehaviour, Iinteractable
         Rotate(Vector3.zero);
     }
 
+    public void RotateToCorrectPos()
+    {
+        transform.rotation = correctRotationVector;
+    }
+
     private void Rotate(Vector3 rotationVector)
     {
         animationInProccess = true;

@@ -4280,7 +4280,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2092619679}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &247060706
 SpriteRenderer:
@@ -5281,6 +5281,10 @@ PrefabInstance:
       propertyPath: key
       value: 
       objectReference: {fileID: 1166953235}
+    - target: {fileID: 3119140803012883748, guid: d92444311bf9c9b4bb73fdec5a868400, type: 3}
+      propertyPath: closedDoor
+      value: 
+      objectReference: {fileID: 21300000, guid: a5b44243df66e764e8280f0502d2f18e, type: 3}
     - target: {fileID: 3197833318659130197, guid: d92444311bf9c9b4bb73fdec5a868400, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.01
@@ -38450,8 +38454,8 @@ Transform:
   - {fileID: 2096513065}
   - {fileID: 907447340}
   - {fileID: 398555711}
-  - {fileID: 838164200}
   - {fileID: 247060705}
+  - {fileID: 838164200}
   m_Father: {fileID: 125382434}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
