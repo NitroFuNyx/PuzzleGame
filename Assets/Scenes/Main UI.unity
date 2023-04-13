@@ -12818,7 +12818,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: eb52c58fa452f3d4f83ed20fba763928, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 503b8a2200810ef44a157571ade96955, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12844,6 +12844,8 @@ MonoBehaviour:
   straw: {fileID: 339347327}
   key: {fileID: 1044359442}
   keyContainerComponent: {fileID: 678809078}
+  colaFullSprite: {fileID: 21300000, guid: 503b8a2200810ef44a157571ade96955, type: 3}
+  colaEmptySprite: {fileID: 21300000, guid: 62dd7df7e8815034d8b8593d2badfb3f, type: 3}
 --- !u!1001 &682159652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36885,7 +36887,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064951624}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

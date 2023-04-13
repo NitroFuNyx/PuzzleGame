@@ -47,9 +47,4 @@ public class PuzzleGamesEnvironmentsHolder : MonoBehaviour
         yield return new WaitForSeconds(2f);
         HideAllEnvironments();
     }
-
-    private IEnumerator CheckIfEnvironmentActiveCoroutine()
-    {
-        yield return null;
-    }
 }
