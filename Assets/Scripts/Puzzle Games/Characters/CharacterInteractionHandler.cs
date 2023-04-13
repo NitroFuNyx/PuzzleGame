@@ -46,8 +46,6 @@ public class CharacterInteractionHandler : MonoBehaviour, Iinteractable
         {
             emotion = EmotionAnimations.Cunning;
         }
-
-        Debug.Log($"{emotion} {emotionIndex}");
         
         animator.SetBool(EmotionAnimations.IsGirl, isGirl);
         animator.SetTrigger(emotion);

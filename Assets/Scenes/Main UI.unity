@@ -15271,6 +15271,7 @@ GameObject:
   - component: {fileID: 784075544}
   - component: {fileID: 784075543}
   - component: {fileID: 784075547}
+  - component: {fileID: 784075548}
   m_Layer: 0
   m_Name: Female Character
   m_TagString: Untagged
@@ -15331,7 +15332,7 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 010000000000000001000000
+    layerMixModes: 010000000000000000000000
     layerBlendModes: 010000000300000002000000
   updateTiming: 1
 --- !u!95 &784075544
@@ -15379,8 +15380,6 @@ MeshRenderer:
   - {fileID: 2100000, guid: 7f319b96c78f1cc4b906337433cf6e20, type: 2}
   - {fileID: 2100000, guid: b537c88a6fa09534aba4ee6b56aebe32, type: 2}
   - {fileID: 2100000, guid: 7f319b96c78f1cc4b906337433cf6e20, type: 2}
-  - {fileID: 2100000, guid: 1fd19f820d6507f4b8abbe16f6005949, type: 2}
-  - {fileID: 2100000, guid: 4d5120d537e6fa44caa248f121bf8a6a, type: 2}
   - {fileID: 2100000, guid: 1fd19f820d6507f4b8abbe16f6005949, type: 2}
   - {fileID: 2100000, guid: 7f319b96c78f1cc4b906337433cf6e20, type: 2}
   m_StaticBatchInfo:
@@ -15438,6 +15437,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.322838, y: 19.51141}
   m_EdgeRadius: 0
+--- !u!114 &784075548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784075541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70437b485a17d6943a604a01c0359c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: 0
 --- !u!1 &787764739
 GameObject:
   m_ObjectHideFlags: 0
@@ -16444,6 +16456,7 @@ GameObject:
   - component: {fileID: 860522249}
   - component: {fileID: 860522248}
   - component: {fileID: 860522252}
+  - component: {fileID: 860522253}
   m_Layer: 0
   m_Name: Male Character
   m_TagString: Untagged
@@ -16504,7 +16517,7 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 010000000000000001000000
+    layerMixModes: 010000000000000000000000
     layerBlendModes: 010000000300000002000000
   updateTiming: 1
 --- !u!95 &860522249
@@ -16607,6 +16620,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.723996, y: 19.65406}
   m_EdgeRadius: 0
+--- !u!114 &860522253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860522246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70437b485a17d6943a604a01c0359c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: 1
 --- !u!1001 &868370551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27504,7 +27530,7 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 010000000000000001000000
+    layerMixModes: 010000000000000000000000
     layerBlendModes: 010000000300000002000000
   updateTiming: 1
 --- !u!95 &1469213253
@@ -27552,8 +27578,6 @@ MeshRenderer:
   - {fileID: 2100000, guid: 7f319b96c78f1cc4b906337433cf6e20, type: 2}
   - {fileID: 2100000, guid: b537c88a6fa09534aba4ee6b56aebe32, type: 2}
   - {fileID: 2100000, guid: 7f319b96c78f1cc4b906337433cf6e20, type: 2}
-  - {fileID: 2100000, guid: 1fd19f820d6507f4b8abbe16f6005949, type: 2}
-  - {fileID: 2100000, guid: 4d5120d537e6fa44caa248f121bf8a6a, type: 2}
   - {fileID: 2100000, guid: 1fd19f820d6507f4b8abbe16f6005949, type: 2}
   - {fileID: 2100000, guid: 7f319b96c78f1cc4b906337433cf6e20, type: 2}
   m_StaticBatchInfo:
@@ -38898,7 +38922,7 @@ MonoBehaviour:
   translator:
     autoReset: 1
     useCustomMixMode: 1
-    layerMixModes: 010000000000000001000000
+    layerMixModes: 010000000000000000000000
     layerBlendModes: 010000000300000002000000
   updateTiming: 1
 --- !u!95 &2105536469
