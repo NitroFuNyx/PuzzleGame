@@ -124,7 +124,8 @@ public class CurrentGameManager : MonoBehaviour
 
     private IEnumerator ResetEnvironmentsCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
+        yield return null;
         _puzzleGamesEnvironments.HideAllEnvironments();
         _miniGamesEnvironmentsHolder.HideAllEnvironments();
     }

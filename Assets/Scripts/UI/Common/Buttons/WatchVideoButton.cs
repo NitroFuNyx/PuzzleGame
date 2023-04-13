@@ -6,6 +6,7 @@ public class WatchVideoButton : ButtonInteractionHandler
     private ResourcesManager _resourcesManager;
 
     private RewardedAdsButton rewardedAdsButton;
+    private AdsInitializer _adsInitializer;
 
     [SerializeField] private bool videoWatched = true;
 
@@ -34,9 +35,10 @@ public class WatchVideoButton : ButtonInteractionHandler
 
     #region Zenject
     [Inject]
-    private void Construct(ResourcesManager resourcesManager)
+    private void Construct(ResourcesManager resourcesManager, AdsInitializer adsInitializer)
     {
         _resourcesManager = resourcesManager;
+        _adsInitializer = adsInitializer;
     }
     #endregion Zenject
 
@@ -46,7 +48,7 @@ public class WatchVideoButton : ButtonInteractionHandler
         {
             videoWatched = true;
             ShowAnimation_ButtonPressed();
-            if(rewardedAdsButton)
+            if(rewardedAdsButton && _adsInitializer.AdsCanBeLoaded)
             {
                 StartCoroutine(ActivateDelayedButtonMethodCoroutine(rewardedAdsButton.ShowAd));
             }

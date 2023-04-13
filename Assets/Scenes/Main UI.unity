@@ -19910,7 +19910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   clampXUnitMin: -2.75
-  clampXUnitMax: 40
+  clampXUnitMax: 43
   joystick: {fileID: 8135886326369244972}
 --- !u!1001 &1116600596
 PrefabInstance:
@@ -28217,6 +28217,7 @@ MonoBehaviour:
   dataPersistanceManager: {fileID: 1986429762}
   adsManager: {fileID: 603814695709174855}
   cameraManager: {fileID: 413128834}
+  adsInitializer: {fileID: 603814695709174856}
 --- !u!4 &1550159806
 Transform:
   m_ObjectHideFlags: 0
@@ -37913,14 +37914,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
-      propertyPath: rewardedAdsButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
-      propertyPath: rewardedAdsButtonsList.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButtonsList.Array.data[0]
       value: 
       objectReference: {fileID: 587583390}
@@ -37995,6 +37988,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 421c029d2f1107a44b37218339d5ebf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &603814695709174856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+  m_PrefabInstance: {fileID: 603814695709174854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bfcaaa49401568488808353559a66f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1819813545294908958

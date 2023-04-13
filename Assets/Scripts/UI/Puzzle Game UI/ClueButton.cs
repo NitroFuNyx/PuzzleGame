@@ -9,6 +9,7 @@ public class ClueButton : ButtonInteractionHandler
 
     private CurrentGameManager _currentGameManager;
     private RewardedAdsButton rewardedAdsButton;
+    private AdsInitializer _adsInitializer;
 
     private float buttonStatusResetDelay = 0.3f;
 
@@ -35,10 +36,11 @@ public class ClueButton : ButtonInteractionHandler
   
     #region Zenject
     [Inject]
-    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, CurrentGameManager currentGameManager)
+    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, CurrentGameManager currentGameManager, AdsInitializer adsInitializer)
     {
         _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
         _currentGameManager = currentGameManager;
+        _adsInitializer = adsInitializer;
     }
     #endregion Zenject
 
@@ -47,7 +49,7 @@ public class ClueButton : ButtonInteractionHandler
         _currentGameManager.PuzzleUIButtonPressed = true;
         StartCoroutine(ResetButtonCoroutine());
         ShowAnimation_ButtonPressed();
-        if(rewardedAdsButton)
+        if(rewardedAdsButton && _adsInitializer.AdsCanBeLoaded)
         {
             rewardedAdsButton.ShowAd();
         }

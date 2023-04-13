@@ -137,7 +137,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
             else if (levelState == GameLevelStates.Available_Started)
             {
                 timeTitle_Text.text = textsLanguageUpdateHandler.GetTranslatedText(SelectModePanelProgressTexts.CurrentTime);
-                timeValue_Text.text = "01:01"; // set time
+                timeValue_Text.text = $"{_timersManager.GetHoursAndMinutesAmount((int)currentTimeInGame)}:{_timersManager.GetSecondsAmount((int)currentTimeInGame)}";
             }
             else if (levelState == GameLevelStates.Available_Finished)
             {

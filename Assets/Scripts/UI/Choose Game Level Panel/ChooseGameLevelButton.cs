@@ -26,6 +26,7 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
     private MainUI _mainUI;
     private CurrentGameManager _currentGameManager;
     private AdsManager _adsManager;
+    private AdsInitializer _adsInitializer;
 
     private ChooseGameLevelPanel gameLevelPanel;
     private RewardedAdsButton _rewardedAdsButton;
@@ -65,20 +66,20 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
 
     #region Zenject
     [Inject]
-    private void Construct(MainUI mainUI, CurrentGameManager currentGameManager, AdsManager adsManager)
+    private void Construct(MainUI mainUI, CurrentGameManager currentGameManager, AdsManager adsManager, AdsInitializer adsInitializer)
     {
         _mainUI = mainUI;
         _currentGameManager = currentGameManager;
         _adsManager = adsManager;
+        _adsInitializer = adsInitializer;
     }
     #endregion Zenject
 
     public override void ButtonActivated()
     {
-        Debug.Log($"Button Activated");
         if (gameLevelPanel.LevelState != GameLevelStates.Locked)
         {
-            if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null)
+            if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null && _adsInitializer.AdsCanBeLoaded)
             {
                 _rewardedAdsButton.ShowAd();
             }
