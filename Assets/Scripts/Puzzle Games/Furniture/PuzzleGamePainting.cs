@@ -65,7 +65,7 @@ public class PuzzleGamePainting : MonoBehaviour, Iinteractable
 
     public void RotateToCorrectPos()
     {
-        transform.rotation = correctRotationVector;
+        Rotate(correctRotationVector);
     }
 
     private void Rotate(Vector3 rotationVector)
