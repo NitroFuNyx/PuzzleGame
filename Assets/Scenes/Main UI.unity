@@ -20062,7 +20062,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 580182689}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.27556428
+  m_Size: 0.27556425
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -22304,7 +22304,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 10
+  timeForLevel: 60
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!114 &1201697839 stripped
@@ -28944,14 +28944,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d0081e75a804d4d866e03aacf3264b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelState: 0
+  levelState: 2
   gameType: 0
   gameLevelIndex: 0
   highestScore: 0
   currentTimeInGame: 0
   bestFinishTime: 0
   canBeBought: 0
-  levelPrice: 8
+  levelPrice: 300
   buttonImage: {fileID: 1635898872}
   darkFilterImage: {fileID: 392167267}
   lockImage: {fileID: 382378126}
