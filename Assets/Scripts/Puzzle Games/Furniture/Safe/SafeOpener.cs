@@ -4,6 +4,7 @@ using Zenject;
 public class SafeOpener : MonoBehaviour
 {
     [SerializeField] private Sprite openedDoor;
+    [SerializeField] private Sprite closedDoor;
 
     [SerializeField] private SpriteRenderer spriteRenderer;
     private PuzzleGameUI _puzzleGameUI;
@@ -27,9 +28,12 @@ public class SafeOpener : MonoBehaviour
 
     }
 
-    private void OpenSafe()
+    public void OpenSafe()
     {
         spriteRenderer.sprite = openedDoor;
-        Debug.Log("Change sprite");
+    }
+    public void CloseSafe()
+    {
+        spriteRenderer.sprite = closedDoor;
     }
 }
