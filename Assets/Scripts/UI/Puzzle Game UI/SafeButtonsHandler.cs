@@ -12,9 +12,8 @@ public class SafeButtonsHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI safeString;
     
     private PuzzleGameUI _puzzleGameUI;
-
+    
     public Action _OnGameFinished;
-
     private void Start()
     {
         StartCoroutine(LateStart());

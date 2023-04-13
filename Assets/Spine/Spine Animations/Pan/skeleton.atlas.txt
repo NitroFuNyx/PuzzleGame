@@ -1,0 +1,9 @@
+skeleton.png
+size:277,307
+filter:Linear,Linear
+pma:true
+Sausepan/Кастрюля
+bounds:2,79,272,226
+offsets:13,1,316,280
+Sausepan/Кастрюля крышка
+bounds:2,2,273,75
