@@ -7,6 +7,7 @@ public class SettingsUI : MainCanvasPanel
     [SerializeField] private PanelActivationManager mainSettingsPanel;
     [SerializeField] private PanelActivationManager chooseLanguagePanel;
     [SerializeField] private PanelActivationManager infoPanel;
+    [SerializeField] private PanelActivationManager privacyPolicyPanel;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class SettingsUI : MainCanvasPanel
         mainSettingsPanel.ShowPanel();
         chooseLanguagePanel.HidePanel();
         infoPanel.HidePanel();
+        privacyPolicyPanel.HidePanel();
     }
 
     public void ShowPanel_ChangeLanguagePanel()
@@ -25,6 +27,7 @@ public class SettingsUI : MainCanvasPanel
         mainSettingsPanel.HidePanel();
         chooseLanguagePanel.ShowPanel();
         infoPanel.HidePanel();
+        privacyPolicyPanel.HidePanel();
     }
 
     public void ShowPanel_InfoPanel()
@@ -32,6 +35,15 @@ public class SettingsUI : MainCanvasPanel
         mainSettingsPanel.HidePanel();
         chooseLanguagePanel.HidePanel();
         infoPanel.ShowPanel();
+        privacyPolicyPanel.HidePanel();
+    }
+
+    public void ShowPanel_PrivacyPolicyUI()
+    {
+        mainSettingsPanel.HidePanel();
+        chooseLanguagePanel.HidePanel();
+        infoPanel.HidePanel();
+        privacyPolicyPanel.ShowPanel();
     }
 
     private void SetStartSettings()
