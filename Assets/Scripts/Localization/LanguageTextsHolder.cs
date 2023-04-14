@@ -56,6 +56,7 @@ namespace Localization
     {
         public string uiTitleText;
         public string infoText;
+        public string privacyPolicyTitleText;
     }
 
     [Serializable]

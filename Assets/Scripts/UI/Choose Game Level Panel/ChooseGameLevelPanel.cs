@@ -180,6 +180,7 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
             {
                 levelState = GameLevelStates.Available_Started;
                 SetPanelUIData();
+                currentTimeInGame = time;
                 timeValue_Text.text = $"{_timersManager.GetHoursAndMinutesAmount((int)time)}:{_timersManager.GetSecondsAmount((int)time)}";
             }
             else

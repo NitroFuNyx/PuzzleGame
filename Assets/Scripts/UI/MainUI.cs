@@ -86,6 +86,7 @@ public class MainUI : MonoBehaviour
     {
         if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
         {
+            Debug.Log($"Mini Game End {gameObject}");
             ShowSelectCharacterUI();
         }
         else

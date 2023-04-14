@@ -66,6 +66,7 @@ public class CurrentGameManager : MonoBehaviour
             if (!characterSet)
             {
                 //_mainUI.ShowSelectCharacterUI();
+                
                 StartCoroutine(ShowDelayedMethodUICoroutine(_mainUI.ShowSelectCharacterUI));
             }
             else
@@ -96,6 +97,7 @@ public class CurrentGameManager : MonoBehaviour
         }
         else
         {
+            _puzzleGamesEnvironments.CurrentlyActiveGame.UpdatePanelData();
             _puzzleGamesEnvironments.CurrentlyActiveGame.ResetEnvironmentWithoutSaving();
             // save time
         }

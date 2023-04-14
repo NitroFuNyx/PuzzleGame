@@ -1,4 +1,5 @@
 using Zenject;
+using UnityEngine;
 
 public class BackButton_ToSelectCharacterUI : ButtonInteractionHandler
 {
@@ -15,6 +16,7 @@ public class BackButton_ToSelectCharacterUI : ButtonInteractionHandler
     public override void ButtonActivated()
     {
         ShowAnimation_ButtonPressed();
+        Debug.Log($"Mini Game End {gameObject}");
         StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowSelectCharacterUI));
     }
 }

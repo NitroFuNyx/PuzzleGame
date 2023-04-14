@@ -15,7 +15,8 @@
          },
          "infoPanel":{
             "uiTitleText":"про нас",
-            "infoText":"Гра розроблена Bazuka Studio. Приєднуйтеся до нашої спільноти YouTube і отримуйте найновіший контент!"
+            "infoText":"Гра розроблена Bazuka Studio. Приєднуйтеся до нашої спільноти YouTube і отримуйте найновіший контент!",
+            "privacyPolicyTitleText":"Політика конфіденційності для Hubabu"
          }
       },
       "selectGameModeUITexts":{

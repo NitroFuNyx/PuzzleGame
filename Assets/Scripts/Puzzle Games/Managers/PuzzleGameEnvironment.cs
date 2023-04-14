@@ -215,6 +215,11 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         //_dataPersistanceManager.SaveGame();
     }
 
+    public void UpdatePanelData()
+    {
+        _currentGameManager.UpdatePuzzleLevelPanelData(gameFinished, currentStopWatchValue);
+    }
+
     private void OnStopwatchStoped_ExecuteReaction(float stopwatchValue)
     {
         currentStopWatchValue = stopwatchValue;
