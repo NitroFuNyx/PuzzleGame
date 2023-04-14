@@ -1,14 +1,20 @@
 using UnityEngine;
+using Zenject;
 
 public class PlayerComponentsManager : MonoBehaviour
 {
     [Header("Positions")]
     [Space]
     [SerializeField] private Vector3 startPos;
+    [Header("Internal References")]
+    [Space]
+    [SerializeField] private CharacterSkinSelector characterSkinSelector;
 
     private PlayerMoveManager moveManager;
     private PlayerAnimationsManager animationsManager;
     private PlayerCollisionManager collisionManager;
+
+    private CurrentGameManager _currentGameManager;
 
     private void Awake()
     {
@@ -24,6 +30,14 @@ public class PlayerComponentsManager : MonoBehaviour
     {
         UnsubscribeFromEvents();
     }
+
+    #region Zenject
+    [Inject]
+    private void Construct(CurrentGameManager currentGameManager)
+    {
+        _currentGameManager = currentGameManager;
+    }
+    #endregion Zenject
 
     public void ResetPlayer()
     {
@@ -77,5 +91,10 @@ public class PlayerComponentsManager : MonoBehaviour
     private void CollisionManager_ExecuteReaction_OnCharacterStunnedStateFinished()
     {
         moveManager.ChangeCheckingInputState(true);
+    }
+
+    public void AnimationManager_ExecuteReaction_OnCharacterSkinAnimationUpdated()
+    {
+        characterSkinSelector.SetSkin(_currentGameManager.CurrentCharacter);
     }
 }
