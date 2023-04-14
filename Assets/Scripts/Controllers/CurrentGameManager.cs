@@ -97,6 +97,7 @@ public class CurrentGameManager : MonoBehaviour
         }
         else
         {
+            _puzzleGamesEnvironments.CurrentlyActiveGame.UpdatePanelData();
             _puzzleGamesEnvironments.CurrentlyActiveGame.ResetEnvironmentWithoutSaving();
             // save time
         }
