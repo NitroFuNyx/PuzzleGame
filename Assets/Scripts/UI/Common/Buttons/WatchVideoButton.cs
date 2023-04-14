@@ -69,18 +69,26 @@ public class WatchVideoButton : ButtonInteractionHandler
                 ShowAnimation_ButtonPressed();
                 StartCoroutine(ActivateDelayedButtonMethodCoroutine(rewardedAdsButton.ShowAd));
             }
-            else
-            {
-                ButtonComponent.interactable = false;
-            }
+            //else
+            //{
+            //    ButtonComponent.interactable = false;
+            //}
         }
     }
 
     public void ResetButton()
     {
-        videoWatched = false;
-        ButtonComponent.interactable = true;
-        SetButtonImageActive();
+        if (_adsInitializer.AdsCanBeLoaded)
+        {
+            videoWatched = false;
+            ButtonComponent.interactable = true;
+            SetButtonImageActive();
+        }
+        else
+        {
+            ButtonComponent.interactable = false;
+            SetButtonImageInactive();
+        }
     }
 
     private void GrandReward()
