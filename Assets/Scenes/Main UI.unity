@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2131457679}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22987257
+  m_Size: 0.22987255
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3849,7 +3849,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1666752805}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22208028
+  m_Size: 0.22208026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21217,7 +21217,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 580182689}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22208028
+  m_Size: 0.22208026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -23500,7 +23500,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 10
+  timeForLevel: 60
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!114 &1201697839 stripped
@@ -30468,7 +30468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d0081e75a804d4d866e03aacf3264b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelState: 0
+  levelState: 3
   gameType: 0
   gameLevelIndex: 0
   highestScore: 0
@@ -37285,7 +37285,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1739897170}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22987257
+  m_Size: 0.22987255
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
