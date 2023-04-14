@@ -1,8 +1,16 @@
 using Zenject;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class WatchVideoButton : ButtonInteractionHandler
 {
+    [Header("Button Image Data")]
+    [Space]
+    [SerializeField] private Color buttonInactiveColor;
+    [SerializeField] private float buttonInactiveAlphaValue;
+    [SerializeField] private float changeButtonStateDuration = 0.1f;
+
     private ResourcesManager _resourcesManager;
 
     private RewardedAdsButton rewardedAdsButton;
@@ -24,7 +32,14 @@ public class WatchVideoButton : ButtonInteractionHandler
     private void Start()
     {
         if (rewardedAdsButton)
+        {
             rewardedAdsButton.OnRewardReadyToBeGranted += GrandReward;
+        }
+        if(ButtonComponent == null)
+        {
+            ButtonComponent = GetComponent<Button>();
+            ButtonComponent.onClick.AddListener(ButtonActivated);
+        }
     }
 
     private void OnDestroy()
@@ -46,17 +61,42 @@ public class WatchVideoButton : ButtonInteractionHandler
     {
         if (!videoWatched)
         {
-            videoWatched = true;
-            ShowAnimation_ButtonPressed();
             if(rewardedAdsButton && _adsInitializer.AdsCanBeLoaded)
             {
+                videoWatched = true;
+                ButtonComponent.interactable = false;
+                SetButtonImageInactive();
+                ShowAnimation_ButtonPressed();
                 StartCoroutine(ActivateDelayedButtonMethodCoroutine(rewardedAdsButton.ShowAd));
             }
+            else
+            {
+                ButtonComponent.interactable = false;
+            }
         }
+    }
+
+    public void ResetButton()
+    {
+        videoWatched = false;
+        ButtonComponent.interactable = true;
+        SetButtonImageActive();
     }
 
     private void GrandReward()
     {
         _resourcesManager.AddCoinsAsAdReward();
+    }
+
+    private void SetButtonImageInactive()
+    {
+        buttonImage.color = buttonInactiveColor;
+        buttonImage.DOFade(buttonInactiveAlphaValue, changeButtonStateDuration);
+    }
+
+    private void SetButtonImageActive()
+    {
+        buttonImage.color = Color.white;
+        buttonImage.DOFade(1f, changeButtonStateDuration);
     }
 }

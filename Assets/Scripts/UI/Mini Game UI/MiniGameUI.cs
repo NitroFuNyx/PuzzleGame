@@ -97,7 +97,7 @@ public class MiniGameUI : MainCanvasPanel
     public void ShowGameFinishedPanel()
     {
         miniGameFinishedPanel.SetCoinsText(_resourcesManager.CurrentLevelCoinsAmount);
-        watchVideoButton.VideoWatched = false;
+        watchVideoButton.ResetButton();
         gameFinishedPanelActivationManager.ShowPanel();
         ResetUIData();
     }

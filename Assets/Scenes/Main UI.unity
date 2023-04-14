@@ -20979,6 +20979,9 @@ MonoBehaviour:
   buttonImage: {fileID: 1130153480}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  buttonInactiveColor: {r: 0.34117648, g: 0.33333334, b: 0.33333334, a: 1}
+  buttonInactiveAlphaValue: 0.8
+  changeButtonStateDuration: 0.1
   videoWatched: 1
 --- !u!114 &1130153484
 MonoBehaviour:
@@ -22304,7 +22307,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 60
+  timeForLevel: 10
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!114 &1201697839 stripped
@@ -31445,7 +31448,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653141446}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
