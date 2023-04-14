@@ -86,8 +86,6 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
     {
         if (_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell != null)
         {
-            Debug.Log($"Current Cell {(int)_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType} Lock {puzzleLock.LockIndex}");
-
             if ((int)_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == puzzleLock.LockIndex)
             {
                 puzzleLock.OpenLock();
