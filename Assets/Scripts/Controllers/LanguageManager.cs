@@ -102,4 +102,19 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
     {
         data.languageIndex = (int)currentLanguage;
     }
+
+    private void ChangePrivacyPolicyTexts(Languages language)
+    {
+        for(int i = 0; i < ppTextsList.Count; i++)
+        {
+            if(ppTextsList[i].Language != language)
+            {
+                ppTextsList[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                ppTextsList[i].gameObject.SetActive(true);
+            }
+        }
+    }
 }
