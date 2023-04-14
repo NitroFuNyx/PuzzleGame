@@ -4122,6 +4122,7 @@ GameObject:
   - component: {fileID: 241703956}
   - component: {fileID: 241703959}
   - component: {fileID: 241703958}
+  - component: {fileID: 241703960}
   m_Layer: 5
   m_Name: Character Button
   m_TagString: Untagged
@@ -4250,6 +4251,21 @@ MonoBehaviour:
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
   characterType: 1
+--- !u!114 &241703960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241703954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 241703958}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &247060704
 GameObject:
   m_ObjectHideFlags: 0
@@ -24068,6 +24084,7 @@ GameObject:
   - component: {fileID: 1291684058}
   - component: {fileID: 1291684061}
   - component: {fileID: 1291684060}
+  - component: {fileID: 1291684062}
   m_Layer: 5
   m_Name: Character Button
   m_TagString: Untagged
@@ -24196,6 +24213,21 @@ MonoBehaviour:
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
   characterType: 0
+--- !u!114 &1291684062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291684056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c19b74ff8ae404db9fa4e1f4a3085d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 1291684060}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!1 &1294448580
 GameObject:
   m_ObjectHideFlags: 0
@@ -39464,6 +39496,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButtonsList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButtonsList.Array.data[0]
       value: 
       objectReference: {fileID: 587583390}
@@ -39479,6 +39515,14 @@ PrefabInstance:
       propertyPath: rewardedAdsButtonsList.Array.data[3]
       value: 
       objectReference: {fileID: 804083929}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButtonsList.Array.data[4]
+      value: 
+      objectReference: {fileID: 1291684062}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: rewardedAdsButtonsList.Array.data[5]
+      value: 
+      objectReference: {fileID: 241703960}
     - target: {fileID: 4167937353221010891, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: m_Name
       value: Ads Manager
