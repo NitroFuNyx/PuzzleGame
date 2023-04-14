@@ -79,7 +79,7 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
     {
         if (gameLevelPanel.LevelState != GameLevelStates.Locked)
         {
-            if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null && _adsInitializer.AdsCanBeLoaded)
+            if(_adsManager.NeedToShowAdBeforeLevelStart() && _rewardedAdsButton != null && _adsInitializer.AdsCanBeLoaded && gameLevelPanel.GameType != GameLevelTypes.MiniGame)
             {
                 _rewardedAdsButton.ShowAd();
             }
@@ -142,6 +142,7 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
     {
         if (gameLevelPanel.LevelState != GameLevelStates.Locked)
         {
+            Debug.Log($"Add {gameLevelPanel.GameType}");
             ShowAnimation_ButtonPressed();
             _currentGameManager.ActivateGameLevelEnvironment(gameLevelPanel.GameLevelIndex, gameLevelPanel.GameType);
             //StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowGameLevelUI));
