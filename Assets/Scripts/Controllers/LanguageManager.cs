@@ -28,6 +28,7 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
 
     #region Events Declaration
     public event Action<LanguageTextsHolder> OnLanguageChanged;
+    public event Action<Languages> OnSpriteChanged;
     #endregion Events Declaration
 
     private void Awake()
@@ -52,6 +53,8 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
             currentLanguage = language;
             _dataPersistanceManager.SaveGame();
             OnLanguageChanged?.Invoke(languagesHoldersDictionary[language]);
+            OnSpriteChanged?.Invoke(currentLanguage);
+
         }
     }
 
@@ -84,7 +87,9 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
         if (languagesHoldersDictionary.ContainsKey((Languages)data.languageIndex))
         {
             currentLanguage = (Languages)data.languageIndex;
-            OnLanguageChanged?.Invoke(languagesHoldersDictionary[currentLanguage]);
+            OnLanguageChanged?.Invoke(languagesHoldersDictionary[currentLanguage]); 
+            OnSpriteChanged?.Invoke(currentLanguage);
+
         }
     }
 
