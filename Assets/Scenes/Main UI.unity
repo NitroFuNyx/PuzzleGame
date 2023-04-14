@@ -22533,6 +22533,7 @@ MonoBehaviour:
   chooseLanguagePanelTitleText: {fileID: 229285354}
   infoPanelTitleText: {fileID: 1015447095}
   infoPanelDescriptionText: {fileID: 1796245797}
+  privacyPolicyPanelTitleText: {fileID: 1842665414}
 --- !u!114 &1157909124 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8649370293538301023, guid: 39c78d844f83aba4f9f6ec208016d853, type: 3}
@@ -30755,6 +30756,7 @@ GameObject:
   - component: {fileID: 1547143779}
   - component: {fileID: 1547143778}
   - component: {fileID: 1547143777}
+  - component: {fileID: 1547143780}
   m_Layer: 5
   m_Name: Scroll View English
   m_TagString: Untagged
@@ -30853,6 +30855,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547143775}
   m_CullTransparentMesh: 1
+--- !u!114 &1547143780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547143775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c99d9f97b47a3547bc810d900e40455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 0
 --- !u!1 &1550159804
 GameObject:
   m_ObjectHideFlags: 0
@@ -36443,6 +36458,7 @@ GameObject:
   - component: {fileID: 1807349939}
   - component: {fileID: 1807349938}
   - component: {fileID: 1807349937}
+  - component: {fileID: 1807349940}
   m_Layer: 5
   m_Name: Scroll View Fourth
   m_TagString: Untagged
@@ -36541,6 +36557,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807349935}
   m_CullTransparentMesh: 1
+--- !u!114 &1807349940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807349935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c99d9f97b47a3547bc810d900e40455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 3
 --- !u!1 &1808623067
 GameObject:
   m_ObjectHideFlags: 0
@@ -36553,6 +36582,7 @@ GameObject:
   - component: {fileID: 1808623071}
   - component: {fileID: 1808623070}
   - component: {fileID: 1808623069}
+  - component: {fileID: 1808623072}
   m_Layer: 5
   m_Name: Scroll View Spanish
   m_TagString: Untagged
@@ -36651,6 +36681,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808623067}
   m_CullTransparentMesh: 1
+--- !u!114 &1808623072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808623067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c99d9f97b47a3547bc810d900e40455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 2
 --- !u!1 &1824544941
 GameObject:
   m_ObjectHideFlags: 0
@@ -40186,6 +40229,7 @@ GameObject:
   - component: {fileID: 2029976834}
   - component: {fileID: 2029976833}
   - component: {fileID: 2029976832}
+  - component: {fileID: 2029976835}
   m_Layer: 5
   m_Name: Scroll View Ukrainian
   m_TagString: Untagged
@@ -40284,6 +40328,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029976830}
   m_CullTransparentMesh: 1
+--- !u!114 &2029976835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029976830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c99d9f97b47a3547bc810d900e40455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: 1
 --- !u!1001 &2034804896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44699,6 +44756,26 @@ PrefabInstance:
       propertyPath: otherTextsJSON
       value: 
       objectReference: {fileID: 4900000, guid: 99a482164d151564083ad5e3b52e94c9, type: 3}
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: ppTextsList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: ppTextsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1547143780}
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: ppTextsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 2029976835}
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: ppTextsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1808623072}
+    - target: {fileID: 6632884457319223301, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
+      propertyPath: ppTextsList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1807349940}
     - target: {fileID: 6632884457319223302, guid: fe02d3c09eedfa14094c03096272b0d3, type: 3}
       propertyPath: m_RootOrder
       value: 13

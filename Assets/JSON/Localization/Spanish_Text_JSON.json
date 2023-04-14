@@ -15,7 +15,8 @@
          },
          "infoPanel":{
             "uiTitleText":"acerca de",
-            "infoText":"Juego desarrollado por Bazuka Studio. ¡Únete a nuestra comunidad de YouTube y recibe los últimos contenidos!"
+            "infoText":"Juego desarrollado por Bazuka Studio. ¡Únete a nuestra comunidad de YouTube y recibe los últimos contenidos!",
+            "privacyPolicyTitleText":"Política de privacidad de Hubabu"
          }
       },
       "selectGameModeUITexts":{

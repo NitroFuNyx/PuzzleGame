@@ -16,6 +16,9 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
     [Header("Current Language")]
     [Space]
     [SerializeField] private Languages currentLanguage;
+    [Header("Privacy Policy Texts")]
+    [Space]
+    [SerializeField] private List<PrivacyPolicyText> ppTextsList = new List<PrivacyPolicyText>();
 
     private LanguageTextsHolder englishTextsHolder = new LanguageTextsHolder();
     private LanguageTextsHolder ukrainianTextsHolder = new LanguageTextsHolder();
@@ -51,6 +54,7 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
         {
             currentLanguage = language;
             _dataPersistanceManager.SaveGame();
+            ChangePrivacyPolicyTexts(language);
             OnLanguageChanged?.Invoke(languagesHoldersDictionary[language]);
         }
     }
@@ -84,6 +88,7 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
         if (languagesHoldersDictionary.ContainsKey((Languages)data.languageIndex))
         {
             currentLanguage = (Languages)data.languageIndex;
+            ChangePrivacyPolicyTexts(currentLanguage);
             OnLanguageChanged?.Invoke(languagesHoldersDictionary[currentLanguage]);
         }
     }
@@ -91,5 +96,20 @@ public class LanguageManager : MonoBehaviour, IDataPersistance
     public void SaveData(GameData data)
     {
         data.languageIndex = (int)currentLanguage;
+    }
+
+    private void ChangePrivacyPolicyTexts(Languages language)
+    {
+        for(int i = 0; i < ppTextsList.Count; i++)
+        {
+            if(ppTextsList[i].Language != language)
+            {
+                ppTextsList[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                ppTextsList[i].gameObject.SetActive(true);
+            }
+        }
     }
 }

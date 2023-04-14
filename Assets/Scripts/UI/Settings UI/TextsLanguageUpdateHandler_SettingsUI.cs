@@ -17,6 +17,7 @@ public class TextsLanguageUpdateHandler_SettingsUI : TextsLanguageUpdateHandler
     [Space]
     [SerializeField] private TextMeshProUGUI infoPanelTitleText;
     [SerializeField] private TextMeshProUGUI infoPanelDescriptionText;
+    [SerializeField] private TextMeshProUGUI privacyPolicyPanelTitleText;
 
     public override void OnLanguageChange_ExecuteReaction(LanguageTextsHolder languageHolder)
     {
@@ -29,5 +30,6 @@ public class TextsLanguageUpdateHandler_SettingsUI : TextsLanguageUpdateHandler
 
         infoPanelTitleText.text = languageHolder.data.settingsUITexts.infoPanel.uiTitleText;
         infoPanelDescriptionText.text = languageHolder.data.settingsUITexts.infoPanel.infoText;
+        privacyPolicyPanelTitleText.text = languageHolder.data.settingsUITexts.infoPanel.privacyPolicyTitleText;
     }
 }
