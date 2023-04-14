@@ -161,7 +161,7 @@ public class TimersManager : MonoBehaviour
             currentStopwatchValue++;
             timerText.text = $"{GetHoursAndMinutesAmount((int)currentStopwatchValue)}:{GetSecondsAmount((int)currentStopwatchValue)}";
         }
-        Debug.Log($"StopWatch {currentStopwatchValue}");
+        
         OnStopwatchStopped?.Invoke(currentStopwatchValue);
         //OnStopwatchStoped?.Invoke(currentStopwatchValue);
     }

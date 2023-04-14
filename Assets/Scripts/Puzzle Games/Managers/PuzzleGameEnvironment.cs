@@ -134,8 +134,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     {
         List<int> collectedItemsIndexesList = new List<int>();
         List<int> usedItemsIndexesList = new List<int>();
-        Debug.Log($"Timer Current To Save {currentStopWatchValue}");
-        Debug.Log($"Game Finished {gameFinished}");
+        
         if(!gameFinished)
         {
             for (int i = 0; i < collectableItemsManager.ItemsInInventoryList.Count; i++)
@@ -151,7 +150,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         else
         {
             collectableItemsManager.ResetData();
-            Debug.Log($"Best Time {data.puzzleGameLevelsDataList[0].bestFinishTime} Current Time {currentStopWatchValue}");
+            
             if(data.puzzleGameLevelsDataList[0].bestFinishTime == 0f)
             {
                 data.puzzleGameLevelsDataList[0].bestFinishTime = currentStopWatchValue;
@@ -219,7 +218,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private void OnStopwatchStoped_ExecuteReaction(float stopwatchValue)
     {
         currentStopWatchValue = stopwatchValue;
-        Debug.Log($"Current Time {currentStopWatchValue}");
+        
         _currentGameManager.UpdatePuzzleLevelPanelData(gameFinished, currentStopWatchValue);
 
         if (gameFinished)
