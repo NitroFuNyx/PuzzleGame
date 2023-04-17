@@ -92,6 +92,8 @@ public class ChooseGameLevelButton : ButtonInteractionHandler
         }
         else
         {
+            gameLevelPanel.SetBuyingPossibilityState();
+
             if (!isAnimationInProcess && !gameLevelPanel.CanBeBought)
             {
                 isAnimationInProcess = true;

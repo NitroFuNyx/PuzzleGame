@@ -77,6 +77,8 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         _currentGameManager.OnGameLevelFinished += OnLevelFinished_ExecuteReaction;
         _currentGameManager.OnPuzzleLevelProgressUpdate += PuzzleLevelProgressUpdate_ExecuteReaction;
         _currentGameManager.OnPuzzleBestTimeDefined += PuzzleLevelBestTimeDefined_ExecuteReaction;
+
+        _resourcesManager.OnAdditionalCoinsAdedAsAdReward += AdditionalResourcesGranted_ExecuteReaction;
     }
 
     private void OnDestroy()
@@ -84,6 +86,8 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         _currentGameManager.OnGameLevelFinished -= OnLevelFinished_ExecuteReaction;
         _currentGameManager.OnPuzzleLevelProgressUpdate -= PuzzleLevelProgressUpdate_ExecuteReaction;
         _currentGameManager.OnPuzzleBestTimeDefined -= PuzzleLevelBestTimeDefined_ExecuteReaction;
+
+        _resourcesManager.OnAdditionalCoinsAdedAsAdReward -= AdditionalResourcesGranted_ExecuteReaction;
     }
 
     #region Zenject
@@ -203,7 +207,12 @@ public class ChooseGameLevelPanel : MonoBehaviour, IDataPersistance
         }
     }
 
-    private void SetBuyingPossibilityState()
+    private void AdditionalResourcesGranted_ExecuteReaction(int amount)
+    {
+        SetBuyingPossibilityState();
+    }
+
+    public void SetBuyingPossibilityState()
     {
         if (_resourcesManager.WholeCoinsAmount >= levelPrice)
         {
