@@ -12,11 +12,15 @@ public class SafeButtonsHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI safeString;
     
     private PuzzleGameUI _puzzleGameUI;
-    
+
+    private Color startColor;
+
     public Action _OnGameFinished;
+
     private void Start()
     {
         StartCoroutine(LateStart());
+        startColor = safeString.color;
     }
 
     #region Zenject
@@ -51,6 +55,9 @@ public class SafeButtonsHandler : MonoBehaviour
             }
             else// Wrong written code
             {
+                Haptic.Vibrate();
+                safeString.text = "Error";
+                safeString.color = Color.red;
                 StartCoroutine(DeletingText());
             }
         }
@@ -77,6 +84,7 @@ public class SafeButtonsHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f);
         safeString.text = "";
+        safeString.color = startColor;
     }
 
 }
