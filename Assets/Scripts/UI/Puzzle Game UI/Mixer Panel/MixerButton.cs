@@ -11,7 +11,11 @@ public class MixerButton : ButtonInteractionHandler
     [Header("Images")]
     [Space]
     [SerializeField] private Image progressImage;
+    [SerializeField] private Image mixerTool;
 
+    [SerializeField] private Sprite ToolState1;
+    [SerializeField] private Sprite ToolState2;
+    
     private float startProgressValue = 0f;
     private float maxProgressValue = 1f;
 
@@ -21,6 +25,7 @@ public class MixerButton : ButtonInteractionHandler
     private float hidePanelDelay = 0.4f;
 
     private bool gameInProgress = false;
+    private bool IsStandartToolSprite = true;
 
     private Action _OnGameFinished;
 
@@ -41,7 +46,10 @@ public class MixerButton : ButtonInteractionHandler
     {
         currentProgressValue += progressIncreaseDeltaValue;
         progressImage.fillAmount = currentProgressValue;
-
+        if (IsStandartToolSprite)
+            mixerTool.sprite = ToolState2;
+        else mixerTool.sprite = ToolState1;
+        IsStandartToolSprite = !IsStandartToolSprite;
         if(currentProgressValue >= maxProgressValue)
         {
             gameInProgress = false;

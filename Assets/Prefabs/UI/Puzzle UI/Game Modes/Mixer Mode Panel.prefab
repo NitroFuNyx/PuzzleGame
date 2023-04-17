@@ -1088,6 +1088,9 @@ MonoBehaviour:
   scaleDuration: 0.3
   currentProgressValue: 0
   progressImage: {fileID: 519022513}
+  mixerTool: {fileID: 3231042549129443820}
+  ToolState1: {fileID: 21300000, guid: c5b23261ac1856a4fa82e29e78b60ae1, type: 3}
+  ToolState2: {fileID: 21300000, guid: 4dca89389a0dd914f90853363777c8d7, type: 3}
 --- !u!114 &2135774397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,7 +1436,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2339601097647237219}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1453,6 +1456,7 @@ MonoBehaviour:
   mixerButton: {fileID: 2135774396}
   puzzleKitchenBooksPositionsManager: {fileID: 0}
   popItGameStateManager: {fileID: 0}
+  safeButtonsHandler: {fileID: 0}
   panelMainImage: {fileID: 2096341371616371356}
   minScaleVector: {x: 0.001, y: 0.001, z: 0.001}
   scaleDuration: 1
