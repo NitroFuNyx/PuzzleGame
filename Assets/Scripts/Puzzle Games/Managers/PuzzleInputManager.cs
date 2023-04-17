@@ -52,7 +52,7 @@ public class PuzzleInputManager : MonoBehaviour
 
     private void MoveCamera()
     {
-        horizontalMove = joystick.Horizontal * moveSpeed * Time.deltaTime;
+        horizontalMove = -joystick.Horizontal * moveSpeed * Time.deltaTime;
 
         float clampedPosX = Mathf.Clamp(Camera.main.transform.position.x + (horizontalMove), clampXUnitMin, clampXUnitMax);
 
