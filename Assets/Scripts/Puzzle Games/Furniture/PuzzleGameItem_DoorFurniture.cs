@@ -16,6 +16,7 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
     [SerializeField] private GameObject doorAdditionalItem;
     [SerializeField] private PuzzleButton miniGameButton;
     [SerializeField] private PuzzleGameItem_MiniGameModeStarter miniGameModeStarter;
+    [SerializeField] private BoxCollider2D straw;
 
     private bool isOpen = false;
 
@@ -42,6 +43,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
         if (miniGameButton)
         {
             miniGameButton.SetButtonActivation(false);
+        }
+        if(straw != null)
+        {
+            straw.enabled = false;
         }
     }
 
@@ -82,6 +87,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             {
                 miniGameModeStarter.ChangeItemActivation(false);
             }
+            if(straw)
+            {
+                straw.enabled = false;
+            }
         }
         else
         {
@@ -101,6 +110,10 @@ public class PuzzleGameItem_DoorFurniture : PuzzleGameFurnitureItemInteractionHa
             if (miniGameModeStarter)
             {
                 miniGameModeStarter.ChangeItemActivation(true);
+            }
+            if(straw)
+            {
+                straw.enabled = true;
             }
             door.sprite = openDoorSprite;
         }

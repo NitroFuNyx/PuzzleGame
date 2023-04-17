@@ -19668,6 +19668,7 @@ MonoBehaviour:
   doorAdditionalItem: {fileID: 1913863075}
   miniGameButton: {fileID: 0}
   miniGameModeStarter: {fileID: 0}
+  straw: {fileID: 0}
 --- !u!114 &940687788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39332,6 +39333,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5530ddec867602147bbf911f910079ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1943661435 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1988459975759407469, guid: c00ace12e722980469fcf8dd02913d77, type: 3}
+  m_PrefabInstance: {fileID: 1988459976091414032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1944586804
 GameObject:
   m_ObjectHideFlags: 0
@@ -42024,6 +42030,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 1016731733}
+    - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
+      propertyPath: straw
+      value: 
+      objectReference: {fileID: 1943661435}
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: openDoorSprite
       value: 
