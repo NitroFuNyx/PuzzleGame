@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 using DG.Tweening;
+using Zenject;
 
 public abstract class ButtonInteractionHandler : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     [Space]
     [SerializeField] private Vector3 minScale = new Vector3(0.8f, 0.8f, 0.8f);
     [SerializeField] private float scaleDuration = 0.3f;
+
+    private AudioManager _audioManager;
 
     private Button _button;
     private Image _image;
@@ -27,12 +30,21 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
         {
             _button = button;
             ButtonComponent.onClick.AddListener(ButtonActivated);
+            ButtonComponent.onClick.AddListener(PlayButtonInteractionSound);
         }
         if (TryGetComponent(out Image image))
         {
             _image = image;
         }
     }
+
+    #region Zenject
+    [Inject]
+    private void Construct(AudioManager audioManager)
+    {
+        _audioManager = audioManager;
+    }
+    #endregion Zenject
 
     public void SetButtonActive()
     {
@@ -65,6 +77,11 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     }
 
     public abstract void ButtonActivated();
+
+    protected void PlayButtonInteractionSound()
+    {
+        _audioManager.PlaySFXSound_PressButtonUI();
+    }
 
     protected IEnumerator ActivateDelayedButtonMethodCoroutine(Action DelayedButtonMethod)
     {

@@ -10,6 +10,11 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioSource sfxAudioSource;
     [SerializeField] private AudioSource voicesAudioSource;
+    [Header("SFX Clips")]
+    [Space]
+    [SerializeField] private AudioClip openLockClip;
+    [SerializeField] private AudioClip pickUpKeyClip;
+    [SerializeField] private AudioClip uiButtonClip;
 
     private List<AudioSource> audioSourcesList = new List<AudioSource>();
 
@@ -76,4 +81,24 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     {
         data.soundMuted = audioMuted;
     }
+
+    #region SFX Methods
+    public void PlaySFXSound_OpenLock()
+    {
+        sfxAudioSource.clip = openLockClip;
+        sfxAudioSource.Play();
+    }
+
+    public void PlaySFXSound_PickUpKey()
+    {
+        sfxAudioSource.clip = pickUpKeyClip;
+        sfxAudioSource.Play();
+    }
+
+    public void PlaySFXSound_PressButtonUI()
+    {
+        sfxAudioSource.clip = uiButtonClip;
+        sfxAudioSource.Play();
+    }
+    #endregion SFX Methods
 }

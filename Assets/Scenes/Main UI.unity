@@ -2373,7 +2373,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2131457679}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22987257
+  m_Size: 0.22987255
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3991,7 +3991,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1666752805}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22208028
+  m_Size: 0.22208026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13713,7 +13713,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 467146204}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21979,7 +21979,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 580182689}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22208028
+  m_Size: 0.22208026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -29508,7 +29508,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1738692975}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -32886,7 +32886,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1003161076}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -35051,7 +35051,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 761804946}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -38303,7 +38303,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1739897170}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22987257
+  m_Size: 0.22987255
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -45888,6 +45888,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6311008078876018171, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: m_Volume
+      value: 0.138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311008079062859378, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 62beff6c7b841c34db4c6451982c5a35, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 62beff6c7b841c34db4c6451982c5a35, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: uiButtonClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f1baf374c4736b74294897ff61c7e989, type: 3}
     - target: {fileID: 6311008079728666158, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_RootOrder
       value: 11

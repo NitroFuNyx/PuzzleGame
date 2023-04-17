@@ -16,6 +16,7 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
     private DataPersistanceManager _dataPersistanceManager;
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
     private PuzzleGameUI _puzzleGameUI;
+    private AudioManager _audioManager;
 
     private SpriteRenderer spriteRenderer;
 
@@ -32,11 +33,13 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
 
     #region Zenject
     [Inject]
-    private void Construct(DataPersistanceManager dataPersistanceManager, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, PuzzleGameUI puzzleGameUI)
+    private void Construct(DataPersistanceManager dataPersistanceManager, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, PuzzleGameUI puzzleGameUI,
+                           AudioManager audioManager)
     {
         _dataPersistanceManager = dataPersistanceManager;
         _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
         _puzzleGameUI = puzzleGameUI;
+        _audioManager = audioManager;
     }
     #endregion Zenject
 
@@ -88,6 +91,7 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
         {
             if ((int)_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == puzzleLock.LockIndex)
             {
+                _audioManager.PlaySFXSound_OpenLock();
                 puzzleLock.OpenLock();
                 _puzzleGameUI.InventoryPanel.ItemUsed_ExecuteReaction();
             }
