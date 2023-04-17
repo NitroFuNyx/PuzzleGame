@@ -8094,7 +8094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ee4d2ad4f11954cb863dbb7d6d9a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonImage: {fileID: 0}
+  buttonImage: {fileID: 409099700}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
 --- !u!114 &410943701 stripped
@@ -18420,7 +18420,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875228247}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -45329,6 +45329,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875228248}
     m_Modifications:
+    - target: {fileID: 1368647638, guid: 2bfd7918108c03a46ade0e0cf7d1d962, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368647638, guid: 2bfd7918108c03a46ade0e0cf7d1d962, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c688fa94b65194448bbaca60c477d4bd, type: 2}
+    - target: {fileID: 1368647638, guid: 2bfd7918108c03a46ade0e0cf7d1d962, type: 3}
+      propertyPath: m_fontStyle
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368647638, guid: 2bfd7918108c03a46ade0e0cf7d1d962, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8794872402635592686, guid: c688fa94b65194448bbaca60c477d4bd, type: 2}
     - target: {fileID: 4229676927619579867, guid: 2bfd7918108c03a46ade0e0cf7d1d962, type: 3}
       propertyPath: m_Name
       value: Safe Mode Panel
@@ -45416,6 +45432,10 @@ PrefabInstance:
     - target: {fileID: 4229676927619579868, guid: 2bfd7918108c03a46ade0e0cf7d1d962, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229676927619579870, guid: 2bfd7918108c03a46ade0e0cf7d1d962, type: 3}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4229676928520888149, guid: 2bfd7918108c03a46ade0e0cf7d1d962, type: 3}
       propertyPath: m_SizeDelta.y
@@ -45904,6 +45924,10 @@ PrefabInstance:
       propertyPath: uiButtonClip
       value: 
       objectReference: {fileID: 8300000, guid: f1baf374c4736b74294897ff61c7e989, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: pickUpKeyClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 40769157faa53c047a31b82b4d36b3f4, type: 3}
     - target: {fileID: 6311008079728666158, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_RootOrder
       value: 11
