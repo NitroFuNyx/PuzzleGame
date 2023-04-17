@@ -41848,7 +41848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7527227188569222047, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: m_Name
-      value: Wall Shelf (1)
+      value: Wall Shelf With Straw
       objectReference: {fileID: 0}
     - target: {fileID: 9091048404139239077, guid: ed9dc2d60b7aae8448b01ecb1a3090db, type: 3}
       propertyPath: door
@@ -42967,11 +42967,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1988459975759407465, guid: c00ace12e722980469fcf8dd02913d77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.234
+      value: -4.64
       objectReference: {fileID: 0}
     - target: {fileID: 1988459975759407465, guid: c00ace12e722980469fcf8dd02913d77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.93
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 1988459975759407465, guid: c00ace12e722980469fcf8dd02913d77, type: 3}
       propertyPath: m_LocalPosition.z
