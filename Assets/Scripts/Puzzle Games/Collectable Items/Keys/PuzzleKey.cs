@@ -20,6 +20,9 @@ public class PuzzleKey : PuzzleCollectableItem
     [SerializeField] private float jumpDelta = 1f;
     [SerializeField] private float jumpPower = 1f;
     [SerializeField] private float jumpDuration = 1f;
+    [Header("VFX")]
+    [Space]
+    [SerializeField] private ParticleSystem keyVFX;
     [Header("Sprites")]
     [Space]
     [SerializeField] private List<Sprite> keysSprites = new List<Sprite>();
@@ -53,6 +56,14 @@ public class PuzzleKey : PuzzleCollectableItem
         {
             rb = rigidbody2D;
             rb.simulated = false;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if(keyVFX)
+        {
+            keyVFX.Play();
         }
     }
 
