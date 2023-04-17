@@ -18,5 +18,6 @@ public class ShowSettingsUIButton : ButtonInteractionHandler
     {
         ShowAnimation_ButtonPressed();
         StartCoroutine(ActivateDelayedButtonMethodCoroutine(_mainUI.ShowSettingsUI));
+        Haptic.Vibrate();
     }
 }
