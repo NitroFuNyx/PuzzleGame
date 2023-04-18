@@ -14,6 +14,9 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
     [Space]
     [SerializeField] private Vector3 minScale = new Vector3(0.8f, 0.8f, 0.8f);
     [SerializeField] private float scaleDuration = 0.3f;
+    [Header("Audio")]
+    [Space]
+    [SerializeField] protected bool standartAudio = true;
 
     private AudioManager _audioManager;
 
@@ -30,7 +33,10 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
         {
             _button = button;
             ButtonComponent.onClick.AddListener(ButtonActivated);
-            ButtonComponent.onClick.AddListener(PlayButtonInteractionSound);
+            if(standartAudio)
+            {
+                ButtonComponent.onClick.AddListener(PlayButtonInteractionSound);
+            }
         }
         if (TryGetComponent(out Image image))
         {

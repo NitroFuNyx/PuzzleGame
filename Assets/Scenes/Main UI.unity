@@ -2697,6 +2697,7 @@ MonoBehaviour:
   buttonImage: {fileID: 131227156}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   language: 3
 --- !u!114 &131227159
 MonoBehaviour:
@@ -3679,6 +3680,7 @@ MonoBehaviour:
   buttonImage: {fileID: 180787125}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!4 &181801740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6426236394948638519, guid: 91d22b1c77f453c4194f1919e5a41bc5, type: 3}
@@ -4186,6 +4188,7 @@ MonoBehaviour:
   buttonImage: {fileID: 202417447}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &209435250
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,6 +4960,7 @@ MonoBehaviour:
   buttonImage: {fileID: 241703956}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   characterType: 1
 --- !u!114 &241703960
 MonoBehaviour:
@@ -5932,6 +5936,7 @@ MonoBehaviour:
   buttonImage: {fileID: 312393189}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &312469076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6085,6 +6090,7 @@ MonoBehaviour:
   buttonImage: {fileID: 312469079}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &312469084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6940,6 +6946,7 @@ MonoBehaviour:
   buttonImage: {fileID: 336577897}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   language: 0
 --- !u!114 &336577900
 MonoBehaviour:
@@ -8097,6 +8104,7 @@ MonoBehaviour:
   buttonImage: {fileID: 409099700}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &410943701 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3754167134454847756, guid: 5e0e080b950710a4f86e995e20a9a827, type: 3}
@@ -8811,6 +8819,7 @@ MonoBehaviour:
   buttonImage: {fileID: 444140519}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &446483937
 GameObject:
   m_ObjectHideFlags: 0
@@ -10199,6 +10208,7 @@ MonoBehaviour:
   buttonImage: {fileID: 517106789}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   lockImage: {fileID: 382378126}
   costAmountText: {fileID: 526884994}
   rotationPunchVector: {x: 0, y: 0, z: 30}
@@ -12387,6 +12397,7 @@ MonoBehaviour:
   buttonImage: {fileID: 587583388}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &587583386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12554,6 +12565,7 @@ MonoBehaviour:
   buttonImage: {fileID: 588693595}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &588693593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12942,6 +12954,7 @@ MonoBehaviour:
   buttonImage: {fileID: 610860640}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   language: 1
 --- !u!114 &610860643
 MonoBehaviour:
@@ -13602,6 +13615,7 @@ MonoBehaviour:
   buttonImage: {fileID: 635116489}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &636568700 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8556802377885284084, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
@@ -16383,6 +16397,7 @@ MonoBehaviour:
   buttonImage: {fileID: 770576516}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &770576514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16796,6 +16811,7 @@ MonoBehaviour:
   buttonImage: {fileID: 780199125}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &784075541
 GameObject:
   m_ObjectHideFlags: 0
@@ -17217,6 +17233,7 @@ MonoBehaviour:
   buttonImage: {fileID: 804083923}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   lockImage: {fileID: 559091286}
   costAmountText: {fileID: 950277208}
   rotationPunchVector: {x: 0, y: 0, z: 30}
@@ -18990,6 +19007,7 @@ MonoBehaviour:
   buttonImage: {fileID: 910417430}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &910417428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23017,6 +23035,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1130153480}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   buttonInactiveColor: {r: 0.34117648, g: 0.33333334, b: 0.33333334, a: 1}
   buttonInactiveAlphaValue: 0.8
   changeButtonStateDuration: 0.1
@@ -23092,6 +23111,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1138549768}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &1138549766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25190,6 +25210,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1230098109}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &1230910139 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8649370293538301023, guid: 39c78d844f83aba4f9f6ec208016d853, type: 3}
@@ -26222,6 +26243,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1279734876}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   chooseGameLevelButton: {fileID: 517106794}
 --- !u!114 &1279923508 stripped
 MonoBehaviour:
@@ -26538,6 +26560,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1291684058}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   characterType: 0
 --- !u!114 &1291684062
 MonoBehaviour:
@@ -26826,6 +26849,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1298100278}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &1308792839
 GameObject:
   m_ObjectHideFlags: 0
@@ -27673,6 +27697,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1353794497}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   language: 2
 --- !u!114 &1353794500
 MonoBehaviour:
@@ -27826,6 +27851,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1358867794}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &1358867797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30808,6 +30834,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1514641391}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   chooseGameLevelButton: {fileID: 804083928}
 --- !u!1 &1515700632
 GameObject:
@@ -31096,6 +31123,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1517567609}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &1523443003
 GameObject:
   m_ObjectHideFlags: 0
@@ -32092,6 +32120,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1562706246}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!114 &1568499590 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1340204441392971806, guid: 950d5153dc89bc94e847d993eea6054b, type: 3}
@@ -33520,6 +33549,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1623238935}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &1626334182
 GameObject:
   m_ObjectHideFlags: 0
@@ -38925,6 +38955,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1859325053}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &1864241856
 GameObject:
   m_ObjectHideFlags: 0
@@ -39511,6 +39542,7 @@ MonoBehaviour:
   buttonImage: {fileID: 1897771253}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
 --- !u!1 &1912088963
 GameObject:
   m_ObjectHideFlags: 0
@@ -41799,6 +41831,7 @@ MonoBehaviour:
   buttonImage: {fileID: 2036329741}
   minScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleDuration: 0.3
+  standartAudio: 1
   soundOnSprite: {fileID: 21300000, guid: bbc14b3297a8b9740b5c8a7f25a3298b, type: 3}
   soundOffSprite: {fileID: 21300000, guid: 950a29d69f678584b8fb6b1b9bb86607, type: 3}
 --- !u!198 &2043648518 stripped
@@ -43828,6 +43861,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2135555755, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135774396, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
+      propertyPath: standartAudio
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2339601097401933986, guid: 8a72f613ba9bfda4f9abf88d2620c8f5, type: 3}
