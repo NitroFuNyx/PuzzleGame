@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioSource sfxAudioSource;
     [SerializeField] private AudioSource sfxAdditionalAudioSource;
     [SerializeField] private AudioSource voicesAudioSource;
+    [SerializeField] private AudioSource femaleVoiceAudioSource;
+    [SerializeField] private AudioSource maleVoiceAudioSource;
     [Header("Music Clips")]
     [Space]
     [SerializeField] private AudioClip mainUIMusicClip;
@@ -27,9 +29,19 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioClip miniGameCoinInteractionClip;
     [SerializeField] private AudioClip miniGameBonusInteractionClip;
     [SerializeField] private AudioClip miniGamePlayerStunClip;
-    [Header("Voices Clips")]
+    [Header("Common Voices Clips")]
     [Space]
     [SerializeField] private AudioClip levelFinishedVoicesClip;
+    [Header("Female Voice Clips")]
+    [Space]
+    [SerializeField] private List<AudioClip> touchAudioClipsList_Female = new List<AudioClip>();
+    [SerializeField] private AudioClip magicAudioClip_Female;
+    [SerializeField] private AudioClip cakeAudioClip_Female;
+    [Header("Male Voice Clips")]
+    [Space]
+    [SerializeField] private List<AudioClip> touchAudioClipsList_Male = new List<AudioClip>();
+    [SerializeField] private AudioClip magicAudioClip_Male;
+    [SerializeField] private AudioClip cakeAudioClip_Male;
     [Space]
     [SerializeField] private AudioClip uiButtonClip;
 
@@ -77,6 +89,8 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         audioSourcesList.Add(sfxAudioSource);
         audioSourcesList.Add(sfxAdditionalAudioSource);
         audioSourcesList.Add(voicesAudioSource);
+        audioSourcesList.Add(femaleVoiceAudioSource);
+        audioSourcesList.Add(maleVoiceAudioSource);
     }
 
     private void SetAudioSourcesState()
@@ -221,6 +235,56 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         voicesAudioSource.clip = levelFinishedVoicesClip;
         voicesAudioSource.Play();
     }
+
+    public void PlayVoicesAudio_MagicPhrase()
+    {
+        AudioSource source = GetSpeakerSource();
+        AudioClip clip = magicAudioClip_Female;
+        if(source == maleVoiceAudioSource)
+        {
+            clip = magicAudioClip_Male;
+        }
+
+        source.clip = clip;
+        source.Play();
+    }
+
+    public void PlayVoicesAudio_CakePhrase()
+    {
+        AudioSource source = GetSpeakerSource();
+        AudioClip clip = cakeAudioClip_Female;
+        if (source == maleVoiceAudioSource)
+        {
+            clip = cakeAudioClip_Male;
+        }
+
+        source.clip = clip;
+        source.Play();
+    }
+
+    public void PlayVoicesAudio_CharacterInteraction(CharacterTypes character)
+    {
+        AudioSource source = GetSpeakerSource();
+        AudioClip clip = cakeAudioClip_Female;
+
+        if (character == CharacterTypes.Female)
+        {
+            source = femaleVoiceAudioSource;
+
+            int index = UnityEngine.Random.Range(0, touchAudioClipsList_Female.Count);
+            clip = touchAudioClipsList_Female[index];
+        }
+        else
+        {
+            source = maleVoiceAudioSource;
+
+            int index = UnityEngine.Random.Range(0, touchAudioClipsList_Male.Count);
+            clip = touchAudioClipsList_Male[index];
+        }
+
+        source.clip = clip;
+        source.Play();
+    }
     #endregion Voices Methods
 
     private AudioSource GetSFXAudioSource()
@@ -230,6 +294,20 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         if(sfxAudioSource.isPlaying)
         {
             source = sfxAdditionalAudioSource;
+        }
+
+        return source;
+    }
+
+    private AudioSource GetSpeakerSource()
+    {
+        AudioSource source = femaleVoiceAudioSource;
+
+        int index = UnityEngine.Random.Range(0, 2);
+
+        if(index == 1)
+        {
+            source = maleVoiceAudioSource; ;
         }
 
         return source;

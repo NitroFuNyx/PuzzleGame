@@ -1,10 +1,13 @@
 using UnityEngine;
+using Zenject;
 
 public class CharacterInteractionHandler : MonoBehaviour, Iinteractable
 {
     [Header("Chracter Type")]
     [Space]
     [SerializeField] private CharacterTypes characterType;
+
+    private AudioManager _audioManager;
 
     private Animator animator;
 
@@ -29,9 +32,18 @@ public class CharacterInteractionHandler : MonoBehaviour, Iinteractable
         }
     }
 
+    #region Zenject
+    [Inject]
+    private void Construct(AudioManager audioManager)
+    {
+        _audioManager = audioManager;
+    }
+    #endregion Zenject
+
     public void Interact()
     {
         ChangeEmotion();
+        _audioManager.PlayVoicesAudio_CharacterInteraction(characterType);
     }
 
     private void ChangeEmotion()

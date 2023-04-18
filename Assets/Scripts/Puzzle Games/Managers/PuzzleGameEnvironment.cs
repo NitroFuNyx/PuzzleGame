@@ -254,6 +254,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private IEnumerator FinishGameCoroutine()
     {
         _audioManager.PlayVoicesAudio_EndGame();
+        _audioManager.PlayVoicesAudio_CakePhrase();
         cake.SetAnimationState_Jump();
         yield return new WaitForSeconds(finishGameDelay / 2);
         gameFinished = true;
