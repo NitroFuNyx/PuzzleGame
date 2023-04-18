@@ -129,6 +129,7 @@ public class PlayerCollisionManager : MonoBehaviour
             {
                 StartCoroutine(DebuffItemCollision_ExecuteReactionCoroutine());
                 Haptic.Vibrate();
+                _audioManager.PlaySFXSound_MiniGameDebuffInteraction();
             }
             else
             {

@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioSource sfxAudioSource;
+    [SerializeField] private AudioSource sfxAdditionalAudioSource;
     [SerializeField] private AudioSource voicesAudioSource;
     [Header("Music Clips")]
     [Space]
@@ -74,6 +75,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     {
         audioSourcesList.Add(musicAudioSource);
         audioSourcesList.Add(sfxAudioSource);
+        audioSourcesList.Add(sfxAdditionalAudioSource);
         audioSourcesList.Add(voicesAudioSource);
     }
 
@@ -145,61 +147,71 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     #region SFX Methods
     public void PlaySFXSound_OpenLock()
     {
+        AudioSource source = GetSFXAudioSource();
         sfxAudioSource.clip = openLockClip;
         sfxAudioSource.Play();
     }
 
     public void PlaySFXSound_PickUpKey()
     {
-        sfxAudioSource.clip = pickUpKeyClip;
-        sfxAudioSource.Play();
+        AudioSource source = GetSFXAudioSource();
+        source.clip = pickUpKeyClip;
+        source.Play();
     }
 
     public void PlaySFXSound_PuzzleItemInteraction()
     {
-        sfxAudioSource.clip = puzzleItemInteractionClip;
-        sfxAudioSource.Play();
+        AudioSource source = GetSFXAudioSource();
+        source.clip = puzzleItemInteractionClip;
+        source.Play();
     }
 
     public void PlaySFXSound_PressSafeButton()
     {
-        sfxAudioSource.clip = pressSafeButtonClip;
-        sfxAudioSource.Play();
+        AudioSource source = GetSFXAudioSource();
+        source.clip = pressSafeButtonClip;
+        source.Play();
     }
 
     public void PlaySFXSound_PressButtonUI()
     {
-        sfxAudioSource.clip = uiButtonClip;
-        sfxAudioSource.Play();
+        AudioSource source = GetSFXAudioSource();
+        source.clip = uiButtonClip;
+        source.Play();
     }
 
     public void PlaySFXSound_MiniGameDebuffInteraction()
     {
-        sfxAudioSource.clip = miniGameDebuffInteractionClip;
-        sfxAudioSource.Play();
+        AudioSource source = GetSFXAudioSource();
+        source.clip = miniGameDebuffInteractionClip;
+        source.Play();
     }
 
     public void PlaySFXSound_MiniGameCoinInteraction()
     {
-        sfxAudioSource.clip = miniGameCoinInteractionClip;
-        sfxAudioSource.Play();
+        AudioSource source = GetSFXAudioSource();
+        source.clip = miniGameCoinInteractionClip;
+        source.Play();
     }
 
     public void PlaySFXSound_MiniGameBonusInteraction()
     {
-        sfxAudioSource.clip = miniGameBonusInteractionClip;
-        sfxAudioSource.Play();
+        AudioSource source = GetSFXAudioSource();
+        source.clip = miniGameBonusInteractionClip;
+        source.Play();
     }
 
     public void PlaySFXSound_MiniGamePlayerStun()
     {
-        sfxAudioSource.clip = miniGamePlayerStunClip;
-        sfxAudioSource.Play();
+        AudioSource source = GetSFXAudioSource();
+        source.clip = miniGamePlayerStunClip;
+        source.Play();
     }
 
     public void StopSFXAudio()
     {
         sfxAudioSource.Stop();
+        sfxAdditionalAudioSource.Stop();
     }
     #endregion SFX Methods
 
@@ -210,4 +222,16 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         voicesAudioSource.Play();
     }
     #endregion Voices Methods
+
+    private AudioSource GetSFXAudioSource()
+    {
+        AudioSource source = sfxAudioSource;
+
+        if(sfxAudioSource.isPlaying)
+        {
+            source = sfxAdditionalAudioSource;
+        }
+
+        return source;
+    }
 }
