@@ -18420,7 +18420,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875228247}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -45928,6 +45928,22 @@ PrefabInstance:
       propertyPath: pickUpKeyClip
       value: 
       objectReference: {fileID: 8300000, guid: 40769157faa53c047a31b82b4d36b3f4, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: miniGamePlayerStunClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 993b7f88efffb2a42bafef74620a3d91, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: miniGameCoinInteractionClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e9150d399e9053042bb5dac26f32516c, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: miniGameBonusInteractionClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1aa2224948c3d8a4c9c6727d20ff1098, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: miniGameDebuffInteractionClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 575e396d5fd6ab44fb4553e78bd5cc7c, type: 3}
     - target: {fileID: 6311008079728666158, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_RootOrder
       value: 11

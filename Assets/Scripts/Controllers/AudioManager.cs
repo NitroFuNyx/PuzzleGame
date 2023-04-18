@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioClip miniGameDebuffInteractionClip;
     [SerializeField] private AudioClip miniGameCoinInteractionClip;
     [SerializeField] private AudioClip miniGameBonusInteractionClip;
+    [SerializeField] private AudioClip miniGamePlayerStunClip;
 
     private List<AudioSource> audioSourcesList = new List<AudioSource>();
 
@@ -121,6 +122,17 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     {
         sfxAudioSource.clip = miniGameBonusInteractionClip;
         sfxAudioSource.Play();
+    }
+
+    public void PlaySFXSound_MiniGamePlayerStun()
+    {
+        sfxAudioSource.clip = miniGamePlayerStunClip;
+        sfxAudioSource.Play();
+    }
+
+    public void StopSFXAudio()
+    {
+        sfxAudioSource.Stop();
     }
     #endregion SFX Methods
 }

@@ -129,6 +129,9 @@ public class PlayerCollisionManager : MonoBehaviour
             {
                 StartCoroutine(DebuffItemCollision_ExecuteReactionCoroutine());
                 Haptic.Vibrate();
+            }
+            else
+            {
                 _audioManager.PlaySFXSound_MiniGameDebuffInteraction();
             }
         }
@@ -194,6 +197,7 @@ public class PlayerCollisionManager : MonoBehaviour
         canCollectItems = false;
         OnCharacterStunned?.Invoke();
         stunVFX.Play();
+        _audioManager.PlaySFXSound_MiniGamePlayerStun();
 
         while (currentDebuffTime > 0f)
         {
@@ -202,6 +206,7 @@ public class PlayerCollisionManager : MonoBehaviour
         }
 
         stunVFX.Stop();
+        _audioManager.StopSFXAudio();
         canCollectItems = true;
         OnCharacterStunnedStateFinished?.Invoke();
     }
