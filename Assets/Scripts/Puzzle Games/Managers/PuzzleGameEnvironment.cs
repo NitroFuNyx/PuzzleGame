@@ -42,6 +42,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     private CurrentGameManager _currentGameManager;
     private DataPersistanceManager _dataPersistanceManager;
     private CameraManager _cameraManager;
+    private AudioManager _audioManager;
 
     [SerializeField] private float currentStopWatchValue;
 
@@ -79,13 +80,14 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     #region Zenject
     [Inject]
     private void Construct(TimersManager timersManager, CurrentGameManager currentGameManager, PuzzleGameUI puzzleGameUI, 
-                           DataPersistanceManager dataPersistanceManager, CameraManager cameraManager)
+                           DataPersistanceManager dataPersistanceManager, CameraManager cameraManager, AudioManager audioManager)
     {
         _timersManager = timersManager;
         _currentGameManager = currentGameManager;
         _puzzleGameUI = puzzleGameUI;
         _dataPersistanceManager = dataPersistanceManager;
         _cameraManager = cameraManager;
+        _audioManager = audioManager;
     }
     #endregion Zenject
 
@@ -250,6 +252,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
 
     private IEnumerator FinishGameCoroutine()
     {
+        _audioManager.PlayVoicesAudio_EndGame();
         cake.SetAnimationState_Jump();
         yield return new WaitForSeconds(finishGameDelay / 2);
         gameFinished = true;

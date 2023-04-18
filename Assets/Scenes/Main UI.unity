@@ -45914,7 +45914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311008078876018171, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_Volume
-      value: 0.138
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 6311008078876018171, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_audioClip
@@ -45952,6 +45952,10 @@ PrefabInstance:
       propertyPath: miniGamePlayerStunClip
       value: 
       objectReference: {fileID: 8300000, guid: 993b7f88efffb2a42bafef74620a3d91, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: levelFinishedVoicesClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ccc0e86a5482144e9dafb59a0977340, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: puzzleItemInteractionClip
       value: 
@@ -46016,6 +46020,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6311008080173665941, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311008080173665941, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ccc0e86a5482144e9dafb59a0977340, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
 --- !u!1001 &6448462629735234121

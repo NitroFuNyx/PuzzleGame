@@ -25,6 +25,9 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioClip miniGameCoinInteractionClip;
     [SerializeField] private AudioClip miniGameBonusInteractionClip;
     [SerializeField] private AudioClip miniGamePlayerStunClip;
+    [Header("Voices Clips")]
+    [Space]
+    [SerializeField] private AudioClip levelFinishedVoicesClip;
     [Space]
     [SerializeField] private AudioClip uiButtonClip;
 
@@ -192,4 +195,12 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         sfxAudioSource.Stop();
     }
     #endregion SFX Methods
+
+    #region Voices Methods
+    public void PlayVoicesAudio_EndGame()
+    {
+        voicesAudioSource.clip = levelFinishedVoicesClip;
+        voicesAudioSource.Play();
+    }
+    #endregion Voices Methods
 }
