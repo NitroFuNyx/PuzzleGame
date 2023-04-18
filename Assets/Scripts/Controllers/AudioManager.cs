@@ -15,6 +15,10 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioClip openLockClip;
     [SerializeField] private AudioClip pickUpKeyClip;
     [SerializeField] private AudioClip uiButtonClip;
+    [Space]
+    [SerializeField] private AudioClip miniGameDebuffInteractionClip;
+    [SerializeField] private AudioClip miniGameCoinInteractionClip;
+    [SerializeField] private AudioClip miniGameBonusInteractionClip;
 
     private List<AudioSource> audioSourcesList = new List<AudioSource>();
 
@@ -98,6 +102,24 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     public void PlaySFXSound_PressButtonUI()
     {
         sfxAudioSource.clip = uiButtonClip;
+        sfxAudioSource.Play();
+    }
+
+    public void PlaySFXSound_MiniGameDebuffInteraction()
+    {
+        sfxAudioSource.clip = miniGameDebuffInteractionClip;
+        sfxAudioSource.Play();
+    }
+
+    public void PlaySFXSound_MiniGameCoinInteraction()
+    {
+        sfxAudioSource.clip = miniGameCoinInteractionClip;
+        sfxAudioSource.Play();
+    }
+
+    public void PlaySFXSound_MiniGameBonusInteraction()
+    {
+        sfxAudioSource.clip = miniGameBonusInteractionClip;
         sfxAudioSource.Play();
     }
     #endregion SFX Methods

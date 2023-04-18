@@ -45919,7 +45919,7 @@ PrefabInstance:
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: openLockClip
       value: 
-      objectReference: {fileID: 8300000, guid: 62beff6c7b841c34db4c6451982c5a35, type: 3}
+      objectReference: {fileID: 8300000, guid: 4b3ee59dd9388d74987c613f29c34078, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: uiButtonClip
       value: 

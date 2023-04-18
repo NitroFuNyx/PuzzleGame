@@ -35,6 +35,7 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private ResourcesManager _resourcesManager;
     private KitchenMiniGameBonusTimersPanel _kitchenMiniGameBonusTimersPanel;
+    private AudioManager _audioManager;
 
     private bool canCollectItems = false;
 
@@ -78,10 +79,11 @@ public class PlayerCollisionManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(ResourcesManager resourcesManager, KitchenMiniGameBonusTimersPanel kitchenMiniGameBonusTimersPanel)
+    private void Construct(ResourcesManager resourcesManager, KitchenMiniGameBonusTimersPanel kitchenMiniGameBonusTimersPanel, AudioManager audioManager)
     {
         _resourcesManager = resourcesManager;
         _kitchenMiniGameBonusTimersPanel = kitchenMiniGameBonusTimersPanel;
+        _audioManager = audioManager;
     }
     #endregion Zenject
 
@@ -110,6 +112,8 @@ public class PlayerCollisionManager : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemCoin item_Coin))
         {
+            _audioManager.PlaySFXSound_MiniGameCoinInteraction();
+
             if(!doubleCoinsBuffActivated)
             {
                 _resourcesManager.IncreaseCurrentLevelCoins(item_Coin.CoinsAmount);
@@ -124,15 +128,20 @@ public class PlayerCollisionManager : MonoBehaviour
             if(!shieldBonusActivated)
             {
                 StartCoroutine(DebuffItemCollision_ExecuteReactionCoroutine());
+                Haptic.Vibrate();
+                _audioManager.PlaySFXSound_MiniGameDebuffInteraction();
             }
         }
         else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_AdditionalTime itemBonus_AdditionalCoins))
         {
             OnAdditionalTimeBonusCollected?.Invoke(itemBonus_AdditionalCoins.BonusTime);
+            _audioManager.PlaySFXSound_MiniGameBonusInteraction();
         }
         else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_DoubleCoins itemBonus_DoubleCoins))
         {
-            if(!doubleCoinsBuffActivated)
+            _audioManager.PlaySFXSound_MiniGameBonusInteraction();
+
+            if (!doubleCoinsBuffActivated)
             {
                 doubleCoinsBuffActivated = true;
                 currentDoubleCoinsBonusTime = startDoubleCoinsBonusTime;
@@ -146,6 +155,8 @@ public class PlayerCollisionManager : MonoBehaviour
         }
         else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_Shield itemBonus_ShieldBonus))
         {
+            _audioManager.PlaySFXSound_MiniGameBonusInteraction();
+
             if (!shieldBonusActivated)
             {
                 shieldBonusActivated = true;
@@ -160,6 +171,8 @@ public class PlayerCollisionManager : MonoBehaviour
         }
         else if (collision.gameObject.TryGetComponent(out KitchenMiniGameItemBonus_CoinsMagnet itemBonus_MagnetBonus))
         {
+            _audioManager.PlaySFXSound_MiniGameBonusInteraction();
+
             if (!coinsMagnetBonusActivated)
             {
                 coinsMagnetBonusActivated = true;
