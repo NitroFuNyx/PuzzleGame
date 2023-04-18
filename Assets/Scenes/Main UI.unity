@@ -45949,6 +45949,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 275b4ef12af5e3048891a76f8e93d576, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: pressSafeButtonClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fdc01a4ff433d02469a1e4daf865bf4d, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: miniGamePlayerStunClip
       value: 
       objectReference: {fileID: 8300000, guid: 993b7f88efffb2a42bafef74620a3d91, type: 3}

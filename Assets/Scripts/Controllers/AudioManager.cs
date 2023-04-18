@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioClip openLockClip;
     [SerializeField] private AudioClip pickUpKeyClip;
     [SerializeField] private AudioClip puzzleItemInteractionClip;
+    [SerializeField] private AudioClip pressSafeButtonClip;
     [Space]
     [SerializeField] private AudioClip miniGameDebuffInteractionClip;
     [SerializeField] private AudioClip miniGameCoinInteractionClip;
@@ -157,6 +158,12 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     public void PlaySFXSound_PuzzleItemInteraction()
     {
         sfxAudioSource.clip = puzzleItemInteractionClip;
+        sfxAudioSource.Play();
+    }
+
+    public void PlaySFXSound_PressSafeButton()
+    {
+        sfxAudioSource.clip = pressSafeButtonClip;
         sfxAudioSource.Play();
     }
 
