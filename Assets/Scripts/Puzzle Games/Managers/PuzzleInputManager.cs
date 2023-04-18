@@ -11,16 +11,18 @@ public class PuzzleInputManager : MonoBehaviour
     [Space]
     [SerializeField] private float clampXUnitMin = 0f;
     [SerializeField] private float clampXUnitMax = 40f;
+    [Header("Joystick")]
+    [Space]
+    [SerializeField] private Joystick joystick;
 
     private CurrentGameManager _currentGameManager;
+    private AudioManager _audioManager;
 
     private float horizontalMove = 0f;
     private float checkInteractDelay = 0.1f;
 
     private bool canCheckInput = false;
     private bool canMoveCamera = true;
-
-    [SerializeField] private Joystick joystick;
 
     public bool CanMoveCamera { get => canMoveCamera; set => canMoveCamera = value; }
 
@@ -39,9 +41,10 @@ public class PuzzleInputManager : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(CurrentGameManager currentGameManager)
+    private void Construct(CurrentGameManager currentGameManager, AudioManager audioManager)
     {
         _currentGameManager = currentGameManager;
+        _audioManager = audioManager;
     }
     #endregion Zenject
 
@@ -85,6 +88,9 @@ public class PuzzleInputManager : MonoBehaviour
     {
         yield return new WaitForSeconds(checkInteractDelay);
         if(!_currentGameManager.PuzzleUIButtonPressed)
-        item.Interact();
+        {
+            item.Interact();
+            _audioManager.PlaySFXSound_PuzzleItemInteraction();
+        }
     }
 }

@@ -32,6 +32,7 @@ public class MainUI : MonoBehaviour
 
     private CurrentGameManager _currentGameManager;
     private SystemTimeManager _systemTimeManager;
+    private AudioManager _audioManager;
 
     private Vector3 leftBottomTransitionPanelStartPosition = new Vector3(0f, 0f, 0f);
     private Vector3 rightTopTransitionPanelStartPosition = new Vector3(0f, 0f, 0f);
@@ -51,10 +52,11 @@ public class MainUI : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(CurrentGameManager currentGameManager, SystemTimeManager systemTimeManager)
+    private void Construct(CurrentGameManager currentGameManager, SystemTimeManager systemTimeManager, AudioManager audioManager)
     {
         _currentGameManager = currentGameManager;
         _systemTimeManager = systemTimeManager;
+        _audioManager = audioManager;
     }
     #endregion Zenject
 
@@ -63,6 +65,7 @@ public class MainUI : MonoBehaviour
     {
         ActivateMainCanvasPanel(UIPanels.MainScreenPanel);
         mainScreenUI.ActivateIdleAnimation();
+        _audioManager.PlayMusic_MainUI();
     }
 
     public void ShowSettingsUI()
@@ -114,10 +117,12 @@ public class MainUI : MonoBehaviour
         if(_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
         {
             ActivateMainCanvasPanel(UIPanels.MiniGamePanel);
+            _audioManager.PlayMusic_MiniGame();
         }
         else
         {
             ActivateMainCanvasPanel(UIPanels.PuzzleGamePanel);
+            _audioManager.PlayMusic_Puzzle();
         }
     }
 
@@ -144,6 +149,7 @@ public class MainUI : MonoBehaviour
     public void ExitGameMode()
     {
         _systemTimeManager.ResumeGame();
+        _audioManager.PlayMusic_MainUI();
 
         if (_currentGameManager.CurrentGameType == GameLevelTypes.MiniGame)
         {

@@ -10,16 +10,23 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioSource sfxAudioSource;
     [SerializeField] private AudioSource voicesAudioSource;
+    [Header("Music Clips")]
+    [Space]
+    [SerializeField] private AudioClip mainUIMusicClip;
+    [SerializeField] private AudioClip miniGameMusicClip;
+    [SerializeField] private AudioClip puzzleMusicClip;
     [Header("SFX Clips")]
     [Space]
     [SerializeField] private AudioClip openLockClip;
     [SerializeField] private AudioClip pickUpKeyClip;
-    [SerializeField] private AudioClip uiButtonClip;
+    [SerializeField] private AudioClip puzzleItemInteractionClip;
     [Space]
     [SerializeField] private AudioClip miniGameDebuffInteractionClip;
     [SerializeField] private AudioClip miniGameCoinInteractionClip;
     [SerializeField] private AudioClip miniGameBonusInteractionClip;
     [SerializeField] private AudioClip miniGamePlayerStunClip;
+    [Space]
+    [SerializeField] private AudioClip uiButtonClip;
 
     private List<AudioSource> audioSourcesList = new List<AudioSource>();
 
@@ -87,6 +94,50 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         data.soundMuted = audioMuted;
     }
 
+    #region Music Methods
+    public void PlayMusic_MainUI()
+    {
+        if(musicAudioSource.clip != mainUIMusicClip)
+        {
+            musicAudioSource.clip = mainUIMusicClip;
+            musicAudioSource.Play();
+        }
+        else if(musicAudioSource.clip == mainUIMusicClip && !musicAudioSource.isPlaying)
+        {
+            musicAudioSource.clip = mainUIMusicClip;
+            musicAudioSource.Play();
+        }
+    }
+
+    public void PlayMusic_MiniGame()
+    {
+        if (musicAudioSource.clip != miniGameMusicClip)
+        {
+            musicAudioSource.clip = miniGameMusicClip;
+            musicAudioSource.Play();
+        }
+        else if (musicAudioSource.clip == miniGameMusicClip && !musicAudioSource.isPlaying)
+        {
+            musicAudioSource.clip = miniGameMusicClip;
+            musicAudioSource.Play();
+        }
+    }
+
+    public void PlayMusic_Puzzle()
+    {
+        if (musicAudioSource.clip != puzzleMusicClip)
+        {
+            musicAudioSource.clip = puzzleMusicClip;
+            musicAudioSource.Play();
+        }
+        else if (musicAudioSource.clip == puzzleMusicClip && !musicAudioSource.isPlaying)
+        {
+            musicAudioSource.clip = puzzleMusicClip;
+            musicAudioSource.Play();
+        }
+    }
+    #endregion Music Methods
+
     #region SFX Methods
     public void PlaySFXSound_OpenLock()
     {
@@ -97,6 +148,12 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     public void PlaySFXSound_PickUpKey()
     {
         sfxAudioSource.clip = pickUpKeyClip;
+        sfxAudioSource.Play();
+    }
+
+    public void PlaySFXSound_PuzzleItemInteraction()
+    {
+        sfxAudioSource.clip = puzzleItemInteractionClip;
         sfxAudioSource.Play();
     }
 

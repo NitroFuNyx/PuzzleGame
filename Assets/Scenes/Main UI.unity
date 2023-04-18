@@ -45909,9 +45909,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6311008078876018171, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311008078876018171, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_Volume
       value: 0.138
       objectReference: {fileID: 0}
+    - target: {fileID: 6311008078876018171, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c26d3907d0b66c54299e18a7dbc83210, type: 3}
     - target: {fileID: 6311008079062859378, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -45929,9 +45937,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 40769157faa53c047a31b82b4d36b3f4, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: mainUIMusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c26d3907d0b66c54299e18a7dbc83210, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: puzzleMusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 67e2af0a3ad30084684597ebce404e16, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: miniGameMusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 275b4ef12af5e3048891a76f8e93d576, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: miniGamePlayerStunClip
       value: 
       objectReference: {fileID: 8300000, guid: 993b7f88efffb2a42bafef74620a3d91, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: puzzleItemInteractionClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 058cab7aaf0084545a80f623851b27d2, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: miniGameCoinInteractionClip
       value: 

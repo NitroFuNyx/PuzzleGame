@@ -80,6 +80,7 @@ public abstract class ButtonInteractionHandler : MonoBehaviour
 
     protected void PlayButtonInteractionSound()
     {
+        if(_audioManager)
         _audioManager.PlaySFXSound_PressButtonUI();
     }
 

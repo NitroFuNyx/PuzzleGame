@@ -23,6 +23,7 @@ public class CurrentGameManager : MonoBehaviour
     private ResourcesManager _resourcesManager;
     private DataPersistanceManager _dataPersistanceManager;
     private MainUI _mainUI;
+    private AudioManager _audioManager;
 
     #region Events Declaration
     public event Action<CharacterTypes> OnCharacterChanged;
@@ -34,13 +35,14 @@ public class CurrentGameManager : MonoBehaviour
     #region Zenject
     [Inject]
     private void Construct(MiniGamesEnvironmentsHolder miniGamesEnvironmentsHolder, PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, 
-                           ResourcesManager resourcesManager, DataPersistanceManager dataPersistanceManager, MainUI mainUI)
+                           ResourcesManager resourcesManager, DataPersistanceManager dataPersistanceManager, MainUI mainUI, AudioManager audioManager)
     {
         _miniGamesEnvironmentsHolder = miniGamesEnvironmentsHolder;
         _puzzleGamesEnvironments = puzzleGamesEnvironmentsHolder;
         _resourcesManager = resourcesManager;
         _dataPersistanceManager = dataPersistanceManager;
         _mainUI = mainUI;
+        _audioManager = audioManager;
     }
     #endregion Zenject
 

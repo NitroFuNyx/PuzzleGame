@@ -35,6 +35,7 @@ public class SelectCharacterButton : ButtonInteractionHandler
         {
             ButtonComponent = GetComponent<Button>();
             ButtonComponent.onClick.AddListener(ButtonActivated);
+            ButtonComponent.onClick.AddListener(PlayButtonInteractionSound);
         }
     }
 
