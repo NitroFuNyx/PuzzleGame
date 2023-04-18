@@ -238,7 +238,7 @@ public class PuzzleGameUI : MainCanvasPanel
         clueButton.gameObject.SetActive(true);
     }
 
-    private void HideAdditionalButtons()
+    public void HideAdditionalButtons()
     {
         pauseButton.gameObject.SetActive(false);
         clueButton.gameObject.SetActive(false);

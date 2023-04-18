@@ -188,6 +188,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         //gameFinished = true;
         inputManager.ChangeCheckInputState(false);
         StartCoroutine(FinishGameCoroutine());
+        _puzzleGameUI.HideAdditionalButtons();
     }
 
     public void FullResetEnvironment()
