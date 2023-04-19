@@ -60,7 +60,7 @@ public class CurrentGameManager : MonoBehaviour
         ActivateGameLevelEnvironment(currentLevelIndex, currentGameType);
     }
 
-    public void ActivateGameLevelEnvironment(int levelIndex, GameLevelTypes gameType)
+    public void ActivateGameLevelEnvironment(int levelIndex, GameLevelTypes gameType)//0 puzzle
     {
         currentGameType = gameType;
         currentLevelIndex = levelIndex;
