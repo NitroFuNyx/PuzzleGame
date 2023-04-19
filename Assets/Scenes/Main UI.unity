@@ -31779,7 +31779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d0081e75a804d4d866e03aacf3264b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelState: 0
+  levelState: 3
   gameType: 0
   gameLevelIndex: 0
   highestScore: 0
