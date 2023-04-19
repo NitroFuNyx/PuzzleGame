@@ -12,6 +12,7 @@ public class TogglePuzzleGame : MonoBehaviour
 
     private CameraManager _cameraManager;
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
+    private AudioManager _audioManager;
 
     #region Events Declaration
     public event Action OnCharacterAnimationFinished;
@@ -19,11 +20,13 @@ public class TogglePuzzleGame : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(PuzzleGameUI puzzleGameUI,CameraManager cameraManager,PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder)
+    private void Construct(PuzzleGameUI puzzleGameUI,CameraManager cameraManager,PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, 
+                           AudioManager audioManager)
     {
         _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
         _cameraManager = cameraManager;
         _puzzleGameUI = puzzleGameUI;
+        _audioManager = audioManager;
     }
     #endregion Zenject
     
@@ -53,6 +56,7 @@ public class TogglePuzzleGame : MonoBehaviour
         Debug.Log("Toggle  works - "+ toggleStatus);
         if (toggleStatus)
         {
+            _audioManager.PlaySFXSound_PressButtonUI();
             redButton.interactable = false;
             redButton.isOn = false;
             StartCoroutine(SpawnAMan());

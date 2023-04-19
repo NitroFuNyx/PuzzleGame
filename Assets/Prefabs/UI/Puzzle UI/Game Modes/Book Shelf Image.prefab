@@ -572,6 +572,10 @@ PrefabInstance:
       propertyPath: bookType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804225, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -689,6 +693,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4909081855866073286}
     m_Modifications:
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
       value: Green Book Button 3
@@ -802,6 +810,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4909081856685293218}
     m_Modifications:
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
       value: Green Book Button 2
@@ -918,6 +930,10 @@ PrefabInstance:
     - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: bookType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804225, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Sprite
@@ -1044,6 +1060,10 @@ PrefabInstance:
       propertyPath: bookType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804225, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1164,6 +1184,10 @@ PrefabInstance:
     - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: bookType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804225, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Sprite
@@ -1286,6 +1310,10 @@ PrefabInstance:
       propertyPath: bookType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804225, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1407,6 +1435,10 @@ PrefabInstance:
       propertyPath: bookType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804225, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1524,6 +1556,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4909081856685293218}
     m_Modifications:
+    - target: {fileID: -30903460656134188, guid: 9486897efbb266646af8f7c111814136, type: 3}
+      propertyPath: standartAudio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528185591263804284, guid: 9486897efbb266646af8f7c111814136, type: 3}
       propertyPath: m_Name
       value: Green Book Button 1

@@ -77,20 +77,27 @@ public class PuzzleInputManager : MonoBehaviour
                     if (hit.collider.TryGetComponent(out Iinteractable item))
                     {
                         //item.Interact();
-                        StartCoroutine(CheckInteractionCoroutine(item));
+                        StartCoroutine(CheckInteractionCoroutine(item, hit.collider));
                     }
                 }
             }
         }
     }
 
-    private IEnumerator CheckInteractionCoroutine(Iinteractable item)
+    private IEnumerator CheckInteractionCoroutine(Iinteractable item, Collider2D collider)
     {
         yield return new WaitForSeconds(checkInteractDelay);
         if(!_currentGameManager.PuzzleUIButtonPressed)
         {
             item.Interact();
-            _audioManager.PlaySFXSound_PuzzleItemInteraction();
+            if(collider.TryGetComponent(out PuzzleKitchenLamp lamp))
+            {
+                _audioManager.PlaySFXSound_PuzzleLampInteraction();
+            }
+            else
+            {
+                _audioManager.PlaySFXSound_PuzzleItemInteraction();
+            }
         }
     }
 }

@@ -41,6 +41,7 @@ public class PuzzleGameUI : MainCanvasPanel
     private PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
     private TimersManager _timersManager;
     private PopItGameStateManager _popItGameStateManager;
+    private AudioManager _audioManager;
 
     private Sprite newItemSprite;
     private PuzzleGameKitchenItems newItemType;
@@ -64,11 +65,13 @@ public class PuzzleGameUI : MainCanvasPanel
 
     #region Zenject
     [Inject]
-    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, TimersManager timersManager, PopItGameStateManager popItGameStateManager)
+    private void Construct(PuzzleGamesEnvironmentsHolder puzzleGamesEnvironmentsHolder, TimersManager timersManager, PopItGameStateManager popItGameStateManager,
+                           AudioManager audioManager)
     {
         _puzzleGamesEnvironmentsHolder = puzzleGamesEnvironmentsHolder;
         _timersManager = timersManager;
         _popItGameStateManager = popItGameStateManager;
+        _audioManager = audioManager;
     }
     #endregion Zenject
 
@@ -79,6 +82,7 @@ public class PuzzleGameUI : MainCanvasPanel
         Vector3 spawnPos = Camera.main.WorldToScreenPoint(new Vector3(key.transform.position.x, key.transform.position.y, 0f));
         var keyImage = Instantiate(keyImagePrefab, spawnPos, Quaternion.identity, transform);
         keyImage.MoveToInventoryPanel(inventoryPanel.transform.position, key.sprite, item, this/*, ShowItemImageInInventoryPanel*/);
+        _audioManager.PlaySFXSound_PickUpKey();
     }
 
     public void MoveItemToInventoryBar(SpriteRenderer itemSprite, PuzzleGameKitchenItems item)
@@ -90,6 +94,7 @@ public class PuzzleGameUI : MainCanvasPanel
         {
             var itemImage = Instantiate(colaStrawImagePrefab, spawnPos, Quaternion.identity, transform);
             itemImage.MoveToInventoryPanel(inventoryPanel.transform.position, itemSprite.sprite, item, this/*, ShowItemImageInInventoryPanel*/);
+            _audioManager.PlaySFXSound_PickUpKey();
         }
     }
 

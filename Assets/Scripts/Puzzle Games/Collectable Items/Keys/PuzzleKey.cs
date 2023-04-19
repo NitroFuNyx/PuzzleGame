@@ -38,6 +38,8 @@ public class PuzzleKey : PuzzleCollectableItem
 
     private bool collected = false;
 
+    private int keyAppearedIndex = 0;
+
     public int KeyIndex { get => keyIndex; private set => keyIndex = value; }
 
     #region Events Declaration
@@ -64,6 +66,11 @@ public class PuzzleKey : PuzzleCollectableItem
         if(keyVFX)
         {
             keyVFX.Play();
+            keyAppearedIndex++;
+            if (keyAppearedIndex > 1)
+            {
+                _audioManager.PlaySFXSound_KeyAppeared();
+            }
         }
     }
 

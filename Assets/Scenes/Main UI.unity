@@ -31779,7 +31779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d0081e75a804d4d866e03aacf3264b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelState: 3
+  levelState: 0
   gameType: 0
   gameLevelIndex: 0
   highestScore: 0
@@ -46527,6 +46527,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 40769157faa53c047a31b82b4d36b3f4, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: appearedKeyClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34c1a30de3a3a9f42bca495f983acd5b, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: mainUIMusicClip
       value: 
       objectReference: {fileID: 8300000, guid: c26d3907d0b66c54299e18a7dbc83210, type: 3}
@@ -46539,9 +46543,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 275b4ef12af5e3048891a76f8e93d576, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: appearedOldManClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b8825d4ab135d549b294f2e31d2a75d, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: cakeAudioClip_Male
       value: 
       objectReference: {fileID: 8300000, guid: ebfaac53bc390a1468a466fa3e98c317, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: lampInteractionClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fc19234a41269b469cf727c79cf7ade, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: magicAudioClip_Male
       value: 
@@ -46558,6 +46570,10 @@ PrefabInstance:
       propertyPath: maleVoiceAudioSource
       value: 
       objectReference: {fileID: 860522254}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: pressMixerButtonClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f26c614a009b14d43bb2ef803c0ffad7, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: magicAudioClip_Female
       value: 

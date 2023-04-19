@@ -15,7 +15,7 @@ public abstract class PuzzleCollectableItem : MonoBehaviour, Iinteractable
     public void Interact()
     {
         InteractOnTouch();
-        _audioManager.PlaySFXSound_PickUpKey();
+        //_audioManager.PlaySFXSound_PickUpKey();
     }
 
     #region Zenject

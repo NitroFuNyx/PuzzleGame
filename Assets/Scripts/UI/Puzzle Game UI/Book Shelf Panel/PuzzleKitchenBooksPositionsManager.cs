@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Zenject;
 
 public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
     [SerializeField] private BookshelfImage bookshelfImagePrefab;
     [SerializeField] private PuzzleGame_MiniGameModePanel bookshelfImageParent;
 
+    private AudioManager _audioManager;
+
     private BookshelfImage bookShelf;
 
     private Action OnGameComplete;
@@ -25,6 +28,14 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
     private float hidePanelDelay = 0.5f;
 
     public bool CanCheckBooksInput { get => canCheckBooksInput; private set => canCheckBooksInput = value; }
+
+    #region Zenject
+    [Inject]
+    private void Construct(AudioManager audioManager)
+    {
+        _audioManager = audioManager;
+    }
+    #endregion Zenject
 
     public void StartGame(Action OnBookshelfGameComplete)
     {
@@ -56,6 +67,8 @@ public class PuzzleKitchenBooksPositionsManager : MonoBehaviour
 
             firstSelectedBook.transform.SetParent(secondSelectedBook.CurrentShelf.transform);
             secondSelectedBook.transform.SetParent(firstSelectedBook.CurrentShelf.transform);
+
+            _audioManager.PlaySFXSound_PickUpKey();
 
             firstSelectedBook.transform.localPosition = secondBookStartPos;
             secondSelectedBook.transform.localPosition = firstBookStartPos;

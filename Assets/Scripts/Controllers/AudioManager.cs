@@ -22,8 +22,12 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [Space]
     [SerializeField] private AudioClip openLockClip;
     [SerializeField] private AudioClip pickUpKeyClip;
+    [SerializeField] private AudioClip appearedKeyClip;
     [SerializeField] private AudioClip puzzleItemInteractionClip;
     [SerializeField] private AudioClip pressSafeButtonClip;
+    [SerializeField] private AudioClip pressMixerButtonClip;
+    [SerializeField] private AudioClip lampInteractionClip;
+    [SerializeField] private AudioClip appearedOldManClip;
     [Space]
     [SerializeField] private AudioClip miniGameDebuffInteractionClip;
     [SerializeField] private AudioClip miniGameCoinInteractionClip;
@@ -180,10 +184,38 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         source.Play();
     }
 
+    public void PlaySFXSound_PuzzleLampInteraction()
+    {
+        AudioSource source = GetSFXAudioSource();
+        source.clip = lampInteractionClip;
+        source.Play();
+    }
+
+    public void PlaySFXSound_OldManAppeared()
+    {
+        AudioSource source = GetSFXAudioSource();
+        source.clip = appearedOldManClip;
+        source.Play();
+    }
+
+    public void PlaySFXSound_KeyAppeared()
+    {
+        AudioSource source = GetSFXAudioSource();
+        source.clip = appearedKeyClip;
+        source.Play();
+    }
+
     public void PlaySFXSound_PressSafeButton()
     {
         AudioSource source = GetSFXAudioSource();
         source.clip = pressSafeButtonClip;
+        source.Play();
+    }
+
+    public void PlaySFXSound_PressMixerButton()
+    {
+        AudioSource source = GetSFXAudioSource();
+        source.clip = pressMixerButtonClip;
         source.Play();
     }
 
