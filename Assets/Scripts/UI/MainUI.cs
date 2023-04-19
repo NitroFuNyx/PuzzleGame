@@ -25,6 +25,7 @@ public class MainUI : MonoBehaviour
     [SerializeField] private Transform rightTopTransitionPanel;
     [SerializeField] private Transform centerTransitionPanel;
     [SerializeField] private Transform rightTransitionPanelStartPivot;
+    [SerializeField] private Transform leftTransitionPanelStartPivot;
     [Header("Transitions Data")]
     [Space]
     [SerializeField] private float transitionDuration = 1f;
@@ -41,6 +42,7 @@ public class MainUI : MonoBehaviour
     private void Awake()
     {
         FillPanelsList();
+        transitionPanel.HidePanel();
     }
 
     private void Start()
@@ -189,17 +191,12 @@ public class MainUI : MonoBehaviour
 
     private void ActivateMainCanvasPanel(UIPanels panel)
     {
-        if(panel != UIPanels.MainLoaderPanel && panel != UIPanels.MainScreenPanel && panel != UIPanels.MiniGamePanel && panel != UIPanels.PuzzleGamePanel)
-        {
-            StartTransitionAnimation(panel);
-        }
-        else
-        {
-            if(panel == UIPanels.MainLoaderPanel || panel == UIPanels.MainScreenPanel || panel == UIPanels.MiniGamePanel || panel == UIPanels.PuzzleGamePanel)
-            {
-                transitionPanel.HidePanel();
-            }
-
+        //if(panel != UIPanels.MainLoaderPanel && panel != UIPanels.MainScreenPanel)
+        //{
+        //    StartTransitionAnimation(panel);
+        //}
+        //else
+        //{
             if (panel == UIPanels.SelectModePanel)
             {
                 selectModeUI.StartPanelsAnimations();
@@ -219,7 +216,7 @@ public class MainUI : MonoBehaviour
                     panelsList[i].HidePanel();
                 }
             }
-        }
+        //}
     }
 
     private void HideMainCanvasPanel(UIPanels panel)
@@ -296,7 +293,10 @@ public class MainUI : MonoBehaviour
     private IEnumerator FinisheTransitionCoroutine()
     {
         yield return new WaitForSeconds(transitionDelay);
-        leftBottomTransitionPanel.DOMove(Vector3.zero, transitionDuration);
-        rightTopTransitionPanel.DOMove(rightTransitionPanelStartPivot.position, transitionDuration);
+        leftBottomTransitionPanel.DOMove(leftTransitionPanelStartPivot.position, transitionDuration);
+        rightTopTransitionPanel.DOMove(rightTransitionPanelStartPivot.position, transitionDuration).OnComplete(() =>
+        {
+            transitionPanel.HidePanel();
+        });
     }
 }
