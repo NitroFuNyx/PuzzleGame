@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class MiniGamesEnvironmentsHolder : MonoBehaviour
 {
     [Header("Mini Games Levels")]
     [Space]
     [SerializeField] private List<MiniGameEnvironment> gamesEnvironmentsList = new List<MiniGameEnvironment>();
+
+    private CurrentGameManager _currentGameManager;
 
     private MiniGameEnvironment currentlyActiveGame;
 
@@ -16,10 +19,19 @@ public class MiniGamesEnvironmentsHolder : MonoBehaviour
         HideAllEnvironments();
     }
 
+    #region Zenject
+    [Inject]
+    private void Construct(CurrentGameManager currentGameManager)
+    {
+        _currentGameManager = currentGameManager;
+    }
+    #endregion Zenject
+
     public void ActivateEnvironment(int levelIndex)
     {
         HideAllEnvironments();
-
+        _currentGameManager.HidePuzzleEnvironment();
+        
         for(int i = 0; i < gamesEnvironmentsList.Count; i++)
         {
             if(gamesEnvironmentsList[i].EnvironmentIndex == levelIndex)
@@ -38,5 +50,7 @@ public class MiniGamesEnvironmentsHolder : MonoBehaviour
         {
             gamesEnvironmentsList[i].gameObject.SetActive(false);
         }
+
+        Debug.Log($"Hide Mini Game: Game active {gamesEnvironmentsList[0].gameObject.activeInHierarchy}");
     }
 }

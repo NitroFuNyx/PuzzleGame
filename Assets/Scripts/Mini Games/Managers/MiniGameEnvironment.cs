@@ -59,6 +59,7 @@ public class MiniGameEnvironment : MonoBehaviour
 
     public void StartGame()
     {
+        _currentGameManager.HidePuzzleEnvironment();
         StartCoroutine(StartGameCoroutine());
     }
 

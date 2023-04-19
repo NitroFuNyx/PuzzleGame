@@ -95,6 +95,7 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
     {
         inputManager.ChangeCheckInputState(true);
         StartCoroutine(StartGameCoroutine());
+        _currentGameManager.HideMiniGameEnvironment();
     }
 
     public void UpdateEnvironmentSavedData()
@@ -151,20 +152,23 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         }
         else
         {
-            collectableItemsManager.ResetData();
-            
-            if(data.puzzleGameLevelsDataList[0].bestFinishTime == 0f)
+            if(_currentGameManager.CurrentGameType == GameLevelTypes.Puzzle)
             {
-                data.puzzleGameLevelsDataList[0].bestFinishTime = currentStopWatchValue;
-            }
-            else if(currentStopWatchValue < data.puzzleGameLevelsDataList[0].bestFinishTime && data.puzzleGameLevelsDataList[0].bestFinishTime != 0f)
-            {
-                data.puzzleGameLevelsDataList[0].bestFinishTime = currentStopWatchValue;
-            }
-            _currentGameManager.UpdatePuzzleLevelPanelData(gameFinished, currentStopWatchValue);
-            _currentGameManager.UpdatePuzzleBestTimeData(data.puzzleGameLevelsDataList[0].bestFinishTime);
+                collectableItemsManager.ResetData();
 
-            currentStopWatchValue = 0f;
+                if (data.puzzleGameLevelsDataList[0].bestFinishTime == 0f)
+                {
+                    data.puzzleGameLevelsDataList[0].bestFinishTime = currentStopWatchValue;
+                }
+                else if (currentStopWatchValue < data.puzzleGameLevelsDataList[0].bestFinishTime && data.puzzleGameLevelsDataList[0].bestFinishTime != 0f)
+                {
+                    data.puzzleGameLevelsDataList[0].bestFinishTime = currentStopWatchValue;
+                }
+                _currentGameManager.UpdatePuzzleLevelPanelData(gameFinished, currentStopWatchValue);
+                _currentGameManager.UpdatePuzzleBestTimeData(data.puzzleGameLevelsDataList[0].bestFinishTime);
+
+                currentStopWatchValue = 0f;
+            }
         }
 
         data.puzzleGameLevelsDataList[0].currentInGameTime = currentStopWatchValue;

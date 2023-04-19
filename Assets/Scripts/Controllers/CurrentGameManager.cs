@@ -54,6 +54,7 @@ public class CurrentGameManager : MonoBehaviour
     public void SetCurrentCharacter(CharacterTypes choosenCharacter)
     {
         currentCharacter = choosenCharacter;
+        currentGameType = GameLevelTypes.MiniGame;
         characterSet = true;
         OnCharacterChanged?.Invoke(currentCharacter);
         ActivateGameLevelEnvironment(currentLevelIndex, currentGameType);
@@ -115,6 +116,18 @@ public class CurrentGameManager : MonoBehaviour
     public void UpdatePuzzleBestTimeData(float time)
     {
         OnPuzzleBestTimeDefined?.Invoke(time);
+    }
+
+    public void HidePuzzleEnvironment()
+    {
+        Debug.Log($"Hide Puzzle");
+        _puzzleGamesEnvironments.HideAllEnvironments();
+    }
+
+    public void HideMiniGameEnvironment()
+    {
+        Debug.Log($"Hide Mini Game");
+        _miniGamesEnvironmentsHolder.HideAllEnvironments();
     }
 
     private IEnumerator FinishGameWithSavingCoroutine()
