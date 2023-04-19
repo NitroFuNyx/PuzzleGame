@@ -10,6 +10,7 @@ public class SelectCharacterButton : ButtonInteractionHandler
 
     private CurrentGameManager _currentGameManager;
     private MainUI _mainUI;
+    private AdsManager _adsManager;
 
     private RewardedAdsButton rewardedAdsButton;
     private AdsInitializer _adsInitializer;
@@ -47,17 +48,18 @@ public class SelectCharacterButton : ButtonInteractionHandler
 
     #region Zenject
     [Inject]
-    private void Construct(CurrentGameManager currentGameManager, MainUI mainUI, AdsInitializer adsInitializer)
+    private void Construct(CurrentGameManager currentGameManager, MainUI mainUI, AdsInitializer adsInitializer, AdsManager adsManager)
     {
         _currentGameManager = currentGameManager;
         _mainUI = mainUI;
         _adsInitializer = adsInitializer;
+        _adsManager = adsManager;
     }
     #endregion Zenject
 
     public override void ButtonActivated()
     {
-        if (rewardedAdsButton && _adsInitializer.AdsCanBeLoaded)
+        if (rewardedAdsButton && _adsInitializer.AdsCanBeLoaded && _adsManager.NeedToShowAdBeforeLevelStart())
         {
             adActivated = true;
             rewardedAdsButton.ShowAd();

@@ -9,6 +9,7 @@ public class GameData
     public int languageIndex;
     public int currentCoinsAmount;
     public bool soundMuted;
+    public bool adCanBeShown;
 
     public List<MiniGameLevelData> miniGameLevelsDataList;
     public List<PuzzleGameLevelData> puzzleGameLevelsDataList;
@@ -18,6 +19,7 @@ public class GameData
         languageIndex = 0;
         currentCoinsAmount = 0;
         soundMuted = false;
+        adCanBeShown = false;
         miniGameLevelsDataList = new List<MiniGameLevelData>();
         puzzleGameLevelsDataList = new List<PuzzleGameLevelData>();
 }
