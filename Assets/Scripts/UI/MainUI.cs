@@ -18,15 +18,19 @@ public class MainUI : MonoBehaviour
     [SerializeField] private PuzzleGameUI puzzleGameUI;
     [SerializeField] private MiniGameUI miniGameUI;
     [SerializeField] private PauseUI pauseUI;
+    [SerializeField] private PanelActivationManager transitionPanel;
     [Header("Transitions References")]
     [Space]
     [SerializeField] private Transform leftBottomTransitionPanel;
     [SerializeField] private Transform rightTopTransitionPanel;
     [SerializeField] private Transform centerTransitionPanel;
+    [SerializeField] private Transform rightTransitionPanelStartPivot;
     [Header("Transitions Data")]
     [Space]
     [SerializeField] private float transitionDuration = 1f;
     [SerializeField] private float transitionDelay = 0.1f;
+    [SerializeField] private Vector3 leftBottomTransitionPanelStartPosition;
+    [SerializeField] private Vector3 rightTopTransitionPanelStartPosition;
 
     private List<MainCanvasPanel> panelsList = new List<MainCanvasPanel>();
 
@@ -34,15 +38,9 @@ public class MainUI : MonoBehaviour
     private SystemTimeManager _systemTimeManager;
     private AudioManager _audioManager;
 
-    private Vector3 leftBottomTransitionPanelStartPosition = new Vector3(0f, 0f, 0f);
-    private Vector3 rightTopTransitionPanelStartPosition = new Vector3(0f, 0f, 0f);
-
     private void Awake()
     {
         FillPanelsList();
-
-        leftBottomTransitionPanelStartPosition = leftBottomTransitionPanel.transform.position;
-        rightTopTransitionPanelStartPosition = rightTopTransitionPanel.transform.position;
     }
 
     private void Start()
@@ -163,9 +161,10 @@ public class MainUI : MonoBehaviour
     #endregion Buttons Methods
 
     [ContextMenu("Show Transition")]
-    public void StartTransitionAnimation()
+    public void StartTransitionAnimation(UIPanels panel)
     {
-        StartCoroutine(MakeScreenTransitionCoroutine());
+        transitionPanel.ShowPanel();
+        StartCoroutine(MakeScreenTransitionCoroutine(panel));
     }
 
     private void FillPanelsList()
@@ -190,24 +189,35 @@ public class MainUI : MonoBehaviour
 
     private void ActivateMainCanvasPanel(UIPanels panel)
     {
-        if(panel == UIPanels.SelectModePanel)
+        if(panel != UIPanels.MainLoaderPanel && panel != UIPanels.MainScreenPanel && panel != UIPanels.MiniGamePanel && panel != UIPanels.PuzzleGamePanel)
         {
-            selectModeUI.StartPanelsAnimations();
+            StartTransitionAnimation(panel);
         }
         else
         {
-            selectModeUI.StopPanelsAnimations();
-        }
-        //StartCoroutine(MakeScreenTransitionCoroutine(panel));
-        for (int i = 0; i < panelsList.Count; i++)
-        {
-            if (panelsList[i].PanelType == panel)
+            if(panel == UIPanels.MainLoaderPanel || panel == UIPanels.MainScreenPanel || panel == UIPanels.MiniGamePanel || panel == UIPanels.PuzzleGamePanel)
             {
-                panelsList[i].ShowPanel();
+                transitionPanel.HidePanel();
+            }
+
+            if (panel == UIPanels.SelectModePanel)
+            {
+                selectModeUI.StartPanelsAnimations();
             }
             else
             {
-                panelsList[i].HidePanel();
+                selectModeUI.StopPanelsAnimations();
+            }
+            for (int i = 0; i < panelsList.Count; i++)
+            {
+                if (panelsList[i].PanelType == panel)
+                {
+                    panelsList[i].ShowPanel();
+                }
+                else
+                {
+                    panelsList[i].HidePanel();
+                }
             }
         }
     }
@@ -254,29 +264,39 @@ public class MainUI : MonoBehaviour
         }
     }
 
-    private IEnumerator MakeScreenTransitionCoroutine(/*UIPanels panel*/)
+    private IEnumerator MakeScreenTransitionCoroutine(UIPanels panel)
     {
         yield return null;
         leftBottomTransitionPanel.DOMove(centerTransitionPanel.position, transitionDuration);
         rightTopTransitionPanel.DOMove(centerTransitionPanel.position, transitionDuration).OnComplete(() =>
         {
-            //ChangeCanvasPanel(panel);
+            if (panel == UIPanels.SelectModePanel)
+            {
+                selectModeUI.StartPanelsAnimations();
+            }
+            else
+            {
+                selectModeUI.StopPanelsAnimations();
+            }
+            for (int i = 0; i < panelsList.Count; i++)
+            {
+                if (panelsList[i].PanelType == panel)
+                {
+                    panelsList[i].ShowPanel();
+                }
+                else
+                {
+                    panelsList[i].HidePanel();
+                }
+            }
             StartCoroutine(FinisheTransitionCoroutine());
         });
-        //yield return new WaitForSeconds(transitionDelay);
-        //leftBottomTransitionPanel.DOMove(Vector3.zero, transitionDuration);
-        //rightTopTransitionPanel.DOMove(Vector3.zero, transitionDuration).OnComplete(() =>
-        //{
-
-        //});
-
-
     }
 
     private IEnumerator FinisheTransitionCoroutine()
     {
         yield return new WaitForSeconds(transitionDelay);
-        leftBottomTransitionPanel.DOMove(leftBottomTransitionPanelStartPosition, transitionDuration);
-        rightTopTransitionPanel.DOMove(rightTopTransitionPanelStartPosition, transitionDuration);
+        leftBottomTransitionPanel.DOMove(Vector3.zero, transitionDuration);
+        rightTopTransitionPanel.DOMove(rightTransitionPanelStartPivot.position, transitionDuration);
     }
 }
