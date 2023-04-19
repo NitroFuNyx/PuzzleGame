@@ -42,7 +42,7 @@ public class MainUI : MonoBehaviour
     private void Awake()
     {
         FillPanelsList();
-        transitionPanel.HidePanel();
+        //transitionPanel.HidePanel();
     }
 
     private void Start()
