@@ -6,6 +6,10 @@ using Zenject;
 
 public class Puzzle_PlayAgainButton : ButtonInteractionHandler
 {
+    [Header("Loader")]
+    [Space]
+    [SerializeField] private PanelActivationManager loader;
+
     private PuzzleGameUI _puzzleGameUI;
     private CurrentGameManager _currentGameManager;
     private AudioManager _audioManager;
@@ -37,6 +41,7 @@ public class Puzzle_PlayAgainButton : ButtonInteractionHandler
         {
             ButtonComponent.interactable = false;
         }
+        loader.HidePanel();
     }
 
     private void OnDestroy()
@@ -67,6 +72,7 @@ public class Puzzle_PlayAgainButton : ButtonInteractionHandler
 
     private void GrandReward()
     {
+        loader.ShowPanel();
         StartCoroutine(RestartPuzzleCoroutine());
         //_currentGameManager.ActivateGameLevelEnvironment(0, GameLevelTypes.Puzzle);
         //_puzzleGameUI.ShowMainModePanel();
@@ -75,6 +81,7 @@ public class Puzzle_PlayAgainButton : ButtonInteractionHandler
     private IEnumerator RestartPuzzleCoroutine()
     {
         yield return new WaitForSeconds(4f);
+        loader.HidePanel();
         _currentGameManager.ActivateGameLevelEnvironment(0, GameLevelTypes.Puzzle);
         _puzzleGameUI.ShowMainModePanel();
     }
