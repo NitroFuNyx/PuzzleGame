@@ -6595,7 +6595,6 @@ MonoBehaviour:
   puzzleGameUI: {fileID: 875228252}
   miniGameUI: {fileID: 1653141450}
   pauseUI: {fileID: 1285436082}
-  transitionPanel: {fileID: 2031030752}
   leftBottomTransitionPanel: {fileID: 1435555785}
   rightTopTransitionPanel: {fileID: 3039050751114084182}
   centerTransitionPanel: {fileID: 1523613548}
@@ -23030,6 +23029,7 @@ MonoBehaviour:
   clampXUnitMin: -2.75
   clampXUnitMax: 43
   joystick: {fileID: 8135886326369244972}
+  canCheckInput: 0
 --- !u!1 &1109055137
 GameObject:
   m_ObjectHideFlags: 0
@@ -24757,7 +24757,7 @@ MonoBehaviour:
   environmentIndex: 0
   startGameDelay: 3
   startGameCoroutineDelay: 0.5
-  timeForLevel: 60
+  timeForLevel: 10
   playerMoveManager: {fileID: 1796588109}
   kitchenMiniGameSpawnManager: {fileID: 899594257}
 --- !u!114 &1201697839 stripped
@@ -31779,7 +31779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d0081e75a804d4d866e03aacf3264b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelState: 3
+  levelState: 0
   gameType: 0
   gameLevelIndex: 0
   highestScore: 0
@@ -41931,7 +41931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031030751
 RectTransform:
   m_ObjectHideFlags: 0

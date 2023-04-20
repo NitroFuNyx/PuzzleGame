@@ -21,7 +21,7 @@ public class PuzzleInputManager : MonoBehaviour
     private float horizontalMove = 0f;
     private float checkInteractDelay = 0.1f;
 
-    private bool canCheckInput = false;
+    [SerializeField] private bool canCheckInput = false;
     private bool canMoveCamera = true;
 
     public bool CanMoveCamera { get => canMoveCamera; set => canMoveCamera = value; }

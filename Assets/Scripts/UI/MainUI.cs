@@ -18,7 +18,7 @@ public class MainUI : MonoBehaviour
     [SerializeField] private PuzzleGameUI puzzleGameUI;
     [SerializeField] private MiniGameUI miniGameUI;
     [SerializeField] private PauseUI pauseUI;
-    [SerializeField] private PanelActivationManager transitionPanel;
+    //[SerializeField] private PanelActivationManager transitionPanel;
     [Header("Transitions References")]
     [Space]
     [SerializeField] private Transform leftBottomTransitionPanel;
@@ -100,6 +100,7 @@ public class MainUI : MonoBehaviour
 
     public void ShowSelectGameLevel()
     {
+        _audioManager.PlayMusic_MainUI();
         if(_currentGameManager.CurrentGameType == GameLevelTypes.Puzzle)
         {
             ActivateMainCanvasPanel(UIPanels.SelectModePanel);
@@ -165,7 +166,7 @@ public class MainUI : MonoBehaviour
     [ContextMenu("Show Transition")]
     public void StartTransitionAnimation(UIPanels panel)
     {
-        transitionPanel.ShowPanel();
+        //transitionPanel.ShowPanel();
         StartCoroutine(MakeScreenTransitionCoroutine(panel));
     }
 
@@ -296,7 +297,7 @@ public class MainUI : MonoBehaviour
         leftBottomTransitionPanel.DOMove(leftTransitionPanelStartPivot.position, transitionDuration);
         rightTopTransitionPanel.DOMove(rightTransitionPanelStartPivot.position, transitionDuration).OnComplete(() =>
         {
-            transitionPanel.HidePanel();
+            //transitionPanel.HidePanel();
         });
     }
 }

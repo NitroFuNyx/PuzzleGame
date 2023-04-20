@@ -121,13 +121,17 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     #region Music Methods
     public void PlayMusic_MainUI()
     {
+        Debug.Log($"Main {musicAudioSource.clip}");
         if(musicAudioSource.clip != mainUIMusicClip)
         {
+            Debug.Log($"Music clip {musicAudioSource.clip}");
+            musicAudioSource.Stop();
             musicAudioSource.clip = mainUIMusicClip;
             musicAudioSource.Play();
         }
         else if(musicAudioSource.clip == mainUIMusicClip && !musicAudioSource.isPlaying)
         {
+            musicAudioSource.Stop();
             musicAudioSource.clip = mainUIMusicClip;
             musicAudioSource.Play();
         }
@@ -137,11 +141,13 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     {
         if (musicAudioSource.clip != miniGameMusicClip)
         {
+            musicAudioSource.Stop();
             musicAudioSource.clip = miniGameMusicClip;
             musicAudioSource.Play();
         }
         else if (musicAudioSource.clip == miniGameMusicClip && !musicAudioSource.isPlaying)
         {
+            musicAudioSource.Stop();
             musicAudioSource.clip = miniGameMusicClip;
             musicAudioSource.Play();
         }
@@ -151,11 +157,13 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     {
         if (musicAudioSource.clip != puzzleMusicClip)
         {
+            musicAudioSource.Stop();
             musicAudioSource.clip = puzzleMusicClip;
             musicAudioSource.Play();
         }
         else if (musicAudioSource.clip == puzzleMusicClip && !musicAudioSource.isPlaying)
         {
+            musicAudioSource.Stop();
             musicAudioSource.clip = puzzleMusicClip;
             musicAudioSource.Play();
         }
