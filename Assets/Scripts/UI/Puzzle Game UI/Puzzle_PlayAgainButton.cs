@@ -63,11 +63,11 @@ public class Puzzle_PlayAgainButton : ButtonInteractionHandler
 
     public override void ButtonActivated()
     {
-        if (rewardedAdsButton && _adsInitializer.AdsCanBeLoaded)
-        {
+        //if (rewardedAdsButton && _adsInitializer.AdsCanBeLoaded)
+        //{
             ShowAnimation_ButtonPressed();
-            StartCoroutine(ActivateDelayedButtonMethodCoroutine(rewardedAdsButton.ShowAd));
-        }
+            StartCoroutine(ActivateDelayedButtonMethodCoroutine(GrandReward));
+        //}
     }
 
     private void GrandReward()
