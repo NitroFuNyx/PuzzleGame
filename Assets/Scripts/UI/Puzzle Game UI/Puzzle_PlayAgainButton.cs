@@ -67,6 +67,14 @@ public class Puzzle_PlayAgainButton : ButtonInteractionHandler
 
     private void GrandReward()
     {
+        StartCoroutine(RestartPuzzleCoroutine());
+        //_currentGameManager.ActivateGameLevelEnvironment(0, GameLevelTypes.Puzzle);
+        //_puzzleGameUI.ShowMainModePanel();
+    }
+
+    private IEnumerator RestartPuzzleCoroutine()
+    {
+        yield return new WaitForSeconds(4f);
         _currentGameManager.ActivateGameLevelEnvironment(0, GameLevelTypes.Puzzle);
         _puzzleGameUI.ShowMainModePanel();
     }
