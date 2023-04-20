@@ -325,6 +325,12 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         source.clip = clip;
         source.Play();
     }
+
+    public void StopVoicesAudio()
+    {
+        femaleVoiceAudioSource.Stop();
+        maleVoiceAudioSource.Stop();
+    }
     #endregion Voices Methods
 
     private AudioSource GetSFXAudioSource()
