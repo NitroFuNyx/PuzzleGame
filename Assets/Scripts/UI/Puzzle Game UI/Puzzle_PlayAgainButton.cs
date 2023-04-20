@@ -32,6 +32,11 @@ public class Puzzle_PlayAgainButton : ButtonInteractionHandler
             ButtonComponent = GetComponent<Button>();
             ButtonComponent.onClick.AddListener(ButtonActivated);
         }
+
+        if(!_adsInitializer.AdsCanBeLoaded)
+        {
+            ButtonComponent.interactable = false;
+        }
     }
 
     private void OnDestroy()
