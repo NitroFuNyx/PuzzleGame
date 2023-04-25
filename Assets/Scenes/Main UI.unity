@@ -649,6 +649,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23555117}
   m_CullTransparentMesh: 1
+--- !u!1 &24785201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24785203}
+  - component: {fileID: 24785202}
+  m_Layer: 0
+  m_Name: Puzzle Game Environment
+  m_TagString: EditorOnly
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &24785202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24785201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc2f70abc90a4841bc5e9b83ff56e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  backgroundColor: {r: 0.46308404, g: 0.054901946, b: 0.6039216, a: 1}
+  textAlignment: 4
+--- !u!4 &24785203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24785201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &30265765 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1102118085, guid: 39aa5b3b98bdec54ab5d5a0165e01370, type: 3}
@@ -812,6 +859,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 1444669455}
+--- !u!114 &31383978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8348906411070923501, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+  m_PrefabInstance: {fileID: 8348906411073454919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acf54678b4d2044fafbb8d51344f83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &34455773 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3008409518452984392, guid: 5e0e080b950710a4f86e995e20a9a827, type: 3}
@@ -3526,7 +3584,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180787121
 GameObject:
@@ -10631,7 +10689,7 @@ Transform:
   m_Children:
   - {fileID: 1197905648}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &523497010
 GameObject:
@@ -13605,7 +13663,7 @@ Transform:
   - {fileID: 1513610558}
   - {fileID: 1262331477}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &622271775
 MonoBehaviour:
@@ -32722,6 +32780,7 @@ MonoBehaviour:
   adsManager: {fileID: 603814695709174855}
   cameraManager: {fileID: 413128834}
   adsInitializer: {fileID: 603814695709174856}
+  dailyRewardsManager: {fileID: 31383978}
 --- !u!4 &1550159806
 Transform:
   m_ObjectHideFlags: 0
@@ -47548,7 +47607,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8069017711027801632, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8069017711027801632, guid: 2c78bcbf445bf5149b4e4e2b7a0c4330, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48314,6 +48373,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.246918, y: 10.918753}
   m_EdgeRadius: 0
+--- !u!1001 &8348906411073454919
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923502, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348906411070923503, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
+      propertyPath: m_Name
+      value: Daily Rewards Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9edd6589328b1b342886fab8063f5566, type: 3}
 --- !u!1001 &8719485710406195918
 PrefabInstance:
   m_ObjectHideFlags: 0

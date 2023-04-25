@@ -18,6 +18,7 @@ public class ControllersInstaller : MonoInstaller
     [SerializeField] private AdsManager adsManager;
     [SerializeField] private CameraManager cameraManager;
     [SerializeField] private AdsInitializer adsInitializer;
+    [SerializeField] private DailyRewardsManager dailyRewardsManager;
 
     public override void InstallBindings()
     {
@@ -34,5 +35,6 @@ public class ControllersInstaller : MonoInstaller
         Container.Bind<AdsManager>().FromInstance(adsManager).AsSingle().NonLazy();
         Container.Bind<CameraManager>().FromInstance(cameraManager).AsSingle().NonLazy();
         Container.Bind<AdsInitializer>().FromInstance(adsInitializer).AsSingle().NonLazy();
+        Container.Bind<DailyRewardsManager>().FromInstance(dailyRewardsManager).AsSingle().NonLazy();
     }
 }
