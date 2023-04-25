@@ -38,6 +38,7 @@ public class MainUI : MonoBehaviour
     private CurrentGameManager _currentGameManager;
     private SystemTimeManager _systemTimeManager;
     private AudioManager _audioManager;
+    private DailyRewardsManager _dailyRewardsManager;
 
     private void Awake()
     {
@@ -52,11 +53,13 @@ public class MainUI : MonoBehaviour
 
     #region Zenject
     [Inject]
-    private void Construct(CurrentGameManager currentGameManager, SystemTimeManager systemTimeManager, AudioManager audioManager)
+    private void Construct(CurrentGameManager currentGameManager, SystemTimeManager systemTimeManager, AudioManager audioManager, 
+                           DailyRewardsManager dailyRewardsManager)
     {
         _currentGameManager = currentGameManager;
         _systemTimeManager = systemTimeManager;
         _audioManager = audioManager;
+        _dailyRewardsManager = dailyRewardsManager;
     }
     #endregion Zenject
 
@@ -249,7 +252,15 @@ public class MainUI : MonoBehaviour
 
     private void OnLoadingAnimationFinishedCallback()
     {
-        ShowMainScreenUI();
+        if(_dailyRewardsManager.ShouldGrandDailyReward)
+        {
+            // show reward
+        }
+        else
+        {
+            ShowMainScreenUI();
+        }
+        
         mainLoaderUI.ResetUIData();
     }
 

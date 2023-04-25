@@ -6,8 +6,11 @@ public class DailyRewardsManager : MonoBehaviour, IDataPersistance
     private int newDayPlaying;
 
     private bool newGameReward = false;
+    private bool shouldGrandDailyReward = false;
 
     private DataPersistanceManager _dataPersistanceManager;
+
+    public bool ShouldGrandDailyReward { get => shouldGrandDailyReward; private set => shouldGrandDailyReward = value; }
 
     private void Awake()
     {
@@ -27,6 +30,7 @@ public class DailyRewardsManager : MonoBehaviour, IDataPersistance
         if(newGameReward)
         {
             Debug.Log($"Get Reward New Game");
+            shouldGrandDailyReward = true;
         }
         else
         {
@@ -49,10 +53,12 @@ public class DailyRewardsManager : MonoBehaviour, IDataPersistance
         if (lastDay != System.DateTime.Now.DayOfYear)
         {
             Debug.Log($"Reward");
+            shouldGrandDailyReward = true;
         }
         else
         {
             Debug.Log($"Same Day");
+            shouldGrandDailyReward = false;
         }
     }
 }
