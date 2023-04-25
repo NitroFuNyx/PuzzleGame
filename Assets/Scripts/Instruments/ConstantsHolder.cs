@@ -45,3 +45,8 @@ public class SkinAnimations
 {
     public const string MiniGameCharacterIndex = "Mini Game Character Index";
 }
+
+public class DateConstants
+{
+    public const int newGameIndexForData = -1;
+}

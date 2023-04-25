@@ -34,6 +34,7 @@ public class DataPersistanceManager : MonoBehaviour
 
         InitializeMiniGameLevelsData(gameData);
         InitializePuzzleGameLevelsData(gameData);
+        InitializeDailyRewardsData(gameData);
 
         SaveGame(); // save actual Unity data set in json file
     }
@@ -90,6 +91,11 @@ public class DataPersistanceManager : MonoBehaviour
             gameData.puzzleGameLevelsDataList[i].levelIndex = i;
             gameData.puzzleGameLevelsDataList[i].levelPrice = _gameDataHolder.PuzzleGameLevelsPanelsList[i].LevelPrice;
         }
+    }
+
+    private void InitializeDailyRewardsData(GameData gameData)
+    {
+        gameData.lastDayPlaying = DateConstants.newGameIndexForData;
     }
 
     private IEnumerator LoadStartDataCoroutine()

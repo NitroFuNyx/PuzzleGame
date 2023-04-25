@@ -8,6 +8,7 @@ public class GameData
 {
     public int languageIndex;
     public int currentCoinsAmount;
+    public int lastDayPlaying;
     public bool soundMuted;
     public bool adCanBeShown;
 
@@ -18,6 +19,7 @@ public class GameData
     {
         languageIndex = 0;
         currentCoinsAmount = 0;
+        lastDayPlaying = 0;
         soundMuted = false;
         adCanBeShown = false;
         miniGameLevelsDataList = new List<MiniGameLevelData>();
