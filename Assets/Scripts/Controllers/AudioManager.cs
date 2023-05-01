@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using System;
 using Zenject;
@@ -36,6 +37,8 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [Header("Common Voices Clips")]
     [Space]
     [SerializeField] private AudioClip levelFinishedVoicesClip;
+    [SerializeField] private AudioClip kidGreetingsClip;
+    [SerializeField] private AudioClip kidGivesKeyClip;
     [Header("Female Voice Clips")]
     [Space]
     [SerializeField] private List<AudioClip> touchAudioClipsList_Female = new List<AudioClip>();
@@ -54,6 +57,8 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     private DataPersistanceManager _dataPersistanceManager;
 
     private bool audioMuted = false;
+
+    private float kidGivesKeyDelay = 0.5f;
 
     #region Events Declaration
     public event Action<bool> OnAudioMuteStateChanged;
@@ -276,6 +281,13 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         voicesAudioSource.Play();
     }
 
+    public void PlayVoicesAudio_KidGivesKey()
+    {
+        voicesAudioSource.clip = kidGreetingsClip;
+        voicesAudioSource.Play();
+        StartCoroutine(FinishKidGivesKeyClipCoroutine());
+    }
+
     public void PlayVoicesAudio_MagicPhrase()
     {
         AudioSource source = GetSpeakerSource();
@@ -357,5 +369,12 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         }
 
         return source;
+    }
+
+    private IEnumerator FinishKidGivesKeyClipCoroutine()
+    {
+        yield return new WaitForSeconds(kidGivesKeyDelay);
+        voicesAudioSource.clip = kidGivesKeyClip;
+        voicesAudioSource.Play();
     }
 }

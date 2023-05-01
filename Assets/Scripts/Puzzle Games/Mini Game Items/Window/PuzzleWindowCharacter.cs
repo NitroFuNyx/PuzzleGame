@@ -1,11 +1,14 @@
 using UnityEngine;
 using System;
+using Zenject;
 
 public class PuzzleWindowCharacter : MonoBehaviour, Iinteractable
 {
     [Header("Internal References")]
     [Space]
     [SerializeField] private WindowCharacterVFXManager characterVFXManager;
+
+    private AudioManager _audioManager;
 
     private Collider2D _collider;
 
@@ -18,6 +21,14 @@ public class PuzzleWindowCharacter : MonoBehaviour, Iinteractable
         _collider = GetComponent<Collider2D>();
     }
 
+    #region Zenject
+    [Inject]
+    private void Construct(AudioManager audioManager)
+    {
+        _audioManager = audioManager;
+    }
+    #endregion Zenject
+
     public void ChangeColliderState(bool isActive)
     {
         _collider.enabled = isActive;
@@ -26,6 +37,7 @@ public class PuzzleWindowCharacter : MonoBehaviour, Iinteractable
     public void Interact()
     {
         characterVFXManager.SetAnimationState_GetKey();
+        _audioManager.PlayVoicesAudio_KidGivesKey();
         OnCharacterActivated?.Invoke();
     }
 }

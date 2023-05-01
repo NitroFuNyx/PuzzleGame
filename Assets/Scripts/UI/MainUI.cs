@@ -255,6 +255,7 @@ public class MainUI : MonoBehaviour
         if(_dailyRewardsManager.ShouldGrandDailyReward)
         {
             // show reward
+            ShowMainScreenUI();
         }
         else
         {
