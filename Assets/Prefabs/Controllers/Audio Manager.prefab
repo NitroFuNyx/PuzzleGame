@@ -446,7 +446,7 @@ MonoBehaviour:
   appearedKeyClip: {fileID: 8300000, guid: 34c1a30de3a3a9f42bca495f983acd5b, type: 3}
   puzzleItemInteractionClip: {fileID: 8300000, guid: 058cab7aaf0084545a80f623851b27d2, type: 3}
   pressSafeButtonClip: {fileID: 8300000, guid: fdc01a4ff433d02469a1e4daf865bf4d, type: 3}
-  pressMixerButtonClip: {fileID: 8300000, guid: f26c614a009b14d43bb2ef803c0ffad7, type: 3}
+  pressMixerButtonClip: {fileID: 8300000, guid: e96a413faff669e44bbbb03a9c862fad, type: 3}
   lampInteractionClip: {fileID: 8300000, guid: 8fc19234a41269b469cf727c79cf7ade, type: 3}
   appearedOldManClip: {fileID: 8300000, guid: 2b8825d4ab135d549b294f2e31d2a75d, type: 3}
   miniGameDebuffInteractionClip: {fileID: 8300000, guid: 575e396d5fd6ab44fb4553e78bd5cc7c, type: 3}
@@ -454,6 +454,12 @@ MonoBehaviour:
   miniGameBonusInteractionClip: {fileID: 8300000, guid: 1aa2224948c3d8a4c9c6727d20ff1098, type: 3}
   miniGamePlayerStunClip: {fileID: 8300000, guid: 993b7f88efffb2a42bafef74620a3d91, type: 3}
   levelFinishedVoicesClip: {fileID: 8300000, guid: 8ccc0e86a5482144e9dafb59a0977340, type: 3}
+  kidGreetingsClip: {fileID: 8300000, guid: eb88f26b3322de34cacd388102009d0c, type: 3}
+  kidGivesKeyClip: {fileID: 8300000, guid: 26549a51bcbe0d74e9883ea52568a28a, type: 3}
+  oldManGivesKeyClipsList:
+  - {fileID: 8300000, guid: 73ea977e86e34b9498ab1b1afd2c0cf6, type: 3}
+  - {fileID: 8300000, guid: a480b32e1a9845c408aac9952d9f98c0, type: 3}
+  - {fileID: 8300000, guid: 64dd9f8671b73f843a7e94b622a810cb, type: 3}
   touchAudioClipsList_Female:
   - {fileID: 8300000, guid: 2bb8154fe87c74841bcfb1d616acf599, type: 3}
   - {fileID: 8300000, guid: c211308abcb1e214aa5a95b803eb50ac, type: 3}
@@ -468,7 +474,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 768e4d7c6baf4ee488412e738bbdeb6a, type: 3}
   - {fileID: 8300000, guid: d723a588f64e3f347ba9e8a556c47a28, type: 3}
   - {fileID: 8300000, guid: 2610cfbb3d508fe4f8ee3cf0fe8cd1e4, type: 3}
-  magicAudioClip_Male: {fileID: 8300000, guid: 70a325782286dce419a41a243750291c, type: 3}
+  - {fileID: 8300000, guid: cc7fbcb87520f5046a8304ef232373cb, type: 3}
+  - {fileID: 8300000, guid: 72e79e0ec24797f4bb5fa7e9909a9726, type: 3}
+  - {fileID: 8300000, guid: 507fb703f22cdf14482aaa3ab84a9435, type: 3}
+  openLockClipsList_Male:
+  - {fileID: 8300000, guid: 57a9409ee88322b489841c66e87f4a1b, type: 3}
+  - {fileID: 8300000, guid: f24d1f350817d484da27deb7b51cb861, type: 3}
+  - {fileID: 8300000, guid: ee426d175fe2f9949afe3a353cb72011, type: 3}
+  - {fileID: 8300000, guid: 70a325782286dce419a41a243750291c, type: 3}
   cakeAudioClip_Male: {fileID: 8300000, guid: ebfaac53bc390a1468a466fa3e98c317, type: 3}
   uiButtonClip: {fileID: 8300000, guid: f1baf374c4736b74294897ff61c7e989, type: 3}
 --- !u!1 &6311008080173665943
@@ -515,7 +528,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8ccc0e86a5482144e9dafb59a0977340, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

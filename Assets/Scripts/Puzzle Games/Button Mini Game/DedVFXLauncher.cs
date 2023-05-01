@@ -24,6 +24,7 @@ public class DedVFXLauncher : MonoBehaviour
     }
     public void EmitKeyAppearVFX()
     {
+        _audioManager.PlayVoicesAudio_OldManGivesKey();
         KeyAppearVFX.Stop();
         KeyAppearVFX.Play();
     }

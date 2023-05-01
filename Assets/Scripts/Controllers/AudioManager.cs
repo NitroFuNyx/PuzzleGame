@@ -39,6 +39,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioClip levelFinishedVoicesClip;
     [SerializeField] private AudioClip kidGreetingsClip;
     [SerializeField] private AudioClip kidGivesKeyClip;
+    [SerializeField] private List<AudioClip> oldManGivesKeyClipsList = new List<AudioClip>();
     [Header("Female Voice Clips")]
     [Space]
     [SerializeField] private List<AudioClip> touchAudioClipsList_Female = new List<AudioClip>();
@@ -47,7 +48,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [Header("Male Voice Clips")]
     [Space]
     [SerializeField] private List<AudioClip> touchAudioClipsList_Male = new List<AudioClip>();
-    [SerializeField] private AudioClip magicAudioClip_Male;
+    [SerializeField] private List<AudioClip> openLockClipsList_Male = new List<AudioClip>();
     [SerializeField] private AudioClip cakeAudioClip_Male;
     [Space]
     [SerializeField] private AudioClip uiButtonClip;
@@ -288,13 +289,21 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         StartCoroutine(FinishKidGivesKeyClipCoroutine());
     }
 
+    public void PlayVoicesAudio_OldManGivesKey()
+    {
+        int index = UnityEngine.Random.Range(0, oldManGivesKeyClipsList.Count);
+        voicesAudioSource.clip = oldManGivesKeyClipsList[index];
+        voicesAudioSource.Play();
+    }
+
     public void PlayVoicesAudio_MagicPhrase()
     {
         AudioSource source = GetSpeakerSource();
         AudioClip clip = magicAudioClip_Female;
         if(source == maleVoiceAudioSource)
         {
-            clip = magicAudioClip_Male;
+            int index = UnityEngine.Random.Range(0, openLockClipsList_Male.Count);
+            clip = openLockClipsList_Male[index];
         }
 
         source.clip = clip;

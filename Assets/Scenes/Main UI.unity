@@ -47092,21 +47092,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
-      propertyPath: kidGivesKeyClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 26549a51bcbe0d74e9883ea52568a28a, type: 3}
-    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
-      propertyPath: kidGreetingsClip
-      value: 
-      objectReference: {fileID: 8300000, guid: eb88f26b3322de34cacd388102009d0c, type: 3}
-    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: maleVoiceAudioSource
       value: 
       objectReference: {fileID: 860522254}
-    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
-      propertyPath: pressMixerButtonClip
-      value: 
-      objectReference: {fileID: 8300000, guid: e96a413faff669e44bbbb03a9c862fad, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: femaleVoiceAudioSource
       value: 
