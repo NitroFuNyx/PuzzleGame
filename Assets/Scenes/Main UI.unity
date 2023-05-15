@@ -44727,6 +44727,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: _testMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: _iOSGameId
+      value: 5279360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
+      propertyPath: _androidGameId
+      value: 5279361
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908285027547039286, guid: 72176ef359879834c98bf118cb6cfb6b, type: 3}
       propertyPath: rewardedAdsButtonsList.Array.size
       value: 7
       objectReference: {fileID: 0}
