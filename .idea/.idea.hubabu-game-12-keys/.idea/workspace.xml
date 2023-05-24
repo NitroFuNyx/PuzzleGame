@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef4579b4-aa92-4212-afc7-f3d54af79f6c" name="Changes" comment="New organization added">
+    <list default="true" id="ef4579b4-aa92-4212-afc7-f3d54af79f6c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.hubabu-game-12-keys/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hubabu-game-12-keys/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/SpineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/SpineSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle Games/Furniture/Safe/SafeOpener.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/Unity/hubabu-game-12-keys/ProjectSettings/ProjectSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@4.4.2/Editor/PostProcessBuildPlist.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/ae/e9503650/Action.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2DBlendStyle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/Scenes/Main UI.unity" root0="SKIP_HIGHLIGHTING" />
@@ -99,7 +94,7 @@
       <workItem from="1682340555097" duration="1000" />
       <workItem from="1682340619869" duration="25000" />
       <workItem from="1682340674211" duration="684000" />
-      <workItem from="1684145071746" duration="2124000" />
+      <workItem from="1684145071746" duration="3343000" />
     </task>
     <task id="LOCAL-00001" summary=" Added Unity Ads&#10; Made Rewarded ads&#10; New prefabs: Prefabs/Controllers/AdsManager&#10; Prefabs/UI/Button">
       <created>1679928388249</created>
@@ -157,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684146318019</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed player &amp; project settings">
+      <created>1684158749481</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684158749481</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +210,7 @@
     <MESSAGE value="Made UI for restart" />
     <MESSAGE value="Merge remote-tracking branch 'origin/dev' into dev" />
     <MESSAGE value="New organization added" />
-    <option name="LAST_COMMIT_MESSAGE" value="New organization added" />
+    <MESSAGE value="Changed player &amp; project settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed player &amp; project settings" />
   </component>
 </project>
