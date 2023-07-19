@@ -47115,6 +47115,22 @@ PrefabInstance:
       propertyPath: touchAudioClipsList_Male.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: touchAudioClipsList_OldMan.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: touchAudioClipsList_OldMan.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc7fbcb87520f5046a8304ef232373cb, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: touchAudioClipsList_OldMan.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 72e79e0ec24797f4bb5fa7e9909a9726, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: touchAudioClipsList_OldMan.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 507fb703f22cdf14482aaa3ab84a9435, type: 3}
     - target: {fileID: 6311008079728666158, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_RootOrder
       value: 11

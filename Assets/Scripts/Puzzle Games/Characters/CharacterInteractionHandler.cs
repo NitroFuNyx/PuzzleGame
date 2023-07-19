@@ -17,6 +17,7 @@ public class CharacterInteractionHandler : MonoBehaviour, Iinteractable
 
     private void Awake()
     {
+        if(characterType != CharacterTypes.OldMan)
         animator = GetComponent<Animator>();
     }
 
@@ -42,7 +43,11 @@ public class CharacterInteractionHandler : MonoBehaviour, Iinteractable
 
     public void Interact()
     {
-        ChangeEmotion();
+        if(characterType != CharacterTypes.OldMan)
+        {
+            ChangeEmotion();
+        }
+        
         _audioManager.PlayVoicesAudio_CharacterInteraction(characterType);
     }
 

@@ -27,7 +27,7 @@ public enum GameLevelTypes
 
 public enum CharacterTypes
 {
-    Female, Male
+    Female, Male, OldMan
 }
 
 public enum KitchenMiniGameItems

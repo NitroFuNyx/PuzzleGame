@@ -50,6 +50,9 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private List<AudioClip> touchAudioClipsList_Male = new List<AudioClip>();
     [SerializeField] private List<AudioClip> openLockClipsList_Male = new List<AudioClip>();
     [SerializeField] private AudioClip cakeAudioClip_Male;
+    [Header("Old Man Voice Clips")]
+    [Space]
+    [SerializeField] private List<AudioClip> touchAudioClipsList_OldMan = new List<AudioClip>();
     [Space]
     [SerializeField] private AudioClip uiButtonClip;
 
@@ -335,12 +338,19 @@ public class AudioManager : MonoBehaviour, IDataPersistance
             int index = UnityEngine.Random.Range(0, touchAudioClipsList_Female.Count);
             clip = touchAudioClipsList_Female[index];
         }
-        else
+        else if(character == CharacterTypes.Male)
         {
             source = maleVoiceAudioSource;
 
             int index = UnityEngine.Random.Range(0, touchAudioClipsList_Male.Count);
             clip = touchAudioClipsList_Male[index];
+        }
+        else if (character == CharacterTypes.OldMan)
+        {
+            source = maleVoiceAudioSource;
+
+            int index = UnityEngine.Random.Range(0, touchAudioClipsList_OldMan.Count);
+            clip = touchAudioClipsList_OldMan[index];
         }
 
         source.clip = clip;
