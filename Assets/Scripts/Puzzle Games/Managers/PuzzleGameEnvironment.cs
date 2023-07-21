@@ -96,6 +96,13 @@ public class PuzzleGameEnvironment : MonoBehaviour, IDataPersistance
         inputManager.ChangeCheckInputState(true);
         StartCoroutine(StartGameCoroutine());
         _currentGameManager.HideMiniGameEnvironment();
+
+        DedVFXLauncher oldMan = FindObjectOfType<DedVFXLauncher>();
+
+        if(oldMan != null)
+        {
+            oldMan.TurnOffCollider();
+        }
     }
 
     public void UpdateEnvironmentSavedData()
