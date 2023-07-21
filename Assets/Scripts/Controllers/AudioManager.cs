@@ -61,6 +61,15 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     private List<AudioClip> openLockClipsList_Available = new List<AudioClip>();
     private List<AudioClip> openLockClipsList_Used = new List<AudioClip>();
 
+    private List<AudioClip> interactFemaleClipsList_Available = new List<AudioClip>();
+    private List<AudioClip> interactFemaleClipsList_Used = new List<AudioClip>();
+
+    private List<AudioClip> interactMaleClipsList_Available = new List<AudioClip>();
+    private List<AudioClip> interactMaleClipsList_Used = new List<AudioClip>();
+
+    private List<AudioClip> interactOldManClipsList_Available = new List<AudioClip>();
+    private List<AudioClip> interactOldManClipsList_Used = new List<AudioClip>();
+
     private DataPersistanceManager _dataPersistanceManager;
 
     private bool audioMuted = false;
@@ -76,8 +85,6 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         SetStartSettings();
 
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
-
-        FillOpenLockClipsList();
     }
 
     #region Zenject
@@ -99,6 +106,11 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     private void SetStartSettings()
     {
         FillAudioSourcesList();
+
+        FillOpenLockClipsList();
+        FillInteractClipsList_Female();
+        FillInteractClipsList_Male();
+        FillInteractClipsList_OldMan();
     }
 
     private void FillAudioSourcesList()
@@ -309,26 +321,19 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         AudioClip clip = openLockClipsList_Female[0];
         AudioSource source = femaleVoiceAudioSource;
 
-        if (openLockClipsList_Available.Count > 0)
-        {
-            int index = UnityEngine.Random.Range(0, openLockClipsList_Available.Count);
-            clip = openLockClipsList_Available[index];
-            openLockClipsList_Available.Remove(clip);
-            openLockClipsList_Used.Add(clip);
-        }
-        else
+        if (openLockClipsList_Available.Count == 0)
         {
             openLockClipsList_Used.Clear();
             openLockClipsList_Available.Clear();
             FillOpenLockClipsList();
-
-            int index = UnityEngine.Random.Range(0, openLockClipsList_Available.Count);
-            clip = openLockClipsList_Available[index];
-            openLockClipsList_Available.Remove(clip);
-            openLockClipsList_Used.Add(clip);
         }
 
-        if(openLockClipsList_Female.Contains(clip))
+        int index = UnityEngine.Random.Range(0, openLockClipsList_Available.Count);
+        clip = openLockClipsList_Available[index];
+        openLockClipsList_Available.Remove(clip);
+        openLockClipsList_Used.Add(clip);
+
+        if (openLockClipsList_Female.Contains(clip))
         {
             source = femaleVoiceAudioSource;
         }
@@ -363,22 +368,49 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         {
             source = femaleVoiceAudioSource;
 
-            int index = UnityEngine.Random.Range(0, touchAudioClipsList_Female.Count);
-            clip = touchAudioClipsList_Female[index];
+            if (interactFemaleClipsList_Available.Count == 0)
+            {
+                interactFemaleClipsList_Used.Clear();
+                interactFemaleClipsList_Available.Clear();
+                FillInteractClipsList_Female();                
+            }
+
+            int femaleindex = UnityEngine.Random.Range(0, interactFemaleClipsList_Available.Count);
+            clip = interactFemaleClipsList_Available[femaleindex];
+            interactFemaleClipsList_Available.Remove(clip);
+            interactFemaleClipsList_Used.Add(clip);
         }
         else if(character == CharacterTypes.Male)
         {
             source = maleVoiceAudioSource;
 
-            int index = UnityEngine.Random.Range(0, touchAudioClipsList_Male.Count);
-            clip = touchAudioClipsList_Male[index];
+            if (interactMaleClipsList_Available.Count == 0)
+            {
+                interactMaleClipsList_Used.Clear();
+                interactMaleClipsList_Available.Clear();
+                FillInteractClipsList_Male();
+            }
+
+            int maleindex = UnityEngine.Random.Range(0, interactMaleClipsList_Available.Count);
+            clip = interactMaleClipsList_Available[maleindex];
+            interactMaleClipsList_Available.Remove(clip);
+            interactMaleClipsList_Used.Add(clip);
         }
         else if (character == CharacterTypes.OldMan)
         {
             source = maleVoiceAudioSource;
 
-            int index = UnityEngine.Random.Range(0, touchAudioClipsList_OldMan.Count);
-            clip = touchAudioClipsList_OldMan[index];
+            if (interactOldManClipsList_Available.Count == 0)
+            {
+                interactOldManClipsList_Used.Clear();
+                interactOldManClipsList_Available.Clear();
+                FillInteractClipsList_OldMan();
+            }
+
+            int oldManindex = UnityEngine.Random.Range(0, interactOldManClipsList_Available.Count);
+            clip = interactOldManClipsList_Available[oldManindex];
+            interactOldManClipsList_Available.Remove(clip);
+            interactOldManClipsList_Used.Add(clip);
         }
 
         source.clip = clip;
@@ -429,6 +461,36 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         for (int i = 0; i < openLockClipsList_Male.Count; i++)
         {
             openLockClipsList_Available.Add(openLockClipsList_Male[i]);
+        }
+    }
+
+    private void FillInteractClipsList_Female()
+    {
+        interactFemaleClipsList_Available.Clear();
+
+        for (int i = 0; i < touchAudioClipsList_Female.Count; i++)
+        {
+            interactFemaleClipsList_Available.Add(touchAudioClipsList_Female[i]);
+        }
+    }
+
+    private void FillInteractClipsList_Male()
+    {
+        interactMaleClipsList_Available.Clear();
+
+        for (int i = 0; i < touchAudioClipsList_Male.Count; i++)
+        {
+            interactMaleClipsList_Available.Add(touchAudioClipsList_Male[i]);
+        }
+    }
+
+    private void FillInteractClipsList_OldMan()
+    {
+        interactOldManClipsList_Available.Clear();
+
+        for (int i = 0; i < touchAudioClipsList_OldMan.Count; i++)
+        {
+            interactOldManClipsList_Available.Add(touchAudioClipsList_OldMan[i]);
         }
     }
 
