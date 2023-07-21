@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [Header("Female Voice Clips")]
     [Space]
     [SerializeField] private List<AudioClip> touchAudioClipsList_Female = new List<AudioClip>();
-    [SerializeField] private AudioClip magicAudioClip_Female;
+    [SerializeField] private List<AudioClip> openLockClipsList_Female = new List<AudioClip>();
     [SerializeField] private AudioClip cakeAudioClip_Female;
     [Header("Male Voice Clips")]
     [Space]
@@ -57,6 +57,9 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [SerializeField] private AudioClip uiButtonClip;
 
     private List<AudioSource> audioSourcesList = new List<AudioSource>();
+
+    private List<AudioClip> openLockClipsList_Available = new List<AudioClip>();
+    private List<AudioClip> openLockClipsList_Used = new List<AudioClip>();
 
     private DataPersistanceManager _dataPersistanceManager;
 
@@ -73,6 +76,8 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         SetStartSettings();
 
         _dataPersistanceManager.AddObjectToSaveSystemObjectsList(this);
+
+        FillOpenLockClipsList();
     }
 
     #region Zenject
@@ -301,12 +306,35 @@ public class AudioManager : MonoBehaviour, IDataPersistance
 
     public void PlayVoicesAudio_OpenLock()
     {
-        AudioSource source = GetSpeakerSource();
-        AudioClip clip = magicAudioClip_Female;
-        if(source == maleVoiceAudioSource)
+        AudioClip clip = openLockClipsList_Female[0];
+        AudioSource source = femaleVoiceAudioSource;
+
+        if (openLockClipsList_Available.Count > 0)
         {
-            int index = UnityEngine.Random.Range(0, openLockClipsList_Male.Count);
-            clip = openLockClipsList_Male[index];
+            int index = UnityEngine.Random.Range(0, openLockClipsList_Available.Count);
+            clip = openLockClipsList_Available[index];
+            openLockClipsList_Available.Remove(clip);
+            openLockClipsList_Used.Add(clip);
+        }
+        else
+        {
+            openLockClipsList_Used.Clear();
+            openLockClipsList_Available.Clear();
+            FillOpenLockClipsList();
+
+            int index = UnityEngine.Random.Range(0, openLockClipsList_Available.Count);
+            clip = openLockClipsList_Available[index];
+            openLockClipsList_Available.Remove(clip);
+            openLockClipsList_Used.Add(clip);
+        }
+
+        if(openLockClipsList_Female.Contains(clip))
+        {
+            source = femaleVoiceAudioSource;
+        }
+        else if (openLockClipsList_Male.Contains(clip))
+        {
+            source = maleVoiceAudioSource;
         }
 
         source.clip = clip;
@@ -388,6 +416,20 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         }
 
         return source;
+    }
+
+    private void FillOpenLockClipsList()
+    {
+        openLockClipsList_Available.Clear();
+
+        for (int i = 0; i < openLockClipsList_Female.Count; i++)
+        {
+            openLockClipsList_Available.Add(openLockClipsList_Female[i]);
+        }
+        for (int i = 0; i < openLockClipsList_Male.Count; i++)
+        {
+            openLockClipsList_Available.Add(openLockClipsList_Male[i]);
+        }
     }
 
     private IEnumerator FinishKidGivesKeyClipCoroutine()

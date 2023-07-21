@@ -2431,7 +2431,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2131457679}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22987258
+  m_Size: 0.22987255
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4051,7 +4051,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1666752805}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2220803
+  m_Size: 0.22208026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -22693,7 +22693,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 580182689}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2220803
+  m_Size: 0.22208026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -39243,7 +39243,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1739897170}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22987258
+  m_Size: 0.22987255
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -47112,13 +47112,61 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 784075549}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Male.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Female.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: touchAudioClipsList_Male.Array.size
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Male.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ecd08a77176910f4282650e223f32147, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Male.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5dee91dfc29044080bf53904756bd2, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Male.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03c6401ef599da64888d696b6a85bd84, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Male.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 553058bcc2d958f4ca2d9cd8e5f56f26, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Male.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70a325782286dce419a41a243750291c, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: touchAudioClipsList_OldMan.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Female.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2cb780ba77bc0b34fa9710924e80b69e, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Female.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0864c9c0f0148ef49a7effbdce6331bf, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Female.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: ab89c6c5c5a78fb408939a7fd934252f, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Female.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e26fdd259fde7be46b1daee15ce8be29, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: openLockClipsList_Female.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: c518e14ea15578a42bca007a34cae018, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: touchAudioClipsList_OldMan.Array.data[0]
       value: 
