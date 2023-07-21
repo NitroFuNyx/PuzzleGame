@@ -92,7 +92,7 @@ public class PuzzleLocksHolder : MonoBehaviour, IDataPersistance
             if ((int)_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == puzzleLock.LockIndex)
             {
                 _audioManager.PlaySFXSound_OpenLock();
-                _audioManager.PlayVoicesAudio_MagicPhrase();
+                _audioManager.PlayVoicesAudio_OpenLock();
                 puzzleLock.OpenLock();
                 _puzzleGameUI.InventoryPanel.ItemUsed_ExecuteReaction();
             }

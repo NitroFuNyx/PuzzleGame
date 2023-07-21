@@ -299,7 +299,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         voicesAudioSource.Play();
     }
 
-    public void PlayVoicesAudio_MagicPhrase()
+    public void PlayVoicesAudio_OpenLock()
     {
         AudioSource source = GetSpeakerSource();
         AudioClip clip = magicAudioClip_Female;
