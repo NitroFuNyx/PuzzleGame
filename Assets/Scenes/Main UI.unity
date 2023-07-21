@@ -47116,6 +47116,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: oldManGivesKeyClipsList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: openLockClipsList_Female.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -47144,8 +47148,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 70a325782286dce419a41a243750291c, type: 3}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: oldManGivesKeyClipsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a480b32e1a9845c408aac9952d9f98c0, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: touchAudioClipsList_OldMan.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: openLockClipsList_Female.Array.data[0]
@@ -47179,6 +47187,18 @@ PrefabInstance:
       propertyPath: touchAudioClipsList_OldMan.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 507fb703f22cdf14482aaa3ab84a9435, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: touchAudioClipsList_OldMan.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 57a9409ee88322b489841c66e87f4a1b, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: touchAudioClipsList_OldMan.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: f24d1f350817d484da27deb7b51cb861, type: 3}
+    - target: {fileID: 6311008079728666157, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
+      propertyPath: touchAudioClipsList_OldMan.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: ee426d175fe2f9949afe3a353cb72011, type: 3}
     - target: {fileID: 6311008079728666158, guid: 40fdf2ef39d885f4db7db504e47c3959, type: 3}
       propertyPath: m_RootOrder
       value: 11

@@ -19,12 +19,13 @@ public class DedVFXLauncher : MonoBehaviour
     public void EmitLightning()
     {
         _audioManager.PlaySFXSound_OldManAppeared();
+        _audioManager.PlayVoicesAudio_OldManGivesKey();
         LightningVFX.Stop();
         LightningVFX.Play();
     }
     public void EmitKeyAppearVFX()
     {
-        _audioManager.PlayVoicesAudio_OldManGivesKey();
+        //_audioManager.PlayVoicesAudio_OldManGivesKey();
         KeyAppearVFX.Stop();
         KeyAppearVFX.Play();
     }
