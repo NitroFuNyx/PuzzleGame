@@ -103,6 +103,7 @@ namespace Localization
         public string uiTitleText;
         public string inJustText;
         public string finishTimeText;
+        public string playAgainButtonText;
     }
 
     [Serializable]

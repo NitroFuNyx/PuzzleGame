@@ -45,7 +45,8 @@
       "puzzleUITexts":{
          "uiTitleText":"Congratulations!",
          "inJustText":"In just:",
-         "finishTimeText":"you solved the riddles and deserve a sweet cake to celebrate!"
+         "finishTimeText":"you solved the riddles and deserve a sweet cake to celebrate!",
+         "playAgainButtonText":"Play Again"
       },
       "pauseUITexts":{
          "uiTitleText":"level in progress",

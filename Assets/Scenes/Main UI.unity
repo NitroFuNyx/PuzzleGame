@@ -2431,7 +2431,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2131457679}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22987255
+  m_Size: 0.22987257
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4051,7 +4051,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1666752805}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22208026
+  m_Size: 0.22208028
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14079,7 +14079,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 467146204}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -22846,7 +22846,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 580182689}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22208026
+  m_Size: 0.22208028
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -27234,6 +27234,7 @@ MonoBehaviour:
   panelTiltleText: {fileID: 898483396}
   inJustText: {fileID: 480034014}
   finishTimeText: {fileID: 2015028705}
+  playAgainButtonText: {fileID: 621803789}
 --- !u!1 &1285436077
 GameObject:
   m_ObjectHideFlags: 0
@@ -30460,7 +30461,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1738692975}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -33978,7 +33979,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1003161076}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -36144,7 +36145,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 761804946}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -39397,7 +39398,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1739897170}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22987255
+  m_Size: 0.22987257
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef4579b4-aa92-4212-afc7-f3d54af79f6c" name="Changes" comment="">
+    <list default="true" id="ef4579b4-aa92-4212-afc7-f3d54af79f6c" name="Changes" comment="Added a translation of play again button">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.hubabu-game-12-keys/.idea/shelf/Uncommitted_changes_before_Merge_at_24_07_2023_10_05_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.hubabu-game-12-keys/.idea/shelf/Uncommitted_changes_before_Merge_at_24_07_2023_10_05__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user.keystore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userkeystore PEM" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.hubabu-game-12-keys/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.hubabu-game-12-keys/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JSON/Localization/English_Text_JSON.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JSON/Localization/English_Text_JSON.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JSON/Localization/Other_Text_JSON.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JSON/Localization/Other_Text_JSON.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JSON/Localization/Spanish_Text_JSON.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JSON/Localization/Spanish_Text_JSON.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JSON/Localization/Ukrainian_Text_JSON.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JSON/Localization/Ukrainian_Text_JSON.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Zenject-ReflectionBaking.csproj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Zenject-Signals.csproj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Zenject.csproj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localization/LanguageTextsHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localization/LanguageTextsHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Choose Game Level Panel/TextsLanguageUpdateHandler_PuzzleUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Choose Game Level Panel/TextsLanguageUpdateHandler_PuzzleUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spine/spine-csharp/spine-csharp.csproj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spine/spine-csharp/spine-csharp.sln.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,21 +40,16 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.31/UnityEditor.TestRunner/Api/ITestAdaptor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle Games/Furniture/Safe/SafeOpener.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Unity/hubabu-game-12-keys/ProjectSettings/ProjectSettings.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@4.4.2/Editor/PostProcessBuildPlist.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/ae/e9503650/Action.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2DBlendStyle.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/Scenes/Main UI.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/1a/4243afb0/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.recorder@3.0.3/Editor/Sources/RecorderControllerSettingsPreset.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Settings UI/Buttons/ChangeLanguageButtonSpriteSwitcher.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Puzzle Games/Furniture/Safe/SafeOpener.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@4.4.2/Editor/PostProcessBuildPlist.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/79/3c4603f5/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Toggle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/Noise/noise3Dgrad.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Unity/hubabu-game-12-keys/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/ae/e9503650/Action.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2DBlendStyle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/1a/4243afb0/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.recorder@3.0.3/Editor/Sources/RecorderControllerSettingsPreset.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2NZKWJUlFvuPfxJ6w7537duHt2I" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -95,6 +106,10 @@
       <workItem from="1682340619869" duration="25000" />
       <workItem from="1682340674211" duration="684000" />
       <workItem from="1684145071746" duration="3343000" />
+      <workItem from="1684928850614" duration="989000" />
+      <workItem from="1689938865601" duration="2657000" />
+      <workItem from="1690185846452" duration="687000" />
+      <workItem from="1690204582537" duration="2207000" />
     </task>
     <task id="LOCAL-00001" summary=" Added Unity Ads&#10; Made Rewarded ads&#10; New prefabs: Prefabs/Controllers/AdsManager&#10; Prefabs/UI/Button">
       <created>1679928388249</created>
@@ -159,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684158749481</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Disabled test mode">
+      <created>1684929162103</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684929162103</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,14 +201,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/dev" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="text">
-                    <value>
-                      <list>
-                        <option value="emot" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
@@ -211,6 +226,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/dev' into dev" />
     <MESSAGE value="New organization added" />
     <MESSAGE value="Changed player &amp; project settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed player &amp; project settings" />
+    <MESSAGE value="Disabled test mode" />
+    <MESSAGE value="Added a translation of play again button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a translation of play again button" />
   </component>
 </project>

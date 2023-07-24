@@ -45,7 +45,8 @@
       "puzzleUITexts":{
          "uiTitleText":"поздравления!",
          "inJustText":"Всего за:",
-         "finishTimeText":"ты решил загадки и заслуживаешь сладкого праздничного торта!"
+         "finishTimeText":"ты решил загадки и заслуживаешь сладкого праздничного торта!",
+         "playAgainButtonText":"Играть снова"
       },
       "pauseUITexts":{
          "uiTitleText":"игра остановлена",

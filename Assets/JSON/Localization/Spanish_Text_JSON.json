@@ -45,7 +45,8 @@
       "puzzleUITexts":{
          "uiTitleText":"Felicidades!",
          "inJustText":"en solo:",
-         "finishTimeText":"¡Has resuelto los enigmas y te mereces una tarta dulce para celebrarlo!"
+         "finishTimeText":"¡Has resuelto los enigmas y te mereces una tarta dulce para celebrarlo!",
+         "playAgainButtonText":"Volver a jugar"
       },
       "pauseUITexts":{
          "uiTitleText":"nivel en progreso",
