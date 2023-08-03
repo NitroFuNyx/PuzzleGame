@@ -40,7 +40,8 @@
       },
       "miniGameUITexts":{
          "uiTitleText":"Coin collection",
-         "videoText":"Watch short Video Ad to multiply your score!"
+         "videoText":"Watch short Video Ad to multiply your score!",
+         "gamestartsText":"Game starts in"
       },
       "puzzleUITexts":{
          "uiTitleText":"Congratulations!",

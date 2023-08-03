@@ -144,6 +144,16 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         data.soundMuted = audioMuted;
     }
 
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus) return;
+        Debug.Log($"Music clip {musicAudioSource.clip}");
+        musicAudioSource.Stop();
+        musicAudioSource.clip = mainUIMusicClip;
+        musicAudioSource.Play();
+    }
+
     #region Music Methods
     public void PlayMusic_MainUI()
     {
@@ -178,7 +188,6 @@ public class AudioManager : MonoBehaviour, IDataPersistance
             musicAudioSource.Play();
         }
     }
-
     public void PlayMusic_Puzzle()
     {
         if (musicAudioSource.clip != puzzleMusicClip)

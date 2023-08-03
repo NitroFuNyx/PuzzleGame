@@ -40,7 +40,8 @@
       },
       "miniGameUITexts":{
          "uiTitleText":"Зібрані монети",
-         "videoText":"Подивись коротке відео щоб подвоїти свій результат!"
+         "videoText":"Подивись коротке відео щоб подвоїти свій результат!",
+         "gamestartsText":"Гра почнеться через"
       },
       "puzzleUITexts":{
          "uiTitleText":"Вітання!",

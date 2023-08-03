@@ -8,10 +8,12 @@ public class TextsLanguageUpdateHandler_MiniGameUI : TextsLanguageUpdateHandler
     [Space]
     [SerializeField] private TextMeshProUGUI panelTiltleText;
     [SerializeField] private TextMeshProUGUI videoTiltleText;
+    [SerializeField] private TextMeshProUGUI gamestartsText;
 
     public override void OnLanguageChange_ExecuteReaction(LanguageTextsHolder languageHolder)
     {
         panelTiltleText.text = languageHolder.data.miniGameUITexts.uiTitleText;
         videoTiltleText.text = languageHolder.data.miniGameUITexts.videoText;
+        gamestartsText.text = languageHolder.data.miniGameUITexts.gamestartsText;
     }
 }

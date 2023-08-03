@@ -40,7 +40,8 @@
       },
       "miniGameUITexts":{
          "uiTitleText":"Colección de monedas",
-         "videoText":"¡Vea este breve vídeo para duplicar su puntuación!"
+         "videoText":"¡Vea este breve vídeo para duplicar su puntuación!",
+         "gamestartsText":"El juego empieza en"
       },
       "puzzleUITexts":{
          "uiTitleText":"Felicidades!",

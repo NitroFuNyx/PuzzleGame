@@ -54,3 +54,13 @@ public enum PuzzleGameKitchenBooks
 {
     Green, Yellow, Blue
 }
+
+public enum PuzzleBalloonsGameItemsColors
+{
+    SkyBlue,Orange,Yellow,Magenta,Blue
+}
+
+public enum PuzzlePairCards
+{
+    Pair1,Pair2,Pair3,Pair4,Pair5,Pair6
+}

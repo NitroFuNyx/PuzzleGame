@@ -95,6 +95,8 @@ namespace Localization
     {
         public string uiTitleText;
         public string videoText;
+        public string gamestartsText;
+        
     }
 
     [Serializable]
