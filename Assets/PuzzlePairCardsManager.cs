@@ -5,7 +5,7 @@ public class PuzzlePairCardsManager : MonoBehaviour
 {
     [SerializeField] private List<PuzzlePairCardsItem> puzzleCardsList;
     
-    private bool _isPlayerOpenedACard
+    private bool _isPlayerOpenedACard;
     
     private void Start()
     {
@@ -24,7 +24,7 @@ public class PuzzlePairCardsManager : MonoBehaviour
         }
     }
 
-    private void OpenCard()
+    private void OpenCard(PuzzlePairCardsItem item)
     {
         
     }
