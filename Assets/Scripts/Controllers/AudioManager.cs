@@ -53,6 +53,7 @@ public class AudioManager : MonoBehaviour, IDataPersistance
     [Header("Old Man Voice Clips")]
     [Space]
     [SerializeField] private List<AudioClip> touchAudioClipsList_OldMan = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> interactionAudioClipsList_OldMan_BackyardPuzzle = new List<AudioClip>();
     [Space]
     [SerializeField] private AudioClip uiButtonClip;
 
@@ -424,6 +425,23 @@ public class AudioManager : MonoBehaviour, IDataPersistance
 
         source.clip = clip;
         source.Play();
+    }
+
+    public void PlayVoicesAudio_BackyardPuzzle_OldManInteraction(int countIndex)
+    {
+        AudioClip clip = interactionAudioClipsList_OldMan_BackyardPuzzle[0];
+
+        if(countIndex == 1)
+        {
+            voicesAudioSource.clip = clip;
+            voicesAudioSource.Play();
+        }
+        if (countIndex == 2)
+        {
+            clip = interactionAudioClipsList_OldMan_BackyardPuzzle[1];
+            voicesAudioSource.clip = clip;
+            voicesAudioSource.Play();
+        }
     }
 
     public void StopVoicesAudio()
