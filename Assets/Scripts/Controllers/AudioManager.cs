@@ -427,20 +427,22 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         source.Play();
     }
 
-    public void PlayVoicesAudio_BackyardPuzzle_OldManInteraction(int countIndex)
+    public void PlayVoicesAudio_BackyardPuzzle_OldManInteraction(int countIndex, Action OnSoundClipFinished)
     {
         AudioClip clip = interactionAudioClipsList_OldMan_BackyardPuzzle[0];
 
         if(countIndex == 1)
         {
-            voicesAudioSource.clip = clip;
-            voicesAudioSource.Play();
+            //voicesAudioSource.clip = clip;
+            //voicesAudioSource.Play();
+            StartCoroutine(PlayAcudioWithCallbackCoroutine(voicesAudioSource, clip, OnSoundClipFinished));
         }
         if (countIndex == 2)
         {
             clip = interactionAudioClipsList_OldMan_BackyardPuzzle[1];
-            voicesAudioSource.clip = clip;
-            voicesAudioSource.Play();
+            StartCoroutine(PlayAcudioWithCallbackCoroutine(voicesAudioSource, clip, OnSoundClipFinished));
+            //voicesAudioSource.clip = clip;
+            //voicesAudioSource.Play();
         }
     }
 
@@ -526,5 +528,14 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         yield return new WaitForSeconds(kidGivesKeyDelay);
         voicesAudioSource.clip = kidGivesKeyClip;
         voicesAudioSource.Play();
+    }
+
+    private IEnumerator PlayAcudioWithCallbackCoroutine(AudioSource source, AudioClip clip, Action callback)
+    {
+        source.clip = clip;
+        source.Play();
+        yield return new WaitWhile(() => source.isPlaying);
+        callback.Invoke();
+        Debug.Log($"Audio Callback");
     }
 }
