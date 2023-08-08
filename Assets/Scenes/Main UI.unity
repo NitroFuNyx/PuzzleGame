@@ -74061,6 +74061,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5a896f299df0f45be5ec329806f4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementDelta: 8
+  movementSpeed: 2
+  moveToAnotherPointDelay: 1
 --- !u!1001 &4576828761973131605
 PrefabInstance:
   m_ObjectHideFlags: 0
