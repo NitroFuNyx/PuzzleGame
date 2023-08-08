@@ -10,7 +10,9 @@ public class SafeButtonsHandler : MonoBehaviour
 {
     [SerializeField] private List<SafeButton> numButtons;
     [SerializeField] private TextMeshProUGUI safeString;
-    
+
+    private string rightCode;
+
     private PuzzleGameUI _puzzleGameUI;
 
     private Color startColor;
