@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
-public class SandMountainPuzzleManager : MonoBehaviour,Iinteractable
+public class SpriteChangerController : MonoBehaviour,Iinteractable
 {
     [SerializeField] private List<Sprite> SandStatesList;
 
