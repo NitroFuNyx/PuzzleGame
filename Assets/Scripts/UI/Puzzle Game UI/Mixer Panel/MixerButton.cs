@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class MixerButton : ButtonInteractionHandler
 {
@@ -16,8 +15,6 @@ public class MixerButton : ButtonInteractionHandler
 
     [SerializeField] private Sprite ToolState1;
     [SerializeField] private Sprite ToolState2;
-
-    private AudioManager _audioManager;
 
     private float startProgressValue = 0f;
     private float maxProgressValue = 1f;
@@ -36,14 +33,6 @@ public class MixerButton : ButtonInteractionHandler
     {
         ResetGame();
     }
-
-    #region Zenject
-    [Inject]
-    private void Construct(AudioManager audioManager)
-    {
-        _audioManager = audioManager;
-    }
-    #endregion Zenject
 
     public void StartGame(Action OnGameFinished)
     {

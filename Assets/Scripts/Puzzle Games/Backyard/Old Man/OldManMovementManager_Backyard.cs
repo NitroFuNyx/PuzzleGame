@@ -33,8 +33,12 @@ public class OldManMovementManager_Backyard : MonoBehaviour
     private IEnumerator MoveLeftCoroutine(System.Action callback)
     {
         yield return new WaitForSeconds(moveToAnotherPointDelay);
+        if(transform.localScale.x < 0)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
 
-        while(canMove && transform.position.x > borderLeftPos.x)
+        while (canMove && transform.position.x > borderLeftPos.x)
         {
             transform.position = new Vector3(transform.position.x - movementSpeed * Time.deltaTime, transform.position.y, transform.position.z);
             yield return new WaitForEndOfFrame();
@@ -49,6 +53,10 @@ public class OldManMovementManager_Backyard : MonoBehaviour
     private IEnumerator MoveRightCoroutine(System.Action callback)
     {
         yield return new WaitForSeconds(moveToAnotherPointDelay);
+        if (transform.localScale.x > 0)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
 
         while (canMove && transform.position.x < startPos.x)
         {
