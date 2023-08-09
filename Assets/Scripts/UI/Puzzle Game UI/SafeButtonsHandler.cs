@@ -11,7 +11,8 @@ public class SafeButtonsHandler : MonoBehaviour
     [SerializeField] private List<SafeButton> numButtons;
     [SerializeField] private TextMeshProUGUI safeString;
 
-    private string rightCode;
+    private const string puzzleCode_Room = "631128";
+    private const string puzzleCode_Backyard = "631128";
 
     private PuzzleGameUI _puzzleGameUI;
 

@@ -12,7 +12,6 @@ public class Puzzle_PlayAgainButton : ButtonInteractionHandler
 
     private PuzzleGameUI _puzzleGameUI;
     private CurrentGameManager _currentGameManager;
-    private AudioManager _audioManager;
     private AdsInitializer _adsInitializer;
     private RewardedAdsButton rewardedAdsButton;
 
@@ -52,10 +51,9 @@ public class Puzzle_PlayAgainButton : ButtonInteractionHandler
 
     #region Zenject
     [Inject]
-    private void Construct(CurrentGameManager currentGameManager, AudioManager audioManager, AdsInitializer adsInitializer, PuzzleGameUI puzzleGameUI)
+    private void Construct(CurrentGameManager currentGameManager, AdsInitializer adsInitializer, PuzzleGameUI puzzleGameUI)
     {
         _currentGameManager = currentGameManager;
-        _audioManager = audioManager;
         _adsInitializer = adsInitializer;
         _puzzleGameUI = puzzleGameUI;
     }
