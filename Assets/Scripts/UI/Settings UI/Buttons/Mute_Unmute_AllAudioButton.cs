@@ -1,5 +1,4 @@
 using UnityEngine;
-using Zenject;
 
 public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
 {
@@ -7,8 +6,6 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
     [Space]
     [SerializeField] private Sprite soundOnSprite;
     [SerializeField] private Sprite soundOffSprite;
-
-    private AudioManager _audioManager;
 
     private bool muted = false;
 
@@ -21,14 +18,6 @@ public class Mute_Unmute_AllAudioButton : ButtonInteractionHandler
     {
         UnsubscribeFromEvents();
     }
-
-    #region Zenject
-    [Inject]
-    private void Construct(AudioManager audioManager)
-    {
-        _audioManager = audioManager;
-    }
-    #endregion Zenject
 
     public override void ButtonActivated()
     {
