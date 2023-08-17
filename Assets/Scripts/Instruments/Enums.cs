@@ -35,9 +35,9 @@ public enum KitchenMiniGameItems
     Coin_1, Coins_2, Coins_5, Coins_10, Debuff, Bonus_AdditionalTime, Bonus_DoubleCoins, Bonus_CoinsMagnet, Bonus_Shield
 }
 
-public enum PuzzleGameKitchenItems
+public enum PuzzleGameCollectableItems
 {
-    Key_1, Key_2, Key_3, Key_4, Key_5, Key_6, Key_7, Key_8, Key_9, Key_10, Key_11, Key_12, ColaStraw
+    Key_1, Key_2, Key_3, Key_4, Key_5, Key_6, Key_7, Key_8, Key_9, Key_10, Key_11, Key_12, ColaStraw,Bird_1,Bird_2
 }
 
 public enum PuzzleGameKitchenMiniGames

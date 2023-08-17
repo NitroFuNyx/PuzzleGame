@@ -46,7 +46,7 @@ public abstract class PuzzleGameFurnitureItemInteractionHandler : MonoBehaviour,
 
     public abstract void KeyCollected_ExecuteReaction();
 
-    public abstract void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList);
+    public abstract void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameCollectableItems> collectedItemsList, List<PuzzleGameCollectableItems> usedItemsList);
 
     public abstract void InteractOnTouch();
 }

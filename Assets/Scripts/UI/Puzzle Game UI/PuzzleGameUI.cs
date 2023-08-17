@@ -44,7 +44,7 @@ public class PuzzleGameUI : MainCanvasPanel
     private AudioManager _audioManager;
 
     private Sprite newItemSprite;
-    private PuzzleGameKitchenItems newItemType;
+    private PuzzleGameCollectableItems newItemType;
 
     public PuzzleGameInventoryPanel InventoryPanel { get => inventoryPanel; }
     public TogglePuzzleGame TogglePuzzleGame { get => togglePuzzleGame; }
@@ -75,7 +75,7 @@ public class PuzzleGameUI : MainCanvasPanel
     }
     #endregion Zenject
 
-    public void MoveKeyToInventoryBar(SpriteRenderer key, PuzzleGameKitchenItems item)
+    public void MoveKeyToInventoryBar(SpriteRenderer key, PuzzleGameCollectableItems item)
     {
         newItemSprite = key.sprite;
         newItemType = item;
@@ -85,12 +85,12 @@ public class PuzzleGameUI : MainCanvasPanel
         _audioManager.PlaySFXSound_PickUpKey();
     }
 
-    public void MoveItemToInventoryBar(SpriteRenderer itemSprite, PuzzleGameKitchenItems item)
+    public void MoveItemToInventoryBar(SpriteRenderer itemSprite, PuzzleGameCollectableItems item)
     {
         newItemSprite = itemSprite.sprite;
         newItemType = item;
         Vector3 spawnPos = Camera.main.WorldToScreenPoint(new Vector3(itemSprite.transform.position.x, itemSprite.transform.position.y, 0f));
-        if(item == PuzzleGameKitchenItems.ColaStraw)
+        if(item == PuzzleGameCollectableItems.ColaStraw)
         {
             var itemImage = Instantiate(colaStrawImagePrefab, spawnPos, Quaternion.identity, transform);
             itemImage.MoveToInventoryPanel(inventoryPanel.transform.position, itemSprite.sprite, item, this/*, ShowItemImageInInventoryPanel*/);
@@ -154,7 +154,7 @@ public class PuzzleGameUI : MainCanvasPanel
         inventoryPanel.LoadCollectedItems(puzzleLevelLoadedData.itemsInInventoryList);
     }
 
-    public void ShowItemImageInInventoryPanel(Sprite sprite, PuzzleGameKitchenItems item)
+    public void ShowItemImageInInventoryPanel(Sprite sprite, PuzzleGameCollectableItems item)
     {
         //inventoryPanel.PutItemInInventoryCell(newItemSprite, newItemType);
         inventoryPanel.PutItemInInventoryCell(sprite, item);

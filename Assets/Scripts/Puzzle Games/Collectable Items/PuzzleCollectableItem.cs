@@ -5,12 +5,12 @@ public abstract class PuzzleCollectableItem : MonoBehaviour, Iinteractable
 {
     [Header("Item Data")]
     [Space]
-    [SerializeField] private PuzzleGameKitchenItems item;
+    [SerializeField] private PuzzleGameCollectableItems item;
 
     protected PuzzleGamesEnvironmentsHolder _puzzleGamesEnvironmentsHolder;
     protected AudioManager _audioManager;
 
-    public PuzzleGameKitchenItems Item { get => item; }
+    public PuzzleGameCollectableItems Item { get => item; }
 
     public void Interact()
     {

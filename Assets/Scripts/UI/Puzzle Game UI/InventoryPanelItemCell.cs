@@ -5,7 +5,7 @@ public class InventoryPanelItemCell : ButtonInteractionHandler
 {
     [Header("Item Data")]
     [Space]
-    [SerializeField] private PuzzleGameKitchenItems itemType;
+    [SerializeField] private PuzzleGameCollectableItems itemType;
     [Header("Images")]
     [Space]
     [SerializeField] private Image itemImage;
@@ -18,7 +18,7 @@ public class InventoryPanelItemCell : ButtonInteractionHandler
 
     private bool selected = false;
 
-    public PuzzleGameKitchenItems ItemType { get => itemType; private set => itemType = value; }
+    public PuzzleGameCollectableItems ItemType { get => itemType; private set => itemType = value; }
 
     public override void ButtonActivated()
     {
@@ -41,7 +41,7 @@ public class InventoryPanelItemCell : ButtonInteractionHandler
         inventoryPanel = panel;
     }
 
-    public void SetItemData(Sprite sprite, PuzzleGameKitchenItems item)
+    public void SetItemData(Sprite sprite, PuzzleGameCollectableItems item)
     {
         itemImage.sprite = sprite;
         itemType = item;

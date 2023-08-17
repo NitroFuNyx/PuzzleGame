@@ -133,7 +133,7 @@ public class PuzzleGameItem_MiniGameModeStarter : MonoBehaviour, Iinteractable
         key.ChangeKeySimulattionState(false);
     }
 
-    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
+    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameCollectableItems> collectedItemsList, List<PuzzleGameCollectableItems> usedItemsList)
     {
         if (key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {

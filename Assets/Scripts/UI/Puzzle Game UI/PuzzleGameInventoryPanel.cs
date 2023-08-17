@@ -56,7 +56,7 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
     }
     #endregion Zenject
 
-    public void PutItemInInventoryCell(Sprite sprite, PuzzleGameKitchenItems item)
+    public void PutItemInInventoryCell(Sprite sprite, PuzzleGameCollectableItems item)
     {
         var cell = Instantiate(invenoryCellPrefab, Vector3.zero, Quaternion.identity, inventoryGrid);
         cell.SetItemData(sprite, item);
@@ -72,7 +72,7 @@ public class PuzzleGameInventoryPanel : MonoBehaviour
         {
             Sprite itemSprite = collectableItemsSpritesList[collectedItemsList[i]];
 
-            PutItemInInventoryCell(itemSprite, (PuzzleGameKitchenItems)collectedItemsList[i]);
+            PutItemInInventoryCell(itemSprite, (PuzzleGameCollectableItems)collectedItemsList[i]);
         }
 
         if (collectedItemsList.Count > inventoryCellsTreshold)

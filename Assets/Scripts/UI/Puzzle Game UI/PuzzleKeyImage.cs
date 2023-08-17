@@ -20,14 +20,14 @@ public class PuzzleKeyImage : MonoBehaviour
     private PuzzleGameUI _puzzleGameUI;
 
     private Image keyImage;
-    private PuzzleGameKitchenItems itemType;
+    private PuzzleGameCollectableItems itemType;
 
     private void Awake()
     {
         keyImage = GetComponent<Image>();
     }
 
-    public void MoveToInventoryPanel(Vector3 inventoryPanelPos, Sprite keySprite, PuzzleGameKitchenItems item, PuzzleGameUI puzzleGameUI/*, Action OnImageHidden*/)
+    public void MoveToInventoryPanel(Vector3 inventoryPanelPos, Sprite keySprite, PuzzleGameCollectableItems item, PuzzleGameUI puzzleGameUI/*, Action OnImageHidden*/)
     {
         keyImage.sprite = keySprite;
         itemType = item;

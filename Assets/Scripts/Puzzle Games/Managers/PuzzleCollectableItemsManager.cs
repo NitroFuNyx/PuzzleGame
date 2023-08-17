@@ -6,13 +6,13 @@ public class PuzzleCollectableItemsManager : MonoBehaviour
 {
     [Header("Inventory Items")]
     [Space]
-    [SerializeField] private List<PuzzleGameKitchenItems> itemsInInventoryList = new List<PuzzleGameKitchenItems>();
-    [SerializeField] private List<PuzzleGameKitchenItems> usedItemsList = new List<PuzzleGameKitchenItems>();
+    [SerializeField] private List<PuzzleGameCollectableItems> itemsInInventoryList = new List<PuzzleGameCollectableItems>();
+    [SerializeField] private List<PuzzleGameCollectableItems> usedItemsList = new List<PuzzleGameCollectableItems>();
 
     private PuzzleGameEnvironment levelEnvironment;
 
-    public List<PuzzleGameKitchenItems> ItemsInInventoryList { get => itemsInInventoryList; private set => itemsInInventoryList = value; }
-    public List<PuzzleGameKitchenItems> UsedItemsList { get => usedItemsList; private set => usedItemsList = value; }
+    public List<PuzzleGameCollectableItems> ItemsInInventoryList { get => itemsInInventoryList; private set => itemsInInventoryList = value; }
+    public List<PuzzleGameCollectableItems> UsedItemsList { get => usedItemsList; private set => usedItemsList = value; }
 
     public void AddItemToInventory(PuzzleCollectableItem item)
     {
@@ -20,7 +20,7 @@ public class PuzzleCollectableItemsManager : MonoBehaviour
         levelEnvironment.UpdateEnvironmentSavedData();
     }
 
-    public void RemoveItemFromInventory(PuzzleGameKitchenItems item)
+    public void RemoveItemFromInventory(PuzzleGameCollectableItems item)
     {
         itemsInInventoryList.Remove(item);
         usedItemsList.Add(item);
@@ -36,12 +36,12 @@ public class PuzzleCollectableItemsManager : MonoBehaviour
     {
         for(int i = 0; i < collectedItemsIndexesList.Count; i++)
         {
-            itemsInInventoryList.Add((PuzzleGameKitchenItems)collectedItemsIndexesList[i]);
+            itemsInInventoryList.Add((PuzzleGameCollectableItems)collectedItemsIndexesList[i]);
         }
 
         for(int i = 0; i < usedItemsIndexesList.Count; i++)
         {
-            usedItemsList.Add((PuzzleGameKitchenItems)usedItemsIndexesList[i]);
+            usedItemsList.Add((PuzzleGameCollectableItems)usedItemsIndexesList[i]);
         }
 
         OnDataLoaded?.Invoke();

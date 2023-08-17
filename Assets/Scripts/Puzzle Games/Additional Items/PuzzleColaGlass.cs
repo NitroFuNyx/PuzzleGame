@@ -73,7 +73,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
 
     public void LoadData(GameData data)
     {
-        if (data.puzzleGameLevelsDataList[0].itemsInInventoryList.Contains((int)PuzzleGameKitchenItems.ColaStraw))
+        if (data.puzzleGameLevelsDataList[0].itemsInInventoryList.Contains((int)PuzzleGameCollectableItems.ColaStraw))
         {
             straw.gameObject.SetActive(false);
         }
@@ -96,7 +96,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
         containsKey = false;
     }
 
-    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
+    private void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameCollectableItems> collectedItemsList, List<PuzzleGameCollectableItems> usedItemsList)
     {
         if (key != null && (collectedItemsList.Contains(key.Item) || usedItemsList.Contains(key.Item)))
         {
@@ -123,7 +123,7 @@ public class PuzzleColaGlass : MonoBehaviour, IDataPersistance, Iinteractable
     {
         if (containsKey && _puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell != null)
         {
-            if(_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == PuzzleGameKitchenItems.ColaStraw)
+            if(_puzzleGameUI.InventoryPanel.CurrentlySelectedInventoryCell.ItemType == PuzzleGameCollectableItems.ColaStraw)
             {
                 key.gameObject.SetActive(true);
                 spriteRenderer.sprite = colaEmptySprite;

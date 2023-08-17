@@ -12,7 +12,7 @@ public class PuzzleGameItem_Standart : PuzzleGameFurnitureItemInteractionHandler
 
     private bool isAnimating = false;
 
-    public override void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameKitchenItems> collectedItemsList, List<PuzzleGameKitchenItems> usedItemsList)
+    public override void CollectedItemsDataLoaded_ExecuteReaction(List<PuzzleGameCollectableItems> collectedItemsList, List<PuzzleGameCollectableItems> usedItemsList)
     {
         
     }
